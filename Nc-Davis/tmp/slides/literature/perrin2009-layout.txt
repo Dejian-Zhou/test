@@ -1,0 +1,1359 @@
+                                              A noncommutative Davis’ decomposition for martingales
+
+
+
+
+arXiv:0906.4434v1 [math.OA] 24 Jun 2009
+                                                                                       Mathilde Perrin
+
+
+                                                                                             Abstract
+                                                   We prove an analogue of the classical Davis’ decomposition for martingales in noncom-
+                                                mutative Lp -spaces, involving the square functions. We also determine the dual space of the
+                                                noncommutative conditioned Hardy space h1 . We further extend this latter result to the case
+                                                1 < p < 2.
+
+
+                                                                                        Introduction
+                                          The theory of noncommutative martingale inequalities has been rapidly developed since the es-
+                                          tablishment of the noncommutative Burkholder-Gundy inequalities in [12]. Many of the classical
+                                          martingale inequalities has been transferred to the noncommutative setting. These include, in
+                                          particular, the Doob maximal inequality in [3], the Burkholder/Rosenthal inequality in [5], [8],
+                                          several weak type (1, 1) inequalities in [15, 16, 17] and the Gundy decomposition in [11]. We would
+                                          point out that the noncommutative Gundy’s decomposition in this last work is remarkable and
+                                          powerful in the sense that it implies several previous inequalities. For instance, it yields quite
+                                          easily Randrianantoanina’s weak type (1, 1) inequality on martingale transforms (see [11]). It is,
+                                          however, an open problem weather there exist a noncommutative analogue of the classical Davis’
+                                          decomposition for martingales (see [17] and [10]). This is the main concern of our paper.
+                                               We now recall the classical Davis’ decomposition for commutative martingales. Given a prob-
+                                          ability space (Ω, A, µ), let A1 , A2 , · · · be an increasing filtration of σ-subalgebras of A and let
+                                          E1 , E2 , · · · denote the corresponding family of conditional expectations. Let f = (fn )n≥1 be a
+                                          martingale adapted to this filtration and bounded in L1 (Ω). Then M (f ) = sup |fn | ∈ L1 (Ω) iff
+                                          we can decompose f as a sum f = g + h of two martingales adapted to the same filtration and
+                                          satisfaying
+                                                                      X∞               1/2                   X∞
+                                                               s(g) =      En−1 |dgn |2      ∈ L1 (Ω) and          |dhn | ∈ L1 (Ω).
+                                                                       n=1                                        n=1
+
+                                          We refer to [2] and [1] for more information.
+                                             We denote by h1 the space of martingales f with respect to (An )n≥1 which admit such a
+                                          decomposition and by H1max the space of martingales such that M (f ) ∈ L1 (Ω). This decomposition
+                                          appeared for the first time in [1] where Davis applied it to prove his famous theorem on the
+                                          equivalence in L1 -norm between the martingale square function and Doob’s maximal function:
+
+                                                                                      kM (f )k1 ≈ kS(f )k1
+                                          M. Perrin: Laboratoire de Mathématiques, Université de France-Comté, 25030 Besançon Cedex, France
+                                          mathilde.perrin@univ-fcomte.fr
+                                          Partially supported by the Agence Nationale de Recherche.
+                                          2000 Mathematics subject classification: Primary 46L53,46L52; secondary 46L51,60G42.
+                                          Key words and phrases. Noncommutative Lp -spaces, martingale inequalities, Davis decomposition, square functions.
+
+
+
+
+                                                                                                 1
+                X              1/2
+where S(f ) =         |dfn |2          . If we denote by H1 the space of all L1 -martingales f such that
+                n≥1
+S(f ) ∈ L1 (Ω), then it turns out that the Hardy space H1 coincides with the other two Hardy
+spaces:
+                                        H1 = h1 = H1max .
+    The main result of this paper is that the equality H1 = h1 holds in the noncommutative case.
+This answers positively a question asked in [17]. This can be also considered as a noncommutative
+analogue of Davis’ decomposition with the square function in place of the maximal function. Our
+approach to this result is via duality. We describe the dual space of h1 as a BMO type space.
+This is the second main result of the paper. Recall that this latter result is well known in the
+commutative case, the resulting dual of h1 is then the so-called small bmo (see [14]). Combining
+this duality with that between H1 and BMO established in [12], we otain the announced equality
+H1 = h1 in the noncommutative setting.
+    Concerning H1max , it is shown in [6], Corollary 14, that H1 and H1max do not coincide in general.
+More precisely H1 6⊂ H1max . But at the time of this writing we do not know if the reverse inclusion
+holds in the noncommutative setting.
+
+   The paper is organized as follows: in Section 1 we give some preliminaries on noncommutative
+martingales and the noncommutative Hardy spaces. Section 2 is devoted to the determination of
+the dual of h1 , which allows us to show the equality H1 = h1 . This duality is extended to the case
+1 < p < 2 in Section 3. There we describe the dual of hp and use it to improve the estimation of
+an equivalence constant in the equivalence of the norms hp and Hp given in [17].
+
+    After completing this paper, we learnt that Junge and Mei obtained the main result essentially
+at the same time (see Lemma 1.1 of [4]). Note, however, that our proof of one direction in the
+duality theorem is different from theirs and yields a better constant (see Remark 3.2).
+
+                                               1    Preliminaries
+We use standard notation in operator algebras. We refer to [9] and [18] for background on von
+Neumann algebra theory. Throughout the paper all von Neumann algebras are assumed to be
+finite. Let M be a finite von Neumann algebra with a normal faithful normalized trace τ . For
+1 ≤ p ≤ ∞, we denote by Lp (M, τ ) or simply Lp (M) the noncommutative Lp -space associated
+with (M, τ ). Note that if p = ∞, Lp (M) is just M itself with the operator norm; also recall that
+the norm in Lp (M) (1 ≤ p < ∞) is defined as
+
+                                         kxkp = (τ (|x|p ))1/p ,   x ∈ Lp (M)
+
+where
+                                                    |x| = (x∗ x)1/2
+is the usual modulus of x. We refer to the survey [13] for more information on noncommutative
+Lp -spaces.
+
+    We now turn to the definition of noncommutative martingales. Let (Mn )n≥1 be an increasing
+sequence of von Neumann subalgebras of M such that the union of Mn ’s is weak∗ -dense in M.
+(Mn )n≥1 is called a filtration of M. The restriction of τ to Mn is still denoted by τ . Let
+En = E( · |Mn ) be the trace preserving conditional expectation of M with respect to Mn . En
+defines a norm 1 projection from Lp (M) onto Lp (Mn ) for all 1 ≤ p ≤ ∞, and En (x) ≥ 0 whenever
+x ≥ 0. A noncommutative martingale with respect to (Mn )n≥1 is a sequence x = (xn )n≥1 in
+L1 (M) such that
+                                    En (xn+1 ) = xn , ∀n ≥ 1.
+
+                                                           2
+If additionally, x ∈ Lp (M) for some 1 ≤ p ≤ ∞, then x is called an Lp -martingale. In this case,
+we set
+                                       kxkp = sup kxn kp .
+                                                                      n≥1
+
+If kxkp < ∞, then x is called a bounded Lp -martingale. The difference sequence dx = (dxn )n≥1 of
+a martingale x = (xn )n≥1 is defined by
+
+                                                      dxn = xn − xn−1
+
+with the usual convention that x0 = 0.
+
+   We now describe Hardy spaces of noncommutative martingales. Following [12], for 1 ≤ p < ∞
+and any finite sequence a = (an )n≥1 in Lp (M), we set
+                                   X                 1/2                                   X                   1/2
+                kakLp(M;ℓc2 ) =              |an |2               ,       kakLp(M;ℓr2 ) =               |a∗n |2               .
+                                                              p                                                           p
+                                       n≥1                                                        n≥1
+
+Then k · kLp (M;ℓc2 ) (resp. k · kLp (M;ℓr2 ) ) defines a norm on the family of finite sequences of Lp (M).
+The corresponding completion is a Banach space, denoted by Lp (M; ℓc2 ) (resp. Lp (M; ℓr2 )). For
+                                 c
+p = ∞, we define L    X ∞ (M; ℓ2 ) (respectively   X L∞ (M; ℓr2 )) as the Banach space of the sequences in
+L∞ (M) such that           x∗n xn (respectively        xn x∗n ) converge for the weak operator topology. We
+                     n≥1                                n≥1
+recall the two square functions introduced in [12]. Let x = (xn )n≥1 be an Lp -martingale. We define
+                                  n
+                                 X                1/2                                    n
+                                                                                          X                  1/2
+                    Sc,n (x) =           |dxk |2              and            Sr,n (x) =            |dx∗k |2          .
+                                  k=1                                                       k=1
+
+If dx ∈ Lp (M; ℓc2 ) (resp. dx ∈ Lp (M; ℓr2 )), we set
+                              X                 1/2                                   X                  1/2 
+                   Sc (x) =            |dxk |2                resp.           Sr (x) =            |dx∗k |2            .
+                                 k≥1                                                        k≥1
+
+Then Sc (x) and Sr (x) are elements in Lp (M). Note that dx ∈ Lp (M; ℓc2 ) if and only if the sequence
+(Sc,n (x))n≥1 is bounded in Lp (M). In this case
+
+                 Sc (x) = lim Sc,n (x)            (relative to the weak∗ -topology for p = ∞).
+                           n→∞
+
+The same remark applies to the row square function.
+
+   Let 1 ≤ p < ∞. Define Hpc (M) (resp. Hpr (M)) to be the space of all Lp -martingales with
+respect to (Mn )n≥1 such that dx ∈ Lp (M; ℓc2 ) (resp. dx ∈ Lp (M; ℓr2 )), and set
+
+                    kxkHcp (M) = kdxkLp (M;ℓc2 )              and            kxkHrp (M) = kdxkLp (M;ℓr2 ) .
+
+Equipped respectively with the previous norms, Hpc (M) and Hpr (M) are Banach spaces.
+    Then we define the Hardy space of noncommutative martingales as follows:
+if 1 ≤ p < 2,
+                                  Hp (M) = Hpc (M) + Hpr (M)
+equipped with the sum norm
+
+           kxkHp (M) = inf{kykHcp(M) + kzkHrp(M) : x = y + z, y ∈ Hpc (M), z ∈ Hpr (M)};
+
+if 2 ≤ p < ∞,
+                                           Hp (M) = Hpc (M) ∩ Hpr (M)
+
+                                                                      3
+equipped with the intersection norm
+                                                                      
+                               kxkHp (M) = max kxkHcp (M) , kxkHrp (M) .
+
+
+    We now consider the conditioned versions of square functions and Hardy spaces developed in
+[5]. Let 1 ≤ p < ∞. For a finite L∞ -martingale x = (xn )n≥1 , define (with E0 = E1 )
+                                                ∞
+                                               X                       1/2
+                                kxkhcp (M) =             En−1 (|dxn |2 )
+                                                                                         p
+                                                   n=1
+
+and
+                                                ∞
+                                               X                        1/2
+                                kxkhrp (M) =             En−1 (|dx∗n |2 )                .
+                                                                                     p
+                                                   n=1
+Let hcp (M) and hrp (M) be the corresponding completions. Then hcp (M) and hrp (M) are Banach
+spaces. We define the column and row conditioned square functions as follows. For any finite
+martingale x = (xn )n≥1 in L2 (M), set
+                      X                  1/2              X                  1/2
+             sc (x) =      En−1 (|dxn |2 )     and sr (x) =     En−1 (|dx∗n |2 )     .
+                         n≥1                                                       n≥1
+
+Then
+                          kxkhcp (M) = ksc (x)kp    and kxkhrp (M) = ksr (x)kp .
+      We also need ℓp (Lp (M)), the space of all sequences a = (an )n≥1 in Lp (M) such that
+                                                 X           1/p
+                                 kakℓp(Lp (M)) =      kan kpp      < ∞.
+                                                     n≥1
+
+Set                                                X                   1/p
+                                       sd (x) =              |dxn |pp          .
+                                                    n≥1
+
+We note that
+                                       ksd (x)kp = kdxkℓp (Lp (M)) .
+Let hdp (M) be the subspace of ℓp (Lp (M)) consisting of all martingale difference sequences.
+    Following [5], we define the conditioned version of martingale Hardy spaces as follows:
+if 1 ≤ p < 2,
+                                 hp (M) = hdp (M) + hcp (M) + hrp (M)
+equipped with the norm
+                        kxkhp (M) = inf{kxd khdp (M) + kxc khcp (M) + kxr khrp (M) }
+
+where the infimum is taken over all decompositions x = xd + xc + xr with xk ∈ hkp (M), k ∈ {d, c, r};
+if 2 ≤ p < ∞,
+                               hp (M) = hdp (M) ∩ hcp (M) ∩ hrp (M)
+equipped with the norm
+                                                                              
+                          kxkhp (M) = max kxkhdp (M) , kxkhcp (M) , kxkhrp (M) .
+   Throughout the rest of the paper letters like κp , νp · · · will denote positive constants, which
+depend only on p and may change from line to line. We will write ap ≈ bp as p → p0 to abbreviate
+the statement that there are two absolute positive constants K1 and K2 such that
+                                     ap
+                               K1 ≤     ≤ K2 for p close to p0 .
+                                     bp
+
+
+                                                         4
+        2    Noncommutative Davis’ decomposition and the dual of h1
+Now we can state the main result of this section announced previously in introduction.
+
+Theorem 2.1 We have
+
+                             H1 (M) = h1 (M)              with equivalent norms.
+
+More precisely, if x ∈ H1 (M),
+                                       1                √
+                                         kxkh1 ≤ kxkH1 ≤ 6kxkh1 .
+                                       2
+    The inclusion h1 (M) ⊂ H1 (M) directly comes from the dual form of the reverse noncommu-
+tative Doob inequality in the case 0 < p < 1 proved in [5], which is stated as follows. For all finite
+sequences a = (an )n≥1 of positive elements in Lp (M),
+                                     X                            X
+                                           an       ≤ 21/p              En−1 (an )       .
+                                                p                                    p
+                                     n≥1                          n≥1
+
+Indeed, applying to p = 1/2 and an = |dxn |2 , we obtain for any martingale x in Lp
+                        X                     1/2                      X                          1/2
+                                En−1 (|dxn |2 )                   =            En−1 (|dxn |2 )
+                                                          1                                         1/2
+                          n≥1                                            n≥1
+                                                                        1 X             1/2
+                                                                  ≥           |dxn |2
+                                                                        4               1/2
+                                                                          n≥1
+                                                                        1  X           1/2
+                                                                  =             |dxn |2        ;
+                                                                        4                    1
+                                                                             n≥1
+
+so kSc (x)k1 ≤ 4ksc (x)k1 . Similarly kSr (x)k1 ≤ 4ksr (x)k1 . On the other hand, we have
+                                                          X                 1/2
+                                 kSc (x)k1      =                 |dxn |2
+                                                                            1/2
+                                                      n≥1
+                                                                  1/2
+                                                      X
+                                                ≤       k|dxn |2 k1/2
+                                                      n≥1
+                                                      X
+                                                =             kdxn k1 = ksd (x)k1 .
+                                                      n≥1
+
+Thus if x ∈ h1 (M), there exists (xd , xc , xr ) ∈ hd1 (M) × hc1 (M) × hr1 (M) such that x = xd + xc + xr
+and from above xc , xd ∈ H1c (M) and xr ∈ H1r (M), so x ∈ H1 (M). Hence we deduce
+
+                                                kxkH1 ≤ 4kxkh1 .
+
+
+    For the reverse inclusion, we will show the√dual version. The dual approach gives also another
+proof for the direct inclusion, with a constant 6 instead of 4. Recall that the dual space of H1 (M)
+is the space BMO(M) defined as follows (we refer to [12] for details). Set
+
+                   BMOc (M) = {a ∈ L2 (M) : sup kEn (|a − En−1 (a)|2 )k∞ < ∞}
+                                                          n≥1
+
+where, as usual, E0 (a) = 0. BMOc (M) is equipped with the norm
+                                                                                            1/2
+                          kakBMOc (M) =             sup kEn (|a − En−1 (a)|2 )k∞                    .
+                                                    n≥1
+
+
+                                                              5
+Then (BMOc (M), k · kBMOc (M) ) is a Banach space. Similarly, we define
+
+                           BMOr (M) = {a ∈ L2 (M) : a∗ ∈ BMOc (M)}
+
+equipped with the norm
+                                    kakBMOr (M) = ka∗ kBMOc (M) .
+Finally, we set
+                               BMO(M) = BMOc (M) ∩ BMOr (M)
+equipped with the intersection norm
+                                                                   
+                          kakBMO(M) = max kakBMOc (M) , kakBMOr (M) .
+
+Note that if an = En (a), then
+                                                              X             
+                                 En (|a − En−1 (a)|2 ) = En           |dak |2 .
+                                                                k≥n
+
+
+
+
+   To describe the dual space of h1 (M), we introduce similar spaces bmoc (M) and bmor (M). Let
+
+                     bmoc (M) = {a ∈ L2 (M) : sup kEn (|a − En (a)|2 )k∞ < ∞}
+                                                   n≥1
+
+and equip bmoc (M) with the norm
+                                                                         1/2 
+                  kakbmoc (M) = max kE1 (a)k∞ , sup kEn (|a − En (a)|2 )k∞        .
+                                                         n≥1
+
+This is a Banach space. Similarly, we define
+
+                             bmor (M) = {a ∈ L2 (M) : a∗ ∈ bmoc (M)}
+
+equipped with the norm
+                                      kakbmor (M) = ka∗ kbmoc (M) .
+For any sequence a = (an )n≥1 in M, we set
+
+                                      kakℓ∞ (L∞ (M)) = sup kan k∞ .
+                                                          n≥1
+
+
+Let bmod (M) be the subspace of ℓ∞ (L∞ (M)) consisting of all martingale difference sequences.
+Finally, we set
+                        bmo(M) = bmoc (M) ∩ bmor (M) ∩ bmod (M)
+equipped with the intersection norm
+                                                                             
+                      kakbmo(M) = max kakbmoc (M) , kakbmor (M) , kakbmod (M) .
+
+Note that bmoc (M), bmor (M) and bmo(M) ⊂ L2 (M). As before, we have
+                                                      X        
+                             En (|a − En (a)|2 ) = En    |dak |2 .
+                                                               k>n
+
+For convenience we denote H1c (M), BMOc (M), hc1 (M), bmoc (M) · · · , respectively, by H1c , BMOc , hc1 , bmoc · · ·
+The relation between the spaces BMO and bmo can be stated as follows.
+
+
+                                                    6
+Proposition 2.2 We have
+                                     BMOc               = bmoc ∩ bmod ,
+                                     BMOr               = bmor ∩ bmod ,
+                                     BMO                = bmo.
+More precisely, for any a ∈ L2 (M),
+                                                                       √
+                             kakbmoc ∩bmod ≤ kakBMOc ≤                  2kakbmoc ∩bmod
+
+and similar inequalities hold for the two other spaces.
+
+Proof. Let a ∈ BMOc . Then
+                                    X                               X                
+                               En         |dak |2           ≤ En              |dak |2
+                                                        ∞                                   ∞
+                                    k>n                                 k≥n
+
+and                                                                    X                   
+                          kdan k2∞ = kEn |dan |2 k∞ ≤ En                        |dak |2             .
+                                                                                                ∞
+                                                                         k≥n
+
+Since da1 = E1 (a), taking the supremum over all n ≥ 1 we find
+
+                                      kakbmoc ∩bmod ≤ kakBMOc .
+
+Conversely, let a ∈ bmoc ∩ bmod , then
+                          X                               X                  
+                       En     |dak |2            ≤ En                 |dak |2           + kdan k2∞ .
+                                             ∞                                      ∞
+                             k≥n                                k>n
+
+Taking the supremum over all n ≥ 1 we obtain
+
+                         kak2BMOc ≤ kak2bmoc + kak2bmod ≤ 2kak2bmoc ∩bmod .
+
+Hence                                                    √
+                                     kakBMOc ≤            2kakbmoc ∩bmod .
+Passing to adjoints yields
+                                                                      √
+                             kakbmor ∩bmod ≤ kakBMOr ≤                 2kakbmor ∩bmod .
+
+These estimations show that the spaces BMO and bmo coincide.                                            
+
+   We have the following duality:
+
+Theorem 2.3 We have (hc1 )∗ = bmoc with equivalent norms. More precisely,
+ (i) Every a ∈ bmoc defines a continuous linear functional on hc1 by
+
+      (1)                             φa (x) = τ (a∗ x),              ∀x ∈ L2 (M).
+
+ (ii) Conversely, any φ ∈ (hc1 )∗ is given as above by some a ∈ bmoc .
+      Moreover                                               √
+                                     kakbmoc ≤ kφa k(hc1 )∗ ≤ 2kakbmoc .
+
+Similarly, (hr1 )∗ = bmor and (h1 )∗ = bmo.
+
+
+
+
+                                                            7
+Remark 2.4 In the duality (1) we have identified an element x ∈ L2 (M) with the martingale
+(En (x))n≥1 . This martingale is in hc1 and kxkhc1 ≤ kxk2 . Indeed, by the Hölder inequality, we have
+
+                                       kxkhc1 = ksc (x)k1 ≤ ksc (x)k2 = kxk2 ,
+
+where the last equality comes from the trace preserving property of conditional expectations and
+from the orthogonality in L2 (M) of martingale difference sequences. As finite L2 -martingales are
+dense in hc1 and in L2 (M), we deduce that L2 (M) is dense in hc1 .
+
+
+Proof. Step 1: We first show bmoc ⊂ (hc1 )∗ . This proof is similar to the corresponding one of the
+duality between H1 and BMO in [12]. Let a ∈ bmoc . Define φa by (1). We must show that φa
+induces a continuous linear functional on hc1 .
+    Let x be a finite L2 -martingale. Then (recalling our identification between a martingale and
+its limit value if the latter exists)
+                                                X
+                                      φa (x) =    τ (da∗n dxn ).
+                                                             n≥1
+
+Recall that
+                              n
+                             X                       1/2                      ∞
+                                                                               X                   1/2
+                sc,n (x) =             Ek−1 |dxk |2           and   sc (x) =         Ek−1 |dxk |2          .
+                                 k=1                                           k=1
+
+By approximation we may assume that the sc,n (x)’s are invertible elements in M for any n ≥ 1.
+Then by the Cauchy-Schwarz inequality and the tracial property of τ we have
+                          X
+             |φa (x)| =       τ (sc,n (x)1/2 da∗n dxn sc,n (x)−1/2 )
+                                       n≥1
+                               h X                                 i1/2
+                             ≤ τ    sc,n (x)1/2 |dan |2 sc,n (x)1/2
+                                          n≥1
+                                   h X                                   i1/2
+                                    τ   sc,n (x)−1/2 |dxn |2 sc,n (x)−1/2
+                                          n≥1
+                               h X                 i1/2 h  X                    i1/2
+                             = τ    sc,n (x)|dan |2        τ    sc,n (x)−1 |dxn |2
+                                          n≥1                           n≥1
+                             = : I · II.
+
+To estimate I we set θ1 = sc,1 (x) and θn = sc,n (x)− sc,n−1 (x) for n ≥ 1. Then θn ∈ L1 (Mn−1 ) and
+           n
+           X
+sc,n (x) =   θk . Using the Abel summation and the modular property of conditional expectations,
+          k=1
+we find                                                             n
+                                  X                          XX
+                     I2      =        τ (sc,n (x)|dan |2 ) =           τ (θk |dan |2 )
+                                  n≥1                    n≥1
+                                  X          X                Xk=1            X              
+                             =        τ θk             2
+                                                 |dan | =          τ θk Ek−1           |dan |2
+                                  k≥1        n≥k    X k≥1                      n≥k
+                                  X
+                             ≤        τ (θk ) Ek−1         |dan |2
+                                                                      ∞
+                                  k≥1                    n≥k
+                             ≤    kxkhc1 kak2bmoc .
+To deal with II first note that
+
+     τ (sc,n (x)2 − sc,n−1 (x)2 )sc,n (x)−1 = τ (sc,n (x) − sc,n−1 (x))(1 + sc,n−1 (x)sc,n (x)−1 ) .
+                                                                                               
+
+
+                                                               8
+On the other hand, since sc,n−1 (x)2 ≤ sc,n (x)2 , we find
+
+                  ksc,n−1 (x)sc,n (x)−1 k2∞    = ksc,n (x)−1 sc,n−1 (x)2 sc,n (x)−1 k∞
+                                               ≤ ksc,n (x)−1 sc,n (x)2 sc,n (x)−1 k∞ = 1.
+
+As En−1 (|dxn |2 ) = sc,n (x)2 − sc,n−1 (x)2 (with sc,0 (x) = 0) we have
+                               X 
+                    II 2 =         τ En−1 (|dxn |2 )sc,n (x)−1
+                                                               
+                              n≥1
+                              X
+                                    τ (sc,n (x) − sc,n−1 (x))(1 + sc,n−1 (x)sc,n (x)−1 )
+                                                                                       
+                         =
+                              n≥1
+                              X
+                                  τ sc,n (x) − sc,n−1 (x) k1 + sc,n−1 (x)sc,n (x)−1 k∞
+                                                        
+                         ≤
+                              n≥1X                        
+                         ≤    2τ      sc,n (x) − sc,n−1 (x)
+                                    n≥1
+                         =    2τ (sc (x)) = 2kxkhc1
+
+Combining the preceding estimates on I and II, we obtain, for any finite L2 -martingale x,
+                                            √
+                                  |φa (x)| ≤ 2kxkhc1 kakbmoc .
+                                                                  √
+Therefore φa extends to an element of (hc1 )∗ of norm ≤            2kakbmoc .
+
+Step 2: Let φ ∈ (hc1 )∗ such that kφk(hc1 )∗ ≤ 1. As L2 (M) ⊂ hc1 , φ induces a continuous functional
+φ̃ on L2 (M). By the duality (L2 (M))∗ = L2 (M), there exists a ∈ L2 (M) such that
+
+                                      φ̃(x) = τ (a∗ x),    ∀x ∈ L2 (M).
+
+By the density of L2 (M) in hc1 (see Remark 2.4) we have
+
+(2)                            kφk(hc1 )∗ =          sup          |τ (a∗ x)| ≤ 1.
+                                              x∈L2 (M),kxkhc ≤1
+                                                            1
+
+
+We will show that a ∈ bmoc . We want to estimate
+                                                                        
+                       kak2bmoc = max kE1 (a)k2∞ , sup kEn |a − En a|2 k∞ .
+                                                            n
+
+Let x ∈ L1 (M1 ), kxk1 ≤ 1 be such that kE1 (a)k∞ = |τ (a∗ x)|. Then by (2) we have
+
+                                      kE1 (a)k∞ ≤ kxkhc1 = kxk1 ≤ 1.
+
+On the other hand note that
+                                              X                 X             
+                       En |a − En a|2 = En           |dak |2 = En    Ek−1 |dak |2 .
+                                               k>n                       k>n
+
+Fix n ≥ 1. Let                                                  X
+                                z = sc (a)2 − sc,n (a)2 =             Ek−1 |dak |2 .
+                                                                k>n
+
+We note that z ∈ L1 (M) for a ∈ L2 (M) and the orthogonality of martingale difference sequences
+in L2 (M) gives
+                                 X             X         
+                kzk1 = τ (z) = τ     |dak |2 ≤ τ     |dak |2 = τ (|a|2 ) = kak22 .
+                                       k>n                 k≥1
+
+
+                                                       9
+Let x ∈ L+
+         1 (Mn ), kxk1 ≤ 1. Let y be the martingale defined as follows
+                                         
+                                           0       if k ≤ n
+                                  dyk =                      .
+                                           dak x if k > n
+
+By (2) we have
+                                                τ (a∗ y) ≤ kykhc1 .
+Since x ∈ L+
+           1 (Mn ), we have
+                                                X                X             
+                           τ (a∗ y) =       τ       da∗k dyk = τ         |dak |2 x
+                                               k≥1
+                                                X                   k>n
+                                                                2
+                                       =    τ       Ek−1 (|dak | x)
+                                               k>n
+                                                X                   
+                                       =    τ       Ek−1 (|dak |2 )x = τ (zx).
+                                                k>n
+
+
+On the other hand, by the definition of y and the fact that x ∈ L+1 (Mn ), we find
+                              X                  X
+                 sc (y)2 =        Ek−1 |dyk |2 =    Ek−1 |dak x|2
+                                 k≥1
+                                 X                      k>n   X
+                            =          Ek−1 (x|dak |2 x) =            xEk−1 (|dak |2 )x = xzx.
+                                 k>n                          k>n
+
+Thus                                                          
+                                            kykhc1 = τ (xzx)1/2 .
+
+Combining the preceding inequalities, we deduce
+
+                                            τ (zx) ≤ τ ((xzx)1/2 ).
+
+Since x is positive, using the Hölder inequality, we find
+                                                             1/2
+             τ (xzx)1/2   =        x1/2 (x1/2 zx1/2 )x1/2
+                                                            1/2
+                                                                    1/2
+                                                               1/2
+                            ≤       x 1/2
+                                           2
+                                             x 1/2
+                                                   zx1/2
+                                                          1
+                                                             x     2
+                                                                          = τ (x)1/2 τ (zx)1/2 .
+
+It then follows that
+                                                 τ (zx) ≤ τ (x),
+whence
+
+(3)                               τ (En (z)x) = τ (zx) ≤ τ (x) = kxk1 .
+
+Taking the supremum over all x ∈ L+ 1 (Mn ) with kxk1 ≤ 1, we deduce kEn (z)k∞ ≤ 1. Therefore
+a ∈ bmoc and kakbmoc ≤ 1. This ends the proof of the duality (hc1 )∗ = bmoc . Passing to adjoints
+yields the duality (hr1 )∗ = bmor .
+
+Step 3: Since finite martingales are dense in each hc1 , hr1 and hd1 , the density property needed to
+apply the fact that the dual of a sum is the intersection of the duals holds. Thus it remains to
+determine the dual of hd1 . Since hd1 is a subspace of ℓ1 (L1 (M), the Hahn-Banach theorem gives
+
+                                            (ℓ1 (L1 (M))∗   ℓ∞ (L∞ (M))
+                                (hd1 )∗ =          d
+                                                          =             .
+                                                 (h1 )⊥         (hd1 )⊥
+
+
+                                                        10
+Let
+                                                                 bmod
+                                 
+                                     ℓ∞ (L∞ )      −→
+                           P :                                                   .
+                                     (an )n≥1     7−→ (En (an ) − En−1 (an ))n≥1
+We claim that ker P = (hd1 )⊥ . Indeed, for a ∈ ker P and x ∈ hd1 we have
+                                  X                   Xh                              i
+                   hdx, ai =          τ (dx∗n an ) =       τ (x∗n an ) − τ (x∗n−1 an )
+                                  n≥1 h               n≥1                      i
+                                  X
+                              =        τ (x∗n En (an )) − τ (x∗n−1 En−1 (an ))
+                                       n≥1
+                                       X
+                                 =           τ (dx∗n En−1 (an ))     for En (an ) = En−1 (an )
+                                       n≥1
+                                 = 0.
+
+Conversely, if a ∈ (hd1 )⊥ we fix n ≥ 1 and define the martingale x by dxn = En (an ) − En−1 (an ) and
+dxm = 0 if m 6= n. Since an ∈ L∞ (M) and τ is finite,
+                           X
+                                kdxm k1 = kdxn k1 ≤ 2kan k1 ≤ 2kan k∞ < ∞,
+                           m≥1
+
+
+so x ∈ hd1 . Hence
+                                      hdx, ai = τ (En (an ) − En−1 (an ))∗ an
+                                                                               
+                           0     =
+                                 =    τ (En (an )∗ En (an )) − τ (En−1 (an )∗ En−1 (an ))
+                                 =    τ |En an − En−1 an |2 ;
+whence En (an ) = En−1 (an ). Thus we deduce that a ∈ ker P . Therefore, our claim is proved. It
+then follows that (hd1 )∗ = bmod . Hence, the proof of the theorem is complete.               
+
+      We can now prove the reverse inclusion of Theorem 2.1.
+
+Proof of Theorem 2.1. By the discussion following Theorem 2.1, we already know h1 ⊂ H1 . To
+prove the reverse inclusion, we use duality. It then suffices to show (h1 )∗ ⊂ (H1 )∗ . To this end, by
+Theorem 2.3 and the duality theorem of [12], we must √ show bmo ⊂ BMO. This result is stated
+in Proposition 2.2 , with the equivalence constant 2. Combining the estimation of Theorem 2.3
+and Proposition 2.2 with the appendix of [12], we obtain for any a ∈ (h1 )∗
+                                      √
+                          kak(H1 )∗ ≤ 2 kakBMO ≤ 2kakbmo ≤ 2kak(h1)∗
+
+and                                      √         √         √
+                           kak(h1 )∗ ≤    2kakbmo ≤ 2kakBMO ≤ 6kak(H1 )∗ .
+                                                                                                     
+
+
+Remark 2.5 Combining Proposition 2.2 and the duality results, we also obtain
+
+                                     H1c = hc1 + hd1     and       H1r = hr1 + hd1 .
+
+                     3   A description of the dual of hp for 1 < p < 2
+In this section we extend the duality theorem in the previous section to the case 1 < p < 2. Namely,
+we will describe the dual of hp for 1 < p < 2. The arguments are similar to those for p = 1. The
+situation becomes, however, a little more complicated since the noncommutative Doob maximal
+inequality is now involved. On the other hand, the proof of the duality theorem for 1 < p < 2 is
+
+                                                          11
+also slightly harder than that in the case p = 1. This partly explains why we have decided to first
+consider the case p = 1.
+    Let us recall the definition of the spaces Lp (M; ℓ∞ ), 1 ≤ p ≤ ∞. A sequence (xn )n≥1 in
+Lp (M) belongs to Lp (M; ℓ∞ ) if (xn )n≥1 admits a factorization xn = ayn b with a, b ∈ L2p (M) and
+(yn )n≥1 ∈ ℓ∞ (L∞ (M)). The norm of (xn )n≥1 is then defined as
+
+                         k(xn )n≥1 kLp (M;ℓ∞ ) =     inf       kak2p sup kyn k∞ kbk2p .
+                                                   xn =ayn b         n≥1
+
+One can check that (Lp (M; ℓ∞ ), k kLp (M;ℓ∞ ) ) is a Banach space. It is proved in [3] and [7] that if
+(xn )n≥1 is a positive sequence in Lp (M; ℓ∞ ), then
+                                       nX                                  X              o
+(4)        k(xn )n≥1 kLp (M;ℓ∞ ) = sup     τ (xn yn ) : yn ∈ L+
+                                                              p′ (M) and       y n ′ ≤  1  .
+                                                                                          p
+                                          n≥1                                      n≥1
+
+
+The norm of Lp (M; ℓ∞ ) will be denoted by k sup+                                             +
+                                                n xn kp . We should warn the reader that k supn xn kp
+is just a notation since supn xn does not take any sense in the noncommutative setting.
+    Now let 2 < q ≤ ∞. We define the space
+
+                    Lcq mo(M) = a ∈ L2 (M) : ksup+ En (|a − En (a)|2 )kq/2 < ∞
+                                 
+                                                     n≥1
+
+equipped with the norm
+                                                                             1/2 
+                  kakLcq mo(M) = max kE1 (a)kq , ksup+ En (|a − En (a)|2 )kq/2        .
+                                                           n≥1
+
+Then (Lcq mo(M), k · kLcq mo(M) ) is a Banach space. Similarly, we set
+
+                                   Lrq mo(M) = {a : a∗ ∈ Lcq mo(M)}
+
+equipped with the norm
+                                      kakLrq mo(M) = ka∗ kLcq mo(M) .
+Note that if q = ∞, then Lc∞ mo = bmoc and Lr∞ mo = bmor . For convenience we denote
+Lcq mo(M), Lrq mo(M) respectively by Lcq mo, Lrq mo.
+    The following duality holds:
+
+Theorem 3.1 Let 1 ≤ p < 2 and q be the index conjugate to p. Then (hcp )∗ = Lcq mo with equivalent
+norms.
+More precisely,
+  (i) Every a ∈ Lcq mo defines a continuous linear functional on hcp by
+
+     (5)                               φa (x) = τ (a∗ x),        ∀x ∈ L2 (M).
+
+ (ii) Conversely, any φ ∈ (hcp )∗ is given as above by some a ∈ Lcq mo.
+      Moreover
+                                                                  √
+      (6)                        λp−1/2 kakLcq mo ≤ kφa k(hcp )∗ ≤ 2 kakLcq mo
+
+     where λp > 0 is a constant depending only on p and λp = O(1) as p → 1, λp ≤ C(2 − p)−2
+     as p → 2.
+Similarly, we have (hrp )∗ = Lrq mo, and (hp )∗ = Lcq mo ∩ Lrq mo ∩ hdq .
+
+
+                                                      12
+Proof. We show only the duality equality (hcp )∗ = Lcq mo. To this end, we will adapt the proof of
+the corresponding duality result for Hpc in [5] for the first step. The second one is adapted from
+the proof of Theorem 2.3.
+
+Step 1: Let a ∈ Lcq mo and x be a finite L2 -martingale such that kxkhcp ≤ 1. Let s be the
+index conjugate to q2 . We consider
+                             n
+                            X                     p/2s                               ∞
+                                                                                      X                         p/2s
+              s̃c,n (x) =         Ek−1 |dxk |2                 and      s̃c (x) =                Ek−1 |dxk |2            .
+                            k=1                                                            k=1
+
+Then s̃c,n (x) ∈ Ls (Mn ) and by approximation we may assume that the s̃c,n (x)’s are invertible.
+By the arguments in the proof of the duality between hc1 and bmoc in Theorem 2.3 we have
+                     h P                        i1/2 h  P                                         i1/2
+                                                                          −1/2
+     |φa (x)| ≤       τ    n≥1 s̃c,n (x)|dan |
+                                               2
+                                                        τ    n≥1 s̃c,n (x)     |dxn |2 s̃c,n (x)−1/2
+                =: I · II.
+To estimate I we set again
+                                  
+                                        θ1 = s̃c,1 (x)
+                                        θn = s̃c,n (x) − s̃c,n−1 (x),           ∀n ≥ 2.
+                                                           n
+                                                           X
+Then θn ∈ Ls (Mn−1 ), θn ≥ 0 and s̃c,n (x) =                       θk . Thus
+                                                           k=1
+
+                                        ∞
+                                                                               p/s
+                                        X
+                                              θk       = ks̃c (x)ks = kxkhc ≤ 1.
+                                                   s                             p
+                                        k=1
+
+By (4), we have                                                 
+                                            X  X
+                               I2       =      τ θk     |dan |2
+                                            k≥1    n≥k                
+                                            X             X
+                                        =      τ θk Ek−1        |dan |2
+                                            k≥1
+                                            X                        n≥k
+                                        =          τ (θk Ek−1 (|a − ak−1 |2 ))
+                                            k≥1
+                                        ≤   ksup+ Ek (|a − ak |2 )kq/2 = kak2Lcq mo .
+                                              k≥1
+
+To estimate the second term, let α = 2/p ∈ (1, 2] and notice that
+                                                           2      2  1
+                                        1−α=1−               =1−2+ =− .
+                                                           p      q  s
+For fixed n, we define y = s̃c,n−1 (x)s and z = s̃c,n (x)s . Since p/2 ≤ 1, we have
+                               n−1
+                                X                       p/2         n
+                                                                    X                      p/2
+                         y=             Ek−1 |dxk |2           ≤            Ek−1 |dxk |2            = z.
+                                  k=1                                 k=1
+
+Note that                                     1−α              1                 1
+                                            z 2 = z − 2s = s̃c,n (x)− 2 .
+Applying Lemma 4.1 of [3], we find
+                                                                                     1−α                   1−α
+                τ (s̃c,n (x)−1/2 En−1 |dxn |2 s̃c,n (x)−1/2 )          = τ (z 2 (z α − y α )z 2 )
+                                                                       ≤ 2τ (z − y)
+                                                                       = 2τ (s̃c,n (x)s − s̃c,n−1 (x)s ).
+
+                                                               13
+Therefore                                     X
+                               II 2     ≤ 2         τ [s̃c,n (x)s − s̃c,n−1 (x)s ]
+                                              n≥1
+                                        = 2τ [(s̃c (x)s ]
+                                             h X                  p/2 i
+                                        = 2τ          En−1 |dxn |2
+                                                    n≥1
+                                        = 2kxkphc ≤ 2.
+                                                    p
+
+Combining the precedent estimations we deduce that for any finite L2 -martingale x
+                                           √
+                                 |φa (x)| ≤ 2 kakLcq mo kxkhcp .
+                                                                    √
+Thus φa extends to an element of (hcp )∗ with norm ≤                    2 kakLcq mo .
+
+Step 2: Let φ ∈ (hcp )∗ such that kφk(hcp )∗ ≤ 1. As L2 (M) ⊂ hcp , φ induces a continuous functional
+φ̃ on L2 (M). Thus there exists a ∈ L2 (M) such that
+
+                                      φ̃(x) = τ (a∗ x),        ∀x ∈ L2 (M).
+
+By the density of L2 (M) in hcp we have
+
+(7)                           kφk(hcp )∗ =              sup             |τ (a∗ x)| ≤ 1.
+                                             x∈L2 (M),kxkhcp ≤1
+
+
+We want to estimate
+                                                                         X                         
+                      kak2Lcq mo = max kE1 (a)k2q ,           sup+ En             |dak |2                 .
+                                                              n≥1                               q/2
+                                                                            k>n
+
+Let x ∈ Lp (M1 ), kxkp ≤ 1 be such that kE1 (a)kq = |τ (a∗ x)|. Then by (7) we have
+
+                                      kE1 (a)kq ≤ kxkhcp = kxkp ≤ 1.
+
+On the other hand for each n ≥ 1 we set
+                                                                     X
+                              zn = sc (a)2 − sc,n (a)2 =                  Ek−1 |dak |2 .
+                                                                    k>n
+
+Then by (4) and the dual form of Junge’s noncommutative Doob maximal inequality, we find
+(recalling that s is the conjugate index of q/2)
+
+                  ksup+ En (zn )kq/2
+                   n≥1nX                                                      o
+                                                                   X
+                = sup       τ (En (zn )bn ) : bn ∈ L+ s (M) and        bn ≤ 1
+                                                                         s
+                        n≥1
+                         nX                                        n≥1          o
+                                                                       X
+                ≤ λs sup        τ (En (zn )bn ) : bn ∈ L+s (Mn ) and      bn ≤ 1 .
+                                                                                                  s
+                              n≥1                                                       n≥1
+
+Note that λs = O(1) as s close to 1, so λs remains bounded as q → ∞, i.e, as p → 1. On the other
+hand, λs ≈ s2 as s → ∞, i.e, as p → 2.               X
+   Let (bn )n≥1 be a sequence in L+
+                                  s (Mn ) such that     bn ≤ 1. Let y be the martingale defined
+                                                                             s
+                                                                 n≥1
+as follows                                        X            
+                                      dyk = dak               bn ,      ∀k ≥ 1.
+                                                     k>n
+
+
+                                                         14
+By (7) we have
+                                                τ (a∗ y) ≤ kykhcp .
+Since bn ∈ L+
+            s (Mn ) for any n ≥ 1, we have
+                                 X               X          X 
+                   τ (a∗ y) = τ       da∗k dyk = τ    |dak |2    bn
+                                    Xk≥1
+                                      X                            k≥1
+                                                                    XX           k>n
+                               =               τ (|dak |2 bn ) =              τ (Ek−1 |dak |2 bn )
+                                    n≥1
+                                    X k>n                           n≥1 k>n
+                               =          τ (zn bn )
+                                    n≥1
+                                    X
+                               =          τ (En (zn )bn ).
+                                    n≥1
+
+On the other hand, by the definition of y and the fact that bn ∈ L+
+                                                                  1 (Mn ), we find
+                     X                  X            X  2
+         sc (y)2 =       Ek−1 |dyk |2 =     Ek−1 dak      bn
+                     k≥1      h        k≥1
+                                                    k>n
+                                                       i
+                     X            X                X         X X
+                 =       Ek−1         bn |dak |2     bn =             bn Ek−1 (|dak |2 )bm
+                       k≥1
+                        X            k>n                     k>n         k≥1 n,m<k
+                   =           bn zmax(n,m) bm .
+                       n,m≥1
+
+We consider the tensor product N = M⊗B(ℓ2 ), equipped with the trace τ ⊗ tr, where tr denote
+the usual trace on B(ℓ2 ). Note that
+                                                                                          
+                    1/2 1/2                                                 1/2
+                     b1     b2      ... h                                   b     0  . . .
+                    0                     1/2                1/2
+                                                                  i       11/2
+                             0      ... 
+                                                                                           
+                                        bn zmax(n,m) bm                 b2     0 ... 
+                       ..     ..                                   n,m≥1 
+                                                                               .. ..
+                                                                                           
+                        .      .                                                .  .
+                    X                                      
+                            bn zmax(n,m) bm 0 . . .
+                    n,m≥1                                  
+               =                                           .
+                                                           
+                                 0            . . .   . . .
+                                 ..
+                                                           
+                                  .
+                                  h                     i
+                                    1/2             1/2
+We claim that the matrix Z = bn zmax(n,m) bm                     is positive. Indeed, we suppose that M
+                                                              n,m≥1
+acts on the Hilbert space H and we denote by h·, ·i the associated scalar product. For ξ = (ξn )n≥1 ∈
+ℓ2 (H), we have                           X
+                                               h b1/2            1/2
+                                                                     
+                        hZξ, ξiℓ2 (H) =             n zmax(n,m) bm ξm , ξn i
+                                                n,m≥1
+                                                 X                      1/2
+                                           =           hzmax(n,m) b1/2
+                                                                   m ξm , bn ξn i,
+                                                n,m≥1
+
+where the last equality comes from the positivity of the bn ’s. Then the definition of zn gives
+                                  X          X                           1/2
+                hZξ, ξiℓ2 (H) =        h              Ek−1 |dak |2 b1/2
+                                                                    m ξm , bn ξn i
+                                     n,m≥1       k>max(n,m)
+                                     X                       X             X         
+                                                                                  1/2
+                                =          hEk−1 |dak |2            b1/2
+                                                                     m m ξ  ,   b n   ξn i.
+                                     k≥1                      m<k                 n<k
+
+The positivity of the conditional expectation implies that each term of the latter sum is non-
+negative. Thus, we obtain
+                                 hZξ, ξiℓ2 (H) ≥ 0, ∀ξ ∈ ℓ2 (H),
+
+                                                        15
+which proves our claim. Hence
+                                                                      X                
+                                 kZkL1(N ) = τ ⊗ tr(Z) =               τ b1/2
+                                                                          n   z n b 1/2
+                                                                                    n    .
+                                                                      n≥1
+
+           1        1
+Since p2 = 2s + 1 + 2s , by the Hölder inequality we have
+          X                                        X                        
+                   bn zmax(n,m) bm          =                 bn zmax(n,m) bm ⊗ e1,1
+                                      p/2                                                        Lp/2 (N )
+        n,m≥1                                         n,m≥1                                                         
+         1/2         1/2                                                                               1/2
+           b1        b2     ...                                                                       b        0 ...
+                                                  h
+                                                1/2          1/2
+                                                                         i                           11/2
+              0     0       ... 
+                                                                                                                     
+  ≤
+        
+                                             bn zmax(n,m) bm                                       b2       0 ... 
+              ..    ..             L2s (N )                      n,m≥1 L1 (N )                      
+                                                                                                        ..     ..
+                                                                                                                        L2s (N )
+               .     .                                                                                   .      .
+        X       1/2 h X                     i X       1/2
+  =         bn              τ b1/2
+                               n   z n b 1/2
+                                         n           bn
+                s                                       s
+        n≥1
+       hX              n≥1 i                     n≥1
+                              X
+  =         τ (En (zn )bn )        bn .
+                                            s
+        n≥1                    n≥1
+
+Thus                                                                    i1/2 X
+                                                  hX                              1/2
+                                     kykhcp ≤            τ (En (zn )bn )       bn     .
+                                                                                             s
+                                                  n≥1                             n≥1
+
+Combining the preceding inequalities, we deduce
+                              X                                       X
+                                   τ (En (zn )bn ) ≤                         bn       ≤ 1.
+                                                                                  s
+                                            n≥1                       n≥1
+                                                  √
+Therefore a ∈ Lcq mo and kakLcq mo ≤                  λs . This ends the proof of the duality (hcp )∗ = Lcq mo.                     
+
+
+Remark 3.2 Junge and Mei obtain in [4] the following inequality
+                                                       √
+                        λ−1
+                          p kakLcq mo ≤ kφa k(hcp )∗ ≤  2 kakLcq mo
+
+where λp is the constant in (6). Note that our lower estimate is the square root of theirs, and
+yields a better estimation as p → 2.
+
+   The dual space of Hp for 1 ≤ p < 2 is described in [5] as the space Lq MO (where q is the index
+conjugate of p) defined as follows. Let 2 < q ≤ ∞, we set
+
+                 Lcq MO(M) = a ∈ L2 (M) : ksup+ En (|a − En−1 (a)|2 )kq/2 < ∞ ,
+                                
+                                                                n≥1
+
+equipped with the norm
+                                                                           1/2
+                             kakLcq MO(M) = ksup+ En (|a − En−1 (a)|2 )kq/2      .
+                                                          n≥1
+
+Similarly, we define
+                                       Lrq MO(M) = {a : a∗ ∈ Lcq MO(M)},
+equipped with the norm
+                                             kakLrq MO(M) = ka∗ kLcq MO(M) .
+Finally, we set
+                                     Lq MO(M) = Lcq MO(M) ∩ Lrq MO(M),
+
+                                                                 16
+equipped with the intersection norm
+                                                                      
+                         kxkLq MO(M) = max kxkLcq MO(M) , kxkLrq MO(M) .
+Note that if q = ∞, these spaces coincide with the BMO spaces. For convenience we denote
+Lcq MO(M), Lrq MO(M), Lq MO(M) respectively by Lcq MO, Lrq MO, Lq MO.
+Theorem 4.1 of [5] establishes the duality (Hpc )∗ = Lcq MO. Moreover, for any a ∈ Lcq MO,
+                                                          √
+                            λ−1
+                             p kakLcq MO ≤ kφa k(Hcp )∗ ≤   2 kakLcq MO
+
+where λp is the constant in (6).
+Remark 3.3 The method used in the second step of the previous proof can be adapted to the
+duality between Hpc and Lcq MO, for 1 < p < 2. This yields a better estimate of the constant λp
+given in [5]. More precisely, we obtain by this way a constant of order (2 − p)−1 as p → 2 instead
+of (2 − p)−2 .
+    Indeed, let φ ∈ (Hpc )∗ such that kφk(Hcp )∗ ≤ 1. There exists a ∈ L2 (M) such that
+
+                                      φ(x) = τ (a∗ x),        ∀x ∈ L2 (M).
+By the density of L2 (M) in Hpc we have
+                               kφk(Hcp )∗ =            sup          |τ (a∗ x)| ≤ 1.
+                                              x∈L2 (M),kxkHcp ≤1
+
+In this case, we want to estimate
+                                                                               X                 
+               kak2Lcq MO = sup+ En (|a − En−1 (a)|2 ) q/2 = sup+ En                    |dak |2             .
+                              n≥1                                      n≥1                            q/2
+                                                                                  k≥n
+
+The triangular inequality in Lq/2 (M; ℓ∞ ) allows us to separate the estimation into two parts as
+follows                             X            
+              kak2Lcq MO ≈ sup+ En        |dak |2     + sup+ |dan |2 q/2 =: I + II.
+                                n≥1                           q/2     n≥1
+                                          k>n
+                                                                                  X
+We adapt the second step of the preceding proof by setting zn =                         |dak |2 for each n ≥ 1. It
+                                                                                  k>n
+yields the following estimation of the first term
+                                                      I ≤ λs
+where s is the index conjugate to q2 .
+  To estimate the diagonal term II, let (bn )n≥1 be a sequence in L+
+                                                                   s (Mn ) such that
+ X
+     bn ≤ 1. Let y be the martingale defined as follows
+          s
+ n≥1
+
+                                 dyk = dak bk − Ek−1 (dak bk ),         ∀k ≥ 1.
+We have
+                                                τ (a∗ y) ≤ kykHcp .
+Since (dan )n≥1 is a martingale difference sequence, we have
+                                      X
+                        τ (a∗ y) =        τ (|dan |2 bn ) − τ (da∗n En−1 (dan bn ))
+                                          n≥1
+                                          X
+                                      =         τ (|dan |2 bn ) − τ (En−1 (da∗n )dan bn )
+                                          n≥1
+                                          X
+                                      =         τ (|dan |2 bn ).
+                                          n≥1
+
+
+                                                         17
+On the other hand, the triangular inequality in Lp (M; ℓc2 ) yields
+                                                                             
+     kykHcp = k(dyn )n≥1 kLp (M;ℓc2 ) ≤ dan bn n≥1 Lp (M;ℓc ) + En−1 (dan bn ) n≥1 Lp (M;ℓc )
+                                                                      2                               2
+
+
+The noncommutative Stein inequality implies
+                                                                        
+                    En−1 (dan bn ) n≥1 Lp (M;ℓc ) ≤ γp             dan bn n≥1 Lp (M;ℓc )
+                                                      2                                           2
+
+              2
+             p
+with γp ≤ C p−1 (see [5]). Then
+                                                                
+                             kykHcp ≤ (1 + γp )           dan bn n≥1 L (M;ℓc ) .
+                                                                           p     2
+
+
+As before, by the Hölder inequality, we find
+                                           2                    X
+                                                                     bn |dan |2 bn
+                                    
+                              dan bn n≥1 Lp (M;ℓc ) =
+                                                      2                                   p/2
+                                                               n≥1
+                             X          1/2 h X                          i X              1/2
+                       ≤           bn         τ b1/2     2 1/2
+                                                 n |dan | bn                          bn
+                                   s                                                        s
+                          n≥1
+                         hX             n≥1i                                    n≥1
+                                                X
+                       =      τ (|dan |2 bn )      bn .
+                                                               s
+                             n≥1                    n≥1
+
+Hence
+                                              X            1/2  X                   1/2
+                        kykHcp ≤ (1 + γp )          bn                τ (|dan |2 bn )     .
+                                                           s
+                                              n≥1               n≥1
+
+Combining the preceding inequalities, we deduce
+                           X                                X
+                               τ (|dan |2 bn ) ≤ C(p − 1)−2   bn                      .
+                                                                                  s
+                             n≥1                                          n≥1
+
+Then
+                              II = sup+ |dan |2 q/2 ≤ C(p − 1)−2 λs .
+                                        n≥1
+
+Finally, we obtain
+                                                           −2 1/2
+                               kakLcq MO ≤ λ1/2
+                                            s (1 + C(p − 1)  ) .
+                                                                                                1/2
+Since λs ≈ s2 as s → ∞, i.e, as p → 2, we have the announced estimation λs (1 + C(p− 1)−2)1/2 ≈
+(2 − p)−1 as p → 2.
+
+
+    For 1 < p < ∞, the noncommutative Burkholder-Gundy inequalities of [12] and the noncommu-
+tative Burkholder inequalities of [5] state respectively that Hp (M) = Lp (M) and hp (M) = Lp (M)
+(with equivalent norms). Combining these results we obtain the equivalence of the norms Hp and
+hp . This is stated in Proposition 6.2 of [17]. Here Theorem 3.1 allows us to compare the dual
+spaces of Hp and hp for 1 ≤ p < 2. This dual approach gives another way to compare the spaces
+Hp and hp for 1 ≤ p < 2, which improve the estimation of the constant κp below for 1 < p < 2.
+Indeed, Randrianantoananina obtained κp = O((p − 1)−1 ) as p → 1 and the following statement
+gives that κp remains bounded as p → 1. For completeness, we also include Randrianantoanina’s
+estimates.
+Theorem 3.4 Let 1 < p < ∞. There exist two constants κp > 0 and νp > 0 (depending only on
+p) such that for any finite Lp -martingale x,
+                                    κ−1
+                                     p kxkhp ≤ kxkHp ≤ νp kxkhp .
+
+Moreover
+
+                                                      18
+ (i) κp ≈ 1 as p → 1;
+ (ii) κp ≤ Cp for 2 ≤ p < ∞;
+(iii) νp ≈ 1 as p → 1;
+             √
+(iv) νp ≤ C p for 2 ≤ p < ∞.
+
+
+Proof. Randrianantoanina stated the estimations (ii), (iii), (iv) in [17] without giving the proof.
+For the sake of completness we give the proof of these three estimations.
+   (i) Here we adopt a dual approch. Let 1 < p < 2 and q the index conjugate to p. Let a ∈ (hp )∗ .
+Then the triangular inequality in Lq/2 (M; ℓ∞ ) gives
+                                          X            
+                  kak2Lcq MO =    sup+ En       |dak |2
+                                  n≥1                     q/2
+                                           k≥n
+                                            X           
+                             ≤    sup+ En       |dak |2       + ksup+ En |dan |2 kq/2
+                                      n≥1                      q/2     n≥1
+                                                k>n
+                                        2                   2
+                                ≤    kakLcq mo + k(En |dan | )n kLq/2 (M,ℓ∞ )
+
+But for 1 ≤ p ≤ ∞ we have the following contractive inclusion
+
+                                          ℓp (Lp (M)) ⊂ Lp (M; ℓ∞ ).
+
+Therefore
+                    k(En |dan |2 )n kLq/2 (M;ℓ∞ )          ≤ k(En |dan |2 )n kℓq/2 (Lq/2 )
+                                                             X              2/q
+                                                           ≤       kdan kqq         = kak2hdq .
+                                                                         n≥1
+
+Then
+                      2−1/2 kak(Hp )∗        ≤      kakLq MO
+                                                    √
+                                             ≤        2 max(kakLcq mo , kakLrq mo , kakhdq )
+                                                    p
+                                             ≤        2λp kak(hp )∗
+with λp = O(1) as p → 1, hence κp ≈ 1 as p → 1.
+   (ii) The dual version of the noncommutative Doob inequality in [3] gives that for 1 ≤ p < ∞
+and for all finite sequences (an ) of positive elements in Lp (M) :
+                                       X                                       X
+                                             En−1 (an )            ≤ cp             an
+                                                               p                          p
+                                       n≥1                                    n≥1
+
+
+with cp ≈ p2 as p → +∞. Applying this to an = |dxn |2 and p/2 we get
+                                     X                        1/2                 X                    1/2
+                   kxkhcp   =               En−1 |dxn |2                      =           En−1 |dxn |2
+                                                                          p                              p/2
+                                      n≥1                                           n≥1
+                                                                   1/2        √
+                                    √        X
+                            ≤        cp/2            |dxn |2             =     cp/2 kxkHcp .
+                                                                   p/2
+                                             n≥1
+
+                                    √                √
+Passing to adjoints we have kxkhrp ≤ cp/2 kxkHrp with cp/2 ≈ p as p → ∞.
+On the other hand, we have for 2 ≤ p ≤ ∞ and for any finite sequence (an ) in Lp (M)
+                                X                  1/p           X                  1/2
+                                          kan kpp          ≤                  |an |2              .
+                                                                                              p
+                                    n≥1                              n≥1
+
+
+
+
+                                                           19
+Indeed, this is trivially true for p = 2 and p = ∞. Then complex interpolation yields the interme-
+diate case 2 < p < ∞.
+It thus follows that kdxkℓp (Lp ) ≤ kxkHcp .
+Thus κp ≤ Cp for 2 ≤ p < ∞.
+    (iii) Adapting the discussion following Theorem 2.1 to the case 0 < p < 1, we obtain this
+estimate.
+    (iv) Suppose 2 < p < ∞ and kxkhp ≤ 1. We write
+
+                |dxn |2 = En−1 |dxn |2 + (|dxn |2 − En−1 |dxn |2 ) =: En−1 |dxn |2 + dyn .
+
+The noncommutative Burkholder inequality implies
+     X
+        dyn      = kykp/2
+              p/2
+      n≥1
+                                     h X                2/p         X                         1/2         i
+                                                   p/2
+                      ≤       ηp/2           kdyn kp/2           +                En−1 |dyn |2                    =: ηp/2 (I + II)
+                                                                                                        p/2
+                                      n≥1                                  n≥1
+
+with ηp/2 ≤ Cp as p → ∞ from the proof of Theorem 4.1 of [17]. In order to estimate I we use the
+triangular inequality in ℓp/2 (Lp/2 ) and contractivity of the conditional expectations:
+                                              X                           2/p        X                 2/p
+                                                                     p/2
+              I = kdykℓp/2(Lp/2 ) ≤ 2                 k|dxn |2 kp/2               =2           kdxn kpp            ≤ 2.
+                                                n≥1                                      n≥1
+
+As for the second term II we note that
+
+                      En−1 |dyn |2 = En−1 |dxn |4 − (En−1 |dxn |2 )2 ≤ En−1 |dxn |4 .
+
+Then Lemma 5.2 of [5] gives the following estimation
+                                 X                       1/2                X                         1/2
+                 II       ≤                En−1 |dxn |4                =             En−1 |dxn |4
+                                                               p/2                                      p/4
+                                     n≥1                                n≥1
+                                 X                        (p−4)/(p−2)  X                        2/(p−2) 1/2
+                          ≤                En−1 |dxn |2                                kdxn kpp
+                                                           p/2
+                                     n≥1                                         n≥1
+                          ≤     1.
+
+Combining the preceding inequalities we obtain
+
+                                      kxk2Hcp ≤ 1 + 3ηp/2 ≤ Cp as p → ∞.
+
+                                                                                                                                     
+
+
+Remark 3.5 At the time of this writing, we do not know if the orders of growth of κp and νp for
+2 < p < ∞ are optimal.
+
+
+                                                      References
+ [1] B. Davis. On the integrability of the martingale square function. Israel J. Math.,8:187–190,
+     1970.
+ [2] A. M. Garsia. Martingale inequalities: Seminar notes on recent progress. W. A. Benjamin,
+     Inc., Reading, Mass.-London-Amsterdam, 1973. Mathematics Lecture Notes Series.
+
+                                                                20
+ [3] M. Junge. Doob’s inequality for non-commutative martingales. J. Reine Angew. Math.,
+     549:149–190, 2002.
+ [4] M. Junge and T. Mei. Noncommutative Riesz transforms - A probabilistic approach. Preprint.
+ [5] M. Junge and Q. Xu. Noncommutative Burkholder/Rosenthal inequalities. Ann. Probab.,
+     31(2):948–995, 2003.
+ [6] M. Junge and Q. Xu. On the best constants in some non-commutative martingale inequalities.
+     Bull. London Math. Soc., 37(2):243–253, 2005.
+ [7] M. Junge and Q. Xu. Noncommutative maximal ergodic theorems. J. Amer. Math. Soc.,
+     20(2):385–439, 2007.
+ [8] M. Junge and Q. Xu. Noncommutative Burkholder/Rosenthal inequalities II: Applications.
+     Israel J. Math., 167:227–282, 2008.
+ [9] R. V. Kadison and J. R. Ringrose. Fundamentals of the theory of operator algebras. Vol. I,
+     volume 15 of Graduate Studies in Mathematics. American Mathematical Society, Providence,
+     RI, 1997. Elementary theory, Reprint of the 1983 original.
+[10] J. Parcet. Weak type estimates associated to Burkholder’s martingale inequality. Rev. Mat.
+     Iberoam., 23(3):1011–1037, 2007.
+[11] J. Parcet and M. Randrianantoanina. Gundy’s decomposition for non-commutative martin-
+     gales and applications. Proc. London Math. Soc. (3), 93(1):227–252,2006.
+[12] G. Pisier and Q. Xu.      Non-commutative martingale inequalities.      Comm. Math. Phys.,
+     189(3):667–698, 1997.
+[13] G. Pisier and Q. Xu. Non-commutative Lp -spaces. In Handbook of the geometry of Banach
+     spaces, Vol. 2, pages 1459–1517. North-Holland, Amsterdam, 2003.
+[14] M. Pratelli. Sur certains espaces de martingales localement de carré intégrable. Springer,
+     Berlin, 1976. Séminaire de Probabilités, X (Seconde partie: Théorie des intégrales stochas-
+     tiques, Univ. Strasbourg, Strasbourg, année universitaire 1974/1975).
+[15] Narcisse Randrianantoanina. Non-commutative martingale transforms. Journal of Functional
+     Analysis, 194(1):181–212, 2002.
+[16] Narcisse Randrianantoanina. A weak type inequality for non-commutative martingales and
+     applications. Proc. London Math. Soc. (3), 91(2):509–542, 2005.
+[17] Narcisse Randrianantoanina. Conditioned square functions for noncommutative martingales.
+     Ann. Probab., 35(3):1039–1070, 2007.
+[18] M. Takesaki. Theory of operator algebras. I. Springer-Verlag, New York, 1979.
+
+
+
+
+                                                21
+

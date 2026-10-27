@@ -1,0 +1,580 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\N}{\mathcal N}
+\newcommand{\A}{\mathcal A}
+\newcommand{\E}{\mathbb E}
+\newcommand{\BMO}{\mathrm{BMO}}
+\newcommand{\Carl}{\mathrm{Carl}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\fint}{\mathop{\textstyle\int\kern-1.1ex-}\nolimits}
+\title{A conditional noncommutative Poisson--Carleson decomposition\\
+via stopped random walks}
+\author{}
+\date{October 21, 2026}
+\begin{document}
+\maketitle
+
+\noindent
+This note continues Remark \texttt{cd Mei}(ii) of
+\texttt{nc-Davis\_v3.tex}. Its only nonstandard input is the following
+endpoint Davis estimate. The argument below does not prove that input.
+In particular, this is a consequence conditional on the stated version
+of the manuscript's main theorem, rather than an independent proof of it.
+
+\begin{assumption}[Davis estimate for regular filtrations]\label{ass:D}
+There is a constant \(D_4\), independent of the finite probability
+von Neumann algebra and the length of the filtration, such that
+\[
+ \norm{x}_{H_1}\le D_4
+ \norm{(\mathcal E_nx)_n}_{L_1(\A;\ell_\infty)}
+\]
+for every \(L_2\)-martingale associated with a \(4\)-regular filtration.
+The initial algebra is allowed to be nontrivial. We index its
+conditional expectation by \(\mathcal E_0\); this is an actual
+conditional expectation, not the zero map. The Hardy norm includes
+the initial martingale term \(\mathcal E_0x\).
+\end{assumption}
+
+Let \((\N,\varphi)\) be a finite von Neumann algebra with normalized
+faithful normal trace. Put
+\[
+ \norm{f}_{\BMO_{cr}}
+ =\max\left\{
+ \sup_I\norm{\fint_I(f-f_I)^*(f-f_I)\,dx}_{\N}^{1/2},
+ \sup_I\norm{\fint_I(f-f_I)(f-f_I)^*\,dx}_{\N}^{1/2}
+ \right\}.
+\]
+We use Mei's operator-valued BMO space, with bounded operator-valued
+interval averages, modulo constants. For a positive operator-valued
+Borel measure \(\nu\) on \(\R^2_+\), weak-star countably additive and
+finite on bounded rectangles, set
+\[
+ \norm{\nu}_{\Carl}
+ =\sup_I |I|^{-1}\norm{\nu(I\times(0,|I|])}_{\N}.
+\]
+An order bound \(\nu(T(I))\le A|I|1_\N\) is equivalent to this bound.
+For a difference \(\mu=\mu_+-\mu_-\) of positive measures, its Poisson
+balayage is
+\[
+ S_P\mu(x)=\int_{\R^2_+}P_y(x-t)\,d\mu(t,y),
+ \qquad P_y(s)=\frac1\pi\frac{y}{s^2+y^2}.
+\]
+
+\begin{theorem}\label{thm:main}
+Assume Assumption~\ref{ass:D}. If \(f=f^*\in\BMO_{cr}(\R,\N)\) has compact
+support, there are a selfadjoint \(g\in L_\infty(\R)\bar\otimes\N\) and
+finite positive \(\N\)-valued measures \(\mu_+,\mu_-\), supported in a bounded
+rectangle of the upper half-plane, such that
+\[
+ \boxed{f=g+S_P(\mu_+-\mu_-)}
+\]
+and
+\[
+ \boxed{\norm{g}_\infty+\norm{\mu_++\mu_-}_{\Carl}
+       \le C(D_4)\norm{f}_{\BMO_{cr}}.}
+\]
+The equality holds in \(L_1(\R\bar\otimes\N)\), and in particular locally
+in \(L_1\) and distributionally. The constant is independent of the
+matrix dimension of \(\N\). For a general complex \(f\), four positive
+measures suffice.
+\end{theorem}
+
+\section*{1. A signed martingale representation}
+For the filtration indexed by \(n\ge0\), use the inhomogeneous column
+martingale BMO norm
+\[
+ \max\left\{
+ \norm{\mathcal E_0(F^*F)}_\infty^{1/2},\,
+ \sup_{n\ge1}\norm{\mathcal E_n
+   |F-\mathcal E_{n-1}F|^2}_\infty^{1/2}\right\},
+\]
+and take the maximum with the row norm. This is the manuscript's
+convention after shifting the first index from \(1\) to \(0\).
+\begin{lemma}\label{lem:representation}
+Under Assumption~\ref{ass:D}, if \(F=F^*\in\BMO(\A)\), for a finite
+probability algebra \(\A\) with a \(4\)-regular filtration, then
+\[
+ F=G+\sum_{n\ge0}\mathcal E_n(v_n^+-v_n^-),
+ \qquad G=G^*,\quad v_n^\pm\ge0,
+\]
+where
+\[
+ \norm{G}_\infty+
+ \norm{\sum_n(v_n^++v_n^-)}_\infty
+ \le C(D_4)\norm{F}_{\BMO}.
+\]
+Both positive series after conditional expectation converge in \(L_1\).
+\end{lemma}
+
+\begin{proof}
+For \(x\in L_2(\A)\), define
+\[
+ Jx=(x,\mathcal E_0x-x,\mathcal E_1x-x,\ldots).
+\]
+The \(L_2\)-Doob inequality implies that \(Jx\in L_1(\A;c_0)\):
+indeed, for \(x_m=\mathcal E_mx\), the maximal \(L_1\)-norm of the tail
+\((\mathcal E_nx-x)_{n\ge m}\) is at most
+\(C\norm{x-x_m}_2\), since the trace is finite and normalized.
+Also
+\[
+ \norm{(\mathcal E_nx)_n}_{L_1(\ell_\infty)}
+ \le2\norm{Jx}_{L_1(\ell_\infty)}.
+\]
+The \(H_1\)--BMO duality and Assumption~\ref{ass:D} therefore show that
+\(Jx\mapsto\tau(Fx)\) is bounded by
+\(C D_4\norm{F}_{\BMO}\).
+Hahn--Banach and
+\[
+ L_1(\A;c_0)^*=L_\infty(\A;\ell_1)
+\]
+give a sequence \((w,u_0,u_1,\ldots)\) of that norm with
+\[
+ \tau(Fx)=\tau(w^*x)
+       +\sum_n\tau\bigl(u_n^*(\mathcal E_nx-x)\bigr).
+\]
+The \(c_0\) duality is the endpoint assertion in Junge--Xu,
+\emph{Noncommutative maximal ergodic theorems}, Remark 2.2(ii).
+After replacing the representing sequence by its selfadjoint part, write
+\[
+ F=G+\sum_n\mathcal E_nu_n,\qquad
+ G=w-\sum_nu_n.
+\]
+The latter sum converges weak-star with bounded norm.
+
+For completeness, positivity with a bounded sum follows from the
+factorization defining \(L_\infty(\ell_1)\), not from termwise spectral
+positive parts. Choose balanced factors
+\[
+ u_n=\sum_k a_{kn}^*b_{kn},\qquad
+ \norm{\sum_{k,n}a_{kn}^*a_{kn}}_\infty,\
+ \norm{\sum_{k,n}b_{kn}^*b_{kn}}_\infty\le C D_4\norm{F}_{\BMO}.
+\]
+Polarization gives
+\[
+ u_n=\sum_{r=0}^3i^{-r}v_n^{(r)},\qquad
+ v_n^{(r)}=\frac14\sum_k
+ (a_{kn}+i^rb_{kn})^*(a_{kn}+i^rb_{kn})\ge0.
+\]
+Each \(\sum_n v_n^{(r)}\) is bounded by the same constant up to an
+absolute factor. Taking real parts gives \(u_n=v_n^{(0)}-v_n^{(2)}\).
+These positive sequences have bounded sums; their conditional
+expectations have summable traces, proving \(L_1\) convergence.
+\end{proof}
+
+\section*{2. Scalar discrete harmonic kernels}
+Take \(h=1/(2m)\). Let a simple symmetric nearest-neighbor random walk
+on \(h\mathbb Z^2\) move in the four coordinate directions with probability
+\(1/4\). Its horizontal starting point may be any real number.
+Let \(Q^h_{jh}\) be the horizontal exit-distribution operator when the
+walk starts at height \(jh\) and is stopped on height \(0\). Thus
+\[
+ Q^h_{jh}a(x)=\sum_{k\in\mathbb Z}p_j(k)a(x+kh),\qquad Q^h_0=I.
+\]
+The kernels are symmetric probability distributions and
+\(Q^h_{jh}Q^h_{lh}=Q^h_{(j+l)h}\).
+
+\begin{lemma}\label{lem:kernel}
+There is an absolute \(C\) such that, for \(j\ge1\),
+\[
+ p_j(k)\le C\frac{j}{j^2+k^2}.
+\]
+For every Schwartz function \(\psi\),
+\[
+ \sup_{\substack{0\le y\le1\\y\in h\mathbb Z}}\,
+ \sup_x |Q^h_y\psi(x)-P_y\psi(x)|\longrightarrow0.
+\]
+Moreover, if \(I\) has length \(L\), \(t\in I\), and \(0\le y\le L\),
+then an unrestricted walk started at \((t,y)\) exits the lower boundary
+inside \(DI\) with probability at least \(1/2\), for an absolute
+dilation \(D\).
+\end{lemma}
+
+\begin{proof}
+The horizontal Fourier multiplier is
+\[
+ \sum_kp_j(k)e^{ik\theta}
+ =\exp[-j a(\theta)],\qquad
+ a(\theta)=\operatorname{arcosh}(2-\cos\theta).
+\]
+This follows from the discrete harmonic equation
+\(r+r^{-1}=4-2\cos\theta\), choosing the root \(0<r\le1\).
+On \([-\pi,\pi]\), \(a(\theta)\simeq|\theta|\); its first derivative is
+bounded on each side of zero and its second derivative is bounded there.
+The integral formula gives \(p_j(k)\le C/j\). Integrating by parts
+twice on the two sides of zero gives \(p_j(k)\le Cj/k^2\):
+the jump of the first derivative contributes \(O(j)\), and the
+\(L_1\)-norm of the second derivative of \(e^{-ja}\) is \(O(j)\).
+Together these imply the displayed kernel bound.
+
+Extend \(a\) periodically with period \(2\pi\).
+Writing \(a_h(\xi)=h^{-1}a(h\xi)\), the multiplier of \(Q^h_y\) is
+\(e^{-ya_h(\xi)}\), and \(a_h(\xi)\to|\xi|\) for fixed \(\xi\).
+Fourier inversion and dominated convergence yield uniform convergence
+for \(0\le y\le1\).
+Finally
+\(\sum_{|k|>Aj}p_j(k)\le C/A\); choose \(A\) large and then \(D\)
+large enough. The assertion for \(y=0\) is immediate.
+\end{proof}
+
+\section*{3. Uniform BMO control of the stopped lift}
+Translations and dilations reduce the theorem to
+\(\operatorname{supp}f\subset[-1/8,1/8]\).
+Write \(K=\norm{f}_{\BMO_{cr}}\); the case \(K=0\) is trivial.
+Averages over \([-1/2,1/2]\), using that \(f\) vanishes on a fixed
+fraction of this interval, give the order bounds
+\[
+ \int_\R f^*f\,dx\le C K^2 1_\N,\qquad
+ \int_\R ff^*\,dx\le C K^2 1_\N.                 \tag{11}
+\]
+Indeed, if \(Q\) is this interval and
+\(|\operatorname{supp}f|\le |Q|/2\), operator Cauchy--Schwarz gives
+\(|f_Q|^2\le\frac12\fint_Q f^*f\); combine this with
+\(\fint_Q|f-f_Q|^2\le K^2 1\). The row estimate is identical.
+
+Set \(f_\epsilon=P_\epsilon f\).
+It is bounded and operator-norm Lipschitz, its BMO norm is at most \(K\),
+and it satisfies the same integrated square bounds (11).
+We use the elementary Poisson-variance estimate
+\[
+ \sup_{x,y}\norm{
+ P_y\bigl(|f_\epsilon-P_yf_\epsilon(x)|^2\bigr)(x)}_\N
+ \le C K^2.                                      \tag{12}
+\]
+This follows by decomposing the Poisson integral into concentric dyadic
+intervals: the square oscillation on the \(r\)-th interval relative
+to the smallest interval average is at most \(C(r+1)^2K^2\),
+and the Poisson weights decrease as \(2^{-r}\). The mean
+\(P_yf_\epsilon(x)\) minimizes this operator-valued variance.
+The same estimate holds for adjoints.
+
+Choose \(h\) small enough that
+\[
+ h\,\operatorname{Lip}(f_\epsilon)\le K.
+\]
+Comparing \(p_j(k)\) with the Poisson mass of the interval of length
+\(h\) centered at \(kh\), and using the Lipschitz bound, yields
+\[
+ Q^h_y|f_\epsilon-c|^2(x)
+ \le C P_y|f_\epsilon-c|^2(x)
+       +C h^2\operatorname{Lip}(f_\epsilon)^2 1_\N.       \tag{13}
+\]
+In particular (12)--(13) imply
+\[
+ \norm{Q^h_y|f_\epsilon|^2(x)
+            -|Q^h_yf_\epsilon(x)|^2}_\N\le C K^2.       \tag{14}
+\]
+
+Start the walk at \((X_0,1/2)\), with \(X_0\) uniform on \([-R,R]\).
+Let \(\tau\) be its first exit from \(0<y<1\), and thereafter keep
+the position \(Z_n=(X_n,Y_n)\) fixed. The filtration reveals \(X_0\)
+initially and then all four-way coins, including after \(\tau\).
+It is \(4\)-regular. For a boundary function \(a\), define
+\[
+ T_h a=
+ \begin{cases}
+ a(X_\tau),&Y_\tau=0,\\
+ Q^h_1a(X_\tau),&Y_\tau=1.
+ \end{cases}
+\]
+Discrete harmonicity and optional stopping give exactly
+\[
+ \E_n(T_h a)=Q^h_{Y_n}a(X_n).                    \tag{15}
+\]
+Put \(F=T_h f_\epsilon\).
+Its conditional future variance is bounded by (14): it is the stopped
+conditional expectation of the unrestricted lower-exit terminal value
+\(f_\epsilon(\xi)\).
+Thus its little BMO square norm is \(O(K^2)\).
+Regularity controls the big BMO terms by four times these terms.
+The initial term is controlled by
+\[
+ \E_0|F|^2\le Q^h_{1/2}|f_\epsilon|^2(X_0)\le C K^2 1_\N,
+\]
+using (11), Jensen for \(P_\epsilon\), and (13).
+Consequently
+\[
+ \norm{F}_{\BMO}\le C K                         \tag{16}
+\]
+uniformly in \(R,\epsilon,h\) subject to the preceding small-mesh condition.
+
+\section*{4. Transfer of the representation and its Carleson bound}
+Apply Lemma~\ref{lem:representation} to \(F\):
+\[
+ F=G+\sum_n\E_n(v_n^+-v_n^-),\qquad
+ \norm{G}_\infty\le A,\quad
+ 0\le\sum_n(v_n^++v_n^-)\le A1_\N,\quad A=C(D_4)K.
+\]
+Define positive measures on the closed strip by
+\[
+ \mu_{R,h}^\pm(B)
+ =2R\,\E\sum_n v_n^\pm\,\mathbf1_{\{Z_n\in B\}},
+ \qquad B\subset\R\times[0,1].                  \tag{17}
+\]
+The variables \(v_n^\pm\) need not be adapted; only their bounded
+positive sum is used.
+
+For every interval \(I\),
+\[
+ (\mu_{R,h}^++\mu_{R,h}^-)(I\times[0,|I|])
+ \le C A |I|1_\N.                              \tag{18}
+\]
+To see this, let \(\sigma\) be the first visit of the stopped path to
+that box. If \(\sigma<\infty\), it is at or before strip exit.
+From \(Z_\sigma\), continue an unrestricted walk to the lower boundary.
+By Lemma~\ref{lem:kernel}, its exit lies in \(DI\) with conditional
+probability at least \(1/2\). Hence
+\[
+ 2R\,\mathbb P(\sigma<\infty)
+ \le 2(2R)\mathbb P(\xi\in DI)\le2D|I|.
+\]
+The last inequality holds because convolution of the initial density
+\(\mathbf1_{[-R,R]}\) with any probability kernel is at most \(1\).
+Equation (18) now follows from the pointwise positive-sum bound.
+
+Test the martingale representation against \(T_h\psi\), and use (15):
+\[
+ 2R\,\E\bigl[(T_h f_\epsilon)^*T_h\psi\bigr]
+ =\int_\R g_{R,h}(x)^*\psi(x)\,dx
+   +\int Q^h_y\psi(t)\,d(\mu_{R,h}^+-\mu_{R,h}^-)(t,y).       \tag{19}
+\]
+This is an operator-valued weak identity, or equivalently can be tested
+against every normal functional on \(\N\). The trace notation in
+deriving it is suppressed in (19).
+The function \(g_{R,h}\) is the adjoint image of \(G\).
+It satisfies \(\norm{g_{R,h}}_\infty\le A\):
+under Lebesgue-distributed initial horizontal positions the two strip
+exit marginals are each \(\frac12 dx\); truncating initial positions
+only decreases them. The top marginal is then convolved with the
+probability kernel \(Q^h_1\).
+
+Let \(R\to\infty\). The two exit marginals increase to
+\(\frac12 dx\). Symmetry and the vertical semigroup property give
+\[
+ \lim_{R\to\infty}2R\,\E\bigl[(T_h f_\epsilon)^*T_h\psi\bigr]
+ =\frac12\int_\R(f_\epsilon+Q^h_2f_\epsilon)^*\psi\,dx.       \tag{20}
+\]
+This extra \(Q^h_2f_\epsilon\) term is essential.
+
+The bounds (18) give local weak-star compactness of the positive
+operator-valued measures; bounded \(g_{R,h}\) have weak-star compactness
+in \(L_\infty\). Subnets may be used if the predual is nonseparable.
+Pass first in \(R\), and then take \(\epsilon\downarrow0\), \(h\downarrow0\)
+with \(h\operatorname{Lip}(f_\epsilon)\le K\).
+The kernel convergence in Lemma~\ref{lem:kernel}, together with
+\(f_\epsilon\to f\) and \(Q^h_2f_\epsilon\to P_2f\) in \(L_2\), yields
+\[
+ \frac12(f+P_2f)=g_0+S_P(\lambda_+-\lambda_-).              \tag{21}
+\]
+At height zero the Poisson operator in this formula is understood
+as the identity.
+
+Here the limiting positive measures are supported in the closed strip
+and still satisfy (18). For clarity, passage from local weak-star
+convergence to (21) has no missing tail condition: for a compactly
+supported smooth test function \(\psi\),
+\[
+ |Q^h_y\psi(t)|+|P_y\psi(t)|
+ \le C_\psi(1+t^2)^{-1}\quad (|t|\text{ large},\ 0\le y\le1),
+\]
+uniformly in small \(h\). The measure of each horizontal annulus
+of radius \(r\ge1\), including all heights, is \(O(Ar)\).
+Thus its contribution to the pairing is \(O(A/r)\), summable over
+dyadic annuli. On compact sets kernel convergence is uniform.
+Open-box approximation passes (18) to the limit.
+
+The height-zero parts obey
+\(\lambda_\pm(B\times\{0\})\le C A|B|1_\N\).
+They have weak-star measurable densities in
+\(L_\infty(\R)\bar\otimes\N\) of norm \(O(A)\), and are absorbed into
+\(g_0\). Also \(\norm{P_2f}_\infty\le C K\), by (11).
+Multiplying (21) by two and absorbing these terms proves
+\[
+ f=g_1+S_P(\mu_+-\mu_-),\qquad
+ \norm{g_1}_\infty+\norm{\mu_++\mu_-}_{\Carl}\le C(D_4)K,    \tag{22}
+\]
+with measures supported in \(0<y\le1\). At this stage the measures need
+not have finite total mass.
+
+\section*{5. Spatial localization and finite mass}
+Choose \(0\le\chi\le1\), smooth and compactly supported, equal to \(1\)
+on the support of \(f\), with absolute bounds on \(\chi,\chi'\)
+in the normalized coordinates. If \(\mu=\mu_+-\mu_-\) is as in (22), put
+\[
+ E_\chi(x)
+ =S_P(\chi\mu)(x)-\chi(x)S_P\mu(x)
+ =\int P_y(x-t)(\chi(t)-\chi(x))\,d\mu(t,y).
+\]
+Then
+\[
+ \norm{E_\chi}_\infty\le C\norm{\mu_++\mu_-}_{\Carl}.       \tag{23}
+\]
+Indeed, write \(r=\max(|t-x|,y)\).
+On \(r\le1\), the absolute scalar kernel in this integral is \(O(1)\),
+and the positive dominating measure on \(r\le2^{-j}\) is \(O(A2^{-j})\).
+On \(r\ge1\), since \(y\le1\), the kernel is \(O(r^{-2})\) and the
+measure on \(r\le2^{j+1}\) is \(O(A2^j)\).
+Both geometric series converge. The estimates are operator-order
+estimates with the positive measure \(\mu_++\mu_-\).
+
+Since \(\chi f=f\), (22)--(23) imply
+\[
+ f=\underbrace{\chi g_1-E_\chi}_{g}
+       +S_P\bigl(\chi\mu_+-\chi\mu_-\bigr).
+\]
+The new measures have compact horizontal support and heights at most
+\(1\), hence finite total mass by the Carleson bound.
+For finite \(\N\), their positive balayages are globally in \(L_1\);
+the final identity therefore holds in \(L_1\).
+This proves Theorem~\ref{thm:main}.
+For complex \(f\), apply the selfadjoint result to its real and imaginary
+parts. Undoing the spatial normalization completes the general compact
+support case.
+
+\section*{6. General BMO and a renormalized Poisson balayage}
+The compact support restriction can be removed if one normalizes the
+far field. Put \(I_0=[-1/2,1/2]\), \(r(t,y)=\max(|t|,y)\), and define
+\[
+ \widetilde S_P\mu(x)
+ =\int_{\R^2_+}\left[
+ P_y(x-t)-\mathbf1_{\{r(t,y)\ge1\}}P_y(-t)
+ \right]\,d\mu(t,y).                         \tag{24}
+\]
+Near finite points this is interpreted in local \(L_1\); at infinity
+the difference is integrated in operator norm on each compact set of
+\(x\)'s. Thus (24) does not subtract a potentially divergent global
+constant as a separate integral.
+
+\begin{corollary}\label{cor:general}
+Under Assumption~\ref{ass:D}, for every selfadjoint
+\(f\in\BMO_{cr}(\R,\N)\), there are selfadjoint \(g\in L_\infty\)
+and positive operator-valued measures \(\mu_+,\mu_-\), finite on bounded
+rectangles, such that
+\[
+ f-f_{I_0}=g+\widetilde S_P(\mu_+-\mu_-),
+ \qquad
+ \norm{g}_\infty+\norm{\mu_++\mu_-}_{\Carl}
+ \le C(D_4)\norm{f}_{\BMO_{cr}}.                 \tag{25}
+\]
+The equality holds locally in \(L_1\), and modulo constants it is
+independent of the reference normalization in (24).
+\end{corollary}
+
+\begin{proof}
+Write \(K=\norm{f}_{\BMO_{cr}}\).
+Choose a real smooth cutoff \(\eta_L\), equal to \(1\) on
+\([-L,L]\), supported in \([-2L,2L]\), taking values in \([0,1]\),
+and satisfying \(\norm{\eta_L'}_\infty\le C/L\).
+For \(J_L=[-4L,4L]\), put
+\[
+ f_L=\eta_L(f-f_{J_L}),\qquad L\ge1.
+\]
+Then \(\norm{f_L}_{\BMO_{cr}}\le CK\), uniformly in \(L\).
+Here are the details needed for the operator-valued cutoff estimate.
+For an interval \(I\) of length at least \(L\),
+\[
+ \fint_I f_L^*f_L
+ \le |I|^{-1}\int_{J_L}|f-f_{J_L}|^2
+ \le 8K^2 1_\N.
+\]
+If \(\ell=|I|<L\) and \(I\) meets the support of \(\eta_L\),
+then \(I\subset J_L\). Nested interval averaging gives
+\[
+ \norm{f_I-f_{J_L}}_\N
+ \le CK\bigl(1+\log(L/\ell)\bigr).
+\]
+With \(c=\eta_L(C_I)(f_I-f_{J_L})\), split
+\[
+ f_L-c=\eta_L(f-f_I)
+       +(\eta_L-\eta_L(C_I))(f_I-f_{J_L}).
+\]
+The inequality \(|a+b|^2\le2|a|^2+2|b|^2\) bounds its average square by
+\[
+ CK^2\left[1+(\ell/L)^2
+          \bigl(1+\log(L/\ell)\bigr)^2\right]1_\N
+ \le CK^2 1_\N.
+\]
+Variance about the actual interval mean is smaller. Intervals disjoint
+from the cutoff support are trivial. The row argument is identical.
+
+Apply Theorem~\ref{thm:main} to \(f_L\). Obtain
+\[
+ f_L=g_L+S_P(\mu_{L,+}-\mu_{L,-}),\qquad
+ \norm{g_L}_\infty+
+ \norm{\mu_{L,+}+\mu_{L,-}}_{\Carl}\le C(D_4)K.       \tag{26}
+\]
+Extract locally weak-star convergent subnets of the positive measures
+on the closed upper half-plane, and a weak-star convergent subnet of
+\(g_L\). For every compactly supported smooth \(\psi\) with
+\(\int\psi=0\), and \(r=\max(|t|,y)\) sufficiently large,
+\[
+ |P_y\psi(t)|
+ =\left|\int\bigl[P_y(t-x)-P_y(t)\bigr]\psi(x)\,dx\right|
+ \le C_\psi r^{-2}.                              \tag{27}
+\]
+The Carleson bound gives mass \(O(Kr)\) on each dyadic annulus of radius
+\(r\). Therefore the tail in pairing (26) with \(\psi\) is \(O(K/R)\)
+beyond radius \(R\), uniformly in \(L\). On compact sets, \(P_y\psi(t)\)
+extends continuously to \(y=0\), with value \(\psi(t)\).
+Since \(f_L=f-f_{J_L}\) on the support of \(\psi\) for large \(L\),
+the left side pairs exactly as \(f\).
+
+The boundary parts of the limiting measures have bounded densities
+of norm \(O(K)\), by the same argument as after (21); absorb them into
+the limiting bounded function. Denote the remaining upper half-plane
+measures by \(\mu_+,\mu_-\), and the bounded function by \(g_0\).
+They have the required uniform bounds. We have proved
+\[
+ \langle f-g_0,\psi\rangle
+ =\int P_y\psi(t)\,d(\mu_+-\mu_-)(t,y)
+ \quad\text{whenever }\int\psi=0.                \tag{28}
+\]
+
+Formula (24) defines a local \(L_1\) function. Indeed, on a bounded
+region in \((t,y)\), positivity and finite trace give local \(L_1\)
+integrability of the ordinary Poisson integral. The subtracted kernel
+there is bounded on \(r\ge1\). At large \(r\), the mean value theorem
+bounds the difference kernel by \(C_B r^{-2}\), uniformly for \(x\)
+in a compact set \(B\); the annular Carleson estimate sums this in
+operator norm.
+Consequently (28) implies
+\[
+ f=g_0+\widetilde S_P(\mu_+-\mu_-)+c
+\]
+for a constant operator \(c\). This constant is bounded after normalizing
+\(f_{I_0}=0\). To check its bound, the average over \(I_0\) of the
+renormalized balayage has norm \(O(K)\): on \(r\le2\), use
+\(\fint_{I_0}P_y(x-t)\,dx\le |I_0|^{-1}\), the boundedness of
+the subtracted kernel, and the \(O(K)\) mass of this region; on
+\(r\ge2\), use the \(O(r^{-2})\) difference bound and annular summation.
+Thus \(\norm{c}_\N\le CK\). Absorb \(c\) into \(g_0\), proving (25).
+The same tail estimates justify the stated interpretation of (24).
+\end{proof}
+
+\section*{Scope and references}
+The proof uses signed measures even for selfadjoint or positive \(f\).
+It does not assert the stronger positivity of both \(g\) and \(\mu\).
+It also does not use a dimension-independent implication from an arbitrary
+positive operator-valued Carleson measure to column/row BMO; that would
+be a different assertion.
+
+\begin{itemize}
+\item T. Mei, \emph{Operator valued Hardy spaces}, Mem. Amer. Math. Soc.
+188 (2007), no. 881.
+\href{https://arxiv.org/abs/math/0311160}{arXiv:math/0311160}.
+\item M. Junge and Q. Xu, \emph{Noncommutative maximal ergodic theorems},
+J. Amer. Math. Soc. 20 (2007), 385--439, especially Remark 2.2(ii).
+\href{https://arxiv.org/abs/math/0505308}{arXiv:math/0505308}.
+\item J. B. Garnett and P. W. Jones, \emph{BMO from dyadic BMO},
+Pacific J. Math. 99 (1982), 351--371.
+The random-walk argument here replaces the kernel-replacement step
+of the scalar proof.
+\end{itemize}
+\end{document}

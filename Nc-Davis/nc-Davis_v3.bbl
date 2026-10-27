@@ -1,0 +1,309 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{BL2008}
+D.~P. Blecher and L.~E. Labuschagne, \emph{Applications of the
+  {F}uglede-{K}adison determinant: {S}zeg\"{o}'s theorem and outers for
+  noncommutative {$H^p$}}, Trans. Amer. Math. Soc. \textbf{360} (2008), no.~11,
+  6131--6147. \MR{2425707}
+
+\bibitem{Bu1966}
+D.~Burkholder, \emph{Martingale transforms}, Ann. Math. Statist. \textbf{37}
+  (1966), 1494--1504. \MR{0208647 (34 \#8456)}
+
+\bibitem{BG1970}
+D.~L. Burkholder and R.~F. Gundy, \emph{Extrapolation and interpolation of
+  quasi-linear operators on martingales}, Acta Math. \textbf{124} (1970),
+  249--304. \MR{440695}
+
+\bibitem{CCP2022}
+L.~Cadilhac, J.~M. Conde-Alonso, and J.~Parcet, \emph{Spectral multipliers in
+  group algebras and noncommutative {C}alder\'{o}n-{Z}ygmund theory}, J. Math.
+  Pures Appl. (9) \textbf{163} (2022), 450--472. \MR{4438906}
+
+\bibitem{Ca1976}
+L.~Carleson, \emph{Two remarks on {$H^{1}$} and {BMO}}, Advances in Math.
+  \textbf{22} (1976), no.~3, 269--277. \MR{477058}
+
+\bibitem{CRX2023}
+Z.~Chen, N.~Randrianantoanina, and Q.~Xu, \emph{Atomic decompositions for
+  noncommutative martingales}, J. Funct. Anal. \textbf{284} (2023), no.~9,
+  Paper No. 109877. \MR{4551610}
+
+\bibitem{CXY2013}
+Z.~Chen, Q.~Xu, and Z.~Yin, \emph{Harmonic analysis on quantum tori}, Comm.
+  Math. Phys. \textbf{322} (2013), no.~3, 755--805. \MR{3079331}
+
+\bibitem{CGP2020}
+J.~Conde-Alonso, A.~M. Gonz\'{a}lez-P\'{e}rez, and J.~Parcet,
+  \emph{Noncommutative strong maximals and almost uniform convergence in
+  several directions}, Forum Math. Sigma \textbf{8} (2020), Paper No. e57, 39.
+  \MR{4179649}
+
+\bibitem{Cu1971}
+I.~Cuculescu, \emph{Martingales on von {N}eumann algebras}, J. Multivariate
+  Anal. \textbf{1} (1971), no.~1, 17--27. \MR{0295398}
+
+\bibitem{Da1970}
+B.~Davis, \emph{On the integrability of the martingale square function}, Israel
+  J. Math. \textbf{8} (1970), 187--190. \MR{268966}
+
+\bibitem{DJ2004}
+A.~Defant and M.~Junge, \emph{Maximal theorems of {M}enchoff-{R}ademacher type
+  in non-commutative {$L_q$}-spaces}, J. Funct. Anal. \textbf{206} (2004),
+  no.~2, 322--355. \MR{2021850}
+
+\bibitem{DdePS2023}
+P.~G. Dodds, B.~de~Pagter, and F.~A. Sukochev, \emph{Noncommutative integration
+  and operator theory}, Progress in Mathematics, vol. 349,
+  Birkh\"{a}user/Springer, Cham, [2023] \copyright 2023. \MR{4738490}
+
+\bibitem{DDSZ2020}
+P.~G. Dodds, T.~K. Dodds, F.~A. Sukochev, and D.~Zanin, \emph{Logarithmic
+  submajorization, uniform majorization and {H}\"{o}lder type inequalities for
+  {$\tau$}-measurable operators}, Indag. Math. (N.S.) \textbf{31} (2020),
+  no.~5, 809--830. \MR{4143505}
+
+\bibitem{Doob1953}
+J.~Doob, \emph{Stochastic processes}, John Wiley \& Sons, Inc., New York;
+  Chapman \& Hall, Limited, London, 1953. \MR{0058896 (15,445b)}
+
+\bibitem{Fa1986}
+T.~Fack and H.~Kosaki, \emph{Generalized {$s$}-numbers of {$\tau$}-measurable
+  operators}, Pacific J. Math. \textbf{123} (1986), no.~2, 269--300. \MR{840845
+  (87h:46122)}
+
+\bibitem{FHW2023}
+Z.~Fan, G.~Hong, and W.~Wang, \emph{{O}perator-valued {H}ardy spaces and {BMO}
+  spaces on spaces of homogeneous type}, arXiv preprint arXiv:2311.15775
+  (2023).
+
+\bibitem{FK1952}
+B.~Fuglede and R.~V. Kadison, \emph{Determinant theory in finite factors}, Ann.
+  of Math. (2) \textbf{55} (1952), 520--530. \MR{52696}
+
+\bibitem{GJ1978}
+J.~B. Garnett and P.~W. Jones, \emph{The distance in {BMO} to {$L^{\infty }$}},
+  Ann. of Math. (2) \textbf{108} (1978), no.~2, 373--393. \MR{506992}
+
+\bibitem{GJ1982}
+\bysame, \emph{B{MO} from dyadic {BMO}}, Pacific J. Math. \textbf{99} (1982),
+  no.~2, 351--371. \MR{658065}
+
+\bibitem{Ga1973}
+A.~M. Garsia, \emph{Martingale inequalities: {S}eminar notes on recent
+  progress}, W. A. Benjamin, Inc., Reading, Mass.-London-Amsterdam, 1973,
+  Mathematics Lecture Notes Series. \MR{0448538 (56 \#6844)}
+
+\bibitem{Gr2009}
+L.~Grafakos, \emph{Modern {F}ourier analysis}, second ed., Graduate Texts in
+  Mathematics, vol. 250, Springer, New York, 2009. \MR{2463316}
+
+\bibitem{Gu1969}
+R.~F. Gundy, \emph{On the class {$L\,{\rm log}\,L$}, martingales, and singular
+  integrals}, Studia Math. \textbf{33} (1969), 109--118. \MR{243588}
+
+\bibitem{HS2007}
+U.~Haagerup and H.~Schultz, \emph{Brown measures of unbounded operators
+  affiliated with a finite von {N}eumann algebra}, Math. Scand. \textbf{100}
+  (2007), no.~2, 209--263. \MR{2339369}
+
+\bibitem{HLP1988}
+G.~H. Hardy, J.~E. Littlewood, and G.~P\'olya, \emph{Inequalities}, Cambridge
+  Mathematical Library, Cambridge University Press, Cambridge, 1988, Reprint of
+  the 1952 edition. \MR{944909}
+
+\bibitem{HJP2016}
+G.~Hong, M.~Junge, and J.~Parcet, \emph{Algebraic {D}avis decomposition and
+  asymmetric {D}oob inequalities}, Comm. Math. Phys. \textbf{346} (2016),
+  no.~3, 995--1019. \MR{3537343}
+
+\bibitem{HLX2023}
+G.~Hong, X.~Lai, and B.~Xu, \emph{Maximal singular integral operators acting on
+  noncommutative {$L_p$}-spaces}, Math. Ann. \textbf{386} (2023), no.~1-2,
+  375--414. \MR{4585152}
+
+\bibitem{HLW2021}
+G.~Hong, B.~Liao, and S.~Wang, \emph{Noncommutative maximal ergodic
+  inequalities associated with doubling conditions}, Duke Math. J. \textbf{170}
+  (2021), no.~2, 205--246. \MR{4202493}
+
+\bibitem{JOW2018}
+Y.~Jiao, A.~Os\c{e}kowski, and L.~Wu, \emph{Inequalities for noncommutative
+  differentially subordinate martingales}, Adv. Math. \textbf{337} (2018),
+  216--259. \MR{3853050}
+
+\bibitem{JOW2019}
+\bysame, \emph{Strong differential subordinates for noncommutative
+  submartingales}, Ann. Probab. \textbf{47} (2019), no.~5, 3108--3142.
+  \MR{4021246}
+
+\bibitem{JOW2025}
+\bysame, \emph{Noncommutative good-$\lambda$ inequalities}, J. Eur. Math. Soc.
+  (online, 2025).
+
+\bibitem{JOWZ2022}
+Y.~Jiao, A.~Os\c{e}kowski, L.~Wu, and Y.~Zuo, \emph{Inequalities for
+  noncommutative weakly dominated martingales and applications}, Comm. Math.
+  Phys. \textbf{396} (2022), no.~2, 787--816. \MR{4504935}
+
+\bibitem{JRWZ2020}
+Y.~Jiao, N.~Randrianantoanina, L.~Wu, and D.~Zhou, \emph{Square functions for
+  noncommutative differentially subordinate martingales}, Comm. Math. Phys.
+  \textbf{374} (2020), no.~2, 975--1019. \MR{4072235}
+
+\bibitem{JZZ2023}
+Y.~Jiao, D.~Zanin, and D.~Zhou, \emph{Noncommutative {B}urkholder/{R}osenthal
+  inequalities with maximal diagonals}, J. Funct. Anal. \textbf{285} (2023),
+  no.~2, Paper No. 109949, 44. \MR{4571873}
+
+\bibitem{Ju2002}
+M.~Junge, \emph{Doob's inequality for non-commutative martingales}, J. Reine
+  Angew. Math. \textbf{549} (2002), 149--190. \MR{1916654 (2003k:46097)}
+
+\bibitem{JM2010}
+M.~Junge and T.~Mei, \emph{Noncommutative {R}iesz transforms---a probabilistic
+  approach}, Amer. J. Math. \textbf{132} (2010), no.~3, 611--680. \MR{2666903}
+
+\bibitem{JM2007}
+M.~Junge and M.~Musat, \emph{A noncommutative version of the {J}ohn-{N}irenberg
+  theorem}, Trans. Amer. Math. Soc. \textbf{359} (2007), no.~1, 115--142.
+  \MR{2247885 (2007m:46103)}
+
+\bibitem{JP2014}
+M.~Junge and M.~Perrin, \emph{Theory of {$\mathcal{H}_p$}-spaces for continuous
+  filtrations in von {N}eumann algebras}, Ast\'{e}risque (2014), no.~362,
+  vi+134. \MR{3241706}
+
+\bibitem{JX2003}
+M.~Junge and Q.~Xu, \emph{Noncommutative {B}urkholder/{R}osenthal
+  inequalities}, Ann. Probab. \textbf{31} (2003), no.~2, 948--995. \MR{1964955
+  (2004f:46078)}
+
+\bibitem{JX2005}
+\bysame, \emph{On the best constants in some non-commutative martingale
+  inequalities}, Bull. London Math. Soc. \textbf{37} (2005), no.~2, 243--253.
+  \MR{2119024 (2005k:46170)}
+
+\bibitem{JX2007}
+\bysame, \emph{Noncommutative maximal ergodic theorems}, J. Amer. Math. Soc.
+  \textbf{20} (2007), no.~2, 385--439. \MR{2276775 (2007k:46109)}
+
+\bibitem{JX2008}
+\bysame, \emph{Noncommutative {B}urkholder/{R}osenthal inequalities. {II}.
+  {A}pplications}, Israel J. Math. \textbf{167} (2008), 227--282. \MR{2448025
+  (2010c:46141)}
+
+\bibitem{KS2008}
+N.~J. Kalton and F.~A. Sukochev, \emph{Symmetric norms and spaces of
+  operators}, J. Reine Angew. Math. \textbf{621} (2008), 81--121. \MR{2431251}
+
+\bibitem{Lo1993}
+R.~Long, \emph{Martingale spaces and inequalities}, Peking University Press,
+  Beijing; Friedr. Vieweg \& Sohn, Braunschweig, 1993. \MR{1224450 (94j:60087)}
+
+\bibitem{Me2007}
+T.~Mei, \emph{Operator valued {H}ardy spaces}, Mem. Amer. Math. Soc.
+  \textbf{188} (2007), no.~881, vi+64. \MR{2327840}
+
+\bibitem{Parcet2}
+J.~Parcet, \emph{Pseudo-localization of singular integrals and noncommutative
+  {C}alder\'on-{Z}ygmund theory}, J. Funct. Anal. \textbf{256} (2009), no.~2,
+  509--593. \MR{2476951 (2010g:42035)}
+
+\bibitem{PR2006}
+J.~Parcet and N.~Randrianantoanina, \emph{Gundy's decomposition for
+  non-commutative martingales and applications}, Proc. London Math. Soc. (3)
+  \textbf{93} (2006), no.~1, 227--252. \MR{2235948 (2007b:46115)}
+
+\bibitem{Pa2007}
+Javier Parcet, \emph{Weak type estimates associated to {B}urkholder's
+  martingale inequality}, Rev. Mat. Iberoam. \textbf{23} (2007), no.~3,
+  1011--1037. \MR{2414501}
+
+\bibitem{Pe2009}
+M.~Perrin, \emph{A noncommutative {D}avis' decomposition for martingales}, J.
+  Lond. Math. Soc. (2) \textbf{80} (2009), no.~3, 627--648. \MR{2559120
+  (2011e:46104)}
+
+\bibitem{Pi1998}
+G.~Pisier, \emph{Non-commutative vector valued {$L_p$}-spaces and completely
+  {$p$}-summing maps}, Ast\'erisque (1998), no.~247, vi+131. \MR{1648908}
+
+\bibitem{PIS7}
+\bysame, \emph{Non-commutative vector valued {$L_p$}-spaces and completely
+  {$p$}-summing maps}, Ast\'erisque (1998), no.~247, vi+131. \MR{1648908
+  (2000a:46108)}
+
+\bibitem{PX1997}
+G.~Pisier and Q.~Xu, \emph{Non-commutative martingale inequalities}, Comm.
+  Math. Phys. \textbf{189} (1997), no.~3, 667--698. \MR{1482934 (98m:46079)}
+
+\bibitem{Pi20031}
+\bysame, \emph{Non-commutative {$L^p$}-spaces}, Handbook of the geometry of
+  {B}anach spaces, {V}ol.\ 2, North-Holland, Amsterdam, 2003, pp.~1459--1517.
+  \MR{1999201 (2004i:46095)}
+
+\bibitem{PSZ2024}
+D.~Potapov, F.~Sukochev, and D.~Zhou, \emph{Noncommutative nest {H}ardy spaces
+  and martingales}, manuscript (2024).
+
+\bibitem{Rand2002}
+N.~Randrianantoanina, \emph{Non-commutative martingale transforms}, J. Funct.
+  Anal. \textbf{194} (2002), no.~1, 181--212. \MR{1929141 (2003m:46098)}
+
+\bibitem{Rand2004}
+\bysame, \emph{Square function inequalities for non-commutative martingales},
+  Israel J. Math. \textbf{140} (2004), 333--365. \MR{2054851 (2005c:46091)}
+
+\bibitem{Rand2005}
+\bysame, \emph{A weak type inequality for non-commutative martingales and
+  applications}, Proc. London Math. Soc. (3) \textbf{91} (2005), no.~2,
+  509--542. \MR{2167096 (2007b:46116)}
+
+\bibitem{Rand2007}
+\bysame, \emph{Conditioned square functions for noncommutative martingales},
+  Ann. Probab. \textbf{35} (2007), no.~3, 1039--1070. \MR{2319715
+  (2009d:46112)}
+
+\bibitem{Ra2023}
+\bysame, \emph{P. {J}ones' interpolation theorem for noncommutative martingale
+  {H}ardy spaces}, Trans. Amer. Math. Soc. \textbf{376} (2023), no.~3,
+  2089--2124. \MR{4549700}
+
+\bibitem{RWX2019}
+N.~Randrianantoanina, L.~Wu, and Q.~Xu, \emph{Noncommutative {D}avid type
+  decompositions and applications}, J. Lond. Math. Soc. (2) \textbf{99} (2019),
+  no.~1, 97--126. \MR{3909250}
+
+\bibitem{Su2014}
+F.~Sukochev, \emph{Completeness of quasi-normed symmetric operator spaces},
+  Indag. Math. (N.S.) \textbf{25} (2014), no.~2, 376--388. \MR{3151823}
+
+\bibitem{TMS2019}
+A.~Talebi, M.~S. Moslehian, and G.~Sadeghi, \emph{A representation of
+  noncommutative {BMO} spaces}, Statist. Probab. Lett. \textbf{153} (2019),
+  65--70. \MR{3960182}
+
+\bibitem{TZ2024}
+C.~Tian and D.~Zhou, \emph{Weak type estimate for the partial sums of
+  noncommutative {V}ilenkin-{F}ourier series}, Proc. Amer. Math. Soc.
+  \textbf{152} (2024), no.~3, 1153--1167. \MR{4693673}
+
+\bibitem{Weisz1994}
+F.~Weisz, \emph{Martingale {H}ardy spaces and their applications in {F}ourier
+  analysis}, Lecture Notes in Mathematics, vol. 1568, Springer-Verlag, Berlin,
+  1994. \MR{1320508 (96m:60108)}
+
+\bibitem{XXX2016}
+R.~Xia, X.~Xiong, and Q.~Xu, \emph{Characterizations of operator-valued {H}ardy
+  spaces and applications to harmonic analysis on quantum tori}, Adv. Math.
+  \textbf{291} (2016), 183--227. \MR{3459017}
+
+\end{thebibliography}

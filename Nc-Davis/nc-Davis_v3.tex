@@ -1,0 +1,1887 @@
+\documentclass[11]{amsart}
+
+
+\usepackage{geometry}
+ \geometry{left=3.0cm, right=3.0cm, top=3.0cm, bottom=3.0cm}
+% a4paper,scale=0.68
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{amssymb}
+
+ \usepackage{appendix}
+\usepackage{showkeys}
+
+
+%\usepackage[colorlinks, linkcolor=blue, citecolor=blue]{hyperref}
+
+\usepackage[colorlinks=true,urlcolor=blue, citecolor=blue,linkcolor=blue,linktocpage,pdfpagelabels,bookmarksnumbered,bookmarksopen]{hyperref}
+
+\usepackage[hyperpageref]{backref}
+
+\numberwithin{equation}{section}
+%[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\title[Davis inequality for noncommutative  martingales]{Noncommutative Davis inequalities and applications}
+%with  maximal diagonal
+
+\authors
+
+\author[Jiao]{Yong Jiao}
+\address{School of Mathematics and Statistics,
+	Central South University, Changsha 410083, China}
+\email{jiaoyong@csu.edu.cn}
+
+\author[Luo]{Sijie Luo}
+\address{School of Mathematics and Statistics,
+	Central South University, Changsha 410083, China}
+\email{sijieluo@csu.edu.cn}
+
+\author[Sukochev]{Fedor Sukochev}
+\address{School of Mathematics and Statistics,
+	UNSW, Australia}
+\email{f.sukochev@unsw.edu.au}
+
+\author[Zhou]{Dejian Zhou$^*$}
+\address{School of Mathematics and Statistics,
+	Central South University, Changsha 410083, China}
+\email{zhoudejian@csu.edu.cn}
+
+\keywords{noncommutative martingales; Davis inequality; martingale transform; triangular truncation}
+
+\thanks{$*$ The corresponding author.}
+
+\begin{abstract}
+In the present paper, we establish the Davis inequality for noncommutative martingales. Particularly, we  show that, for each noncommutative martingale $x=(x_n)_{n\geq1}$ associated with a regular filtration, there exists a  constant $c_p>0$ such that
+$$\|x\|_{H_p(\mathcal{M})}\leq c_p\|x\|_{L_p(\mathcal{M},\ell_{\infty})},\quad 0<p\leq 1,$$
+which provides an affirmative answer of an long-standing open question raised by Junge and Xu  in 2005. Our results apply to Mei's operator-valued Hardy spaces and Garnett-Jones' dyadic Carleson decomposition of noncommutative BMO spaces. 
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+
+This paper concerns  the Davis-type inequalities for noncommutative martingales. Let us first recall the  commutative results. Let $(\Omega,\mathcal{F},\mathbb{P};\{\mathcal{F}_n\}_{n\geq1})$  be a probability space associated with an increasing filtration $\{\mathcal{F}_n\}_{n\geq1}$, and let $\{\mathbb{E}_k\}_{k\geq1}$ be the conditional expectation with respect to $\{\mathcal{F}_n\}_{n\geq1}$. Recall that the classical Doob inequalities assert that (see Doob \cite{Doob1953})
+\begin{equation}\label{Doob w11}
+	\|\sup_n|\mathbb{E}_n(f)|\|_{L_{1,\infty}(\Omega)}\leq \|f\|_{L_1(\Omega)}
+\end{equation}
+and 
+\begin{equation}\label{Doob spp}
+	\|\sup_n|\mathbb{E}_n(f)|\|_{L_{p}(\Omega)}\leq \frac{p}{p-1}\|f\|_{L_p(\Omega)},\quad 1<p\leq \infty.
+\end{equation}
+The Burkholder-Gundy inequality says that there exist constants $c_p$, $C_p$ such that
+\begin{equation}\label{B 1966}
+c_p\|f\|_{H_p(\Omega)}\leq \|\sup_n|\mathbb{E}_n(f)|\|_{L_p(\Omega)}\leq c\|f\|_{H_p(\Omega)},\quad 1<p<\infty,
+\end{equation}
+where $\|f\|_{H_p(\Omega)}=\|S(f)\|_{L_p(\Omega)}$ and $S(f)=(\sum_{k\geq1}|\mathbb{E}_k(f)-\mathbb{E}_{k-1}(f)|^2)^{1/2}$ ($\mathbb{E}_0(f)=0$ for convenience).
+This inequality was first proved in \cite[Theorem 9]{Bu1966}, and moreover, when the filtration is regular (see e.g. \eqref{regular}), then \eqref{B 1966} was extended to the entire range $0 < p < \infty$; see \cite{BG1970}. It was also shown in \cite{BG1970} that inequality \eqref{B 1966}
+fails to hold without this regularity condition when $0 < p < 1$. 
+The Davis inequality \cite{Da1970} for commutative martingales completes the result of Burkholder and Gundy, which states that there exists a universal constant $c>0$ such that 
+\begin{equation}\label{Davis 1970}
+	\frac{1}{c}\|f\|_{H_1(\Omega)}\leq \|\sup_n|\mathbb{E}_n(f)|\|_{L_1(\Omega)}\leq c\|f\|_{H_1(\Omega)},
+\end{equation}
+These inequalities are fundamental in classical martingale theory and find rich applications across harmonic analysis, probability theory and ergodic theory.
+
+The study of noncommutative martingale theory goes back to Cuculescu \cite{Cu1971}. Since the establishment of noncommutative Burkholder-Gundy inequality by Pisier and Xu \cite{PX1997}, noncommutative martingale theory experienced rapid development and many classical inequalities have been reformulated to include noncommutative martingales. See for instance \cite{Ju2002,JM2007,JX2003,JX2008,Rand2002,Rand2005,Rand2007,RWX2019}; see also \cite{JOW2018,JOW2019,JOWZ2022,JRWZ2020,JZZ2023}, \cite{CRX2023} and \cite{Ra2023} for recent results.
+
+The noncommutative analogues of \eqref{Doob w11} and \eqref{Doob spp} were also studied. 
+Due to the noncommutativity, it is impossible
+to define the supremum of a family of noncommutating operators; we refer the reader to \cite[p.\,386]{JX2007} for a detailed explanation. This makes it difficult to formulate a noncommutative maximal inequality.
+The first meaningful noncommutative maximal function appears in the seminal paper \cite{Cu1971} by Cuculescu who established the noncommutative analogue of Doob's weak $(1,1)$ maximal inequality \eqref{Doob w11}.
+ Let $(\mathcal{M},\tau)$ be a noncommutative probability space associated with a weak-$\ast$ dense increasing filtration $(\mathcal{M}_n)_{n\geq1}$, and let $\mathcal{E}_n$ denote the  conditional expectation from $\mathcal{M}$ onto $\mathcal{M}_n$, $n\geq1$.
+For each positive $x\in L_1(\mathcal{M})$ and $\lambda>0$, Cuculescu \cite{Cu1971} constructed a projection $q^{(\lambda)}\in \M$  (see Lemma \ref{Cuculescu} below)  such that $\sup_n\|q^{(\lambda)}\mathcal{E}_n(x)q^{(\lambda)}\|_{\M}\leq \lambda$ and
+\begin{equation}\label{Nc weak 11}
+\lambda\tau(1-q^{(\lambda)})\leq \|x\|_{L_1(\M)}.
+\end{equation}
+Note that in the classical case, we have
+$$\{\sup_n\mathbb{E}_n(f)>\lambda\}=\Omega\setminus \cap_n\{\mathbb{E}_n(f)\leq \lambda\},$$
+and the Cuculescu projection $q^{(\lambda)}$ behaves as a noncommutative version of the indicator function of the measurable set $\cap_n\{\mathbb{E}_n(f)\leq \lambda\}$.
+As for commutative martingales, the $L_p(\Omega)$-norm of the Doob maximal function $\sup_n|\mathbb{E}_n(f)|$ can be understood as the $L_p(\Omega;\ell_{\infty})$-norm of $(\mathbb{E}_n(f))_{n\geq1}$. Here $L_p(\Omega;\ell_{\infty})$ denotes the $\ell_{\infty}$-valued Lebesgue space. The noncommutative $\ell_{\infty}$-valued Lebesgue space $L_p(\mathcal{M},\ell_{\infty})$ (see \eqref{e-infty} and \eqref{positive} below) was first introduced by Pisier \cite{Pi1998} for hyperfinite von Neumann algebras, and by Junge \cite{Ju2002} in full generality. Moreover, in the remarkable paper \cite{Ju2002}, via Hilbert module theory and a duality argument, Junge established the following noncommutative Doob maximal inequality
+\begin{equation}\label{Junge strong pp}	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{p}(\mathcal{M},\ell_{\infty})}\leq c_p\|x\|_{L_p(\mathcal{M})},\quad 1<p\leq \infty.
+\end{equation}
+This is different from the classical Doob inequality \eqref{Doob spp} in that now the best order of $c_p$ is $O(\frac{1}{(p-1)^2})$ as $p\to1$; this was proved by Junge and Xu in \cite[Theorem 8]{JX2005}. In \cite{JX2007}, Junge and Xu proved a noncommutative Marcinkiewicz interpolation which can be used to prove \eqref{Junge strong pp} with optimal order constant. A combination of Junge's noncommutative Doob inequality \eqref{Junge strong pp} and Pisier-Xu Burkholder-Gundy inequality gives a  noncommutative analogue of \eqref{B 1966}: $$\alpha_p\|x\|_{H_p(\M)}\leq \|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{p}(\mathcal{M},\ell_{\infty})}\leq \beta_p\|x\|_{H_p(\mathcal{M})},\quad 1<p< \infty.$$
+Here the noncommutative Hardy space $H_p(\M)$ is defined by column and row square functions, we recall the definition in Section \ref{sec-mart}.
+
+It is natural to consider the  case $p=1$. However, Junge and Xu \cite[Lemma 13]{JX2005} showed that there \emph{does not} exist a universal constant $c>0$ such that
+\begin{equation}\label{fail Davis}
+\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1}(\mathcal{M},\ell_{\infty})}\leq c\|x\|_{H_1(\mathcal{M})}.
+\end{equation}
+This seemingly makes the prospect of a noncommutative extension of the Davis inequality \eqref{Davis 1970} hopeless.
+Instead of \eqref{fail Davis}, some authors have considered a noncommutative Davis-type inequality with a noncommutative conditioned square function in place of the maximal function. To be more specific, the noncommutative Davis-type inequality obtained in \cite[Theorem 2.1]{Pe2009} (and independently in \cite{JM2010}) gives that there exists a universal constant $c>0$ such that for each $x\in L_1(\M)$ we have
+\begin{equation}\label{Perrin}
+\inf_{d_nx=y_n+z_n}\Big\{	\Big\|\Big(\sum_{n\geq2}\mathcal{E}_{n-1}(|y_n|^2)+|y_1|^2\Big)^{1/2}\Big\|_{L_1(\M)}+\|(z_n)\|_{\ell_1(L_1(\M))}\Big\}\leq c	\|x\|_{H_1^c(\M)}.
+\end{equation}
+Here, $d_nx=\mathcal{E}_n(x)-\mathcal{E}_{n-1}(x)$ (for convenience $\mathcal{E}_0(x)=0$),  $(y_n)_{n\geq1}$ and $(z_n)_{n\geq1}$ are both martingale difference sequences, and $\|x\|_{H_1^c(\M)}=\|S_c(x)\|_{L_1(\M)}$ with $S_c(x)=(\sum_{n\geq1}|d_nx|^2)^{1/2}$. The authors of \cite{JP2014} proved that the space $\ell_1(L_1(\M))$ in the formula \eqref{Perrin} can be replaced by a noncommutative vector-valued space $L_1(\M,\ell_1^c)$. Recently, Randrianantoanina-Wu-Xu  \cite[Theorem 3.1]{RWX2019} provided a constructive approach for \eqref{Perrin}. The above Davis-type inequality has proven to be a powerful tool in the noncommutative martingale setting, for example it plays a prominent role in establishing continuous time noncommutative martingale
+inequalities,  as well as in the study of noncommutative Burkholder martingale
+inequalities in symmetric spaces (see \cite{JP2014} and \cite{RWX2019} respectively).
+As for noncommutative Davis-type inequalities like \eqref{fail Davis}, a breakthrough was made by Hong, Junge and  Parcet, who proved in \cite[Theorem B]{HJP2016} that
+\begin{equation}
+	\inf_{x=y+z}\{\|(\mathcal{E}_n(y))_{n\geq1}\|_{L_1(\M,\ell_{\infty}^{\theta})}+\|(\mathcal{E}_n(z))_{n\geq1}\|_{L_1(\M,\ell_{\infty}^{1-\theta})}\}\leq c_{\theta}\|x\|_{H_1(\M)}, \quad 0<\theta\neq 1/2<1,
+\end{equation}
+where the space $L_1(\M,\ell_{\infty}^{\theta})$, which will not be defined in the present paper, is an asymmetric version of $L_p(\M,\ell_{\infty})$, and in particular, $L_p(\M,\ell_{\infty}^{1/2})=L_p(\M,\ell_{\infty})$; see \cite[p.\,996]{HJP2016} or \cite[Section 3]{DJ2004} for more information.
+This can be viewed as a correct noncommutative version of the right-hand side inequality of \eqref{Davis 1970}. 
+However, it remains open whether the converse of \eqref{fail Davis} holds or if one can find a noncommutative analogue of the left-hand side inequality of \eqref{Davis 1970}.
+This is actually an open problem raised by Junge and Xu in 2005. We rewrite it as follows.
+\begin{problem}[{\cite[Problem 16]{JX2005}}]\label{JX problem} It is entirely open that whether there exists a universal constant $c>0$ such that 
+	$$\|x\|_{H_1(\mathcal{M})}\leq c\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1}(\mathcal{M},\ell_{\infty})}.$$
+\end{problem}
+
+Our  main result of the paper, Theorem \ref{Davis},  provides a positive answer to this problem under the assumption that the related filtration is regular. We say a filtration  $(\mathcal{M}_n)_{n\geq1}$ is regular with constant $c_{\mathrm{reg}}>0$ if for any positive $x\in \mathcal{M}$, 
+\begin{equation}\label{regular}
+	\mathcal{E}_n(x)\leq c_{\mathrm{reg}}\mathcal{E}_{n-1}(x),\quad \forall n\geq1.
+\end{equation}
+Throughout this paper, $c_p$ always denotes a positive constant only depending on the symbol $p$, and  $c_{p,\mathrm{reg}}$ always denotes a positive constant depending on both $p$ and $c_{\mathrm{reg}}$.
+
+\begin{theorem}\label{Davis}
+	Let $(\mathcal{M},\tau)$ be a noncommutative probability space associated with the regular filtration $(\mathcal{M}_n)_{n\geq1}$. For each martingale $x=(x_n)_{n\geq1}\in L_p(\mathcal{M}, \ell_{\infty})$ with $0<p\leq 1$, there exists a constant $c_{p,\mathrm{reg}}>0$ depending on $p$ and the regularity constant $c_{\mathrm{reg}}$ such that
+	$$\|x\|_{H_p(\mathcal{M})}\leq c_{p,\mathrm{reg}}\|x\|_{L_p(\mathcal{M}, \ell_{\infty})}.$$
+\end{theorem}
+
+
+
+We summarize the main idea of the proof of Theorem \ref{Davis} below. 
+\begin{remark}
+	As in the noncommutative setting, there is no pointwise noncommutative maximal function. Therefore, the Davis decomposition (\cite{Da1970}) based on maximal functions fails to be constructed in the noncommutative setting. Our proof presented here is somewhat inspired by \cite{BG1970} which is also regarded as the origin of the modern good-$\lambda$ method. We reformulate the arguments of Burkholder and Gundy in the language of the good-$\lambda$ method. Under the regularity condition, to prove 
+	\begin{equation}\label{BG}
+\|S(f)\|_{L_p(\Omega)}\leq c_p \|\sup_n|\mathbb{E}_n(f)|\|_{L_p(\Omega)} ,\quad 0<p<\infty,
+	\end{equation}
+	it suffices to show 
+	\begin{equation}\label{good lambda}
+		\mathbb{P}(S(f)>\alpha \lambda, \sup_n|\mathbb{E}_n(f)|\leq \delta)\leq \alpha \mathbb{P}(S(f)>\lambda),
+	\end{equation}
+	for some $\alpha,\beta,\delta>0$ satisfy $\alpha\beta^p<1$. However, with a more refined computation, we can obtain a stronger distributional estimate
+	\begin{equation}\label{good lambda 2}
+		\mathbb{P}(S(f)> \lambda)\lesssim  \mathbb{P}(\sup_n|\mathbb{E}_n(f)|>\lambda)+\mbox{good part},
+	\end{equation}
+	which implies \eqref{BG} directly. 
+	
+	In the noncommutative, it is impossible to write the left-hand side of \eqref{good lambda} down (see \cite{JOW2025}).
+	Following the idea of \eqref{good lambda 2} and using the Cuculescu projections, we establish its noncommutative counterpart in Lemma \ref{distribution S}, which in term implies, 
+	$$\|x\|_{H_1(\M)}\lesssim \sum_k 2^k\tau(1-q^{(2^k)}),$$
+	where $q^{(2^k)}$ is a Cuculescu projection related to the positive martingale $x$ (see Section \ref{sec-Cucu} for details).  After this, we introduce the Fuglede-Kadison determinant to help us to build the connection 
+	\begin{equation}\label{FK lem}
+		\sum_k 2^k\tau(1-q^{(2^k)}) \lesssim \|(\mathcal{
+		E}_n(x))_n\|_{L_1(\mathcal{M},\ell_{\infty})};
+	\end{equation}
+	see Lemma \ref{L1 e1}. 
+\end{remark}
+
+ We also point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} made an interesting connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
+ 
+ We also put some words on \eqref{FK lem}. Recall that \eqref{Junge strong pp} with best order constant $O((p-1)^{-2})$ (as $p\to 1$) implies that the following inequality cannot hold
+\begin{equation*}
+	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}\leq c_{\mathrm{abs}}\|x\|_{L_p(\mathcal{M})}.
+\end{equation*}
+If we compare this with \eqref{Nc weak 11}, it is nature conjecture 
+\begin{equation}\label{weak 11}
+	\sup_{\lambda>0}\lambda\tau(1-q^{(\lambda)}) \leq  c_{\mathrm{abs}}	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}.
+\end{equation}
+With an understanding of \eqref{weak 11} via Lemma \ref{key lemma},  we can quickly grasp \eqref{FK lem}. 
+
+\begin{remark}\label{rem 1} We put a few comments below.
+	\begin{enumerate}[{\rm (i)}]
+		\item Under the regularity assumption, Theorem \ref{Davis} with $p=1$ provides an affirmative answer to the open question posed by Junge and Xu (i.e., the aforementioned Problem \ref{JX problem}). However, without the regularity assumption, the problem remains open.
+		\item It is not so surprising that Theorem \ref{Davis} holds for $0<p\leq 1$. Actually, for commutative regular martingales and $0<p\leq 1$, different kinds of martingale Hardy spaces $H_p(\Omega)$ are equivalent; see e.g. \cite{BG1970} and \cite[Corollary 2.23]{Weisz1994}.
+		\item With the same proof, the above results hold for general semi-finite von Neumann algebras associated with a regular filtration.
+	\end{enumerate}
+\end{remark}
+
+
+
+
+
+
+
+Here, we outline two applications of Theorem \ref{Davis}. Further details can be found in Section \ref{sec-Mei} and Section \ref{sec-car-dyadic}.
+
+\begin{remark}\label{app Davis} $\quad$
+	
+	\begin{enumerate}[{\rm (i)}]
+		\item In setting of classical harmonic analysis, there is a well-known and basic result which says that for each well-defined function $f$, $\|f\|_{\mathcal{H}_1(\mathbb{R})}\leq \|M(f)\|_{L_1(\mathbb{R})}$, where $\mathcal{H}_1(\mathbb{R})$ is the classical Hardy space and $M$ denotes the Hardy-Littlewood maximal function. We refer to \cite[p.\,39]{Gr2009} for more information about this topic. In Section \ref{sec-Mei}, using Theorem \ref{Davis}, we get a noncommutative analogue of this result for the operator-valued Hardy space $\mathcal{H}_1(\mathbb{R},\mathcal{N})$ introduced by Mei \cite{Me2007}; see Theorem \ref{Mei-H1} below for details.
+		\item  In the remarkable paper \cite{GJ1982}, Garnett and Jones demonstrated the Carleson decomposition theorem (\cite{Ca1976}) by establishing a dyadic Carleson decomposition (see Theorem \ref{GJ thm}). Applying Theorem \ref{Davis}, we first obtain a decomposition result for noncommutative martingale BMO space in Theorem \ref{Ga decom} which in turn implies the noncommutative analogue of Garnett-Jones' dyadic Carleson decomposition, that is, Theorem \ref{dyadic c-d}.
+		\item  Theorem \ref{Ga decom} is actually a noncommutative version of \cite[Theorem II.4.1]{Ga1973} due to Garsia. Moreover, both Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d} have further possible applications; see Remark \ref{cd Mei}. 
+	\end{enumerate}
+\end{remark}
+
+
+
+
+
+
+
+
+The organization of the paper is as follows. Definitions and basic lemmas are presented in Section \ref{sec-pre}. We establish useful estimates for Cuculescu projections in Section \ref{sec-Cucu}. These estimates will be used throughout the text. Section \ref{sec-davis} contains the proofs of Theorem \ref{Davis}. Finally, in Section \ref{sec-application}, we provide several applications of our main results. 
+
+
+
+
+
+
+
+\section{Preliminary}\label{sec-pre}
+Throughout this paper, for a regular filtration $(\M_n)_{n\geq1}$, its regularity constant is always denoted by $c_{\mathrm{reg}}$; $c_p$ always denotes a positive constant only depends on symbol $p$, and  $c_{p,\mathrm{reg}}$ always denotes a positive constant depends on both $p$ and $c_{\mathrm{reg}}$, where $c_{\mathrm{reg}}$ is the regularity constant.
+
+\subsection{Noncommutative symmetric spaces }
+Let $\mathcal M$ be a finite von Neumann algebra equipped with a normal faithful normalized  trace $\tau$.  We always assume $\mathcal{M}\subset B(H)$ for some Hilbert space $H$.
+Denote by $L_0(\mathcal{M})$ the topological $*$-algebra of all $\tau$-measurable operators, and denote by $\mathcal{P}(\mathcal{M})$ the lattice of projections in $\mathcal{M}$. Suppose that $a$ is a self-adjoint $\tau$-measurable operator and let $a=\int_{-\infty}^{\infty} \lambda d e_{\lambda}$ stand for its spectral decomposition. For any Borel subset $B$ of $\mathbb{R}$, the spectral projection of $a$ corresponding to the set $B$ is defined by $\chi_B(a)=\int_{-\infty}^{\infty} \chi_B(\lambda) d e_{\lambda}$.  For $x\in L_0(\mathcal{M})$, we denote by $r(x)$ and $l(x)$ the right and left support projections of $x$, respectively. In fact, the projection $r(x)$ (resp. $l(x)$) is  the least projection $e$ satisfying $xe=x$ (resp. $ex=x$). For $x\in L_0({\M})$, the spectral distribution function $\mathsf{d}(\cdot,x)$ is defined by
+$$\mathsf{d}(s,x)=\tau\big(\chi_{(s,\infty)}(|x|)\big),$$
+and the generalized singular value function $\mu(x)$ is defined by
+$$\mu(t,x)=\inf\big\{s>0:\mathsf{d}(s,x)\leq t\big\},\quad t>0.$$
+The function $t\mapsto \mu(t,x)$ is decreasing and right-continuous.
+In the case that $\mathcal{M}$ is the abelian von Neumann algebra $L_{\infty}(0,1)$ with the trace given by integration with respect to the Lebesgue measure,  $L_0(\mathcal{M})$ is the space of all measurable functions, with non-trivial distribution, and $\mu(f)$ is the decreasing rearrangement of a measurable function $f$. For  more information of the singular value function we refer the reader to \cite{Fa1986,DdePS2023}.
+
+We collect several basic facts which are often used in the present paper. The proof of item (iv) below is referred to \cite[Proposition 3.2.10]{DdePS2023}. See for instance \cite[Lemma 2.1]{JRWZ2020} for Item (v).
+\begin{fact}\label{Fact 1}
+	Let $x\in L_0(\mathcal{M})$.
+	\begin{enumerate}[\rm (i)] 
+		\item For $s_1,s_2>0$, if $s_1\leq s_2$, then $\chi_{(s_2,\infty)}(|x|)\leq \chi_{(s_1,\infty)}(|x|)$.
+		\item It follows from item (i) above that $\mathsf{d}(s,x)$ is decreasing on $s$. 
+		\item It follows from the definition that $t\leq \mathsf{d}(s,x)$ if and only if $s\leq \mu(t,x)$. 
+		\item If $e\in L_0(\mathcal{M})$ is a projection, then 
+		$$\mu(t,e)=\chi_{[0,\tau(e)]}(t),\quad t>0.$$
+		\item For each $x,y\in L_0(\M)$ and $t,s>0$, we have
+		$$\mathsf{d}(s+t,x+y)\leq \mathsf{d}(s,x)+\mathsf{d}(t,y).$$
+	\end{enumerate}
+\end{fact}
+
+
+
+
+A Banach (or quasi-Banach) function space $(E,\|\cdot\|_E)$ on the interval $(0,1)$ is called symmetric if for every $g\in E$ and for every measurable function $f\in L_0(0,1)$ with $\mu(f)\leq \mu(g)$, we have $f\in E$ and $\|f\|_E\leq \|g\|_E$. 
+Following \cite{KS2008}, for a given symmetric  Banach (or quasi-Banach) function space $(E,\|\cdot\|_E)$, we define the corresponding noncommutative space on $(\mathcal {M},\tau)$ by setting
+$$E(\mathcal{M}):=\big\{x\in L_0(\mathcal{M} ):\mu(x)\in E\big\}.$$
+The associated norm (or quasi-norm) is
+\begin{equation}\label{def-sp}
+	\|x\|_{E(\mathcal M)}=\|\mu(x)\|_E.
+\end{equation}
+It is shown in \cite{KS2008} (resp. \cite{Su2014}) that if $E(0,1)$ is a symmetric  Banach (resp. quasi-Banach) function space, then $E(\mathcal{ M})$ is a Banach space  (resp. a quasi-Banach).
+
+In the present paper, we concern the following concrete examples of  symmetric (quasi-) Banach function spaces. 
+
+Consider the usual Lebesgue space $L_p(0,1)$, $0<p<\infty$. The noncommutative Lebesgue space $L_p(\mathcal{M})$ can be defined according to \eqref{def-sp}, that is, 
+$$\|x\|_{L_p(\mathcal{M})}^p=\int_0^1 \mu(t,x)^pdt,\quad 0<p<\infty.$$
+Moreover, for each $x\in L_p(\mathcal{M})$, we have the following relationship (\cite[Proposition 3.3.9]{DdePS2023} or \cite[Corollary 2.8]{Fa1986})
+\begin{equation}\label{eq FK 2}
+	\tau(|x|^p)=\int_0^1 \mu(t,x)^pdt=p\int_{0}^\infty \lambda^{p-1}\tau\big(\chi_{(\lambda,\infty)}(|x|)\big) d\lambda.
+\end{equation}
+As usual,  $L_\infty(\mathcal M)$ is $\mathcal {M}$ with the usual operator norm.  We refer the reader to \cite{Pi20031} for more information about the noncommutative Lebesgue spaces.
+
+
+
+
+\subsection{Noncommutative maximal function spaces}\label{sec-maximalf}
+In this subsection, following \cite{Ju2002, PIS7}   (see also \cite{HJP2016,CGP2020}), we recall several different noncommutative maximal function spaces, i.e., $L_p(\mathcal M,\ell_{\infty})$, $\Lambda_{p,\infty}(\mathcal M,\ell_\infty)$, $\Lambda_{p,\infty}(\mathcal{M}, \ell_{\infty}^{c})$ and $\Lambda_{p}(\mathcal{M}, \ell_{\infty}^{c})$.
+
+For $0< p\leq \infty$, define $L_p(\mathcal{M},\ell_{\infty})$ as  the space of all sequences $a=(a_n)_{n\geq1}$ in $L_p(\mathcal{M})$ for which there exist $y\in L_{2p}(\mathcal{M})$, $z\in  L_{2p}(\mathcal{M})$ and a bounded sequence $v=(v_{n})_{n\geq1}\subset \M$ such that
+$$a_n=yv_n z,\qquad \forall n\in \mathbb{N}.$$
+For $a=(a_n)_{n\geq1}\in L_p(\mathcal{M},\ell_{\infty})$,  define
+\begin{equation}\label{e-infty}
+	\|a\|_{L_p(\mathcal M,\ell_{\infty})}=\inf\{\|y\|_{2p}\sup_{n\geq1}\|v_n\|_{\infty}\|z\|_{2p}\},
+\end{equation}
+where the infimum is taken over all possible factorizations of $a$ as above.
+According to the definitions, it is obvious that 
+\begin{equation*}
+	\|a\|_{\Lambda_{p,\infty}(\mathcal{M},\ell_{\infty})}\leq \|a\|_{L_p(\mathcal M,\ell_{\infty})},\quad \forall 0<p<\infty.
+\end{equation*}
+Besides, if $a=(a_n)_{n\geq1}\in L_{p}(\mathcal M,\ell_{\infty})$ and $a_n\geq0$ for each $n$, then (see \cite[p.\,392]{JX2007})
+\begin{equation}\label{positive}
+	\|a\|_{L_p(\mathcal{M},\ell_{\infty})}= \inf\{\|A\|_{L_p(\mathcal M)}:  A\in L_p(\mathcal{M}),  0\leq a_n\leq A,\;\forall n\geq1 \}.
+\end{equation}
+
+
+The below result with $p=1$ is essentially due to Junge and Xu \cite[Proposition 2.1(i)]{JX2007}. The same argument used in \cite[Proposition 2.1(i)]{JX2007} also works for $0<p<1$. We still include the details for the reader's convenience. 
+\begin{lemma}\label{JX lemma}
+Let $0<p\leq 1$. Assume that $a=(a_n)_{n\geq1}\in L_p(\M,\ell_{\infty})$ with $\|a\|_{L_p(\M,\ell_{\infty})}\leq 1$. Then there exist positive $\{b^k\}_{k=1}^{16}\subset L_p(\M,\ell_{\infty})$ such that $a$ is a linear combination of $\{b^k\}_{k=1}^{16}$ and 
+$$\|b^k\|_{L_p(\M,\ell_{\infty})}\leq c_p,\quad \forall 1\leq k\leq 16.$$
+\end{lemma}
+\begin{proof}
+Note that $L_p(\M,\ell_{\infty})$ is closed with respect
+	to involution.  Hence, it suffices to consider self-adjoint elements of $L_p(\M,\ell_{\infty})$. Assume that $a=(a_n)_{n\geq1}\in L_p(\M,\ell_{\infty})$ with $a=a^*$, $\|a\|_{L_p(\M,\ell_{\infty})}\leq 1$. Write a
+	factorization of $a=(a_n)$: 
+	$$a_n=y^*v_nz,\quad \|y\|_{2p}\leq 1,\quad \|z\|_{2p}\leq 1,\quad \sup_n\|v_n\|_{\infty}\leq 1.$$
+Following the proof of \cite[Proposition 2.1]{JX2007}, by a standard polarization argument, we have 
+\begin{align*}
+	a_n&=\frac{1}{4}\sum_{k=0}^3i^{-k}(y+i^kz)^*v_n(y+i^kz)\\
+	&=\frac{1}{4}\sum_{k=0}^3(y+i^kz)^*u_n(y+i^kz)=\sum_{k=0}^3(\frac{y+i^kz}{2})^*u_n(\frac{y+i^kz}{2})\\
+	&=\sum_{k=0}^3(\frac{y+i^kz}{2})^*u_n^+(\frac{y+i^kz}{2})-\sum_{k=0}^3(\frac{y+i^kz}{2})^*u_n^{-}(\frac{y+i^kz}{2}),
+\end{align*}
+where $u_n^+$ and $u_n^{-}$ denote the positive part and negative part of $u_n$, and 
+$$u_n=\frac{i^{-k}v_n+(i^{-k}v_n)^*}{2}.$$
+Note that for $0<r<1$, $\|\cdot\|_r$ is a quasi-norm with constant $2^{1/r-1}$. Hence, for each $k$,
+$$\|\frac{y+i^kz}{2}\|_{2p}\leq \max\{2^{\frac{1}{2p}-1},1\}.$$
+Taking $c_p=\max\{2^{\frac{1}{p}-2},1\}$, the desired assertion follows.
+\end{proof}
+
+
+\subsection{Noncommutative, conditional expectations, martingales and Hardy spaces}\label{sec-mart}
+Throughout the paper, let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ satisfying $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
+Assume that for each $n\geq1$ there exists conditional expectation $\mathcal{E}_n:\mathcal{M}\to\mathcal{M}_n$. 
+The conditional expectations $(\mathcal{E}_{n})_{n\geq1}$ satisfy
+\begin{enumerate}[{\rm (a)}]
+	\item $\mathcal{E}_{n}(xy)=\mathcal{E}_{n}(x)y$, $\mathcal{E}_n(yx)=y\mathcal{E}_{n}(x)$, $n\geq1$ and $y\in \mathcal{M}_n$;
+	\item $\mathcal{E}_n\mathcal{E}_m=\mathcal{E}_n$ for $m\geq n$;
+	\item $\tau(\mathcal{E}_n(x))=\tau(x)$, $n\geq1$.
+\end{enumerate}
+Since each $\mathcal{E}_n$ preserves the trace, it extends to a contractive projection from $L_p(\mathcal{M},\tau)$ onto $L_p(\mathcal{M}_n,\tau)$ for all $1\leq p\leq \infty.$
+
+
+A sequence $x=(x_n)_{n\geq1}\subset L_1(\mathcal{M})$ is called a martingale if
+$$\mathcal{E}_{n}(x_{n+1})=x_n,\quad n\geq1.$$
+If in addition, $(x_n)_{n\geq1}\subset L_p(\mathcal{M})$ with $1\leq p<\infty$, then $x$ is called an $L_p(\M)$-martingale. In this case, set 
+\begin{equation}\label{def martingale}
+\|x\|_p=\sup_{n\geq1}\|x_n\|_p.
+\end{equation}
+If $\|x\|_p<\infty$, then $x=(x_n)_{n\geq1}$ is called a bounded $L_p(\M)$-martingale.
+A martingale is called finite if there exists some $N$ such that $x_m=x_N$ for $m\geq N$. In what follows, the sequence of martingale differences  corresponding to the martingale $x=(x_n)_{n\geq1}$ is denoted by $(d_nx)_{n\geq1}$
+with $d_1x=x_1$ and
+\begin{equation}\label{m-dif}
+	d_nx=x_n-x_{n-1},\quad \forall n\geq2.
+\end{equation}
+For an element $y\in L_1(\mathcal{M})$, note that the sequence $(\mathcal{E}_n(y))_{n\geq1}$ is a  martingale.
+
+\begin{remark}\label{rem: martingale}
+	If $x\in L_p(\mathcal{M})$ with $1\leq p<\infty$, then $(\mathcal{E}_n(x))_{n\geq1}$ is a bounded $L_p(\M)$-martingale and $\mathcal{E}_n(x)$ converges to $x$ in $L_p(\mathcal{M})$. Conversely, if $(x_n)_{n\geq1}$ is a bounded $L_p(\M)$-martingale with $1<p<\infty$, then there exists $x_{\infty}\in L_p(\mathcal{M})$ such that $x_n=\mathcal{E}_n(x_{\infty})$ for each $n\geq1$. In this paper, we often  identify a martingale with its final value $x_{\infty}$ whenever the latter exists.
+\end{remark}
+
+For $0< p<\infty$ and any finite sequence $a=(a_n)_{n\geq1}\subset L_p(\mathcal{M})$, define 
+$$\|a\|_{L_p(\mathcal{M},\ell_2^c)}=\Big\|\Big(\sum_{n\geq1}|a_n|^2\Big)^{1/2}\Big\|_{p},\quad \|a\|_{L_p(\mathcal{M},\ell_2^r)}=\Big\|\Big(\sum_{n\geq1}|a_n^*|^2\Big)^{1/2}\Big\|_{p}.$$
+This gives two quasi-norms on the family of all finite sequences in $ L_p(\mathcal{M})$. The corresponding completion is a Banach space, denoted by $L_p(\mathcal{M},\ell_2^c)$ or $L_p(\mathcal{M},\ell_2^r)$, respectively. It is easy to check that
+a sequence $a=(a_n)_{n\geq1}\subset L_p(\mathcal{M})$ belong to $L_p(\mathcal{M},\ell_2^c)$ if and only if $\sup_N\|(\sum_{n=1}^N|a_n|^2)^{1/2}\|_{p}<\infty$, if this is the case, then $(\sum_{n=1}^N|a_n|^2)^{1/2}$ converges to $(\sum_{n\geq1}|a_n|^2)^{1/2}$ in $L_p(\mathcal{M})$.
+
+%Recall that for $1\leq p<\infty$, $L_p(\mathcal{M},\ell_2^c)$ (resp. $L_p(\mathcal{M},\ell_2^r)$) is viewed 1-complemented subspace of $L_p(\mathcal{M}\bar{\otimes}B(\ell_2))$; see e.g. \cite[p.\,670]{PX1997}. Hence, the  following duality can be deduced from the duality between $L_p(\mathcal{M}\bar{\otimes}B(\ell_2))$ and $L_q(\mathcal{M}\bar{\otimes}B(\ell_2))$ with $1\leq p<\infty$ and $\frac{1}{p}+\frac{1}{q}=1$:
+%\begin{equation}\label{eq:duality}
+%	(L_p(\mathcal{M},\ell_2^c))^*=L_q(\mathcal{M},\ell_2^c),\quad (L_p(\mathcal{M},\ell_2^r))^*=L_q(\mathcal{M},\ell_2^r).
+%\end{equation}
+
+
+
+
+
+For $0<p\leq 2$, define $H_p^r(\mathcal{M})$ (resp. $H_p^c(\mathcal{M})$) as the completion of all finite $L_2(\M)$-martingales under the quasi-norm 
+$$\|x\|_{H_p^r}:=\|(d_nx)_{n\geq1}\|_{L_p(\mathcal{M},\ell_2^r)}\quad \mbox{(resp. $\|x\|_{H_p^c}:=\|(d_nx)_{n\geq1}\|_{L_p(\mathcal{M},\ell_2^c)}$)}.$$
+Define 
+$$H_p(\mathcal{M})=H_p^c(\mathcal{M})+H_p^r(\mathcal{M})$$
+equipped with the quasi-norm
+$$\|x\|_{H_p(\mathcal{M})}=\inf_{x=y+z}\{\|y\|_{H_p^c(\mathcal{M})}+\|z\|_{H_p^r(\mathcal{M})}\},$$
+where the infimum is taken over all the decomposition of $x=y+z$, where $y$ and $z$ are also martingales. 
+If $x\in H_p^c(\mathcal{M})$ or $x\in H_p^r(\mathcal{M})$, then $S_c(x)\in L_p(\mathcal{M})$ or $S_r(x)\in L_p(\mathcal{M})$, where  the column and  row   square functions $S_c(x)$ and $S_r(x)$ are defined by
+\begin{equation}\label{def:S}
+	S_c(x)=\Big(\sum_{n\geq1}|d_nx|^2\Big)^{1/2}, \quad S_r(x)=\Big(\sum_{n\geq1}|d_nx^*|^2\Big)^{1/2}.
+\end{equation}
+
+
+
+
+
+
+%\subsection{Almost uniform convergence}
+%In this subsection, we recall definitions of almost uniform convergence in semifinite von Neumann algebras. 
+
+
+
+%The following definition, which goes back at least   Lance \cite{La1976} or \cite{Ja1985},  is taken from \cite{CGP2020} and \cite[p.\,109]{De2011}.
+%
+%The column almost uniform convergence is the usual almost uniform convergence used in \cite{CXY2013}, \cite{JX2007},    \cite{Me2007} and more; hence we sometimes still use the same symbol a.u. for short.   It was shown in \cite[Chapter 3.1.8]{De2011} that  only the trivial implications hold:
+%$$\mbox{a.u. or r.a.u.}  \Rightarrow c+r \mbox{ a.u.} \Rightarrow \mbox{b.a.u.}$$
+%The above definition  generalizes the notion of almost everywhere convergence in the case of finite
+%measure spaces. Actually,  for finite abelian von Neumann algebra $\mathcal{M}$ (i.e., $\tau(1)<\infty$), the almost uniform convergences in the definition above are all equivalent
+%	to the usual almost everywhere convergence by virtue of Egorov's theorem.
+
+
+\section{Fuglede-Kadison determinant}
+The Fuglede-Kadison determinant was introduced in \cite{FK1952}, and was further studied and discussed in  \cite{DDSZ2020,HS2007}. We here apply  the  Fuglede-Kadison determinant defined on the corner algebra. Let $\mathcal M$ be a finite von Neumann algebra equipped with a normal faithful normalized  trace $\tau$.  Given a projection $p\in \mathcal{P}(\mathcal{M})$ (when we are in the semifinite von Neumann algebra setting, we need to assume  $\tau(p)<\infty$), the trace  $\tau^p$ on the  corner algebra $p\mathcal{M}p$ is defined by setting $\tau^p=\tau|_{p\mathcal{M}p}$. We may shortly write $\tau$  instead of $\tau^p$ whenever no confusion appears.  
+Define the corner spectral
+measure associated with the restricted trace by
+\[
+\nu^p_{|x|}(B)
+=\tau^p(\chi^{(p)}_B(|x|))
+=\tau(\chi^{(p)}_B(|x|)).
+\]
+The subscript only emphasizes that functional calculus is being performed in
+the unital algebra  $p\mathcal{M}p$  whose identity is \(p\).
+For \(x\in p\M p\), define its Fuglede-Kadison determinant (with respect to the algebra $(p\M p, \tau^p)$) by setting
+\begin{equation}\label{eq:corner-det}
+		\Delta_p(x)
+		=
+		\exp\left(
+		\int_{[0,\infty)}\log t\,d\nu^p_{|x|}(t)
+		\right).
+\end{equation}
+As usual, \(\log0=-\infty\) and \(\exp(-\infty)=0\).
+Equivalently,
+\begin{equation}\label{eq:regularization}
+		\Delta_p (x)
+		=
+		\lim_{\varepsilon\downarrow0}
+		\exp\left[
+		\tau^p\bigl(\log_p(|x|+\varepsilon p)\bigr)
+		\right]=	\lim_{\varepsilon\downarrow0}
+		\exp\left[
+		\tau\bigl(\log_p(|x|+\varepsilon p)\bigr)
+		\right].
+\end{equation}
+An element \(x\in p\M p\) is said to be invertible in $p\M p$ if there is
+\(y\in p\M p\) such that
+\[
+xy=yx=p.
+\]
+When \(x\in p\M p\) is invertible in $p\M p$,
+\begin{equation}\label{eq:invertible-corner}
+	\Delta_p(x)
+	=
+	\exp\bigl(\tau(\log_p|x|)\bigr)>0.
+\end{equation}
+Note that such an \(x\) is generally not invertible in \(\M\).
+
+Our main task in this section is to prove the key estimate Lemma \ref{lem FK} which will be applied to deal with the Cuculescu projections in the next section. 
+To this end, we first collect several useful properties of the Fuglede-Kadison determinant. The proofs may be found in \cite{HS2007} (see also \cite{FK1952}). 
+
+\begin{lemma}\label{thm FK}
+	Let projection $p\in \mathcal{P}(\mathcal{M})$ and $x,y\in p\mathcal{M}p$. 
+	\begin{enumerate}[{\rm (i)}]
+		\item $\Delta_p(x)=\Delta_p(x^*)=\Delta_p(|x|)$.
+		\item $\Delta_p(xy)=\Delta_p(x)\Delta_p(y)$.
+		\item If $0\leq x\leq y$, then $\Delta_p(x)\leq \Delta_p(y)$.
+		\item $\Delta_p(\exp(x))=\exp(\mathrm{Re}\,\tau(x))$. Here the functional calculus is in the algebra $p\mathcal{M}p$.
+	\end{enumerate}
+\end{lemma}
+
+
+\begin{lemma}\label{lem Fk 0}
+	Let projections $e,p,q\in\mathcal{P}(\mathcal{M})$ be such that $e=p+q$ and $pq=qp=0$. If $\gamma\in p\mathcal{M}q$, then 
+	\[\Delta_e(\gamma+e)=1.\]
+\end{lemma}
+
+
+
+\begin{proof}
+	Since $\gamma\in p\mathcal{M}q$,  using $pq=qp=0$, we have
+	\[
+	\gamma^2=(p\gamma q)(p\gamma q)=0.
+	\]
+Since  $e$ is the identity of this corner algebra $e\mathcal{M}e$, it follows that 
+	\[
+	\exp(\gamma)
+	=e+\gamma+\frac{\gamma^2}{2!}+\frac{\gamma^3}{3!}+\cdots
+	=e+\gamma.
+	\]
+	Here the functional calculus is in the algebra $p\mathcal{M}p$.
+	
+	Also note that 
+	\[\tau (\gamma)=\tau(p\gamma q)=\tau (\gamma q p)=0.\]
+	Thus, by Lemma \ref{thm FK} (iv), we have
+	\[\Delta_e(\gamma+e)=\Delta_e(\exp(\gamma))=\exp(\mathrm{Re}\,\tau(\gamma))=1.\]
+	This proves the assertions.
+\end{proof}
+
+\begin{lemma}\label{s plus d}
+		Let projections $e,p,q\in\mathcal{P}(\mathcal{M})$ be such that $e=p+q$ and $pq=qp=0$. If $s\in p\mathcal{M}p$ and $d\in q\mathcal{M}q$, then
+		\[\Delta_e(s+d)=\Delta_p(s)\Delta_q(d).\]
+\end{lemma}
+\begin{proof}
+According to the assumption, it is clear that 
+	\[\log_e(|s+d|+\varepsilon e)=\log_p(|s|+\varepsilon p)+\log_q(|d|+\varepsilon q).\]
+	Then 
+		\[\tau\Big(\log_e(|s+d|+\varepsilon e)\Big)=\tau\Big(\log_p(|s|+\varepsilon p)\Big)+\tau\Big(\log_q(|d|+\varepsilon q)\Big),\]
+		and  the desired assertion follows from  the definition of the Fuglede-Kadison determinant.
+\end{proof}
+
+Next lemma is crucial for our further use. 
+\begin{lemma}\label{lem FK}
+	Let projections $e,p,q\in\mathcal{P}(\mathcal{M})$ be such that $e=p+q$ and $pq=qp=0$. Assume that $b\in(e\mathcal Me)_+$ is  invertible. If
+	$b\geq\lambda p$ for some $\lambda\in (0,\infty)$, then
+	\[
+	\Delta_e(b)\geq\lambda^{\tau(p)}\Delta_q(qbq).
+	\]
+\end{lemma}
+
+\begin{proof}
+	According to the assumption, we may write 
+	\begin{equation}\label{eq:b-block}
+		b=\begin{pmatrix}a&c\\c^*&d\end{pmatrix},
+	\end{equation}
+	where 	
+	\[
+	a=pbp\in p\mathcal Mp,
+	\qquad c=pbq\in p\mathcal Mq,
+	\qquad d=qbq\in q\mathcal Mq.
+	\]
+	Since $b>0$ is invertible in $e\mathcal Me$,  it follows that $b\geq \|b^{-1}\|^{-1}e$ and  $d=qbq\geq q\|b^{-1}\|^{-1}q=q\|b^{-1}\|^{-1}$. Thus, $d$ is positive and invertible in
+	$q\mathcal Mq$.
+Let $\xi\in p(H)$ and $\eta\in q(H)$. Then
+\[
+\begin{aligned}
+	(b-\lambda p)(\xi+\eta)
+	&=(a-\lambda p)\xi+c\eta+c^*\xi+d\eta.
+\end{aligned}
+\]
+Consequently,
+\begin{align*}
+	&\left\langle
+	(b-\lambda p)(\xi+\eta),\xi+\eta
+	\right\rangle                                                     \\
+	&\quad=
+	\left\langle
+	(a-\lambda p)\xi+c\eta+c^*\xi+d\eta,\xi+\eta
+	\right\rangle                                                     \\
+	&\quad=
+	\langle(a-\lambda p)\xi,\xi\rangle
+	+\langle(a-\lambda p)\xi,\eta\rangle
+	+\langle c\eta,\xi\rangle
+	+\langle c\eta,\eta\rangle                                       \\
+	&\qquad
+	+\langle c^*\xi,\xi\rangle
+	+\langle c^*\xi,\eta\rangle
+	+\langle d\eta,\xi\rangle
+	+\langle d\eta,\eta\rangle                  \\
+	&\quad=
+	\langle(a-\lambda p)\xi,\xi\rangle
+	+\langle c\eta,\xi\rangle 
+	+\langle c^*\xi,\eta\rangle
+	+\langle d\eta,\eta\rangle.
+\end{align*}
+Here we used the fact $p(H)\perp q(H)$ several times. 
+Now take
+\[
+\eta=-d^{-1}c^*\xi\in q(H).
+\]
+In this case, we get 
+\begin{align*}
+	\left\langle
+	(b-\lambda p)(\xi+\eta),\xi+\eta
+	\right\rangle             &= 	\langle(a-\lambda p)\xi,\xi\rangle
+	-\langle cd^{-1}c^*\xi,\xi\rangle \\
+	&=	\left\langle
+	\bigl(a-\lambda p-cd^{-1}c^*\bigr)\xi,\xi
+	\right\rangle. 
+\end{align*}
+Since $b\geq\lambda p$, we have $b-\lambda p\geq0$. Therefore,
+\[
+\left\langle
+\bigl(a-\lambda p-cd^{-1}c^*\bigr)\xi,\xi
+\right\rangle\geq0
+\]
+for every $\xi\in p(H)$. 
+	It follows that 
+	\begin{equation}\label{eq:schur-s}
+		s=a-cd^{-1}c^*\geq \lambda p.
+	\end{equation}
+	In particular, $s$ is positive and invertible in $p\mathcal Mp$,  and we further write 
+	\begin{equation}\label{eq:b-LDU}
+		\begin{split}
+			b&=
+			\begin{pmatrix}p&cd^{-1}\\0&q\end{pmatrix}
+			\begin{pmatrix}s&0\\0&d\end{pmatrix}
+			\begin{pmatrix}p&0\\d^{-1}c^*&q\end{pmatrix}
+			=UDU^*,
+		\end{split}
+	\end{equation}
+	where 
+	\[U=	\begin{pmatrix}p&cd^{-1}\\0&q\end{pmatrix},\qquad D=	\begin{pmatrix}s&0\\0&d\end{pmatrix}.\]
+	Note that $U=e+\gamma$, where $\gamma=cd^{-1}\in p\mathcal{M}q$. 
+	Then it follows from Lemma \ref{lem Fk 0} that  $\Delta_e(U)=1$.  Consequently, 
+	\begin{align*}
+		\Delta_e(b)
+		=\Delta_e(U)\Delta_e(D)\Delta_e(U^*)\notag=\Delta_p(s)\Delta_q(d),
+	\end{align*}
+	where we also used Lemma \ref{s plus d}. 
+	By Lemma \ref{thm FK} (iii), we have
+	\[
+	\Delta_p(s) \geq \Delta_p(\lambda p)
+	=\lambda^{\tau(p)}.
+	\]
+	The desired assertion follows. 
+\end{proof}
+
+
+
+
+
+Let us end this subsection with the following well-known continuous Carleman inequality,  see for instance \cite[p. 250]{HLP1988}. In some literature, it is also referred to as the  P\'olya-Knopp’s inequality.
+\begin{lemma}\label{lem:continuous-carleman}
+	If $f\ge0$ and $f\in L_1(0,\infty)$, then
+	\begin{equation*}
+		\int_0^\infty
+		\exp\left\{\frac1t\int_0^t\log f(s)\,ds\right\}dt
+		\le e\int_0^\infty f(t)\,dt.
+	\end{equation*}
+\end{lemma}
+
+
+\section{Cuculescu projections}\label{sec-Cucu}
+
+
+In this section, we introduce the Cuculescu projections and provide useful estimates for them. Here we only work with noncommutative probability space $(\mathcal{M},\tau)$. The regularity for the filtration $(\mathcal{M}_n)_{n\geq1}$ is not necessary for this section. For a bounded $L_1(\mathcal{M})$-martingale $x=(x_n)_{n\geq1}\in L_1(\mathcal{M})$, we always assume that it is generated by an element $x\in L_1(\mathcal{M})$, that is, for each $n\geq1$, $x_n=\mathcal{E}_n(x)$. This assumption is not necessary, but we adhere to it in order to simplify the discussion. 
+
+\subsection{Definition and basic properties}
+Let $x=(x_n)_{n\geq1}$ be a positive bounded $L_1(\mathcal{M})$-martingale. The  Cuculescu projections (see \cite{Cu1971}) are defined by induction as follows.  For any fixed $\lambda>0$, define $q_0=1$,
+\begin{equation}\label{Cuc}
+	q_1^{(\lambda)}=q_0^{(\lambda)}\chi_{[0,\lambda]}(q_0^{(\lambda)}x_1q_0^{(\lambda)}),\quad q_n^{(\lambda)}=q_{n-1}^{(\lambda)}\chi_{[0,\lambda]}(q_{n-1}^{(\lambda)}x_nq_{n-1}^{(\lambda)}),\quad n\geq2.
+\end{equation}
+It is clear that $(q_n^{(\lambda)})_{n\geq1}$ is decreasing. The  Cuculescu projections have the following properties;  see \cite{Cu1971}, \cite[Proposition 1.4]{PR2006}  or \cite[Proposition 2.3]{Rand2002}.
+
+
+\begin{lemma}\label{Cuculescu}
+Let $x=(x_n)_{n\geq1}$ be a positive bounded $L_1(\mathcal{M})$-martingale. For any given $\lambda>0$, the related Cuculescu projections  $(q_n^{(\lambda)})_{n\geq 1}$  defined in \eqref{Cuc}   satisfy the following properties:
+	\begin{enumerate}[{\rm (i)}]
+		\item for every $n\geq1 $, $q_n^{(\lambda)}\in \mathcal{M}_n $;
+		
+		\item for every $n\geq1 $, $q_n^{(\lambda)}$ commutes with $q_{n-1}^{(\lambda)}x_n q_{n-1}^{(\lambda)}$;
+		
+		\item for every $n\geq1 $, $q_n^{(\lambda)}x_nq_n^{(\lambda)}\leq \lambda q_n^{(\lambda)}$;
+		
+		\item if we set $q^{\lambda}= \wedge_{n=1}^{\infty} q_n^{(\lambda)}$, then
+		$\lambda\tau(1-q^{\lambda})\leq \tau((1-q^{\lambda})x)\leq \|x\|_{L_1(\mathcal{M})}$.
+	\end{enumerate}
+\end{lemma}
+
+In what follows, for fixed $\lambda>0$, we always let $(q_n^{(\lambda)})_{n\geq 1}$ be the Cuculescu projections associated to a positive bounded $L_1(\mathcal{M})$-martingale $x=(x_n)_{n\geq1}$.  Set
+\begin{equation}\label{pn}
+	p_n^{(\lambda)} = q_{n-1}^{(\lambda)}-q_n^{(\lambda)}, \quad n\geq 1.
+\end{equation}
+It is clear that $(	p_n^{(\lambda)})_{n\geq1}$ are disjoint, 
+\begin{equation}\label{pN}
+	\sum_{n=1}^N p_n^{(\lambda)}=1-q_N^{(\lambda)},\quad N\geq1
+\end{equation}
+and (in the sense of strong operator topology)
+\begin{equation}\label{sump}
+	\sum_{n\geq1} p_n^{(\lambda)}=1-q^{(\lambda)}.
+\end{equation}
+In addition, for each $k\geq1$, we have 
+\begin{equation}
+	p_k^{(\lambda)}=\chi_{(\lambda,\infty)}(q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)}),
+\end{equation}
+and therefore, 
+\begin{equation}\label{qxq geq p}
+q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)}\geq \lambda 	p_k^{(\lambda)}.
+\end{equation}
+
+
+
+%
+%The following interesting and important result is taken from \cite[Lemma 5.2]{CGP2020}.
+%
+%\begin{lemma}[{\cite{CGP2020}}]\label{lem CGP}
+%For each $\lambda>0$, we have 
+%	$$\tau(1-q^{\lambda})\leq \frac{2}{\lambda}\tau\Big(x\chi_{(\lambda/2,\infty)}(x)\Big).$$
+%\end{lemma}
+%
+%
+%\begin{lemma}\label{lem CGP Zhou}
+%	For each $\lambda>0$, we have 
+%	$$\tau\Big((1-q^{(\lambda)})x\Big)\leq 2\tau\Big(x\chi_{(\lambda/2,\infty)}(x)\Big).$$
+%\end{lemma}
+%\begin{proof}
+%	We have 
+%	\begin{align*}
+%\tau\Big((1-q^{(\lambda)})x\Big)&=\tau\Big((1-q^{(\lambda)})x\chi_{[0,\frac{\lambda}{2}]}(x)\Big)+\tau\Big((1-q^{(\lambda)})x\chi_{(\frac{\lambda}{2},\infty)}(x)\Big)\\
+%&\leq \frac{\lambda}{2}\tau(1-q^{(\lambda)})+ \tau\Big(x\chi_{(\lambda/2,\infty)}(x)\Big)\\
+%&\leq 2\tau\Big(x\chi_{(\lambda/2,\infty)}(x)\Big),
+%	\end{align*}
+%where the last inequality is due to Lemma \ref{lem CGP}.
+%\end{proof}
+
+
+We also consider collection of projections derived from the Cuculescu
+projections. For each $\ell\in\mathbb{Z}$ and each $n\geq1$, set 
+\begin{equation}\label{eq pro e}
+e_{\ell,n}=\bigwedge_{k\geq \ell}q_{n}^{(2^{k})}, \quad e_{\ell}=\bigwedge_{k\geq \ell}q^{(2^k)}.
+\end{equation}
+The family of projections $(e_{\ell,n})_{\ell,n}$ is decreasing on $n$ and increasing on $\ell$. Of course,  $(e_{\ell})_{\ell}$ is increasing on $\ell$, and $e_{\ell}\leq e_{\ell,n}$ for all $n$. For each $\ell\in\mathbb{Z}$ and $n\geq1$, we have 
+\begin{align*}
+	\tau(e_{\ell,n}x_ne_{\ell,n}x_ne_{\ell,n})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(e_{j,n}-e_{j-1,n}).
+\end{align*}	
+We refer to \cite[eq. (2.5)]{JRWZ2020} for a detailed proof of the last inequality, and by the same argument as for \cite[eq. (2.5)]{JRWZ2020},  we can show 
+\begin{equation}\label{eq exe}
+	\tau(e_{\ell}xe_{\ell}xe_{\ell})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(e_{j}-e_{j-1})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(1-e_{j-1}).
+\end{equation}	
+
+
+The following lemma is implicit in \cite{JOW2018}. For completeness, we still include the proof.
+
+\begin{lemma}\label{lem tau qN}
+	For each $\ell\in\mathbb{Z}$, we have 
+	$$\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\leq \tau(e_{\ell}xe_{\ell}xe_{\ell})+3\cdot 2^{2\ell}\tau(1-e_{\ell}).$$
+\end{lemma}
+\begin{proof}
+By the tracial property of the trace $\tau$, we have
+\begin{align*}
+	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)&=	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}x\Big)\\
+	&=\tau\Big([q^{(2^{\ell})}-e_{\ell}+e_{\ell}]x[q^{(2^{\ell})}-e_{\ell}+e_{\ell}]x\Big)\\
+	&=\tau(e_{\ell}xe_{\ell}xe_{\ell})+ 2\tau\Big([q^{(2^{\ell})}-e_{\ell}]xe_{\ell}x\Big)+\tau\Big([q^{(2^{\ell})}-e_{\ell}]x[q^{(2^{\ell})}-e_{\ell}]x\Big).
+\end{align*}
+Note that, by Lemma \ref{Cuculescu} (iii), $q^{(2^{\ell})}xq^{(2^{\ell})}\leq 2^{\ell}$. Thus,
+\begin{align*}
+	\tau\Big([q^{(2^{\ell})}-e_{\ell}]x[q^{(2^{\ell})}-e_{\ell}]x\Big)&=\tau\Big([q^{(2^{\ell})}-e_{\ell}]x[q^{(2^{\ell})}-e_{\ell}]x[q^{(2^{\ell})}-e_{\ell}]\Big)\\
+	&=\tau\Big([q^{(2^{\ell})}-e_{\ell}]q^{(2^{\ell})}xq^{(2^{\ell})}[q^{(2^{\ell})}-e_{\ell}]q^{(2^{\ell})}xq^{(2^{\ell})}[q^{(2^{\ell})}-e_{\ell}]\Big)\\
+	&\leq 2^{2\ell} \tau(q^{(2^{\ell})}-e_{\ell})\leq  2^{2\ell} \tau(1-e_{\ell}).
+\end{align*}
+Similarly, we have
+\begin{align*}
+	\tau\Big([q^{(2^{\ell})}-e_{\ell}]xe_{\ell}x\Big)=\tau\Big([q^{(2^{\ell})}-e_{\ell}]q^{(2^{\ell})}xq^{(2^{\ell})}e_{\ell}q^{(2^{\ell})}xq^{(2^{\ell})}[q^{(2^{\ell})}-e_{\ell}]\Big)\leq 2^{2\ell} \tau(1-e_{\ell}).
+\end{align*}
+The desired inequality follows from the above argument. 
+\end{proof}
+
+\begin{lemma}\label{lem tau qxq}
+		For each $\ell\in\mathbb{Z}$, we have
+		$$\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\leq 2\sum_{j=-\infty}^{\ell}2^{2j}\sum_{k\geq j-1}\tau(1-q^{(2^k)})+3\cdot 2^{2\ell}\sum_{k\geq \ell}\tau(1-q^{(2^k)}).$$
+\end{lemma}
+\begin{proof}
+The assertion follows from \eqref{eq exe}, Lemma \ref{lem tau qN} and the basic inequality below: for each $j\in\mathbb{Z}$,
+	$$	\tau(1-e_{j})=\tau(1-\bigwedge_{k\geq j}q^{(2^k)})\leq \sum_{k\geq j} \tau(1-q^{(2^k)}).$$
+\end{proof}
+
+
+
+
+
+
+\subsection{Cuculescu projection  estimates  via the Fuglede-Kadison determinant}
+
+
+This subsection contains necessary results which will be used to prove Theorem \ref{Davis}. 
+
+\begin{lemma}\label{key lemma}
+For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$. 	Let $a\in L_0(\mathcal{M})$ be such that $\mathcal{E}_n(x)\leq a$  for each $n\geq1$, and set 
+	\[A(t)=\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a)ds\Big).\]	
+For each $\lambda>0$, we have
+	$$\tau(1-q^{(\lambda)})\leq |\{t>0: \lambda\leq A(t)\}|. $$
+\end{lemma}
+\begin{proof}
+	Without loss of generality, we may assume that $a$ is invertible. By approximation, it suffices to show 
+	$$\tau(1-q_N^{(\lambda)})\leq |\{t>0: \lambda\leq A(t)\}|,\quad \forall N\in\mathbb{N}. $$
+	Set ($r_{N+1}=0$ for convenience)
+	\[r_n=\sum_{j=n}^{N}p_j^{(\lambda)}=q_{n-1}^{(\lambda)}-q_N^{(\lambda)},\qquad 1\leq n\leq N.\]
+	Then it is clear that $r_n=p_n^{(\lambda)}+r_{n+1}$ with $p_n^{(\lambda)}r_{n+1}=r_{n+1}p_n^{(\lambda)}=0$. Define 
+	\[b_n=r_nar_n\in r_n\mathcal{M}r_n,\quad 1\leq n\leq N.\]
+	It is obvious that each $b_n$ is invertible in $ r_n\mathcal{M}r_n,$, and by \eqref{qxq geq p}, for each $n\geq1$, we have
+	\begin{align*}
+		b_n=r_nar_n\geq r_n x_n r_n=r_n q_{n-1}^{(\lambda)}x_n q_{n-1}^{(\lambda)} r_n\geq \lambda r_n p_n^{(\lambda)} r_n=\lambda p_n^{(\lambda)}.	
+	\end{align*}
+	Then, by Lemma \ref{lem FK}, we get that 
+	\begin{align*}
+		\Delta_{r_1}(b_1)&\geq \lambda^{\tau(p_1^{(\lambda)})} \Delta_{r_2}(r_2b_1r_2)=\lambda^{\tau(p_1^{(\lambda)})} \Delta_{r_2}(b_2)\\
+		&\geq \cdots\\
+		&\geq \lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-2}^{(\lambda)})} \Delta_{r_{N-1}}(b_{N-1})\\
+		&\geq \lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \Delta_{r_N}(b_{N})\\
+		&\geq \lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \Delta_{r_N}(\lambda p_{N}^{(\lambda)})\\
+		&=\lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \lambda^{\tau(p_{N}^{(\lambda)})}\\
+		&=\lambda^{\tau(1-q_N^{(\lambda)})}=\lambda^{\tau(r_1)},
+	\end{align*}
+	where we also used  Lemma \ref{thm FK} (iii) in the last inequality. 
+	Consequently, by the definition of the Fuglede-Kadison determinant,
+	\begin{equation*}
+		\tau(r_1) \log(\lambda) \leq \int_0^{\infty}\log t d\nu_{b_1}^{r_1}(t)\leq  \int_0^{\tau(r_1)}\log \mu(s,a) ds,
+	\end{equation*}
+where the second inequality is due to  \cite{Fa1986}.  Hence,
+	\begin{equation}\label{A lambda}
+		\lambda \leq \exp\Big(\frac{1}{\tau(r_1)}\int_0^{\tau(r_1)}\log \mu(s,a) ds\Big)=A(\tau(r_1)). 
+	\end{equation}
+	
+	Set 
+	\begin{equation*}
+		E_{\lambda}=\{t>0:\lambda\leq A(t)\}.
+	\end{equation*}
+	Since  $t\mapsto A(t)$ is decreasing, it follows from \eqref{A lambda} that $A(t)\geq A(\tau(r_1))\geq \lambda$ provided $t\in (0,\tau(r_1)]$. 
+	This means $(0,\tau(r_1)]\subset E_{\lambda}$, and thus,
+	\[	\tau(1-q_N^{(\lambda)})=\tau(r_1)\leq |E_{\lambda}|=  |\{t>0: \lambda\leq A(t)\}|.\]
+	The desired assertion follows by letting $N\to\infty$.
+\end{proof}
+
+
+\begin{lemma}\label{L1 e1}
+	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $x_n=\mathcal{E}_n(x)\leq a$ for each $n\geq1$. We have 
+	$$\sum_{k\in \mathbb{Z}} 2^{kp}\tau(1-q^{(2^k)})\leq \frac{2^pe}{2^p-1}\|a\|_p^p,\quad 0<p\leq 1.$$
+\end{lemma}
+
+\begin{proof}
+	Let $A(t)$ be as in Lemma \ref{key lemma}, and let 
+	\begin{equation*}
+		E_{k}=\{t>0:2^k\leq A(t)\},\qquad k\in \mathbb{Z}.
+	\end{equation*}
+	Hence, Lemma \ref{key lemma} gives 
+	\begin{align*}
+		\sum_{k\in \mathbb{Z}} 2^{kp}\tau(1-q^{(2^k)})&\leq \sum_{k\in \mathbb{Z}} 2^{kp}\int_0^{\infty}\chi_{E_k}(t)dt\\
+		&= \int_0^{\infty}\sum_{k\in \mathbb{Z}} 2^{kp}\chi_{E_k}(t)dt\\
+		&=\int_0^{\infty}\sum_{\{k\in \mathbb{Z}: 2^k\leq A(t)\}} 2^{kp}dt\\
+		&\leq \frac{2^p}{2^p-1}\int_0^{\infty}A(t)^pdt\\
+		&=\frac{2^p}{2^p-1}\int_0^{\infty}\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a)^pdt\Big)dt\\
+		&\leq \frac{2^pe}{2^p-1} \|a\|_p^p.
+	\end{align*}
+	where the last inequality is due to the Carleman inequality stated in Lemma \ref{lem:continuous-carleman}.
+\end{proof}
+
+Later we will need  the following variant of Lemma \ref{L1 e1}.
+\begin{proposition}\label{prop 3}
+	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $x_n=\mathcal{E}_n(x)\leq a$ for each $n\geq1$. We have 
+	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\leq e\Big(\frac{2^{p+1}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1$$
+	and 
+	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)}	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\leq 7e\Big(\frac{2^{p+1}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1.$$
+\end{proposition}
+\begin{proof}
+	The first inequality follows from Lemma \ref{L1 e1} and the below basic observation:	
+	$$\sum_{\ell\in\mathbb{Z}} 2^{p\ell} \sum_{k\geq \ell}\tau(1-q^{(2^k)})=\sum_{k\in\mathbb{Z}}\sum_{\ell\leq k} 2^{p\ell} \tau(1-q^{(2^k)})=\frac{2^p}{2^p-1}\sum_{k\in \mathbb{Z}} 2^{kp}\tau(1-q^{(2^k)}).$$
+	As for the second assertion, by Lemma \ref{lem tau qxq}, we have 
+	\begin{align*}
+		\sum_{\ell\in\mathbb{Z}}& 2^{\ell(p-2)}	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\\
+		&\leq 2\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)} \sum_{j=-\infty}^{\ell}2^{2j}\sum_{k\geq j-1}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\\
+		&= 2\sum_{j\in\mathbb{Z}}\sum_{\ell\geq j} 2^{\ell(p-2)} 2^{2j}\sum_{k\geq j-1}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\\
+		&=\frac{2^{p+1}}{1-2^{p-2}}\sum_{j\in\mathbb{Z}}2^{jp}\sum_{k\geq j}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\
+	\end{align*}
+	Note that  $\frac{2^{p+1}}{1-2^{p-2}}\leq 4$ provided $0<p\leq 1$. Hence,  the second assertion of the proposition follows from the first one. 
+\end{proof}
+
+
+
+
+
+
+
+
+\section{Noncommutative Davis inequalities}\label{sec-davis}
+
+In this section, we prove  Theorem \ref{Davis} in details. Under the regularity assumption, Theorem \ref{Davis}  provides a affirmative answer to Junge and Xu's open problem raised in \cite[Problem 16]{JX2005} (see also Problem \ref{JX problem} above). 
+
+
+
+
+To prove Theorem \ref{Davis}, we begin with the decomposition of the martingale $y$. To this end, let us  first recall the basic definition of triangular truncation. Let $(R_j)_{j\geq1}$ be a sequence of mutually orthogonal projections in $\mathcal{M}$. For each $x\in L_2(\mathcal{M})$, the triangular truncation are defined by 
+\begin{equation}\label{eq:tt}
+	\mathcal{T}^c(x)=\sum_{j\geq1}\sum_{i=1}^jR_ixR_j,\quad \mathcal{T}^r(x)=x-\mathcal{T}^c(x)=\sum_{i> j}R_ixR_j.
+\end{equation}
+Observe that $\mathcal{T}^c(x)$  is well-defined. Indeed, it is easy to check that $\sum_{j=1}^N\sum_{i=1}^j R_jxR_j$ converges to $\mathcal{T}^c(x)$  in $L_2(\mathcal{M})$, moreover, 
+\begin{equation}\label{T 22}
+	\|\mathcal{T}^c(x)\|_{L_2(\mathcal{M})}\leq \|x\|_{L_2(\mathcal{M})}.
+\end{equation}
+
+For $j\geq1$ and fixed $k\geq1$, define
+\begin{equation}\label{pi}
+	\pi_{0,k}=e_{0,k}=\bigwedge_{i\geq0}q_k^{(2^i)}\qquad \mbox{and}\qquad \pi_{j,k}= e_{j,k}-e_{j-1,k}=\bigwedge_{i\geq j}q_k^{(2^i)}-\bigwedge_{i\geq j-1}q_k^{(2^i)}.
+\end{equation}
+The family of projections $(e_{j,k})_{j,k}$ are defined in \eqref{eq pro e}.
+Note that $\sum_{j\geq0}\pi_{j,k}=1$ in the sense of strong operator topology for every fixed $k\geq1$ (see \cite[Proposition 1.4]{Rand2004}). In what follows, for each $k\geq1$, we denote $\mathcal{T}_{k-1}^c$ and $\mathcal{T}_{k-1}^r$  the triangular truncation defined according to \eqref{eq:tt} with respect to the mutually orthogonal projections $(\pi_{j,k-1})_j$.
+
+\begin{lemma}\label{decom lem 2}
+	Suppose that martingale $x\in L_2(\M)$.
+	For each $k\geq1$, $d_kx=\mathcal{T}_{k-1}^c(d_k y)+\mathcal{T}_{k-1}^r(d_k x)$, $\mathcal{T}_{k-1}^c(d_k x)$ and $\mathcal{T}_{k-1}^r(d_k x)$ are martingale differences. Consequently, 
+	$$x=x^c+x^r,$$
+	where $x^c=(x_n^c)_{n\geq1}$ and  $x^r=(y_n^r)_{n\geq1}$ are two martingales. Here, for each $n\geq1$, 
+	\begin{equation}
+		x_n^c=\sum_{k=1}^n\mathcal{T}_{k-1}^c(d_k x),\quad x_n^r=\sum_{k=1}^n\mathcal{T}_{k-1}^r(d_k x).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	It follows from Lemma \ref{Cuculescu} (i) that $q_{k-1}^{(2^i)}\in \mathcal{M}_{k-1}$ for every $i$, and consequently for each $j$ and $k$, $\pi_{j,k-1}\in \M_{k-1}$. Thus, for each $k\geq1$, 
+	$\mathcal{T}^c_{k-1}(d_k x)=\sum_{j\geq 1}\sum_{i\leq j}\pi_{i,k-1}d_ky\pi_{j,k-1}$ is a martingale difference.		
+	Similarly, each $\mathcal{T}_{k-1}^r(d_k x)$ is a martingale difference.
+\end{proof}
+
+We here point out that for $y=x$ the above decomposition was used in \cite{Rand2005} and \cite{PR2006}. The present decomposition is taken from \cite[eq. (4.10)]{JRWZ2020}. 
+
+For each positive $x\in L_2(\mathcal{M})$ and $\lambda>0$, the Cuculescu projections related to the martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ are  denoted by $(q_n^{(\lambda)})_n$ and $q^{(\lambda)}=\wedge_nq_n^{(\lambda)}$; see Lemma \ref{Cuculescu} for more details. Consider the decomposition of $x=x^c+x^r$ given in Lemma \ref{decom lem 2}. Then the following distribution estimate holds for each $\ell\in\mathbb{Z}$:
+\begin{equation}\label{dis S}
+	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250\cdot \frac{1}{2^{\ell}} \tau\Big((1-q^{(2^\ell)}|x|\Big)+\tau(1-e_{\ell}).
+\end{equation}
+This is implicit in \cite{JRWZ2020}. More precisely, it is a combination of \cite[(4.13)]{JRWZ2020}, \cite[(3.2)]{JRWZ2020}  and \cite[(3.3)]{JRWZ2020} (although  \cite[Remark 4.7 ]{JRWZ2020} provides an alternative estimate for the distribution of the square function, it is insufficient for our purposes).   The same  estimate applies to the distribution function of $S_r(x^r)$.  Applying the following lemma, we will obtain  new distribution estimates of the noncommutative square functions under regularity conditions.
+
+
+
+\begin{lemma}\label{lem CGPr}
+	Consider the Cuculescu projections $(q_n^{(\lambda)})_n$ (introduced in Lemma \ref{Cuculescu}) with respect to the positive martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ in $L_1(\M)$. Assume that $(\mathcal{M}_n)$ is regular with regularity constant $c_{\mathrm{reg}}$. For each $\lambda>0$, we have
+	$$\tau\Big((1-q^{(\lambda)})x\Big)\leq 2c_{\mathrm{reg}}\lambda\tau(1-q^{\lambda}).$$
+\end{lemma}
+\begin{proof}
+	It follows from the regularity assumption that (see \eqref{regular})
+	$$\mathcal{E}_n(x)\leq c_{\mathrm{reg}}\mathcal{E}_{n-1}(x).$$
+	Also recall that $p_n^{(\lambda)}=q_{n-1}^{(\lambda)}-q_n^{(\lambda)}\in \mathcal{M}_n$ is defined in \eqref{pn}.	Thus, for each $n\geq1$, we have
+	$$p_n^{(\lambda)}\mathcal{E}_n(x)p_n^{(\lambda)}\leq c_{\mathrm{reg}}p_n^{(\lambda)}\mathcal{E}_{n-1}(x)p_n^{(\lambda)}=c_{\mathrm{reg}}p_n^{(\lambda)}q_{n-1}^{(\lambda)}\mathcal{E}_{n-1}(x)q_{n-1}^{(\lambda)}p_n^{(\lambda)}\leq  c_{\mathrm{reg}} \lambda p_n^{(\lambda)},$$
+	where we used Lemma \ref{Cuculescu} (iii) in the last inequality.
+	Consequently, by the tracial property of $\tau$ and basic property of conditional expectation, we obtain
+	\begin{align*}
+		\tau((1-q^{(\lambda)})x)&=\tau(p_1^{(\lambda)}x)+\sum_{n\geq2} \tau(p_n^{(\lambda)}x)\\
+		&=\tau(p_1^{(\lambda)}xp_1^{(\lambda)})+\sum_{n\geq2} \tau\Big(p_n^{(\lambda)}\mathcal{E}_n(x)p_n^{(\lambda)}\Big)\\
+		&\leq \lambda\tau(p_1^{(\lambda)})+c_{\mathrm{reg}}\lambda \sum_{n\geq1}\tau (p_n^{(\lambda)})\leq 2c_{\mathrm{reg}}\lambda \tau(1-q^{(\lambda)}).
+	\end{align*}
+	The proof is complete. 
+\end{proof}
+
+
+
+
+We realize that Lemma \ref{lem CGPr} is actually a noncommutative version of Gundy's inequality \cite[Theorem 2]{Gu1969}. 
+We then deduce the following distribution estimates for noncommutative square functions. 
+
+
+
+\begin{lemma}\label{distribution S}
+	Let $(\mathcal{M},\tau)$ be a noncommutative probability space associated with the regular filtration $(\mathcal{M}_n)_{n\geq1}$. 
+	Suppose that martingale $x\in L_2(\mathcal{M})$ is positive, and consider the decomposition $x=x^c+x^r$ as in Lemma \ref{decom lem 2}. For each $\ell\in\mathbb{Z}$, we have 
+	$$\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\leq  \frac{4}{2^{2\ell}} \tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)+(250c_{\mathrm{reg}}+1)\sum_{k\geq \ell}\tau(1-q^{(2^k)})$$
+	and 
+	$$\tau\Big(\chi_{(2^{\ell},\infty)}(S_r(x^r))\Big)\leq \frac{2}{2^{2\ell}} \tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)+(250c_{\mathrm{reg}}+1)\sum_{k\geq \ell}\tau(1-q^{(2^k)}).$$
+\end{lemma}
+
+\begin{proof}
+	We only deal with $x^c$ and the estimate for $x^r$ can be similarly done.  	Note that \[\tau(1-e_{\ell})\leq \sum_{k\geq \ell}\tau(1-q^{(2^k)}),\quad \forall \ell\in\mathbb{Z}.\]
+	Then, by Lemma \ref{lem CGPr}, we have
+	\[	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(y^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250c_{\mathrm{reg}} \tau\Big(1-q^{(2^\ell)}\Big)+\sum_{k\geq \ell}\tau(1-q^{(2^k)}).\]
+	The desired assertion follows. 
+\end{proof}
+
+
+Now we are in a position to prove Theorem \ref{Davis}.
+\begin{proof}[Proof of Theorem \ref{Davis}]
+	Let $0<p\leq 1$. Take positive $x\in L_2(\mathcal{M})$ and assume  $\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_p(\M,\ell_{\infty})}$ is finite. 	According to the definition of $\|\cdot\|_{L_p(\mathcal{M},\ell_{\infty})}$, we can take positive $a\in L_p(\mathcal{M})$   such that $x_n=\mathcal{E}_n(x)\leq a$ for all $n\geq1$ and 
+	$$\|a\|_p\leq \|x\|_{L_p(\mathcal{M},\ell_{\infty})}.$$
+	By Lemma \ref{distribution S}, we have 
+	\begin{equation}\label{Scyc}
+		\begin{aligned}
+			\|x^c\|_{H_p^c(\M)}^p&=\|S_c(y^c)\|_p^p=p\int_0^{\infty}\lambda^{p-1}\tau(\chi_{(\lambda,\infty)}(S_c(x^c))) d\lambda\\
+			&\leq p\sum_{\ell\in\mathbb{Z}} 2^{\ell p}\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\\
+			&\leq 4p\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)} \tau(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})})+p(250c_{\mathrm{reg}}+1)\sum_{\ell\in\mathbb{Z}} 2^{\ell p}\sum_{k\geq \ell}\tau(1-q^{(2^k)}).
+		\end{aligned}
+	\end{equation}
+	It now follows from Proposition \ref{prop 3} that 
+	$$\|x^c\|_{H_p^c(\M)}^p\leq c_{p,\mathrm{reg}}\|a\|_p^p\leq c_{p,\mathrm{reg}}\|x\|_{L_p(\mathcal{M},\ell_{\infty})}^p.$$
+	The same estimate holds for $x^r$, and the proof of the theorem is complete. 
+
+	Thus, for each positive martingale $x\in L_p(\mathcal{M},\ell_{\infty})$,
+	$$\|x\|_{H_p(\mathcal{M})}\leq c_{p,\mathrm{reg}}\|x\|_{L_p(\mathcal{M},\ell_{\infty})},$$
+	which together with Lemma \ref{JX lemma} proves the desired assertion for general martingales in $L_p(\mathcal{M},\ell_{\infty})$.
+	
+	
+\end{proof}
+
+\begin{remark}
+In the commutative martingale setting, the Davis inequality was proved via so-called Davis decomposition, which is still open in the noncommutative martingale setting; see for instance \cite{Pa2007}.  
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Applications}\label{sec-application} 
+
+In this section, we collect applications of our main results. 
+
+
+
+
+\subsection{Operator-valued Hardy space and Hardy-Littlewood maximal function}\label{sec-Mei}
+In last decades,  operator-valued harmonic analysis has gained rapid developments. We refer the reader to \cite{Me2007,XXX2016}  for operator-valued Hardy spaces; to \cite{CCP2022,Parcet2,HLX2023} for noncommutative CZ theory. It is also known that operator-valued  harmonic analysis often provides deep insights in harmonic analysis in the general noncommutative setting, and sometimes plays essential role based on the so-called transference principles (see e.g. \cite{CXY2013,HLW2021,XXX2016} and the references therein).
+
+
+We shall apply Theorem \ref{Davis} to explore the operator-valued Hardy space and Hardy-Littlewood maximal function introduced by Mei \cite{Me2007}.  We first recall related definitions. In this subsection, we always consider the Euclidean space $\mathbb{R}$ equipped the usual Lebesgue measure $m$. 
+Let $(\mathcal{N},\varphi)$ be a semifinite von Neumann algebra equipped with a normal semifinite faithful trace $\varphi$ and let $S_{\mathcal{N}}$ be the set of all positive $x$ in $\mathcal{N}$ with $\varphi$-finite support.
+By a $S_{\mathcal{N}}$-valued simple function $f$ on $(\mathbb{R}, m)$ we mean $f$ has the following form:
+$$f =\sum_{i=1}^n a_i\chi_{A_i},$$
+where $a_i\in S_{\mathcal{N}}$ and $A_i$'s are measurable disjoint subsets of $\R$ with $m(A_i) < \infty$. 
+ For a $S_{\mathcal{N}}$-valued simple function $f$,  its Poisson integral on the upper half plane $\mathbb R^2_
++ = \{(s, \varepsilon)|\varepsilon > 0\}$ is defined by:
+$$ P_{\varepsilon}(f)(s)= \int_{\mathbb R}P_{\varepsilon}(s-t)f(t)dt, \quad (s,\varepsilon) \in \R^2_+,$$
+where $P_{\varepsilon}(s)=\frac{1}{\pi}\frac{\varepsilon}{
+	s^2+\varepsilon^2}$ is the Poisson kernel. Then $P_{\varepsilon}(f)$ is a
+harmonic function with values in $S_{\mathcal{N}}$, and so in $\mathcal{N}$.
+Following \cite[p.\,7-8]{Me2007}, for each $S_{\mathcal{N}}$-valued simple function $f$ on $\mathbb{R}$, define the noncommutative
+analogues of the classical Littlewood-Paley $g$-function
+\begin{equation*}
+	G_c(f)(s)=\Big(\int_0^{\infty}\varepsilon|\frac{\partial}{\partial \varepsilon}P_{\varepsilon}(f)(s)|^2d\varepsilon\Big)^{1/2},\quad s\in \mathbb{R}
+\end{equation*}
+and 
+$$\|f\|_{\mathcal{H}^c_1(\mathbb{R},\mathcal{N})}= \|G_c(f)\|_{L_1(\mathcal{M})},\quad \mathcal{M}:=L_{\infty}(\mathbb{R})\bar{\otimes}\mathcal{N}.$$
+Set  the column Hardy space $\mathcal{H}^c_1(\mathbb{R},\mathcal{N})$ to be the completion of the space of all $S_{\mathcal{N}}$-valued simple function with finite $\mathcal{H}^c_1(\mathbb{R},\mathcal{N})$ norm. The row Hardy space $\mathcal{H}^r_1(\mathbb{R},\mathcal{N})$ is the space of all $f$ such that $f^*\in \mathcal{H}^c_1(\mathbb{R},\mathcal{N})$ 
+equipped with the norm 
+$$\|f\|_{\mathcal{H}^r_1(\mathbb{R},\mathcal{N})}=\|f^*\|_{\mathcal{H}^c_1(\mathbb{R},\mathcal{N})}.$$
+Define the Hardy space $\mathcal{H}_1(\mathbb{R},\mathcal{N})$ as follows: 
+$$\mathcal{H}_1(\mathbb{R},\mathcal{N})=\mathcal{H}_1^c(\mathbb{R},\mathcal{N})+\mathcal{H}_1^r(\mathbb{R},\mathcal{N})$$
+equipped with the norm 
+$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}=\inf_{f=g+h}\{\|g\|_{\mathcal{H}_1^c(\mathbb{R},\mathcal{N})}+\|h\|_{\mathcal{H}_1^r(\mathbb{R},\mathcal{N})}\}.$$
+
+
+For   each $S_{\mathcal{N}}$-valued simple function $f$ on $\mathbb{R}$ and $h=(h_1,h_2)\in \R_+\times \R_+$, define 
+$$A_h(f)(t)=\frac{1}{h_1+h_2}\int_{t-h_1}^{t+h_2}f(s)ds.$$
+In the commutative case, i.e., $\mathcal{N}=\mathbb{C}$, it is well-known (see e.g. \cite[p.\,39]{Gr2009}) that  there exists a universal  constant $c>0$ such that
+\begin{equation}\label{classical mH1}
+ \|f\|_{\mathcal{H}_1(\mathbb{R})}\leq c\|\sup_{h}|A_{h}(f)|\|_{L_1(\mathbb{R})}.
+\end{equation}
+This is almost obvious in the commutative setting. Due to noncommutativity and the absence of pointwise estimates, this is not evident at all in the noncommutative framework. We now apply Theorem \ref{Davis} to get the operator-valued analogue of \eqref{classical mH1}.
+
+
+To apply Theorem \ref{Davis}, we need to introduce noncommutative dyadic martingale Hardy space. For each $n\in\mathbb{Z}$, let $\mathcal{D}_{n}$ be the $\sigma$-algebra generated by
+$D_n=\left\{D_n^{k}: k\in \mathbb{Z}\right\},$
+where the dyadic intervals $D_n^{k}$ is defined   as
+$$D_n^{k}=(k2^{-n}, (k+1)2^{-n}],$$
+and let 
+$$\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N},\quad n\in\mathbb{Z}.$$
+Denote by $\mathbb{E}_n$ the conditional expectation $L_{\infty}(\mathbb{R})\to L_{\infty}(\mathcal{D}_n)$:
+$$\mathbb{E}_n(f)=\sum_{I\in D_n}\frac{1}{m(I)}\int_If(t)dt\chi_I.$$
+Then each $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ is the conditional expectation from $\mathcal{M}=L_{\infty}(\mathbb{R})\bar{\otimes} \mathcal{N}$ onto $ \mathcal{M}_n= L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, where $\mathrm{id}_{\mathcal{N}}$ is the identity map on $\mathcal{N}$.  The noncommutative dyadic martingale Hardy space (see Section \ref{sec-mart} for definition) with respect to the filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is denoted by $H_1(\mathcal{M},\mathcal{D})$. 
+The following fact is well-known; see e.g. \cite[p.\,561]{Parcet2} for its proof.
+
+\begin{lemma}
+	The filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is regular with constant $2$, where $\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, $n\in\mathbb{Z}$.
+\end{lemma}
+
+The lemma below is a direct consequence of \cite[Corollary 5.3]{Me2007}. 
+\begin{lemma}\label{lem Mei}
+	For each $f\in H_1(\mathcal{M}, \mathcal{D})$, there exists a universal constant $c>0$ such that 
+	$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c \|f\|_{H_1(\mathcal{M}, \mathcal{D})}. $$
+\end{lemma}
+
+
+Now we state our main result of this subsection.
+\begin{theorem}\label{Mei-H1}
+For each $f\in L_1(\mathcal{M})$, there exists a universal constant $c>0$ such that 
+	$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})}.$$
+\end{theorem}
+\begin{proof}
+Firstly, it is clear that 
+	$$\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})}.$$
+	Therefore, we have
+		$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|f\|_{H_1(\mathcal{M}, \mathcal{D})}\leq c\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})},$$
+		where the first inequality is due to Lemma \ref{lem Mei}, and the second inequality is due to Theorem \ref{Davis}  (see also Remark \ref{rem 1}(v)). We can apply Theorem \ref{Davis} because the related filtration is regular as explained above. 
+\end{proof}
+
+
+\begin{remark}
+	The same idea applies to operator-valued Hardy space defined on a  homogeneous metric measure space; see for instance \cite{FHW2023}. 
+\end{remark}
+
+%Our results can be also applied to other models in operator-valued harmonic analysis. 
+%
+%\begin{remark}\label{rem haar}
+%	For each $I\in D_n$ for some $n\in\mathbb{Z}$, there are $I_L,I_R\in D_{n+1}$ such that $I_L\cup I_R=I$, where $I_L,I_R$ are referred to the left and right parts
+%	of $I$, respectively. The Haar function associated with the interval is defined by setting
+%	$$h_I=m(I)^{-\frac{1}{2}}\chi_{I_L}-m(I)^{\frac{1}{2}}\chi_{I_R}.$$
+%	Then, for each $f\in L_2(\mathcal{M})$, it is not hard to see that $(T_N(f))_{N\in\mathbb{Z}}$ forms a martingale which is $L_2(\M)$-dominated by $f=(\mathcal{E}_N(f))_{N\in\mathbb{Z}}$ in the sense of Definition \ref{def:ds2} (also Definition \ref{def:ds1} (i)), where the dyadic
+%	Haar multiplier  $T_N(f)$ in operator-valued setting is defined by setting $$T_N(f)=\sum_{n\leq N} \sum_{I\in D_n}\epsilon_I \langle f,h_I\rangle h_I,\quad \epsilon_I\in \{1,-1\}.$$
+%	Hence, our Theorem \ref{Davis ds} applies to the Haar multiplier. Our results also apply to Haar shift operators studied in \cite{Va2010} since this kind of operators fulfill Definition \ref{def:ds1} (ii) (to check this, one needs to borrow some argument from \cite[Section 3]{AJO2021}).
+%\end{remark}
+
+
+
+
+\subsection{Carleson's decomposition of noncommutative martingale BMO spaces}\label{sec-car-dyadic}
+Here, we study the Carleson decomposition of noncommutative martingale BMO spaces via Theorem \ref{Davis}. In the classical setting, Carleson \cite{Ca1976} firstly provided a decomposition for functions in $BMO(\mathbb{R})$, and its dyadic version was given by Garnett and Jones \cite[Theorem 2.1]{GJ1982}. To better state their result, let us first recall related notations. The results (Theorems \ref{Ga decom} and \ref{dyadic c-d}) below actually work for semifinite von Neumann algebras, and to simplify the discussion, let us only consider the finite case. Following the symbols introduced in Section \ref{sec-mart}, let $(\mathcal{M},\tau)$ be a noncommutative probability space and let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ satisfying $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
+Assume that for each $n\geq1$ there exists conditional expectation $\mathcal{E}_n:\mathcal{M}\to\mathcal{M}_n$. 
+The column noncommutative martingale BMO space is  defined by (let $\mathcal{E}_0(x)=0$ for convenience):
+$$\mathcal{BMO}^c(\mathcal{M})=\{x\in L_2(\mathcal{M}):\sup_{n\geq1} \|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}<\infty\}$$
+equipped with the norm 
+$$\|x\|_{\mathcal{BMO}^c(\mathcal{M})}=\sup_{n\geq1}\|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}^{\frac{1}{2}},$$
+and similarly, we define  the row BMO space as 
+$$\mathcal{BMO}^r(\mathcal{M})=\{x:x^*\in \mathcal{BMO}^c(\mathcal{M})\}$$
+equipped with the norm 
+$\|x\|_{\mathcal{BMO}^r(\mathcal{M})}=\|x^*\|_{\mathcal{BMO}^c(\mathcal{M})}.$ Finally, define 
+$$\mathcal{BMO}(\mathcal{M})=\mathcal{BMO}^c(\mathcal{M})\cap \mathcal{BMO}^r(\mathcal{M})$$
+equipped with the norm 
+$$\|x\|_{\mathcal{BMO}(\mathcal{M})}=\max\{\|x\|_{\mathcal{BMO}^c(\mathcal{M})},\|x\|_{\mathcal{BMO}^r(\mathcal{M})}\}.$$
+The space $\mathcal{BMO}(\mathcal{M})$ is actually the dual space of martingale Hardy space $H_1(\M)$; see \cite[Appendix]{PX1997}.
+
+
+To apply the result in the present paper, we introduce the following regular filtration. 
+Consider $([0,1),\mathcal{F},m)$, where $m$ is the Lebesgue measure on $[0,1)$ and $\mathcal{F}$ is the $\sigma$-algebra  generated by all open sets in $[0,1)$. We simplify write $L_{\infty}([0,1),\mathcal{F},m)$ by $L_{\infty}(0,1)$.
+Define
+\begin{equation}\label{Fn}
+	F_n=\sigma\{ [\frac{k}{M_n}, \frac{k+1}{M_n}): 0\leq k<M_n\}, \quad \mathcal{F}_n=\sigma(F_n),\quad  n\geq0,
+\end{equation}
+where $M_k$ is defined in the beginning of the subsection.
+Then $(\mathcal{F}_n)_{n\geq1}$ is a regular filtration of $\mathcal{F}$. The conditional expectations with respect to $(\mathcal{F}_n)_{n\geq1}$ are denoted by $(\mathbb{E}_n)_{n\geq1}$.
+In fact, for $f\in L_1(0,1)$,
+\begin{equation}\label{condexp}
+	\mathbb{E}_n(f)=\sum_{Q\in F_n} \frac{1}{m(Q)}\int_{Q} f(x)dm(x) \chi_Q, \quad  n\geq1.
+\end{equation}
+For each $n$, we simplify write $L_{\infty}([0,1),\mathcal{F}_n,m)$ by $ L_{\infty}(\mathcal{F}_n) $, and let
+\begin{equation}\label{VNA F}
+	\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}.
+\end{equation}
+Then $(\mathcal{N}_n)_{n\geq 1}$, an increasing sequence of von Neumann subalgebras of $\mathcal{M}$,  is regular with regularity constant $c_{\rm reg}\leq \sup_{k}m_k<\infty$; see e.g. \cite{TZ2024}.   The conditional expectation of $\mathcal{M}$ onto $\mathcal{M}_n$ is $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ (simply $\mathbb{E}_n$), where $\mathrm{id}_{\mathcal{N}}$ is the identity map from $\mathcal{N}$ to $\mathcal{N}$.
+
+
+For the case $\mathcal{M}=L_{\infty}(0,1)$, and $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)$ ($\mathcal{F}_n$ is defined as in \eqref{Fn} with $M_n=2^n$ there), we write $\mathcal{BMO}(0,1)$ instead of $ \mathcal{BMO}(L_{\infty}(0,1))$.  Garnett and Jones' famous dyadic Carleson's decomposition is rewritten as follows
+\begin{theorem}[{\cite[Theorem 2.1]{GJ1982}}]\label{GJ thm}
+For each $f\in \mathcal{BMO}(0,1)$, there exist $g\in L_{\infty}(0,1)$,  a sequence of dyadic intervals $(I_k)_k$,  and a sequence of real numbers $(a_k)_{k}$ such that
+	 $$f-\mathbb{E}(f)=g+\sum_ka_k\chi_{I_k}$$
+	 with $\|g\|_{\infty}\leq \|f\|_{\mathcal{BMO}(0,1)}$
+	 and for each dyadic interval $I$, there exists a universal constant $c>0$,
+	 $$\frac{1}{m(I)}\sum_{I_k\subset I}|a_k| m(I_k)\leq c\|f\|_{\mathcal{BMO}(0,1)}.$$
+\end{theorem}
+
+We are going to show a noncommutative version of this result. Recall that, under the assumption  $\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$ for each martingale $x=(x_n)_{n\geq1}$, it was recently established by Talebi et al. \cite[Theorem 2.3]{TMS2019} that 
+for each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $v\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
+$$f=v+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
+and 
+$$\|v\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+
+Note that Theorem \ref{Davis} guarantees that, under the assumption that the filtration is regular,  $\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$ always holds for each martingale $x=(x_n)$. Hence, we can deduce from the above decomposition result that
+
+\begin{theorem}\label{Ga decom}
+Consider a noncommutative probability space $(\mathcal{M},\tau)$ associated with a regular filtration $(\mathcal{M}_n)_{n\geq1}$. For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
+$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
+and 
+$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+\end{theorem}
+
+
+
+We shall apply Theorem \ref{Ga decom} to deduce a noncommutative version of Theorem \ref{GJ thm}. The dyadic sigma-algebra $\mathcal{F}_n=\sigma(F_n)$ is defined as in \eqref{Fn} with $M_n=2^n$ there.
+
+\begin{theorem}\label{dyadic c-d}
+	Let $\mathcal{M}=L_{\infty}(0,1)\bar{\otimes}\mathcal{N}$ where $(\mathcal{N},\varphi)$ is a noncommutative probability space. Consider the regular filtration $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}$ as in \eqref{VNA F}.  For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$,  a sequence $(I_k)_k$ of dyadic intervals and a sequence of positive elements $(a_i)_{i}\subset \mathcal{N}$ such that
+	$$f=g+\sum_ia_i\chi_{I_i}$$
+	with $\|g\|_{L_{\infty}(\mathcal{M})}\leq \|f\|_{\mathcal{BMO}(\mathcal{M})}$,
+	and for each dyadic interval $I_0$, there exists a universal constant $c>0$
+	$$\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_i m(I_i)\Big\|_{\mathcal{N}}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+\end{theorem}
+
+\begin{proof}
+	By Theorem \ref{Ga decom}, there
+	exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
+	$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
+	and 
+	$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_ku_k\|_{L_{\infty}(\mathcal{M})}\leq  c \|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+	Note that now the conditional expectation is given by $\mathcal{E}_n=\mathbb{E}_n\otimes 1_{\mathcal{N}}$, where $\mathbb{E}_n$ is as in \eqref{condexp}. Hence,
+	$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_{k\geq1} \sum_{I\in F_k}\frac{1}{m(I)}\int_I u_k(t)dt \chi_I.$$
+For each $k$ and $I\in F_k$ (see \eqref{Fn} for the definition), set $b_{k,I}=\frac{1}{m(I)}\int_I u_k(t)dt\in \mathcal{N}$. Therefore, we can rewrite 
+$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_k\sum_{I\in F_k} b_{k,I} \chi_{I} =\sum_i a_i\chi_{I_i}.$$
+On the other hand, concerning dyadic $I_0\in F_n$ for some $n\geq 1$, we have 
+\begin{align*}
+	\sum_{i:I_i\subset I_0} a_i m(I_i)&=\sum_{k\geq n+1}\sum_{I\in F_k,I\subset I_0} b_{k,I}m(I)\\
+	&=\sum_{k\geq n+1}\sum_{I\in F_k,I\subset I_0} \int_I u_k(t)dt=\sum_{k\geq n+1}\int_{I_0}u_k(t)dt\\
+	&\leq \int_{I_0} \sum_{k\geq1}u_k(t)dt.
+\end{align*}
+Thus, we have
+	\begin{align*}
+\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{\mathcal{N}}&=\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{L_{\infty}(\M)}\\
+&\leq \frac{1}{m(I_0)}\int_{I_0} \|\sum_{k\geq1}u_k\|_{L_{\infty}(\M)}dt\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.
+	\end{align*}
+The proof is complete. 
+\end{proof}
+
+
+Let us conclude this paper with a brief discussion on the potential applications of Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d}.
+We prefer to investigate these applications in future work because they extend beyond the scope of our paper and likely require an additional effort.
+
+\begin{remark}\label{cd Mei} 
+	
+	\begin{enumerate}[{\rm (i)}]
+		\item 		
+		For Theorem \ref{Ga decom}, we refer the reader to \cite[Theorem II.4.1]{Ga1973} for its classical martingale version. In the commutative martingale setting, \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
+		
+		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. Recall that noncommutative version of $BMO(\mathbb{R})$ was introduced by Mei \cite[Chapter 1.3]{Me2007}. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. 
+	\end{enumerate}
+\end{remark}
+
+
+
+
+
+%
+%\section{Gundy's inequality}
+%
+%
+%\begin{proposition}\label{prop:Cuculescu-LlogL}
+%	Let $(\M,\tau)$ be a finite von Neumann algebra equipped with a
+%	normal faithful finite trace, and let $(\M_n)_{n\geq 1}$ be a regular
+%	filtration with regularity constant $c_{\rm reg}$. Let
+%	$x\in L_1(\M)_+$ and consider the positive martingale
+%	\[
+%	x_n=\mathcal E_n(x), \qquad n\geq 1.
+%	\]
+%	For every $\lambda>0$, let $(q_n^{(\lambda)})_{n\geq 1}$ be the
+%	associated Cuculescu projections and set
+%	\[
+%	q^{(\lambda)}=\bigwedge_{n\geq 1}q_n^{(\lambda)}.
+%	\]
+%	Then
+%	\[
+%	\sum_{k\in\mathbb Z}
+%	2^k\tau\bigl(1-q^{(2^k)}\bigr)<\infty
+%	\quad\Longleftrightarrow\quad
+%	x\in L\log L(\M).
+%	\]
+%	Here, since $x\in L_1(\M)_+$, the condition $x\in L\log L(\M)$ is
+%	equivalent to
+%	\[
+%	\tau(x\log^+x)<\infty.
+%	\]
+%\end{proposition}
+%
+%\begin{proof}
+%	For $\lambda>0$, write
+%	\[
+%	q_\lambda=q^{(\lambda)},\qquad
+%	e_\lambda=1-q_\lambda,\qquad
+%	d(\lambda)=\tau(e_\lambda).
+%	\]
+%	We first record two standard properties of Cuculescu projections:
+%	\begin{equation}\label{eq:Cuc-compression}
+%		q_\lambda xq_\lambda\leq \lambda q_\lambda
+%	\end{equation}
+%	and
+%	\begin{equation}\label{eq:Cuc-two-sided}
+%		\lambda d(\lambda)
+%		\leq \tau(e_\lambda x)
+%		\leq c_{\rm reg}\lambda d(\lambda).
+%	\end{equation}
+%	The second inequality in \eqref{eq:Cuc-two-sided} is precisely
+%	Lemma~\ref{lem CGPr}. To verify the first one, put
+%	\[
+%	p_n^{(\lambda)}
+%	=q_{n-1}^{(\lambda)}-q_n^{(\lambda)},\qquad n\geq 1.
+%	\]
+%	The projections $(p_n^{(\lambda)})_{n\geq 1}$ are mutually orthogonal
+%	and
+%	\[
+%	e_\lambda=\sum_{n\geq 1}p_n^{(\lambda)}
+%	\]
+%	in the strong operator topology. By the definition of the Cuculescu
+%	projections,
+%	\[
+%	p_n^{(\lambda)}x_np_n^{(\lambda)}
+%	\geq \lambda p_n^{(\lambda)}.
+%	\]
+%	Since $p_n^{(\lambda)}\in\M_n$ and $x_n=\mathcal E_n(x)$, we have
+%	\[
+%	\begin{aligned}
+%		\tau\bigl(p_n^{(\lambda)}x\bigr)
+%		&=\tau\bigl(p_n^{(\lambda)}x_n\bigr) \\
+%		&=\tau\bigl(p_n^{(\lambda)}x_np_n^{(\lambda)}\bigr) \\
+%		&\geq \lambda\tau\bigl(p_n^{(\lambda)}\bigr).
+%	\end{aligned}
+%	\]
+%	Summing over $n$ gives
+%	\[
+%	\tau(e_\lambda x)\geq\lambda\tau(e_\lambda),
+%	\]
+%	which proves the first inequality in \eqref{eq:Cuc-two-sided}.
+%	
+%	We first prove the implication
+%	\[
+%	x\in L\log L(\M)
+%	\quad\Longrightarrow\quad
+%	\sum_{k\in\mathbb Z}2^kd(2^k)<\infty.
+%	\]
+%	Using the spectral decomposition
+%	\[
+%	x=x\chi_{[0,\lambda/2]}(x)
+%	+x\chi_{(\lambda/2,\infty)}(x),
+%	\]
+%	we obtain
+%	\[
+%	\begin{aligned}
+%		\tau(e_\lambda x)
+%		&\leq
+%		\frac{\lambda}{2}\tau(e_\lambda)
+%		+\tau\bigl(x\chi_{(\lambda/2,\infty)}(x)\bigr).
+%	\end{aligned}
+%	\]
+%	Combining this with the first inequality in
+%	\eqref{eq:Cuc-two-sided}, we get
+%	\begin{equation}\label{eq:Cuc-tail-upper}
+%		\lambda d(\lambda)
+%		\leq
+%		2\tau\bigl(x\chi_{(\lambda/2,\infty)}(x)\bigr).
+%	\end{equation}
+%	Taking $\lambda=2^k$ yields
+%	\begin{equation}\label{eq:Cuc-dyadic-upper}
+%		2^kd(2^k)
+%		\leq
+%		2\tau\bigl(x\chi_{(2^{k-1},\infty)}(x)\bigr).
+%	\end{equation}
+%	
+%	For the nonpositive indices, the finiteness of the trace gives
+%	\[
+%	\sum_{k\leq 0}2^kd(2^k)
+%	\leq
+%	\tau(1)\sum_{k\leq 0}2^k
+%	=2\tau(1).
+%	\]
+%	For the positive indices, \eqref{eq:Cuc-dyadic-upper} gives
+%	\[
+%	\sum_{k\geq 1}2^kd(2^k)
+%	\leq
+%	2\sum_{j\geq 0}
+%	\tau\bigl(x\chi_{(2^j,\infty)}(x)\bigr).
+%	\]
+%	For every $t\geq 0$,
+%	\[
+%	\sum_{j\geq 0}\chi_{(2^j,\infty)}(t)
+%	\leq
+%	1+\frac{\log^+t}{\log 2}.
+%	\]
+%	Therefore, by the spectral calculus and Tonelli's theorem,
+%	\[
+%	\begin{aligned}
+%		\sum_{j\geq 0}
+%		\tau\bigl(x\chi_{(2^j,\infty)}(x)\bigr)
+%		&=
+%		\tau\left(
+%		x\sum_{j\geq 0}\chi_{(2^j,\infty)}(x)
+%		\right) \\
+%		&\leq
+%		\tau(x)+\frac{1}{\log 2}\tau(x\log^+x).
+%	\end{aligned}
+%	\]
+%	Consequently,
+%	\begin{equation}\label{eq:Cuc-sum-upper}
+%		\sum_{k\in\mathbb Z}2^kd(2^k)
+%		\leq
+%		2\tau(1)+2\tau(x)
+%		+\frac{2}{\log 2}\tau(x\log^+x),
+%	\end{equation}
+%	which proves the first implication.
+%	
+%	We now prove the converse. We first establish a spectral comparison
+%	estimate. Fix $a>1$ and let
+%	\[
+%	r=\chi_{(a\lambda,\infty)}(x).
+%	\]
+%	By \eqref{eq:Cuc-compression},
+%	\[
+%	\|x^{1/2}q_\lambda\|_\infty^2
+%	=\|q_\lambda xq_\lambda\|_\infty
+%	\leq\lambda.
+%	\]
+%	On the range of $r$, the generalized inverse $x^{-1/2}$ satisfies
+%	\[
+%	\|rx^{-1/2}\|_\infty\leq(a\lambda)^{-1/2}.
+%	\]
+%	It follows that
+%	\[
+%	\|rq_\lambda\|_\infty
+%	=
+%	\|rx^{-1/2}x^{1/2}q_\lambda\|_\infty
+%	\leq a^{-1/2}.
+%	\]
+%	Hence
+%	\[
+%	rq_\lambda r\leq a^{-1}r
+%	\]
+%	and therefore
+%	\begin{equation}\label{eq:rer-lower}
+%		re_\lambda r
+%		=r-rq_\lambda r
+%		\geq (1-a^{-1})r.
+%	\end{equation}
+%	Using \eqref{eq:rer-lower}, we obtain
+%	\[
+%	\begin{aligned}
+%		\tau(e_\lambda x)
+%		&=\tau(x^{1/2}e_\lambda x^{1/2}) \\
+%		&\geq
+%		\tau\bigl(rx^{1/2}e_\lambda x^{1/2}r\bigr) \\
+%		&=
+%		\tau\bigl(x^{1/2}re_\lambda rx^{1/2}\bigr) \\
+%		&\geq
+%		(1-a^{-1})\tau(xr).
+%	\end{aligned}
+%	\]
+%	Thus
+%	\[
+%	\tau\bigl(x\chi_{(a\lambda,\infty)}(x)\bigr)
+%	\leq
+%	\frac{a}{a-1}\tau(e_\lambda x).
+%	\]
+%	Applying Lemma~\ref{lem CGPr}, we conclude that
+%	\begin{equation}\label{eq:Cuc-tail-lower}
+%		\tau\bigl(x\chi_{(a\lambda,\infty)}(x)\bigr)
+%		\leq
+%		\frac{a}{a-1}
+%		c_{\rm reg}\lambda d(\lambda).
+%	\end{equation}
+%	
+%	Taking $a=2$ and $\lambda=2^k$ in
+%	\eqref{eq:Cuc-tail-lower}, we get
+%	\begin{equation}\label{eq:Cuc-dyadic-lower}
+%		\tau\bigl(x\chi_{(2^{k+1},\infty)}(x)\bigr)
+%		\leq
+%		2c_{\rm reg}\,2^kd(2^k).
+%	\end{equation}
+%	Consequently,
+%	\[
+%	\sum_{k\geq 0}
+%	\tau\bigl(x\chi_{(2^{k+1},\infty)}(x)\bigr)
+%	\leq
+%	2c_{\rm reg}
+%	\sum_{k\in\mathbb Z}2^kd(2^k).
+%	\]
+%	
+%	For every $t\geq 0$, we have
+%	\[
+%	t\log^+t
+%	\leq
+%	(\log 2)t
+%	\left(
+%	1+\sum_{k\geq 0}\chi_{(2^{k+1},\infty)}(t)
+%	\right).
+%	\]
+%	The spectral calculus therefore gives
+%	\[
+%	\begin{aligned}
+%		\tau(x\log^+x)
+%		&\leq
+%		(\log 2)\tau(x)
+%		+(\log 2)
+%		\sum_{k\geq 0}
+%		\tau\bigl(x\chi_{(2^{k+1},\infty)}(x)\bigr) \\
+%		&\leq
+%		(\log 2)\tau(x)
+%		+2c_{\rm reg}(\log 2)
+%		\sum_{k\in\mathbb Z}2^kd(2^k).
+%	\end{aligned}
+%	\]
+%	Thus, if
+%	\[
+%	\sum_{k\in\mathbb Z}
+%	2^k\tau\bigl(1-q^{(2^k)}\bigr)<\infty,
+%	\]
+%	then $\tau(x\log^+x)<\infty$, and hence
+%	$x\in L\log L(\M)$. This completes the proof.
+%\end{proof}
+%
+%
+%
+%{\color{red}Gundy theorem: we may consider its noncommutative version}
+%It was proved in \cite{Gu1969} that for a regular martingale, if $\sup_n|x_n|\in L_1(\Omega)$, then the martingale $x=(x_n)_{n\geq1}$ belongs to $L\log L(\Omega)$. We do not know whether this holds for noncommutative martingale. 
+%
+%If one can provide a affirmative answer to the above question, then the below is also true. {\color{red}we may delete the question below.}
+%\begin{question}
+%	For a regular martingale $x=(x_n)_{n\geq1}$, do we have 
+%	$$\|x\|_{L\log L(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}?$$
+%\end{question}
+
+\bibliographystyle{amsplain}
+\bibliography{NCZhou}
+
+%\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+%\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+%% \MRhref is called by the amsart/book/proc definition of \MR.
+%\providecommand{\MRhref}[2]{%
+%	\href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+%}
+%\providecommand{\href}[2]{#2}
+%\begin{thebibliography}{10}
+%	
+%	\bibitem{AJO2021}
+%	M.~Akboudj, Y.~Jiao, and A.~Os\c{e}kowski, \emph{A weak-{$L^\infty$} inequality
+%		for weakly dominated martingales with applications to {H}aar shift
+%		operators}, J. Math. Anal. Appl. \textbf{493} (2021), no.~2, Paper No.
+%	124547, 10. \MR{4144295}
+%	
+%	\bibitem{AP2023}
+%	A.~B. Aleksandrov and V.~V. Peller, \emph{Triangular projection on {$S_p$}, {$0
+%			<p< 1$} and related inequalities}, Proc. Amer. Math. Soc. \textbf{151}
+%	(2023), no.~6, 2559--2571. \MR{4576320}
+%	
+%	\bibitem{AFS1996}
+%	Sh.~A. Ayupov, S.~V. Ferleger, and F.~A. Sukochev, \emph{Isomorphism between
+%		the associative and non-associative {$L_p$}-spaces of type {${\rm II}_1$}
+%		hyperfinite factors}, Math. Scand. \textbf{78} (1996), no.~2, 271--285.
+%	\MR{1414654}
+%	
+%	\bibitem{Ba2010}
+%	R.~Ba\~{n}uelos, \emph{The foundational inequalities of {D}. {L}. {B}urkholder
+%		and some of their ramifications}, Illinois J. Math. \textbf{54} (2010),
+%	no.~3, 789--868 (2012). \MR{2928339}
+%	
+%	\bibitem{BS1988}
+%	C.~Bennett and R.~Sharpley, \emph{Interpolation of operators}, Pure and Applied
+%	Mathematics, vol. 129, Academic Press, Inc., Boston, MA, 1988. \MR{928802}
+%	
+%	\bibitem{Bu1984}
+%	D.~L. Burkholder, \emph{Boundary value problems and sharp inequalities for
+%		martingale transforms}, Ann. Probab. \textbf{12} (1984), no.~3, 647--702.
+%	\MR{744226}
+%	
+%	\bibitem{Bu1970}
+%	D.~L. Burkholder and R.~F. Gundy, \emph{Extrapolation and interpolation of
+%		quasi-linear operators on martingales}, Acta Math. \textbf{124} (1970),
+%	249--304. \MR{0440695 (55 \#13567)}
+%	
+%	\bibitem{CCP2022}
+%	L.~Cadilhac, J.~M. Conde-Alonso, and J.~Parcet, \emph{Spectral multipliers in
+%		group algebras and noncommutative {C}alder\'{o}n-{Z}ygmund theory}, J. Math.
+%	Pures Appl. (9) \textbf{163} (2022), 450--472. \MR{4438906}
+%	
+%	\bibitem{Ca1976}
+%	L.~Carleson, \emph{Two remarks on {$H^{1}$} and {BMO}}, Advances in Math.
+%	\textbf{22} (1976), no.~3, 269--277. \MR{477058}
+%	
+%	\bibitem{CPSZ2015}
+%	M.~Caspers, D.~Potapov, F.~Sukochev, and D.~Zanin, \emph{Weak type estimates
+%		for the absolute value mapping}, J. Operator Theory \textbf{73} (2015),
+%	no.~2, 361--384. \MR{3346126}
+%	
+%	\bibitem{CRX2023}
+%	Z.~Chen, N.~Randrianantoanina, and Q.~Xu, \emph{Atomic decompositions for
+%		noncommutative martingales}, J. Funct. Anal. \textbf{284} (2023), no.~9,
+%	Paper No. 109877. \MR{4551610}
+%	
+%	\bibitem{CXY2013}
+%	Z.~Chen, Q.~Xu, and Z.~Yin, \emph{Harmonic analysis on quantum tori}, Comm.
+%	Math. Phys. \textbf{322} (2013), no.~3, 755--805. \MR{3079331}
+%	
+%	\bibitem{CGP2020}
+%	J.~Conde-Alonso, A.~M. Gonz\'{a}lez-P\'{e}rez, and J.~Parcet,
+%	\emph{Noncommutative strong maximals and almost uniform convergence in
+%		several directions}, Forum Math. Sigma \textbf{8} (2020), Paper No. e57, 39.
+%	\MR{4179649}
+%	
+%	\bibitem{Cu1971}
+%	I.~Cuculescu, \emph{Martingales on von {N}eumann algebras}, J. Multivariate
+%	Anal. \textbf{1} (1971), no.~1, 17--27. \MR{0295398}
+%	
+%	\bibitem{Da1970}
+%	B.~Davis, \emph{On the integrability of the martingale square function}, Israel
+%	J. Math. \textbf{8} (1970), 187--190. \MR{268966}
+%	
+%	\bibitem{De2011}
+%	A.~Defant, \emph{Classical summation in commutative and noncommutative
+%		{$L_p$}-spaces}, Lecture Notes in Mathematics, vol. 2021, Springer,
+%	Heidelberg, 2011. \MR{2816224}
+%	
+%	\bibitem{DJ2004}
+%	A.~Defant and M.~Junge, \emph{Maximal theorems of {M}enchoff-{R}ademacher type
+%		in non-commutative {$L_q$}-spaces}, J. Funct. Anal. \textbf{206} (2004),
+%	no.~2, 322--355. \MR{2021850}
+%	
+%	\bibitem{DdePS2023}
+%	P.~G. Dodds, B.~de~Pagter, and F.~A. Sukochev, \emph{Noncommutative integration
+%		and operator theory}, Progress in Mathematics, vol. 349,
+%	Birkh\"{a}user/Springer, Cham, [2023] \copyright 2023. \MR{4738490}
+%	
+%	\bibitem{DDPS1999}
+%	P.~G. Dodds, T.~K. Dodds, B.~de~Pagter, and F.~A. Sukochev, \emph{Lipschitz
+%		continuity of the absolute value in preduals of semifinite factors}, Integral
+%	Equations Operator Theory \textbf{34} (1999), no.~1, 28--44. \MR{1690275}
+%	
+%	\bibitem{DFdePS2001}
+%	P.~G. Dodds, S.~V. Ferleger, B.~de~Pagter, and F.~A. Sukochev, \emph{Vilenkin
+%		systems and generalized triangular truncation operator}, Integral Equations
+%	Operator Theory \textbf{40} (2001), no.~4, 403--435. \MR{1839467}
+%	
+%	\bibitem{DS2000}
+%	P.~G. Dodds and F.~A. Sukochev, \emph{Non-commutative bounded {V}ilenkin
+%		systems}, Math. Scand. \textbf{87} (2000), no.~1, 73--92. \MR{1776966}
+%	
+%	\bibitem{Doob1953}
+%	J.~Doob, \emph{Stochastic processes}, John Wiley \& Sons, Inc., New York;
+%	Chapman \& Hall, Limited, London, 1953. \MR{0058896 (15,445b)}
+%	
+%	\bibitem{Fa1986}
+%	T.~Fack and H.~Kosaki, \emph{Generalized {$s$}-numbers of {$\tau$}-measurable
+%		operators}, Pacific J. Math. \textbf{123} (1986), no.~2, 269--300. \MR{840845
+%		(87h:46122)}
+%	
+%	\bibitem{FHW2023}
+%	Z.~Fan, G.~Hong, and W.~Wang, \emph{{O}perator-valued {H}ardy spaces and {BMO}
+%		spaces on spaces of homogeneous type}, arXiv preprint arXiv:2311.15775
+%	(2023).
+%	
+%	\bibitem{GJ1978}
+%	J.~B. Garnett and P.~W. Jones, \emph{The distance in {BMO} to {$L^{\infty }$}},
+%	Ann. of Math. (2) \textbf{108} (1978), no.~2, 373--393. \MR{506992}
+%	
+%	\bibitem{GJ1982}
+%	\bysame, \emph{B{MO} from dyadic {BMO}}, Pacific J. Math. \textbf{99} (1982),
+%	no.~2, 351--371. \MR{658065}
+%	
+%	\bibitem{Ga1973}
+%	A.~M. Garsia, \emph{Martingale inequalities: {S}eminar notes on recent
+%		progress}, W. A. Benjamin, Inc., Reading, Mass.-London-Amsterdam, 1973,
+%	Mathematics Lecture Notes Series. \MR{0448538 (56 \#6844)}
+%	
+%	\bibitem{GK1969}
+%	I.~C. Gohberg and M.~G. Kre\u{\i}n, \emph{Introduction to the theory of linear
+%		nonselfadjoint operators}, Translations of Mathematical Monographs, Vol. 18,
+%	American Mathematical Society, Providence, RI, 1969, Translated from the
+%	Russian by A. Feinstein. \MR{246142}
+%	
+%	\bibitem{Gr2009}
+%	L.~Grafakos, \emph{Modern {F}ourier analysis}, second ed., Graduate Texts in
+%	Mathematics, vol. 250, Springer, New York, 2009. \MR{2463316}
+%	
+%	\bibitem{Gu1969}
+%	R.~F. Gundy, \emph{On the class {$L\,{\rm log}\,L$}, martingales, and singular
+%		integrals}, Studia Math. \textbf{33} (1969), 109--118. \MR{243588}
+%	
+%	\bibitem{HJP2016}
+%	G.~Hong, M.~Junge, and J.~Parcet, \emph{Algebraic {D}avis decomposition and
+%		asymmetric {D}oob inequalities}, Comm. Math. Phys. \textbf{346} (2016),
+%	no.~3, 995--1019. \MR{3537343}
+%	
+%	\bibitem{HLX2023}
+%	G.~Hong, X.~Lai, and B.~Xu, \emph{Maximal singular integral operators acting on
+%		noncommutative {$L_p$}-spaces}, Math. Ann. \textbf{386} (2023), no.~1-2,
+%	375--414. \MR{4585152}
+%	
+%	\bibitem{HLW2021}
+%	G.~Hong, B.~Liao, and S.~Wang, \emph{Noncommutative maximal ergodic
+%		inequalities associated with doubling conditions}, Duke Math. J. \textbf{170}
+%	(2021), no.~2, 205--246. \MR{4202493}
+%	
+%	\bibitem{HR2024}
+%	G.~Hong and E.~Ricard, \emph{Failure of almost uniformly convergence for
+%		noncommutative martingales}, arXiv:2402.08560 (2024).
+%	
+%	\bibitem{JOW2018}
+%	Y.~Jiao, A.~Os\c{e}kowski, and L.~Wu, \emph{Inequalities for noncommutative
+%		differentially subordinate martingales}, Adv. Math. \textbf{337} (2018),
+%	216--259. \MR{3853050}
+%	
+%	\bibitem{JOW2019}
+%	\bysame, \emph{Strong differential subordinates for noncommutative
+%		submartingales}, Ann. Probab. \textbf{47} (2019), no.~5, 3108--3142.
+%	\MR{4021246}
+%	
+%	\bibitem{JOWZ2022}
+%	Y.~Jiao, A.~Os\c{e}kowski, L.~Wu, and Y.~Zuo, \emph{Inequalities for
+%		noncommutative weakly dominated martingales and applications}, Comm. Math.
+%	Phys. \textbf{396} (2022), no.~2, 787--816. \MR{4504935}
+%	
+%	\bibitem{JRWZ2020}
+%	Y.~Jiao, N.~Randrianantoanina, L.~Wu, and D.~Zhou, \emph{Square functions for
+%		noncommutative differentially subordinate martingales}, Comm. Math. Phys.
+%	\textbf{374} (2020), no.~2, 975--1019. \MR{4072235}
+%	
+%	\bibitem{JSZ2021}
+%	Y.~Jiao, F.~Sukochev, and D.~Zhou, \emph{Maximal inequalities of noncommutative
+%		martingale transforms}, Canad. J. Math. \textbf{73} (2021), no.~1, 221--248.
+%	\MR{4201540}
+%	
+%	\bibitem{JZZ2023}
+%	Y.~Jiao, D.~Zanin, and D.~Zhou, \emph{Noncommutative {B}urkholder/{R}osenthal
+%		inequalities with maximal diagonals}, J. Funct. Anal. \textbf{285} (2023),
+%	no.~2, Paper No. 109949, 44. \MR{4571873}
+%	
+%	\bibitem{JZZW2018}
+%	Y.~Jiao, D.~Zhou, L.~Wu, and D.~Zanin, \emph{Noncommutative dyadic martingales
+%		and {W}alsh-{F}ourier series}, J. Lond. Math. Soc. (2) \textbf{97} (2018),
+%	no.~3, 550--574. \MR{3816399}
+%	
+%	\bibitem{Ju2002}
+%	M.~Junge, \emph{Doob's inequality for non-commutative martingales}, J. Reine
+%	Angew. Math. \textbf{549} (2002), 149--190. \MR{1916654 (2003k:46097)}
+%	
+%	\bibitem{JM2010}
+%	M.~Junge and T.~Mei, \emph{Noncommutative {R}iesz transforms---a probabilistic
+%		approach}, Amer. J. Math. \textbf{132} (2010), no.~3, 611--680. \MR{2666903}
+%	
+%	\bibitem{JM2007}
+%	M.~Junge and M.~Musat, \emph{A noncommutative version of the {J}ohn-{N}irenberg
+%		theorem}, Trans. Amer. Math. Soc. \textbf{359} (2007), no.~1, 115--142.
+%	\MR{2247885 (2007m:46103)}
+%	
+%	\bibitem{JP2014}
+%	M.~Junge and M.~Perrin, \emph{Theory of {$\mathcal{H}_p$}-spaces for continuous
+%		filtrations in von {N}eumann algebras}, Ast\'{e}risque (2014), no.~362,
+%	vi+134. \MR{3241706}
+%	
+%	\bibitem{JX2003}
+%	M.~Junge and Q.~Xu, \emph{Noncommutative {B}urkholder/{R}osenthal
+%		inequalities}, Ann. Probab. \textbf{31} (2003), no.~2, 948--995. \MR{1964955
+%		(2004f:46078)}
+%	
+%	\bibitem{JX2005}
+%	\bysame, \emph{On the best constants in some non-commutative martingale
+%		inequalities}, Bull. London Math. Soc. \textbf{37} (2005), no.~2, 243--253.
+%	\MR{2119024 (2005k:46170)}
+%	
+%	\bibitem{JX2007}
+%	\bysame, \emph{Noncommutative maximal ergodic theorems}, J. Amer. Math. Soc.
+%	\textbf{20} (2007), no.~2, 385--439. \MR{2276775 (2007k:46109)}
+%	
+%	\bibitem{JX2008}
+%	\bysame, \emph{Noncommutative {B}urkholder/{R}osenthal inequalities. {II}.
+%		{A}pplications}, Israel J. Math. \textbf{167} (2008), 227--282. \MR{2448025
+%		(2010c:46141)}
+%	
+%	\bibitem{KS2008}
+%	N.~J. Kalton and F.~A. Sukochev, \emph{Symmetric norms and spaces of
+%		operators}, J. Reine Angew. Math. \textbf{621} (2008), 81--121. \MR{2431251}
+%	
+%	\bibitem{KW1982}
+%	S.~Kwapie\'{n} and W.~A. Woyczy\'{n}ski, \emph{Random series and stochastic
+%		integrals: single and multiple}, Probability and its Applications,
+%	Birkh\"{a}user Boston, Inc., Boston, MA, 1992. \MR{1167198}
+%	
+%	\bibitem{La1976}
+%	E.~C. Lance, \emph{Ergodic theorems for convex sets and operator algebras},
+%	Invent. Math. \textbf{37} (1976), no.~3, 201--214. \MR{428060}
+%	
+%	\bibitem{Lo1993}
+%	R.~Long, \emph{Martingale spaces and inequalities}, Peking University Press,
+%	Beijing; Friedr. Vieweg \& Sohn, Braunschweig, 1993. \MR{1224450 (94j:60087)}
+%	
+%	\bibitem{Me2007}
+%	T.~Mei, \emph{Operator valued {H}ardy spaces}, Mem. Amer. Math. Soc.
+%	\textbf{188} (2007), no.~881, vi+64. \MR{2327840}
+%	
+%	\bibitem{Os2007}
+%	A.~Os\c{e}kowski, \emph{Inequalities for dominated martingales}, Bernoulli
+%	\textbf{13} (2007), no.~1, 54--79. \MR{2307394}
+%	
+%	\bibitem{Os2012}
+%	\bysame, \emph{Sharp martingale and semimartingale inequalities}, Instytut
+%	Matematyczny Polskiej Akademii Nauk. Monografie Matematyczne (New Series)
+%	[Mathematics Institute of the Polish Academy of Sciences. Mathematical
+%	Monographs (New Series)], vol.~72, Birkh\"{a}user/Springer Basel AG, Basel,
+%	2012. \MR{2964297}
+%	
+%	\bibitem{Os2008}
+%	A.~Os{\c{e}}kowski, \emph{Weak type inequality for noncommutative
+%		differentially subordinated martingales}, Probab. Theory Related Fields
+%	\textbf{140} (2008), no.~3-4, 553--568. \MR{2365484 (2008m:46135)}
+%	
+%	\bibitem{Parcet2}
+%	J.~Parcet, \emph{Pseudo-localization of singular integrals and noncommutative
+%		{C}alder\'on-{Z}ygmund theory}, J. Funct. Anal. \textbf{256} (2009), no.~2,
+%	509--593. \MR{2476951 (2010g:42035)}
+%	
+%	\bibitem{PR2006}
+%	J.~Parcet and N.~Randrianantoanina, \emph{Gundy's decomposition for
+%		non-commutative martingales and applications}, Proc. London Math. Soc. (3)
+%	\textbf{93} (2006), no.~1, 227--252. \MR{2235948 (2007b:46115)}
+%	
+%	\bibitem{Pe2009}
+%	M.~Perrin, \emph{A noncommutative {D}avis' decomposition for martingales}, J.
+%	Lond. Math. Soc. (2) \textbf{80} (2009), no.~3, 627--648. \MR{2559120
+%		(2011e:46104)}
+%	
+%	\bibitem{PTW2022}
+%	L.~Persson, G.~Tephnadze, and F.~Weisz, \emph{Martingale {H}ardy spaces and
+%		summability of one-dimensional {V}ilenkin-{F}ourier series},
+%	Birkh\"{a}user/Springer, Cham, [2022] \copyright 2022. \MR{4559742}
+%	
+%	\bibitem{Pi1998}
+%	G.~Pisier, \emph{Non-commutative vector valued {$L_p$}-spaces and completely
+%		{$p$}-summing maps}, Ast\'erisque (1998), no.~247, vi+131. \MR{1648908}
+%	
+%	\bibitem{PIS7}
+%	\bysame, \emph{Non-commutative vector valued {$L_p$}-spaces and completely
+%		{$p$}-summing maps}, Ast\'erisque (1998), no.~247, vi+131. \MR{1648908
+%		(2000a:46108)}
+%	
+%	\bibitem{PX1997}
+%	G.~Pisier and Q.~Xu, \emph{Non-commutative martingale inequalities}, Comm.
+%	Math. Phys. \textbf{189} (1997), no.~3, 667--698. \MR{1482934 (98m:46079)}
+%	
+%	\bibitem{Pi20031}
+%	\bysame, \emph{Non-commutative {$L^p$}-spaces}, Handbook of the geometry of
+%	{B}anach spaces, {V}ol.\ 2, North-Holland, Amsterdam, 2003, pp.~1459--1517.
+%	\MR{1999201 (2004i:46095)}
+%	
+%	\bibitem{PSZ2024}
+%	D.~Potapov, F.~Sukochev, and D.~Zhou, \emph{Noncommutative nest {H}ardy spaces
+%		and martingales}, manuscript (2024).
+%	
+%	\bibitem{Rand2002}
+%	N.~Randrianantoanina, \emph{Non-commutative martingale transforms}, J. Funct.
+%	Anal. \textbf{194} (2002), no.~1, 181--212. \MR{1929141 (2003m:46098)}
+%	
+%	\bibitem{Rand2004}
+%	\bysame, \emph{Square function inequalities for non-commutative martingales},
+%	Israel J. Math. \textbf{140} (2004), 333--365. \MR{2054851 (2005c:46091)}
+%	
+%	\bibitem{Rand2005}
+%	\bysame, \emph{A weak type inequality for non-commutative martingales and
+%		applications}, Proc. London Math. Soc. (3) \textbf{91} (2005), no.~2,
+%	509--542. \MR{2167096 (2007b:46116)}
+%	
+%	\bibitem{Rand2007}
+%	\bysame, \emph{Conditioned square functions for noncommutative martingales},
+%	Ann. Probab. \textbf{35} (2007), no.~3, 1039--1070. \MR{2319715
+%		(2009d:46112)}
+%	
+%	\bibitem{Ra2022}
+%	\bysame, \emph{Interpolation between noncommutative martingale {H}ardy and
+%		{BMO} spaces: the case {$0<p<1$}}, Canad. J. Math. \textbf{74} (2022), no.~6,
+%	1700--1744. \MR{4520665}
+%	
+%	\bibitem{Ra2023}
+%	\bysame, \emph{P. {J}ones' interpolation theorem for noncommutative martingale
+%		{H}ardy spaces}, Trans. Amer. Math. Soc. \textbf{376} (2023), no.~3,
+%	2089--2124. \MR{4549700}
+%	
+%	\bibitem{RWX2019}
+%	N.~Randrianantoanina, L.~Wu, and Q.~Xu, \emph{Noncommutative {D}avid type
+%		decompositions and applications}, J. Lond. Math. Soc. (2) \textbf{99} (2019),
+%	no.~1, 97--126. \MR{3909250}
+%	
+%	\bibitem{SS2018}
+%	T.~Scheckter and F.~Sukochev, \emph{Weak type estimates for the noncommutative
+%		{V}ilenkin-{F}ourier series}, Integral Equations Operator Theory \textbf{90}
+%	(2018), no.~6, Paper No. 64, 19. \MR{3857654}
+%	
+%	\bibitem{Su2014}
+%	F.~Sukochev, \emph{Completeness of quasi-normed symmetric operator spaces},
+%	Indag. Math. (N.S.) \textbf{25} (2014), no.~2, 376--388. \MR{3151823}
+%	
+%	\bibitem{TAK}
+%	M.~Takesaki, \emph{Theory of operator algebras. {I}}, Springer-Verlag, New
+%	York-Heidelberg, 1979. \MR{548728 (81e:46038)}
+%	
+%	\bibitem{TMS2019}
+%	A.~Talebi, M.~S. Moslehian, and G.~Sadeghi, \emph{A representation of
+%		noncommutative {BMO} spaces}, Statist. Probab. Lett. \textbf{153} (2019),
+%	65--70. \MR{3960182}
+%	
+%	\bibitem{TZ2024}
+%	C.~Tian and D.~Zhou, \emph{Weak type estimate for the partial sums of
+%		noncommutative {V}ilenkin-{F}ourier series}, Proc. Amer. Math. Soc.
+%	\textbf{152} (2024), no.~3, 1153--1167. \MR{4693673}
+%	
+%	\bibitem{Ts2021}
+%	A.~S. Tselishchev, \emph{A {L}ittlewood-{P}aley-{R}ubio de {F}rancia inequality
+%		for bounded {V}ilenkin systems}, Mat. Sb. \textbf{212} (2021), no.~10,
+%	152--164. \MR{4324072}
+%	
+%	\bibitem{Va2010}
+%	A.~Vagharshakyan, \emph{Recovering singular integrals from {H}aar shifts},
+%	Proc. Amer. Math. Soc. \textbf{138} (2010), no.~12, 4303--4309. \MR{2680056}
+%	
+%	\bibitem{Weisz1994}
+%	F.~Weisz, \emph{Martingale {H}ardy spaces and their applications in {F}ourier
+%		analysis}, Lecture Notes in Mathematics, vol. 1568, Springer-Verlag, Berlin,
+%	1994. \MR{1320508 (96m:60108)}
+%	
+%	\bibitem{XXX2016}
+%	R.~Xia, X.~Xiong, and Q.~Xu, \emph{Characterizations of operator-valued {H}ardy
+%		spaces and applications to harmonic analysis on quantum tori}, Adv. Math.
+%	\textbf{291} (2016), 183--227. \MR{3459017}
+%	
+%	\bibitem{Yo1976}
+%	W.~Young, \emph{Mean convergence of generalized {W}alsh-{F}ourier series},
+%	Trans. Amer. Math. Soc. \textbf{218} (1976), 311--320. \MR{394022}
+%	
+%\end{thebibliography}
+
+\end{document}

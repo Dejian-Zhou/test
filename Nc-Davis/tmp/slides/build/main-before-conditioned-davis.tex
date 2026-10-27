@@ -1,0 +1,788 @@
+\documentclass[9pt,aspectratio=43]{beamer}
+
+% Reconstructed from the supplied LKW.pdf reference.
+% Standalone source: compile with pdfLaTeX (no external bibliography needed).
+% Content source: nc-Davis_v3.tex. Original theorem numbers appear in headings.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usetheme{Madrid}
+\usefonttheme{structuresmallcapsserif}
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=false]
+
+\definecolor{lkwblue}{rgb}{0.2,0.2,0.7}
+\setbeamercolor{structure}{fg=lkwblue}
+\setbeamercolor{frametitle}{fg=white,bg=lkwblue}
+\setbeamercolor{title}{fg=white,bg=lkwblue}
+\setbeamercolor{block title}{fg=lkwblue,bg=lkwblue!20!white}
+\setbeamercolor{block body}{fg=black,bg=lkwblue!10!white}
+\setbeamercolor{author in head/foot}{fg=white,bg=black}
+\setbeamercolor{title in head/foot}{fg=white,bg=lkwblue}
+\setbeamercolor{item}{fg=lkwblue}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+\setbeamerfont{frametitle}{family=\rmfamily,shape=\scshape,size=\fontsize{14.4}{17.28}\selectfont}
+\setbeamerfont{title}{family=\rmfamily,shape=\scshape,size=\fontsize{14.4}{17.28}\selectfont}
+\setbeamerfont{block title}{family=\rmfamily,shape=\scshape,size=\normalsize}
+\setbeamerfont{author in head/foot}{family=\rmfamily,shape=\scshape,size=\fontsize{5}{6}\selectfont}
+\setbeamerfont{title in head/foot}{family=\rmfamily,shape=\scshape,size=\fontsize{5}{6}\selectfont}
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=21.93pt,dp=3.74pt,leftskip=.3cm,rightskip=.3cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=6.75pt,dp=2.565pt,right]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor\hspace*{2ex}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=6.75pt,dp=2.565pt,left]{title in head/foot}%
+      \hspace*{2ex}\usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}}%
+}
+\setbeamertemplate{theorems}[default]
+\setbeameroption{hide notes}
+\hypersetup{pdftitle={Noncommutative Davis inequalities and applications},
+  pdfauthor={Yong Jiao, Sijie Luo, Fedor Sukochev, Dejian Zhou}}
+
+\newcommand{\M}{\mathcal M}
+\newcommand{\N}{\mathcal N}
+\newcommand{\E}{\mathcal E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\BMO}{\mathcal{BMO}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\creg}{c_{\mathrm{reg}}}
+\newcommand{\distr}{\mathsf d}
+\newcommand{\source}[1]{\note{Source: #1}}
+\newenvironment{paperresult}[1]{\begin{block}{#1}\itshape}{\end{block}}
+
+\title[Noncommutative Davis inequalities]{\texorpdfstring{Noncommutative Davis inequalities\\and applications}{Noncommutative Davis inequalities and applications}}
+\author[Zhou Dejian]{ Dejian Zhou\\
+{\small Yong Jiao, Sijie Luo, Fedor Sukochev}}
+%\author{Yong Jiao, Sijie Luo, Fedor Sukochev}
+\institute[]{Central South University\\
+{\large{Hebei Normal University}}}
+\date{24 Oct. 2026}
+
+\begin{document}
+
+% 1 -------------------------------------------------------------------
+\begin{frame}[plain]
+  \titlepage
+  \source{Title and author affiliations in nc-Davis_v3.tex. Visual reference: LKW.pdf, cover.}
+\end{frame}
+
+% 2 -------------------------------------------------------------------
+\section{Background and main result}
+\begin{frame}{Davis inequalities}
+	
+	$\bullet$ Let $(\Omega,\mathcal{F},\mathbb{P};\{\mathcal{F}_n\}_{n\geq1})$  be a probability space associated with an increasing filtration $\{\mathcal{F}_n\}_{n\geq1}$.
+	
+	$\bullet$ Let $\{\mathbb{E}_k\}_{k\geq1}$ be the conditional expectation with respect to $\{\mathcal{F}_n\}_{n\geq1}$. 
+	
+	$\bullet$ For a scalar martingale \(f_n=\mathbb E_n f\), let $d_nf=\mathbb{E}_n(f)-\mathbb{E}_{n-1}(f)$, and
+\[
+ f^*=\sup_{n\geq1}|f_n|,
+ \qquad
+ S(f)=\left(\sum_{n\geq1}|d_nf|^2\right)^{1/2}.
+\]
+The Burkholder--Gundy inequalities compare maximal and square functions
+for \(1<p<\infty\).
+
+\begin{theorem}[Burkholder, 1966]
+There exist \(c_p,C_p>0\) such that
+\[
+ c_p\norm{S(f)}_p
+ \leq \norm{f^*}_p
+ \leq C_p\norm{S(f)}_p,\quad 1<p<\infty.
+\]
+\end{theorem}
+
+
+\source{Introduction, equations (B 1966) and (Davis 1970). Davis, On the integrability of the martingale square function, Israel J. Math. 8 (1970), 187--190.}
+\end{frame}
+
+\begin{frame}{Davis inequalities}
+	
+	\begin{definition}
+		A filtration is regular if for each n
+		\[
+		\mathbb{E}_n(f)\leq \creg\,\mathbb{E}_{n-1}(f),
+		\qquad f\geq0,
+		\]
+		with one constant \(\creg\) independent of \(a\) and \(n\).
+	\end{definition}
+	
+	\begin{theorem}[Burkholder--Gundy, 1970, Acta Math.]
+	Under the regular condition, there exists $c_p,C_p>0$ such that
+		\[
+		c_p\norm{S(f)}_p
+		\leq \norm{f^*}_p
+		\leq C_p\norm{S(f)}_p,\quad 0<p\leq 1.
+		\]
+	\end{theorem}
+	
+	\begin{theorem}[Davis, 1970]
+	For general martingale, there is a universal constant \(C>0\) such that
+		\[
+		C^{-1}\norm{S(f)}_1
+		\leq \norm{f^*}_1
+		\leq C\norm{S(f)}_1.
+		\]
+	\end{theorem}
+	
+Here we study the Davis inequality for \textcolor{blue}{noncommutative martingales}
+\end{frame}
+
+% New page 4 ----------------------------------------------------------
+\begin{frame}{Noncommutative martingale theory}
+\begin{itemize}
+ \setlength{\itemsep}{4pt}
+ \item \href{https://doi.org/10.1016/0047-259X(71)90027-3}{I. Cuculescu (1971)}.
+ \emph{Martingales on von Neumann algebras}.
+ J. Multivariate Anal. \textbf{1}(1), 17--27.
+
+ \item \href{https://doi.org/10.1007/s002200050224}{G. Pisier and Q. Xu (1997)}.
+ \emph{Non-commutative martingale inequalities}.
+ Comm. Math. Phys. \textbf{189}(3), 667--698.
+
+ \item \href{https://doi.org/10.1515/crll.2002.061}{M. Junge (2002)}.
+ \emph{Doob's inequality for non-commutative martingales}.
+ J. Reine Angew. Math. \textbf{549}, 149--190.
+
+ \item \href{https://doi.org/10.1006/jfan.2002.3952}{N. Randrianantoanina (2002)}.
+ \emph{Non-commutative martingale transforms}.
+ J. Funct. Anal. \textbf{194}(1), 181--212.
+
+
+
+
+ \item \href{https://doi.org/10.1093/imrn/rnae218}{D. Potapov, F. Sukochev and D. Zhou (2024)}.
+ \emph{Noncommutative nest Hardy spaces and martingales}.
+ Int. Math. Res. Not. IMRN \textbf{2024}(21), 13724--13757.
+ 
+ \item $\cdots$
+\end{itemize}
+\source{NCZhou.bib entries Cu1971, PX1997, Ju2002, Rand2002, JRWZ2020, JZZ2023 and PSZ2024. The published IMRN details replace the manuscript information in PSZ2024: Potapov, Sukochev and Zhou, 2024(21), 13724--13757, DOI 10.1093/imrn/rnae218. Randrianantoanina's JFA article is 194(1) (2002), 181--212, DOI 10.1006/jfan.2002.3952. Publication data checked against publisher records. DOI links are embedded in each author--year label.}
+\end{frame}
+
+% 3 -------------------------------------------------------------------
+\begin{frame}{Noncommutative martingales}
+
+$\bullet$ Let \((\M,\tau)\) be a finite von Neumann algebra with a normal faithful
+normalized trace. For \(0<p<\infty\),
+\[
+ \norm{x}_p=\tau(|x|^p)^{1/p}.
+\]
+
+$\bullet$ Consider an increasing, weak\(^{*}\)-dense filtration
+\[
+ \M_1\subset\M_2\subset\cdots\subset\M,
+ \qquad \E_n:\M\longrightarrow\M_n,
+\]
+where each \(\E_n\) preserves the trace.
+
+
+$\bullet$ For convenience, we here only consider the noncommutative martingale $x:=(\E_n(x_{n+1}))_n=(x_n)_{n\geq1}$. Its differences are
+\[
+ d_1x=x_1,\qquad d_nx=x_n-x_{n-1}\quad(n\geq2).
+\]
+
+\source{Section 2.3, Noncommutative, conditional expectations, martingales and Hardy spaces.}
+\end{frame}
+
+% 4 -------------------------------------------------------------------
+\begin{frame}{Nc Burkholder-Gundy}
+	Noncommutativity produces two square functions:
+	\[
+	S_c(x)=\left(\sum_{n\geq1}|d_nx|^2\right)^{1/2},
+	\qquad
+	S_r(x)=\left(\sum_{n\geq1}|d_nx^*|^2\right)^{1/2}.
+	\]
+	Let
+	\[
+	\norm{x}_{H_p^c}=\norm{S_c(x)}_p,
+	\qquad
+	\norm{x}_{H_p^r}=\norm{S_r(x)}_p.
+	\]
+	
+	\begin{theorem}[Pisier and Xu, 1997]
+	For $1<p\leq 2$, 
+		\[
+		L_p(\M)\sim H_p(\M):=H_p^c(\M)+H_p^r(\M),
+		\]
+		\[
+		\norm{x}_{H_p}
+		=\inf_{x=y+z}
+		\left\{\norm{y}_{H_p^c}+\norm{z}_{H_p^r}\right\},
+		\]
+		where \(y\) and \(z\) are martingales. 
+		
+		For $2\leq p<\infty$,  	
+		\[	L_p(\M)\sim H_p(\M)=H_p^c(\M)\cap H_p^r(\M),
+		\]
+		\[
+		\norm{x}_{H_p}
+		=\max
+		\left\{\norm{y}_{H_p^c}, \norm{z}_{H_p^r}\right\},
+		\]
+	\end{theorem}
+	\source{Section 2.3, definitions of H_p^c, H_p^r, H_p, and equation (def:S).}
+\end{frame}
+% 5 -------------------------------------------------------------------
+
+
+
+
+
+\begin{frame}{Noncommutative maximal spaces}
+The noncommutative maximal norm uses factorizations in place of a
+pointwise supremum:
+\[
+ x_n=a\,v_n\,b,\qquad
+ a,b\in L_{2p}(\M),\qquad (v_n)\subset\M.
+\]
+\[
+ \norm{(x_n)}_{L_p(\M,\ell_\infty)}
+ =
+ \inf_{x_n=av_nb}
+ \left\{\norm{a}_{2p}\sup_n\norm{v_n}_\infty\norm{b}_{2p}\right\}.
+\]
+
+\begin{block}{Positive sequences}
+If every \(x_n\geq0\), then
+\[
+ \norm{(x_n)}_{L_p(\M,\ell_\infty)}
+ =
+ \inf\left\{\norm{A}_p:
+        A\in L_p(\M)_+,\ x_n\leq A\ \text{for all }n\right\}.
+\]
+\end{block}
+Thus a positive majorant \(A\) replaces the classical maximal function.
+\source{Section 2.2, equations (e-infty) and (positive).}
+\end{frame}
+
+
+
+% 6 -------------------------------------------------------------------
+\begin{frame}{The endpoint obstruction}
+Junge's noncommutative Doob inequality gives
+\[
+ \norm{(\E_nx)_n}_{L_p(\M,\ell_\infty)}
+ \leq C_p\norm{x}_p,
+ \qquad 1<p\leq\infty.
+\]
+Junge and Xu identified the optimal growth
+\(C_p\asymp(p-1)^{-2}\) as \(p\downarrow1\).
+
+\medskip
+\begin{block}{Failure of one direction at \(p=1\)}
+Junge and Xu (2005) showed that no universal \(C\) can satisfy
+\[
+ \norm{(\E_nx)_n}_{L_1(\M,\ell_\infty)}
+ \leq C\norm{x}_{H_1(\M)}
+\]
+for all noncommutative martingales.
+\end{block}
+
+Hong, Junge and Parcet (2016) obtained an asymmetric maximal substitute.
+\source{Introduction, equation (Junge strong pp), Junge--Xu 2005 Theorem 8 and Lemma 13, and discussion of Hong--Junge--Parcet 2016 Theorem B.}
+\end{frame}
+
+% 7 -------------------------------------------------------------------
+\begin{frame}{Junge and Xu's question}
+The converse direction of the endpoint inequality is the central problem.
+
+\begin{block}{Problem 16, Junge and Xu (2005)}
+Does there exist a universal constant \(C>0\) such that
+\[
+ \norm{x}_{H_1(\M)}
+ \leq C\norm{(\E_nx)_n}_{L_1(\M,\ell_\infty)}
+\]
+for every noncommutative martingale?
+\end{block}
+
+\medskip
+The scalar proof uses pointwise comparisons and stopping times.
+In a von Neumann algebra, one must work with projections and
+column--row decompositions.
+
+\medskip
+Our result answers this question for \textcolor{blue}{regular filtrations}.
+\source{Introduction, Problem 1.1, label JX problem, and the paragraph preceding Theorem 1.2.}
+\end{frame}
+
+% 8 -------------------------------------------------------------------
+\begin{frame}{Regular filtrations}
+\begin{definition}
+A filtration is regular if successive conditional expectations satisfy
+\[
+ \E_n(a)\leq \creg\,\E_{n-1}(a),
+ \qquad a\geq0,
+\]
+with one constant \(\creg\) independent of \(a\) and \(n\).
+\end{definition}
+
+\medskip
+\textcolor{blue}{Basic example} is the operator-valued dyadic filtration
+\[
+ \M_n=L_\infty(\mathcal D_n)\,\bar\otimes\,\N,
+ \qquad \E_n=\mathbb E_n\otimes\mathrm{id}_{\N}.
+\]
+Here \(\mathcal D_n\) is generated by intervals of length \(2^{-n}\), and
+\[
+ \creg=2.
+\]
+
+
+\source{Introduction, equation (regular), and Section 6.1, the lemma on the dyadic filtration with regularity constant 2. The displayed regularity relation concerns successive filtration levels, with the initial level handled by the chosen martingale convention.}
+\end{frame}
+
+% 9 -------------------------------------------------------------------
+\begin{frame}{Main result}
+\begin{paperresult}{Theorem 1.2 (Jiao--Luo--Sukochev--Zhou)}
+Let \((\M,\tau)\) be a noncommutative probability space with a
+regular filtration \((\M_n)_{n\geq1}\).
+For every martingale \(x=(x_n)_{n\geq1}\) and every \(0<p\leq1\),
+\[
+ \boxed{\;
+ \norm{x}_{H_p(\M)}
+ \leq C_{p,\mathrm{reg}}\,
+       \norm{(x_n)_n}_{L_p(\M,\ell_\infty)}.
+ \;}
+\]
+The constant depends only on \(p\) and the regularity constant.
+\end{paperresult}
+
+\medskip
+At \(p=1\), this gives an affirmative answer to Junge and Xu's question
+under regularity.
+\source{Theorem 1.2, label Davis, and Remark 1.3(i).}
+\end{frame}
+
+% 10 ------------------------------------------------------------------
+\begin{frame}{Remarks on the main theorem}
+\begin{itemize}
+ \item The estimate holds throughout \(\textcolor{blue}{0<p\leq1}\),
+ including the quasi-Banach range \(0<p<1\).
+ \medskip
+ \item The regularity assumption is essential to the present argument.
+ The manuscript leaves the case of arbitrary filtrations open.
+ \medskip
+ \item The same argument extends to semifinite von Neumann algebras
+ equipped with a regular filtration.
+ \medskip
+ \item Applications include Mei's operator-valued Hardy spaces and
+ a dyadic Carleson decomposition for noncommutative BMO.
+\end{itemize}
+\source{Remarks 1.3 and 1.4, and Sections 6.1--6.2.}
+\end{frame}
+
+% 11 ------------------------------------------------------------------
+\section{Ingredients of the proof}
+\begin{frame}{Ingredients of the proof}
+The argument combines estimates for stopping projections with a
+column--row decomposition.
+
+\begin{enumerate}
+ \item \textcolor{blue}{Cuculescu projections} describe the part of a
+ positive martingale above a given level.
+ \medskip
+ \item The \textcolor{blue}{Fuglede--Kadison determinant} and Carleman's
+ inequality control the sum of projection tails by a positive majorant.
+ \medskip
+ \item \textcolor{blue}{Triangular truncations} split the martingale into
+ column and row pieces. A regularity estimate controls their square
+ function distributions.
+\end{enumerate}
+
+\medskip
+Summing the resulting dyadic estimates yields the \(H_p\) bound.
+\source{Sections 3--5, in particular Lemmas 3.4, 4.4, 4.5, 5.2, 5.3 and Proposition 4.6.}
+\end{frame}
+
+% 12 ------------------------------------------------------------------
+\begin{frame}{Cuculescu projections}
+Let \(x_n=\E_n(x)\) be a positive martingale. For \(\lambda>0\), set
+\(q_0^{(\lambda)}=1\) and
+\[
+ q_n^{(\lambda)}
+ =q_{n-1}^{(\lambda)}
+   \chi_{[0,\lambda]}
+    \bigl(q_{n-1}^{(\lambda)}x_nq_{n-1}^{(\lambda)}\bigr).
+\]
+The projections decrease in \(n\), belong to \(\M_n\), and satisfy
+\[
+ q_n^{(\lambda)}x_nq_n^{(\lambda)}
+ \leq \lambda q_n^{(\lambda)}.
+\]
+Writing \(q^{(\lambda)}=\bigwedge_nq_n^{(\lambda)}\), we have
+\[
+ \lambda\tau(1-q^{(\lambda)})
+ \leq \tau\bigl((1-q^{(\lambda)})x\bigr)
+ \leq \norm{x}_1.
+\]
+
+The quantity \(\tau(1-q^{(\lambda)})\) plays the role of a maximal
+distribution function.
+\source{Section 4.1, equation (Cuc) and Lemma 4.1 (Cuculescu).}
+\end{frame}
+
+% 13 ------------------------------------------------------------------
+\begin{frame}{Fuglede--Kadison determinant}
+For a positive invertible \(b\in e\M e\), use the restricted,
+unnormalized trace:
+\[
+ \Delta_e(b)=\exp\bigl(\tau(\log_e b)\bigr).
+\]
+
+\begin{paperresult}{Lemma 3.4 (Corner estimate)}
+Let \(e=p+q\), where \(p\) and \(q\) are orthogonal projections.
+If \(b\in(e\M e)_+\) is invertible and \(b\geq\lambda p\), then
+\[
+ \Delta_e(b)\geq
+ \lambda^{\tau(p)}\Delta_q(qbq).
+\]
+\end{paperresult}
+
+For \(b=\begin{pmatrix}a&c\\c^*&d\end{pmatrix}\), the Schur complement
+satisfies \(s=a-cd^{-1}c^*\geq\lambda p\). Factorization gives
+\[
+ \Delta_e(b)=\Delta_p(s)\Delta_q(d).
+\]
+\source{Section 3, equations (eq:corner-det), (eq:invertible-corner), Lemma 3.4 and its Schur-complement proof.}
+\end{frame}
+
+% 14 ------------------------------------------------------------------
+\begin{frame}{A distribution estimate from a majorant}
+Suppose \(0\leq x_n\leq a\) for every \(n\), and define
+\[
+ A(t)=\exp\left(\frac1t\int_0^t\log\mu(s,a)\,ds\right),
+ \qquad t>0,
+\]
+where \(\mu(\,\cdot\,,a)\) is the generalized singular value function.
+
+\begin{paperresult}{Lemma 4.4}
+For every \(\lambda>0\),
+\[
+ \tau(1-q^{(\lambda)})
+ \leq \bigl|\{t>0:A(t)\geq\lambda\}\bigr|.
+\]
+\end{paperresult}
+
+For \(r=1-q_N^{(\lambda)}\), iteration of the corner estimate gives
+\[
+ \lambda^{\tau(r)}
+ \leq\Delta_r(rar)
+ \leq\exp\left(\int_0^{\tau(r)}\log\mu(s,a)\,ds\right).
+\]
+This implies \(\lambda\leq A(\tau(r))\), and \(A\) is decreasing.
+\source{Lemma 4.4, label key lemma, and its proof. The integration differential in the definition of A is written as ds, consistently with the proof.}
+\end{frame}
+
+% 15 ------------------------------------------------------------------
+\begin{frame}{Summing the projection tails}
+Carleman's inequality gives
+\[
+ \int_0^\infty
+ \exp\left(\frac1t\int_0^t\log f(s)\,ds\right)\,dt
+ \leq e\int_0^\infty f(t)\,dt.
+\]
+Applying it to \(f(t)=\mu(t,a)^p\) yields
+\[
+ \int_0^\infty A(t)^p\,dt\leq e\norm{a}_p^p.
+\]
+
+\begin{paperresult}{Lemma 4.5}
+For a positive majorant \(x_n\leq a\) and \(0<p\leq1\),
+\[
+ \sum_{k\in\mathbb Z}2^{kp}\tau(1-q^{(2^k)})
+ \leq \frac{2^pe}{2^p-1}\norm{a}_p^p.
+\]
+\end{paperresult}
+These determinant and summation estimates do not require regularity.
+\source{Lemma 3.5 (continuous Carleman inequality), Lemma 4.5, and the opening paragraph of Section 4.}
+\end{frame}
+
+% 16 ------------------------------------------------------------------
+\begin{frame}{The regularity estimate}
+The additional input is a noncommutative form of Gundy's inequality.
+
+\begin{paperresult}{Lemma 5.2}
+For the Cuculescu projections of a positive martingale associated with
+a regular filtration,
+\[
+ \tau\bigl((1-q^{(\lambda)})x\bigr)
+ \leq 2\creg\,\lambda\,\tau(1-q^{(\lambda)}).
+\]
+\end{paperresult}
+
+\medskip
+This estimate replaces a trace involving the terminal value \(x\)
+by the size of the stopping projection.
+
+\medskip
+\textcolor{blue}{This is where regularity enters the square function argument.}
+\source{Lemma 5.2, label lem CGPr, and the discussion identifying it as a noncommutative version of Gundy's inequality. The lemma is presented with the stopping conventions of the manuscript.}
+\end{frame}
+
+% 17 ------------------------------------------------------------------
+\begin{frame}{The column--row decomposition}
+Construct increasing projections
+\[
+ e_{j,n}=\bigwedge_{k\geq j}q_n^{(2^k)},
+ \qquad
+ \pi_{0,n}=e_{0,n},\quad
+ \pi_{j,n}=e_{j,n}-e_{j-1,n}\ (j\geq1).
+\]
+For each \(n\), the \(\pi_{j,n}\) are mutually orthogonal and sum to \(1\).
+
+\medskip
+Triangular truncations at the preceding filtration level give
+\[
+ \begin{aligned}
+ d_nx^c&=\sum_{i\leq j}\pi_{i,n-1}\,d_nx\,\pi_{j,n-1},\\
+ d_nx^r&=\sum_{i>j}\pi_{i,n-1}\,d_nx\,\pi_{j,n-1}.
+ \end{aligned}
+\]
+Since the projections are in \(\M_{n-1}\), both are martingale
+difference sequences, and
+\[
+ x=x^c+x^r.
+\]
+\source{Section 5, equations (eq:tt), (pi), Lemma 5.1. The initial martingale difference is handled separately, with the initial spectral family chosen to be the identity.}
+\end{frame}
+
+% 18 ------------------------------------------------------------------
+\begin{frame}{Square function distribution estimates}
+Write
+\[
+ B_k=\tau(1-q^{(2^k)}),\qquad
+ Q_\ell=\norm{q^{(2^\ell)}xq^{(2^\ell)}}_2^2,
+\]
+and \(\distr(s,b)=\tau(\chi_{(s,\infty)}(|b|))\).
+
+\begin{paperresult}{Lemma 5.3}
+For a positive \(x\in L_2(\M)\) and a regular filtration,
+\[
+ \begin{aligned}
+ \distr(2^\ell,S_c(x^c))
+ &\leq C_{\mathrm{reg}}
+    \left(2^{-2\ell}Q_\ell+\sum_{k\geq\ell}B_k\right),\\[3pt]
+ \distr(2^\ell,S_r(x^r))
+ &\leq C_{\mathrm{reg}}
+    \left(2^{-2\ell}Q_\ell+\sum_{k\geq\ell}B_k\right).
+ \end{aligned}
+\]
+\end{paperresult}
+
+The bound separates a compressed \(L_2\) term from a projection tail.
+\source{Lemma 5.3, label distribution S, with constants written as C_reg instead of the numerical coefficients. Q_l is the trace of qxqxq by traciality.}
+\end{frame}
+
+% 19 ------------------------------------------------------------------
+\begin{frame}{Completion of the \(H_p\) estimate}
+For a positive martingale, choose a positive majorant \(x_n\leq a\).
+Proposition 4.6 gives
+\[
+ \sum_{\ell\in\mathbb Z}2^{\ell(p-2)}Q_\ell
+ +
+ \sum_{\ell\in\mathbb Z}2^{\ell p}\sum_{k\geq\ell}B_k
+ \leq C_p\norm{a}_p^p.
+\]
+The dyadic distribution formula therefore yields
+\[
+ \begin{aligned}
+ \norm{S_c(x^c)}_p^p
+ &\lesssim_p\sum_{\ell\in\mathbb Z}
+  2^{\ell p}\distr(2^\ell,S_c(x^c))\\
+ &\leq C_{p,\mathrm{reg}}\norm{a}_p^p.
+ \end{aligned}
+\]
+The same bound holds for \(S_r(x^r)\). Taking the infimum over majorants,
+\[
+ \norm{x}_{H_p}
+ \leq C_{p,\mathrm{reg}}\norm{(x_n)_n}_{L_p(\M,\ell_\infty)}.
+\]
+Positive decomposition gives the extension to general martingales.
+\source{Proposition 4.6 and the proof of Theorem 1.2 in Section 5, using the positive decomposition Lemma 2.2. Dyadic integration constants are absorbed into C_p. Majorants can be chosen arbitrarily close to the infimum.}
+\end{frame}
+
+% 20 ------------------------------------------------------------------
+\section{Applications}
+\begin{frame}{Operator-valued Hardy spaces}
+Let \((\N,\varphi)\) be semifinite and set
+\[
+ \M=L_\infty(\R)\,\bar\otimes\,\N.
+\]
+For the Poisson extension \(P_\varepsilon f\), define
+\[
+ G_c(f)(s)=
+ \left(\int_0^\infty
+    \varepsilon\left|\partial_\varepsilon
+                 P_\varepsilon f(s)\right|^2\,d\varepsilon
+ \right)^{1/2}.
+\]
+Mei's spaces satisfy
+\[
+ \norm{f}_{\mathcal H_1^c}=\norm{G_c(f)}_1,\qquad
+ \mathcal H_1=\mathcal H_1^c+\mathcal H_1^r,
+ \qquad \norm{f}_{\mathcal H_1^r}=\norm{f^*}_{\mathcal H_1^c}.
+\]
+
+For \(h_1,h_2>0\), consider the interval averages
+\[
+ A_hf(t)=\frac1{h_1+h_2}\int_{t-h_1}^{t+h_2}f(s)\,ds.
+\]
+\source{Section 6.1, definitions of the Poisson extension, G_c, operator-valued Hardy spaces and A_h. Mei, Operator valued Hardy spaces, Mem. Amer. Math. Soc. 188 (2007), no. 881.}
+\end{frame}
+
+% 21 ------------------------------------------------------------------
+\begin{frame}{The operator-valued Hardy estimate}
+\begin{paperresult}{Theorem 6.3 (Operator-valued Hardy estimate)}
+For every \(f\in L_1(\M)\),
+\[
+ \norm{f}_{\mathcal H_1(\R,\N)}
+ \leq C\,
+ \norm{(A_hf)_{h\in\R_+^2}}_{L_1(\M,\ell_\infty)},
+\]
+where \(C\) is universal.
+\end{paperresult}
+
+Use the dyadic filtration, whose regularity constant is \(2\):
+\[
+ \begin{aligned}
+ \norm{f}_{\mathcal H_1(\R,\N)}
+ &\lesssim \norm{f}_{H_1(\M,\mathcal D)}\\
+ &\lesssim \norm{(\mathbb E_nf)_n}_{L_1(\M,\ell_\infty)}\\
+ &\lesssim \norm{(A_hf)_h}_{L_1(\M,\ell_\infty)}.
+ \end{aligned}
+\]
+The first step is Mei's Hardy space comparison.
+The second step is our Davis inequality.
+\source{Lemma 6.2, Theorem 6.3, label Mei-H1, and its proof.}
+\end{frame}
+
+% 22 ------------------------------------------------------------------
+\begin{frame}{Noncommutative martingale BMO}
+For a noncommutative probability space, define
+\[
+ \norm{f}_{\BMO^c}
+ =
+ \sup_{n\geq1}
+ \norm{\E_n\bigl(|f-\E_{n-1}f|^2\bigr)}_\infty^{1/2},
+ \qquad \E_0f=0,
+\]
+and
+\[
+ \norm{f}_{\BMO^r}=\norm{f^*}_{\BMO^c}.
+\]
+The two-sided space is
+\[
+ \BMO(\M)=\BMO^c(\M)\cap\BMO^r(\M),
+\]
+with
+\[
+ \norm{f}_{\BMO}
+ =\max\{\norm{f}_{\BMO^c},\norm{f}_{\BMO^r}\}.
+\]
+
+The duality \(H_1(\M)^*=\BMO(\M)\) connects the Davis inequality with
+positive BMO decompositions.
+\source{Section 6.2, definitions of BMO^c, BMO^r, BMO, and the reference to Pisier--Xu 1997, Appendix, for Hardy--BMO duality.}
+\end{frame}
+
+% 23 ------------------------------------------------------------------
+\begin{frame}{A positive BMO decomposition}
+\begin{paperresult}{Theorem 6.6}
+Assume that the filtration is regular. For every
+\(f\in\BMO(\M)_+\), there exist \(g\in\M_+\) and
+\(u_k\in\M_+\) such that
+\[
+ f=g+\sum_{k\geq1}\E_k(u_k)
+ \qquad\text{in the strong operator topology},
+\]
+and
+\[
+ \norm{g}_\infty+
+ \norm{\sum_{k\geq1}u_k}_\infty
+ \leq C_{\mathrm{reg}}\norm{f}_{\BMO}.
+\]
+\end{paperresult}
+
+\medskip
+Talebi, Moslehian and Sadeghi (2019) obtained this representation
+assuming the endpoint Hardy--maximal estimate.
+
+\medskip
+Our theorem supplies that estimate for regular filtrations.
+\source{Theorem 6.6, label Ga decom, and the preceding discussion of Talebi--Moslehian--Sadeghi 2019, Theorem 2.3. The dependence on regularity is made explicit.}
+\end{frame}
+
+% 24 ------------------------------------------------------------------
+\begin{frame}{Dyadic Carleson decomposition}
+Let \(\M=L_\infty(0,1)\bar\otimes\N\) with the dyadic filtration,
+where \((\N,\varphi)\) is a noncommutative probability space.
+
+\begin{paperresult}{Theorem 6.7}
+For every \(f\in\BMO(\M)_+\), there exist \(g\in\M_+\),
+dyadic intervals \(I_i\), and \(a_i\in\N_+\) such that
+\[
+ f=g+\sum_i a_i\chi_{I_i},
+ \qquad \norm{g}_\infty\leq\norm{f}_{\BMO},
+\]
+and, for every dyadic interval \(I_0\),
+\[
+ \norm{\frac1{|I_0|}
+       \sum_{i:\,I_i\subset I_0}a_i|I_i|}_{\N}
+ \leq C\norm{f}_{\BMO}.
+\]
+Here \(C\) is universal.
+\end{paperresult}
+
+This is the operator-valued counterpart of the dyadic
+Garnett--Jones decomposition.
+\source{Theorem 6.7, label dyadic c-d, and the classical Garnett--Jones theorem (Theorem 6.5). The positivity assumption on f and on the coefficients is retained.}
+\end{frame}
+
+% 25 ------------------------------------------------------------------
+\begin{frame}{Selected references}
+\begin{itemize}
+ \item B. Davis (1970).
+ \emph{On the integrability of the martingale square function}.
+ Israel J. Math. \textbf{8}, 187--190.
+ \smallskip
+ \item M. Junge and Q. Xu (2005).
+ \emph{On the best constants in some non-commutative martingale inequalities}.
+ Bull. London Math. Soc. \textbf{37}, 243--253.
+ \smallskip
+ \item Y. Jiao, N. Randrianantoanina, L. Wu and D. Zhou (2020).
+ \emph{Square functions for noncommutative differentially subordinate
+ martingales}. Comm. Math. Phys. \textbf{374}, 975--1019.
+ \smallskip
+ \item T. Mei (2007). \emph{Operator valued Hardy spaces}.
+ Mem. Amer. Math. Soc. \textbf{188}, no. 881.
+ \smallskip
+ \item A. Talebi, M. S. Moslehian and G. Sadeghi (2019).
+ \emph{A representation of noncommutative BMO spaces}.
+ Statist. Probab. Lett. \textbf{153}, 65--70.
+ \smallskip
+ \item J. B. Garnett and P. W. Jones (1982).
+ \emph{BMO from dyadic BMO}.
+ Pacific J. Math. \textbf{99}, 351--371.
+\end{itemize}
+\source{Bibliographic entries Da1970, JX2005, JRWZ2020, Me2007, TMS2019 and GJ1982 in NCZhou.bib.}
+\end{frame}
+
+% 26 ------------------------------------------------------------------
+\begin{frame}
+ \centering
+ \fontsize{24.88}{30}\selectfont Thank you!
+ \source{Closing-slide layout follows LKW.pdf.}
+\end{frame}
+
+\end{document}

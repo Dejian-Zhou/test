@@ -1,0 +1,2157 @@
+
+--- PAGE 1 ---
+7102
+ceD
+4
+]RP.htam[
+1v47310.2171:viXra
+NONCOMMUTATIVE DAVIS TYPE DECOMPOSITIONS AND APPLICATIONS
+NARCISSERANDRIANANTOANINA,LIANWU,ANDQUANHUAXU
+Abstract. We prove the noncommutative Davis decomposition for the column Hardy space Hc for
+p
+all 0 < p ≤ 1. A new feature of our Davis decomposition is a simultaneous control of Hc 1 and Hc q
+norms for any noncommutative martingale in Hc 1 ∩Hc q when q ≥ 2. As applications, we show that the
+Burkholder/Rosenthal inequality holds for bounded martingales in a noncommutative symmetric space
+associatedwithafunctionspaceEthatiseitheraninterpolationofthecouple(Lp,L2)forsome1<p<2
+or is an interpolation of the couple (L2,Lq) for some 2<q <∞. We also obtain the corresponding Φ-
+momentBurkholder/Rosenthal inequalityforOrliczfunctionsthatareeitherp-convexand2-concavefor
+some1<p<2orare2-convexandq-concave forsome2<q<∞.
+1. Introduction
+This paper follows the current line of investigation on noncommutative martingale inequalities. Many
+classicalresultshavebeengeneralizedtothenoncommutativesetting. Oneofthem,directlyrelevanttothe
+subjectofthe presentpaper is the so calledDavis decomposition([10]). The originalDavis decomposition
+is fundamental in classical martingale theory and has been generalized to various contexts. For instance,
+the vector-valued case is nowadays well-known in the literature, a version of the Davis decomposition for
+a special class of martingales called Hardy martingales was studied recently in [33].
+Recallthatforthenoncommutativesetting,theDavisdecompositionforthenoncommutativemartingale
+Hardy spaces was obtained in [35] using duality arguments. A constructive approachappeared in [24]
+1
+H
+forthespace for1 p<2. ThenoncommutativeDavisdecompositionhasproventobeapowerfultool
+p
+H ≤
+in noncommutative martingale inequalities; for instance, it plays a prominent role in establishing various
+forms of Doob maximal inequalities in [19] as well as in the study of continuous time noncommutative
+martingale inequalities in [24].
+Itisourintentioninthispapertoinvestigatethecase0<p 1. WeprovideaDavistypedecomposition
+≤
+for certain class of sequences in the column-L -spaces. This can be roughly described as splitting any
+p
+adapted sequence in the column-L -space into a diagonal part and an adapted sequence that belongs to
+p
+the corresponding conditioned column-L -space. Even for the commutative case, our result for 0<p<1
+p
+do not seem to be available in the literature. An important new feature of our Davis decomposition is
+that when applied to martingales, it gives a simultaneous control of the column Hardy spaces c and c
+H1 Hq
+norms when q 2. More precisely, for any given q 2, any martingale x in the intersection of Hardy
+≥ ≥
+spaces c c can be written as a sum of two martingales y and z such that y + z C x
+H1∩Hq hd p hc p ≤ Hc p
+for all 1
+≤
+p
+≤
+q where hd
+p
+and hc
+p
+denote the diagonal Hardy space and the co(cid:13)
+(cid:13)
+lu(cid:13)
+(cid:13)
+mn co(cid:13)
+(cid:13)
+nd(cid:13)
+(cid:13)
+itioned(cid:13)
+(cid:13)
+Ha(cid:13)
+(cid:13)
+rdy
+space respectively. Decompositions with such simultaneous control of norms are very useful for the study
+of noncommutative martingales in continuous time (see [24]). They are also very essential in the study of
+martingale Hardy spaces associated to noncommutative symmetric spaces ([40, 41]). Indeed, our primary
+motivationcomesfromthelatter. ThesimultaneousnatureofourDavisdecompositionallowsustoextend
+it through the use of interpolation to martingales in certain noncommutative symmetric spaces satisfying
+some natural conditions. This in turn provides a general framework to systematically transfer results
+involvingsquarefunctionswhicharegenerallyreferredtoasBurkholder-Gundyinequalitytocombinations
+of conditioned square functions and diagonal parts known as Burkholder/Rosenthalinequality.
+Date:December6,2017.
+2010 Mathematics Subject Classification. Primary: 46L53,60G42. Secondary: 46L52,60G50.
+Key words and phrases. Noncommutativemartingales,Davisdecomposition, symmetricspaces,momentinequalities.
+1
+
+--- PAGE 2 ---
+2 RANDRIANANTOANINA,WU,ANDXU
+Recall the noncommutative Burkholder/Rosenthalinequalities from [25]. It asserted that if 2 p<
+≤ ∞
+and x=(x ) is a noncommutative martingale that is L -bounded then
+n n≥1 p
+p 1/p
+(1.1) x max s (x) , s (x) , dx ,
+p ≃ p c p r p n p
+(cid:13) (cid:13) n(cid:13) (cid:13) (cid:13) (cid:13) (cid:0) n X ≥1 (cid:13) (cid:13) (cid:1) o
+where s (x) and s (x) den(cid:13)ote(cid:13)the column(cid:13)and ro(cid:13)w v(cid:13)ersion(cid:13)s of cond(cid:13)ition(cid:13)ed square functions which we refer
+c r
+to the next section for formal definitions. The corresponding inequalities for the range 1< p <2 dual to
+(1.1) reads as follows: if x=(x ) is a noncommutative martingale in L ( ) then
+n n≥1 2
+M
+p 1/p
+(1.2) x inf s (y) + s (z) + dw ,
+p ≃ p c p r p n p
+(cid:13) (cid:13) n(cid:13) (cid:13) (cid:13) (cid:13) (cid:0) n X ≥1 (cid:13) (cid:13) (cid:1) o
+where the infimum is tak(cid:13)en(cid:13)over all x=(cid:13)y+z(cid:13)+w(cid:13)with y(cid:13), z, and w(cid:13)mar(cid:13)tingales. The differences between
+the two cases 1 < p < 2 and 2 p < are now well-understood in the field. The natural next step
+≤ ∞
+is to classify noncommutative symmetric spaces for which either (1.1) or (1.2) remains valid. Naturally,
+interpolation plays a significant role in this line of research. It was established in [11] that if a function
+space E is an interpolation space of the couple (L ,L ) for 2<p<q < , then
+p q
+∞
+(1.3) x max s (x) , s (x) , (dx ) .
+E(M) ≃ E c E(M) r E(M) n n≥1 E(M⊗ℓ∞)
+On the other hand(cid:13), t(cid:13)he dual result w n a(cid:13)s prov(cid:13)ed in [4(cid:13)0] whi(cid:13)ch state(cid:13)s that if E(cid:13) is a sym o metric space that is
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+an interpolation space of the couple (L ,L ) for 1<p<q <2 then
+p q
+(1.4) x inf s (y) + s (z) + (dw ) ,
+E(M) ≃ E c E(M) r E(M) n n≥1 E(M⊗ℓ∞)
+whereasin(1.2),(cid:13)th(cid:13)e infimumis t n a(cid:13)kenov(cid:13)eralldeco(cid:13)mpos(cid:13)itionsx=(cid:13)y+z+w(cid:13)with y, z, o andw martingales
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+in E( ,τ). The situationat the endpoints were left open in [40]. We solvethis problempositively. More
+M
+precisely,weobtainthat(1.3)and(1.4)remainvalidforE beinganinterpolationofthecouple(L ,L )for
+2 q
+2 < q < , respectively, (L ,L ) for 1 < p < 2. As noted earlier, our new Davis decomposition provides
+p 2
+∞
+the decisive ingredient in our argument.
+In the last part of the paper, we consider the noncommutative Burkholder/Rosental inequalities us-
+ing moments associated with Orlicz spaces. These moments are generally referred to in the literature as
+Φ-momentinequalities. Fortheclassicalsetting,thistopicgoesbackto[7,8]. Fornoncommutativemartin-
+gales,this line of researchwasinitiated by Bekjanand Chen in [1] where they providedseveralΦ-moment
+inequalities such as Φ-moment versions of the noncommutative Khintchine inequalities and noncommuta-
+tiveBurkholder-Gundyinequalityamongothercloselyrelatedresults. Subsequently,Φ-momentanalogues
+of other inequalities were also considered (see for instance, [2, 12, 14]). Recently, the sharpest result for
+theΦ-momentanalogueofthenoncommutativeBurkholder-GundyinequalitieswasobtainedbyJiaoet al.
+(see [22, Theorem 7.2]). Using our general approach, we extend their result to the Φ-moment analogues
+of the noncommutative Burkholder inequalities. More precisely, if the Orlicz function is p-convex and
+2-concave (for some 1 < p < 2), respectively 2-convex and q-concave (for some 2 < q < ), then the
+∞
+Φ-moment analogue of (1.3), respectively (1.4), holds. Our results in this part solve some problems left
+open in [41].
+The paper is organized as follows. In the next section, we collect notions and notation from noncom-
+mutative symmetric spaces and noncommutative martingales necessary for the whole paper. Section 3 is
+devoted to the statements and proofs of our version of noncommutative Davis decompositions for the full
+range0<p 1(Theorem3.1andTheorem3.3)alongwithsomeimmediatecorollaries. Wealsoprovidein
+≤
+thissectionanextensionoftheDavisdecompositiontothecaseofnoncommutativesymmetricspaces(The-
+orem3.9). Inthe lastsection,wegivethe mainapplicationsinthe formsofvariousBurkholder/Rosenthal
+inequalities for martingales in noncommutative symmetric spaces and their modular versions.
+2. Preliminaries
+2.1. Noncommutative symmetric spaces. Throughout this paper, will always denote a semifinite
+M
+vonNeumannalgebraequippedwithafaithfulnormalsemifinitetraceτ. L ( ,τ)denotesthe associated
+0
+M
+
+--- PAGE 3 ---
+DAVIS DECOMPOSITION 3
+topological -algebra of measurable operators and µ(x) the generalized singular number of an element
+∗
+x L ( ,τ). If is the abelian von Neumann algebra L (0, ) with the trace given by integration
+0 ∞
+∈ M M ∞
+with respect to Lebesgue measure, L ( ,τ) becomes the space of those measurable complex functions
+0
+M
+on (0, ) which are bounded except on a set of finite measure and for f L ( ,τ), µ(f) is the usual
+0
+∞ ∈ M
+decreasing rearrangementof f. We refer to [36] for more information on noncommutative integration.
+A Banach function space (E, ) of measurable functions on the interval (0, ) is called symmetric
+E
+k·k ∞
+if for any g E and any f L (0, ) with µ(f) µ(g), we have f E and f g . For such a
+0 E E
+∈ ∈ ∞ ≤ ∈ k k ≤ k k
+space E, we define the corresponding noncommutative space by setting:
+E( ,τ)= x L ( ,τ) : µ(x) E .
+0
+M ∈ M ∈
+Equippedwith the norm x := µ(x)(cid:8) , E( ,τ) becomes a com(cid:9)plex Banachspace ([28, 43]) and
+E(M,τ) E
+k k k k M
+is usually referred to as the noncommutative symmetric space associated with and E. An extensive
+M
+discussion of the various properties of such spaces can be found in [15, 16, 17, 37, 43]. We remark that if
+1 p < and E = L (0, ), then E( ,τ) = L ( ,τ) where L ( ,τ) is the usual noncommutative
+p p p
+≤ ∞ ∞ M M M
+L -space associated with ( ,τ).
+p
+M
+In this paper, we will only consider symmetric spaces that are interpolations of the couple (L ,L ) for
+p q
+1 p <q . For a given compatible Banach couple (X,Y), we recall that a Banach space Z is called
+≤ ≤∞
+aninterpolation space ifX Y Z X+Y andwheneveraboundedlinearoperatorT :X+Y X+Y
+∩ ⊆ ⊆ →
+is such that T(X) X and T(Y) Y, we have T(Z) Z and T : Z Z Cmax T : X
+⊆ ⊆ ⊆ k → k ≤ {k →
+X , T : Y Y for some constant C. In this case, we write Z Int(X,Y). We refer to [5, 6, 27] for
+k k → k} ∈
+more unexplained definitions and terminology from interpolation. We record here two facts that we will
+use repeatedly. The first is the fact that interpolation lifts to noncommutative symmetric spaces. More
+precisely, we have:
+Lemma 2.1 ([37]). Let 1 p < q . Assume that E Int(L ,L ) and and are semifinite
+p q
+≤ ≤ ∞ ∈ M N
+von Neumann algebras. Let T : L ( ) + L ( ) L ( ) + L ( ) be a linear operator such that
+p q p q
+M M → N N
+T : L ( ) L ( ) and T : L ( ) L ( ) are bounded. Then T maps E( ) into E( ) and the
+p p q q
+M → N M → N M N
+resulting operator T :E( ) E( ) is bounded and satisfies
+M → N
+T :E( ) E( ) Cmax T :L ( ) L ( ) , T :L ( ) L ( ) ,
+p p q q
+M → N ≤ M → N M → N
+where C is (cid:13)the interpolation con(cid:13)stant of E (cid:8)re(cid:13)lative to the couple (L(cid:13),(cid:13)L ). (cid:13)(cid:9)
+(cid:13) (cid:13) (cid:13) (cid:13)p(cid:13) q (cid:13)
+The second is the fact that any function space E Int(L ,L ) can be described by a concrete interpo-
+p q
+∈
+lation method involving the notions of K-functionals and J-functionals. We only describe here a version
+that we need. First, we recall that for a compatible couple (X,Y), the J-functional of z X Y is given
+∈ ∩
+by
+J(x,t;X,Y)=max z ,t z , t>0.
+X Y
+The dual functional called K-functional of z X +(cid:8)(cid:13)Y (cid:13)is giv(cid:13)en(cid:13)by(cid:9)
+∈ (cid:13) (cid:13) (cid:13) (cid:13)
+K(z,t;X,Y)=inf x +t y :z =x+y , t>0.
+X Y
+Fix (X,Y) and a symmetric Banach functio(cid:8)n(cid:13)s(cid:13)pace F(cid:13)o(cid:13)n (0, ). For(cid:9)x X +Y, let x = u be a
+(cid:13) (cid:13) (cid:13) (cid:13) ∞ ∈ ν∈Z ν
+(discrete) representation of x and set:
+P
+j u ,t = 2−γJ(u ,2γ) for t [2ν,2ν+1).
+ν ν γ
+{ } ∈
+γ≥ν+1
+(cid:0) (cid:1) X
+We define the interpolation space (X,Y) to be the space of elements x X +Y such that
+F,j
+∈
+x :=inf j( u , ) <
+F,j { ν } ν · F ∞
+(cid:13) (cid:13) n(cid:13) (cid:13) o
+with the infimum being taken over(cid:13)all(cid:13)representati(cid:13)onsof x as(cid:13)above. By combining results of Brudnyiand
+(cid:13) (cid:13)
+Krugliak (see [27, Theorem 6.3]), [4], and [37, Corollary 2.2], we derive the following general result:
+
+--- PAGE 4 ---
+4 RANDRIANANTOANINA,WU,ANDXU
+Lemma 2.2. Let 1 p < q and E be a symmetric Banach function space on (0, ) with E
+≤ ≤ ∞ ∞ ∈
+Int(L ,L ). There exists a symmetric Banach function space F on (0, ) so that for every semifinite von
+p q
+∞
+Neumann algebra ( ,σ),
+N
+E( )= L ( ),L ( ) ,
+N p N q N F,j
+with equivalent norms depending only on E, p,(cid:0)and q. (cid:1)
+2.2. Martingales and Hardy spaces. Wenowbrieflydescribethegeneralsetupformartingalesinnon-
+commutative symmetric spaces. Denote by ( ) anincreasing sequence of vonNeumann subalgebras
+n n≥1
+M
+of whose union is weak*-dense in . For n 1, we assume that there exists a trace preserving
+M M ≥
+conditional expectation from onto . It is well-known that if τ denotes the restriction of τ on
+n n n
+E M M
+, then extendstoacontractiveprojectionfromL ( ,τ) ontoL ( ,τ )forall1 p . More
+n n p p n n
+M E M M ≤ ≤∞
+generally,ifE is asymmetric Banachfunction spaceon(0, )thatbelongs toInt(L ,L ), thenfor every
+1 ∞
+∞
+n 1, is bounded from E( ,τ) onto E( ,τ ).
+n n n
+≥ E M M
+Definition 2.3. A sequence x = (x ) in L ( )+ is called a noncommutative martingale with
+n n≥1 1
+M M
+respect to ( ) if (x )=x for every n 1.
+n n≥1 n n+1 n
+M E ≥
+If in addition, all x ’s belong to E( ) then x is called an E( )-martingale. In this case, we set
+n
+M M
+x =sup x .
+E(M) n E(M)
+k k k k
+n≥1
+If x < , then x is called a bounded E( )-martingale.
+E(M)
+k k ∞ M
+Let x = (x ) be a noncommutative martingale with respect to ( ) . Define dx = x x
+n n n≥1 n n n−1
+M −
+for n 1 with the usual convention that x = 0. The sequence dx = (dx ) is called the martingale
+0 n
+≥
+difference sequence of x. A martingale x is called a finite martingale if there exists N such that dx = 0
+n
+for all n N. In the sequel, for any operator x L ( )+ , we denote x = (x) for n 1. We
+1 n n
+≥ ∈ M M E ≥
+observe that conversely, if E Int(L ,L ) for 1 < p q < and satisfies the Fatou property, then
+p q
+∈ ≤ ∞
+any bounded E( )-martingale x = (x ) is of the form ( (x )) where x E( ) satisfying
+n n≥1 n ∞ n≥1 ∞
+M E ∈ M
+x x , with equality if E is an exact interpolation space.
+E(M) E ∞ E(M)
+k k ≈ k k
+Let us now review the definitions of the squarefunctions and Hardy spaces ofnoncommutative martin-
+gales. Following [36], we define the following column square functions relative to a martingale x=(x ):
+n
+n ∞
+1/2 1/2
+S (x)= dx 2 , S (x)= dx 2 .
+c,n k c k
+| | | |
+(cid:16)X k=1 (cid:17) (cid:16)X k=1 (cid:17)
+For 0 < p < , the column martingale Hardy space c( ) is defined to be the space of all martingales
+∞ Hp M
+x for which S (x) belongs to L ( ,τ). More generally, if E is a symmetric Banach function space, we
+c p
+M
+define c ( )to be the space ofall martingalesx=(x ) inE( ) for which S (x) belongs to E( ).
+HE M n n≥1 M c M
+c ( ) becomes a Banach space when equipped with the norm
+HE M
+x Hc = S c (x) E(M) .
+k k E k k
+We now consider the conditioned version of c developed in [25]. Let x = (x ) be a martingale in
+Hp n n≥1
+L ( )+ . We set (with the convention that = ):
+2 0 1
+M M E E
+n ∞
+1/2 1/2
+s (x)= dx 2 , s (x)= dx 2 .
+c,n k−1 k c k−1 k
+E | | E | |
+(cid:16)X k=1 (cid:17) (cid:16)X k=1 (cid:17)
+For 2 p < , the column conditioned martingale Hardy space hc( ) is defined to be the space of all
+≤ ∞ p M
+martingalexforwhichs c (x)belongstoL p ( )equippedwiththenorm x hc = s c (x) p . Moregenerally,
+M k k p k k
+if E is a symmetric Banach function space with the Fatou property and E L +L , we define hc ( )
+to be the set of all martingale x=(x ) in E( ) for which s (x) belong ⊆ s to 2 E( ∞ )). hc ( ) be E com M es
+n n≥1 M c M E M
+a Banach space when equipped with the norm
+x hc = s c (x) E(M) .
+k k E k k
+
+--- PAGE 5 ---
+DAVIS DECOMPOSITION 5
+For0<p<2orE *L
+2
++L
+∞
+,thedefinitionismoreinvolved. Inthisrange,wedefinehc
+p
+(
+M
+)tobethe
+completionofthelinearspaceoffinitemartingalesinL p ( ) underthe(quasi)norm x hc = s c (x) p .
+M ∩M k k p k k
+We postpone the description of hc ( ) until after the next discussion.
+E M
+In the sequel, we will use more general versions of these spaces by considering arbitrary sequences in
+place of martingale difference sequences. For 0<p , and a finite sequence a=(a ) in L ( ), we
+n n≥1 p
+≤∞ M
+set
+a = a 2 1/2 .
+Lp(M;ℓc 2 ) | n | p
+Thecompletion(relativetothew*-to (cid:13) (cid:13)po (cid:13) (cid:13)logyforp= (cid:13) (cid:13) (cid:13) (cid:0) n X ) ≥ o 1 fthes (cid:1) pace (cid:13) (cid:13) (cid:13)offinitesequencesinL p ( )equipped
+∞ M
+with the (quasi) norm will be denoted by L ( ;ℓc). We will also need the conditioned L -
+· Lp(M;ℓc 2 ) p M 2 p
+spaces which is defined as follows: for 0 < p and a finite sequence a = (a ) in L ( ) , we
+(cid:13) (cid:13) n n≥1 p
+set (cid:13) (cid:13) ≤ ∞ M ∩M
+a = (a∗a ) 1/2 .
+Lc p ond(M;ℓc 2 ) E n−1 n n p
+For 0<p< , the completion (cid:13) (cid:13)of (cid:13) (cid:13)the space of fin (cid:13) (cid:13) (cid:13)i (cid:0) te n X ≥ se 1 quences in L (cid:1)
+p
+( (cid:13) (cid:13) (cid:13)) equipped with the (quasi)
+∞ M ∩M
+norm will be denoted by Lcond( ;ℓc). For p= , we may define Lcond( ;ℓc) as the set
+k·kLc p ond(M;ℓc 2 ) p M 2 ∞ ∞ M 2
+of all sequences a = (a ) in for which the increasing sequence n (a∗a ) is bounded
+n n≥1 M k=1E k−1 k k n≥1
+in . In this case,
+M n (cid:0)P (cid:1)
+a =sup (a∗a ) 1/2 .
+Lc ∞ ond(M;ℓc 2 ) n≥1 E k−1 k k ∞
+A very crucial result of Ju (cid:13) (cid:13)ng (cid:13) (cid:13)e [23] states that (cid:13) (cid:13)t (cid:0) he X k r = e 1 exists an is (cid:1) ome (cid:13) (cid:13)tric embedding of hc( ) into a
+(cid:13) (cid:13) p M
+noncommutative L -space. Namely, for 0<p , we have an isometry
+p
+≤∞
+U :Lcond( ;ℓc) L ( B(ℓ (N2)))
+p M 2 → p M⊗ 2
+with the property that if a=(a ) Lcond( ;ℓc) and b=(b ) Lcond( ;ℓc) with 1/p+1/q 1, then
+n ∈ p M 2 n ∈ q M 2 ≤
+U(a)∗U(b)= (a∗b ) e e ,
+E n−1 n n ⊗ 1,1 ⊗ 1,1
+n≥1
+(cid:0)X (cid:1)
+where (e
+i,j
+)
+i,j≥1
+denotes the unit matrices in B(ℓ
+2
+(N)). If we denote by
+D c
+: hc
+p
+(
+M
+)
+→
+Lc
+p
+ond(
+M
+;ℓc
+2
+) the
+natural map x (dx ), then its composition with U induces the isometric embedding:
+n
+7→
+U :hc( ) L ( B(ℓ (N2)))
+D c p M → p M⊗ 2
+with the property that if x hc( ), y hc( ), and 1/p+1/q 1 then
+∈ p M ∈ q M ≤
+U (x)∗U (y)= (dx∗dy ) e e .
+D c D c E n−1 n n ⊗ 1,1 ⊗ 1,1
+n≥1
+(cid:0)X (cid:1)
+In particular, for x hc( ), we have
+∈ 2 M
+(2.1) U (x)2 =(s (x))2 e e .
+c c 1,1 1,1
+| D | ⊗ ⊗
+Now let E be a symmetric Banachfunctionspace with the Fatouproperty. We define hc ( )to be the
+s
+x
+et o
+h
+f
+c
+a
+(
+ll m
+),
+ar
+w
+t
+e
+in
+s
+g
+e
+a
+t
+les x = (x
+n
+)
+n≥1 ∈
+hc
+1
+(
+M
+)+hc
+∞
+(
+M
+) for which U
+D c
+(x)
+∈
+E(
+M⊗
+B(ℓ
+2
+(N E 2) M )). Then for
+∈ E M
+x := U (x) .
+hc
+E
+D c E(M⊗B(ℓ2(N2)))
+i E n q to ui E pp ( e M d ⊗ w B ith (ℓ 2 k ( · N k 2 h ) c E ) , ). h W c E ( e M no ) t i e s t a h (cid:13) (cid:13) B at a(cid:13) (cid:13) n if a E ch ⊆ sp(cid:13) (cid:13) L a 2 ce + a L n ∞ d(cid:13) (cid:13) , U t D he c n ex th te e n t d w s o to de a fi n ni i t s i o o m ns et o r f ic h e c E m ( M be ) dd c i o n in g c o id f e h . c E ( M )
+All definitions and statements above admit corresponding row versions by passing to adjoints. For
+instance,the rowsquarefunction ofa martingalex is definedas S (x)=S (x∗), andthe rowHardyspace
+r c
+r( ) consists of all martingales x such that x∗ c( ).
+Hp M ∈Hp M
+A third type of Hardy spaces that we will use in the sequel are the diagonal Hardy spaces. For
+0 < p , we recall that the diagonal Hardy space hd( ) is the subspace of ℓ (L ( )) consisting of
+≤ ∞ p M p p M
+
+--- PAGE 6 ---
+6 RANDRIANANTOANINA,WU,ANDXU
+martingaledifference sequences. This definition canbe easily extendedto the caseof symmetric spacesby
+settinghd( )asthespaceofallmartingaleswhosemartingaledifferencesequencesbelongtoE( ℓ ),
+equipped E w M ith the norm x := (dx ) . We will denote by the isometric embeddi M ng ⊗ of ∞ hd
+k k hd E k n kE(M⊗ℓ∞) D d E
+into E( ℓ ) given by x (dx ) .
+∞ n n≥1
+M⊗ 7→
+We will also make use of another type of diagonal spaces developed in [24]. For 0< p < 2, a sequence
+x=(x ) belongs to L ( ;ℓc) if there exist b L ( ) and a L ( ) where 1/p=1/2+1/q such
+n p M 1 k,n ∈ 2 M k,n ∈ q M
+that for every n 1,
+≥
+(2.2) x = b∗ a ,
+n k,n k,n
+k≥1
+X
+b 2 L ( ), and a 2 L . We equip L ( ;ℓc) with the (quasi) norm:
+k,n≥1| k,n | ∈ 1 M k,n≥1| k,n | ∈ q/2 p M 1
+P x P =inf b 2 1/2 a 2 1/2 ,
+Lp(M;ℓc 1 ) k,n 2 | k,n | q
+(cid:13) (cid:13) n(cid:16)k X ,n≥1 (cid:13) (cid:13) (cid:17) (cid:13)(cid:16)k X ,n≥1 (cid:17) (cid:13) o
+wheretheinfimumist (cid:13) ak (cid:13) enoverallfactorizations (cid:13) (2.2) (cid:13) . Asin (cid:13) (cid:13)[24,Lemma6.1.2], (cid:13) (cid:13)theunitballofL ( ;ℓc)
+p M 1
+coincides with the set of all sequences (β α ) satisfying the following inequality:
+n n
+β 2
+1/2
+α 2 1/2 1.
+k n k2 | n | q ≤
+(cid:16)n X ≥1 (cid:17) (cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13)
+The following facts are clear from the definitions(cid:13): L ( ;ℓc) =(cid:13)ℓ (L ( )), L ( ,ℓc) ℓ (L ( )) for
+1 < p < 2, and ℓ
+p
+(L
+p
+(
+M
+))
+⊆
+L
+p
+(
+M
+;ℓc
+1
+) for 0 < p < 1 M 1. T 1 he dia 1 gon 1 al M space h p 1
+p
+M c(
+M
+) 1 is ⊆ th p e su p b M space of
+L ( ;ℓc) consisting of martingale difference sequences.
+p M 1
+3. Davis-type decompositions
+The primarygoalofthis sectionis to provideextensionsof Davis’decompositionforadaptedsequences
+in L ( ;ℓc) for all 0 <p < 2. Our first result deals with the case 2/3 p <2. In this range, we obtain
+p M 2 ≤
+a decomposition with simultaneous control of norms.
+Theorem 3.1. Let 2/3 p < 2 and ξ = (ξ ) be an adapted sequence that belongs to L ( ;ℓc)
+≤ n n≥1 p M 2 ∩
+L ( ;ℓc). Then there exist two adapted sequences y =(y ) and z =(z ) such that:
+∞ M 2 n n≥1 n n≥1
+(i) ξ =y+z;
+(ii) y + z 2 2 1/2 ξ ;
+ℓp(Lp(M)) Lc p ond(M;ℓc 2 ) ≤ p Lp(M;ℓc 2 )
+(iii) (cid:13) (cid:13) y(cid:13) (cid:13)Lq(M;ℓc 2 ) + (cid:13) (cid:13) z (cid:13) (cid:13)Lq(M;ℓc 2 ) ≤ 3 ξ (cid:0) Lq( (cid:1) M;ℓ (cid:13) (cid:13)c 2 ) (cid:13) (cid:13) for every 2 ≤ q ≤∞ .
+For(cid:13)th(cid:13)eproofofth(cid:13)e(cid:13)theorem,wew(cid:13)ill(cid:13)needthefollowinglemmawhichisanextensionof[36,Lemma1.1].
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+Lemma 3.2. Let 2 p and 1/p = 1/q+1/r. For any sequence a = (a ) in L ( ) and any
+n n≥1 q
+≤ ≤ ∞ M
+A L ( ), we set B(a,A)=(a A) . Then
+r n n≥1
+∈ M
+(3.1) B(a,A) max a , a A .
+Lp(M;ℓr 2 ) ≤ Lq(M;ℓc 2 ) Lq(M;ℓr 2 ) r
+Proof. Clearly, B(a,A (cid:13) (cid:13) (cid:13)) (cid:13) (cid:13) (cid:13) = a A n A (cid:13) (cid:13)∗a (cid:13) (cid:13)∗ 1/2 . Den (cid:13) (cid:13) ot (cid:13) (cid:13) e by s th o e (cid:13) (cid:13) co (cid:13) (cid:13) njugate index of p/2. By
+Lp(M;ℓr
+2
+) n≥1 n n p/2
+duality, we may fix B L ( ) with B 0, B =1, and such that
+(cid:13) (cid:13) ∈ (cid:13) (cid:13) s M (cid:13) (cid:13) P≥ k k s (cid:13) (cid:13)
+(3.2) ψ(B)= a AA∗a∗ =τ a AA∗a∗B .
+n n n n
+p/2
+(cid:13)n X ≥1 (cid:13) (cid:16)n X ≥1 (cid:17)
+(cid:13) (cid:13)
+Set α = (r/2)/(q/2)′ and β = s/(q/(cid:13)2)′ where (q/2)(cid:13)′ denotes the conjugate index of q/2. One can readily
+verify that (1 α−1)β = 1. We will apply the three lines lemma to the analytic function F defined for
+−
+0 Re(z) 1 by
+≤ ≤
+F(z)=τ a (AA∗)αza∗Bβ(1−z) .
+n n
+(cid:16)n X ≥1 (cid:17)
+
+--- PAGE 7 ---
+DAVIS DECOMPOSITION 7
+Let θ =α−1 so that 1 θ =β−1. Then 0 θ 1 and F(θ)=ψ(B). Hence, by the three lines lemma, we
+− ≤ ≤
+have
+(1−θ) θ
+(3.3) ψ(B) = F(θ) sup F(it) sup F(1+it) .
+| | | |≤ t∈R| | t∈R| |
+(cid:0) (cid:1) (cid:0) (cid:1)
+Using Ho¨lder’s inequality, we have
+(3.4) sup F(it) sup a Ua∗ :U , U 1 .
+t∈R| |≤ n n q/2 ∈M k k≤
+n(cid:13)n X ≥1 (cid:13) o
+(cid:13) (cid:13)
+On the other hand, using the tracial propert(cid:13)y of τ, we a(cid:13)lso have
+(3.5) sup F(1+it) sup a∗Ua∗ :U , U 1 A 2/θ .
+t∈R| |≤ n n q/2 ∈M k k≤ · r
+As already noted in [36], for every opera n t (cid:13) (cid:13) (cid:13)or n X ≥ U 1 w (cid:13) (cid:13) (cid:13)ith U 1, we have o (cid:13) (cid:13) (cid:13) (cid:13)
+∈M k k≤
+a∗Ua a∗a and a Ua∗ a a∗ .
+k n n k q/2 ≤k n n k q/2 k n nk q/2 ≤k n nk q/2
+n≥1 n≥1 n≥1 n≥1
+X X X X
+Therefore, by combining (3.2) - (3.5), the desired inequality (3.1) follows. (cid:3)
+Proof of Theorem 3.1. For n 1, let ς2 = n ξ 2 and ς2 = ξ 2. Then (ς ) is an adapted
+≥ n j=1| j | j≥1| j | n
+sequence. Let α = 1 p. For n 1, we let w = ςα. By approximation, we assume that the w ’s are
+− 2 ≥ P n n P n
+invertible. As in the case of martingales, the following inequality holds:
+(3.6) ξ w−1 2 2 ξ p .
+n n 2 ≤ p Lp(M;ℓc 2 )
+n≥1
+X(cid:13) (cid:13) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+This is implicit in [3]. Indeed,
+ξ w−1 2 =τ ξ 2w−2)=τ ςp−2(ς2 ς2 ) 2 τ ςp ςp ,
+n n 2 | n | n n n− n−1 ≤ p n− n−1
+(cid:13) (cid:13) (cid:0) (cid:0) (cid:1) (cid:0) (cid:1)
+where the last inequ(cid:13)ality com(cid:13)es from [3].
+Consider now the following decomposition of ξ: for n 1, we set
+≥
+y =ξ w−1(w w ),
+n n n n − n−1
+(z
+n
+=ξ
+n
+w
+n
+−1w
+n−1
+,
+where we have taken w = 0. Clearly, y = (y ) and z = (z ) are adapted sequences and for every n 1,
+0 n n
+≥
+we have ξ =y +z . We claim that y and z satisfy (ii) and (iii). The argument for (ii) is similar to the
+n n n
+proof of [24, Proposition 6.1.2].
+We begin with the diagonal part. We will verify that y 2 1/2 ξ . For this, let
+k k ℓp(Lp(M)) ≤ p k k Lp(M;ℓc 2 )
+1/p=1/2+1/r. By Ho¨lder’s inequality and (3.6), we have
+(cid:0) (cid:1)
+y p 1/p ξ w−1(w w ) p 1/p
+n p ≤ n n n − n−1 p
+n≥1 n≥1
+(cid:0)X(cid:13) (cid:13) (cid:1) (cid:0)X(cid:13) (cid:13) (cid:1)
+(cid:13) (cid:13) (cid:13) ξ w−1 2 1/2 (cid:13) w w r 1/r
+≤ n n 2 n − n−1 r
+(cid:16)n X ≥1 (cid:13) (cid:13) (cid:17) (cid:16)n X ≥1 (cid:13) (cid:13) (cid:17)
+2 1/ (cid:13) 2 ξ p/2 (cid:13) ( (cid:13) w w )r (cid:13) 1/r .
+≤ p Lp(M;ℓc 2 ) n − n−1 r
+(cid:0) (cid:1) (cid:13) (cid:13) (cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13)
+The crucial fact here is that when 2/3 p<2 (cid:13) , w (cid:13) e have r(cid:13) 1 and therefore by [4(cid:13)2], we get
+≤ ≥
+(w w )r 1/r w w = ςα .
+n n−1 n n−1 r
+− r ≤ − r k k
+(cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13) (cid:13) (cid:13) n X ≥1 (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+
+--- PAGE 8 ---
+8 RANDRIANANTOANINA,WU,ANDXU
+Moreover,as r = 2p = p, we have ςα = ς α = ξ α . Thus, the above estimate becomes
+2−p α k k r k kp k kLp(M;ℓc 2 )
+2 1/2
+(3.7) y ξ .
+ℓp(Lp(M)) ≤ p Lp(M;ℓc 2 )
+(cid:13) (cid:13) (cid:0) (cid:1) (cid:13) (cid:13)
+Let us now show that z Lcond( (cid:13);ℓc(cid:13)). We have, (cid:13) (cid:13)
+∈ p M 2
+z ξ w−1w 2 1/2
+Lc p ond(M;ℓc 2 ) ≤ E n−1 | n n n−1 | p
+n≥1
+(cid:13) (cid:13) (cid:13)(cid:0)X (cid:1) (cid:13)
+(cid:13) (cid:13) = (cid:13) w ξ w−1 2w (cid:13) 1/2 .
+n−1 E n−1 | n n | n−1 p
+n≥1
+(cid:13)(cid:0)X (cid:1) (cid:13)
+Write w =v ςα for some contraction(cid:13)v . Then (cid:13)
+n−1 n−1 n−1
+1/2
+z ςα v∗ ξ w−1 2v ςα .
+Lc p ond(M;ℓc 2 ) ≤ n−1E n−1 | n n | n−1 p/2
+Using Ho¨lder’s inequalit (cid:13) (cid:13) y a (cid:13) (cid:13) nd (3.6), we d (cid:13) (cid:13) (cid:13)edu (cid:16) ce n X ≥ th 1 at (cid:17) (cid:13) (cid:13) (cid:13)
+z 2 ςα v∗ ξ w−1 2v ςα
+Lc p ond(M;ℓc 2 ) ≤ p/α n−1E n−1 | n n | n−1 1 p/α
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) ξ (cid:13) (cid:13)2α (cid:13) (cid:13) (cid:13) n X ≥1 ξ w−1 2 (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+≤ Lp(M;ℓc 2 ) n n 2
+n≥1
+(cid:13) (cid:13) X(cid:13) (cid:13)
+(cid:13)2 (cid:13)
+2
+(cid:13) (cid:13)
+ξ .
+≤ p Lp(M;ℓc 2 )
+(cid:13) (cid:13)
+This shows that z 2 1/2(cid:13) ξ(cid:13) . Combining the last inequality with (3.7), we obtain
+Lc p ond(M;ℓc 2 ) ≤ p Lp(M;ℓc 2 )
+(ii).
+(cid:13) (cid:13) (cid:0) (cid:1) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+For (iii), we will only need to verify that for 2 q , y L ( ;ℓc). To that end, we observe that
+≤ ≤ ∞ ∈ q M 2
+since for n 1, ξ 2 ς2 = w2/α, it is clear that w2/α ς2. This fact implies that for every n 1,
+≥ | n | ≤ n n n ≤ ≥
+w−1 ξ 2w−1 w(2/α)−2 =(w2/α)1−α ς2−2α =ςp. Therefore, the following estimate clearly follows:
+n | n | n ≤ n n ≤
+ξ w−1(w w )2 1/2 (w w )ςp(w w ) 1/2
+| n n n − n−1 | q ≤ n − n−1 n − n−1 q
+(cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13) (cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13)
+(cid:13) (cid:13) =(cid:13) (w w )ςp/2 . (cid:13)
+n − n−1 n≥1 Lq(M;ℓr
+2
+)
+(cid:13) (cid:13)
+Using Lemma 3.2 and [42], we deduce that (cid:13)(cid:8) (cid:9) (cid:13)
+(cid:13) (cid:13)
+y ςp/2 (w w )
+Lq(M;ℓc 2 ) ≤ q/(1−α) n − n−1 n≥1 Lq/α(M;ℓc 2 )
+(cid:13) (cid:13) (cid:13)ςp/2(cid:13) (cid:13) (w w )(cid:13)
+(cid:13) (cid:13)
+≤
+(cid:13) (cid:13)q/(1−α)(cid:13) n
+−
+n−1 (cid:13)q/α
+n≥1
+(cid:13) (cid:13) (cid:13)X (cid:13)
+(cid:13)
+ξ
+1−(cid:13)α
+ς
+(cid:13)α (cid:13)
+≤ Lq(M;ℓc 2 ) q/α
+(cid:13)ξ(cid:13) (cid:13). (cid:13)
+≤(cid:13) (cid:13)Lq(M;ℓc
+2
+)(cid:13) (cid:13)
+Thisprovesthat y ξ (cid:13) (cid:13). Thecorrespondinginequalityforzeasilyfollowsfromtriangle
+inequality. Thus the L p q r ( o M o ; f ℓc 2 i ) s ≤ compl L et q e (M . (cid:13);ℓ(cid:13)c 2 ) (cid:3)
+(cid:13) (cid:13) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+We remark that for 1 < p < 2, the norm used for the diagonal part in item (ii) can be
+k·k
+ℓp(Lp(M))
+improved to . This was already known to [24].
+k·k
+Lp(M;ℓc
+1
+)
+We now consider the remaining case 0<p<2/3. At the time of this writing, we are unable to provide
+a simultaneous control of norms in the spirit of Theorem 3.1. We also do not know if the quasi norm
+used below can be improved to .
+· Lp(M;ℓc 1 ) · ℓp(Lp(M))
+(cid:13) (cid:13) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+
+--- PAGE 9 ---
+DAVIS DECOMPOSITION 9
+Theorem 3.3. Let 0<p<2/3 and ξ =(ξ ) be an adapted sequence that belongs to L ( ;ℓc). Then
+n n≥1 p M 2
+there exist two adapted sequences y =(y ) and z =(z ) such that:
+n n≥1 n n≥1
+(i) ξ =y+z;
+(ii) y + z 2 2 1/2 ξ .
+Lp(M;ℓc 1 ) Lc p ond(M;ℓc 2 ) ≤ p Lp(M;ℓc 2 )
+Proof.(cid:13)W(cid:13)e follow th(cid:13)e n(cid:13)otation from th(cid:0)e (cid:1)proo(cid:13)f o(cid:13)f Theorem 3.1. This time the decomposition is given as
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+follows:
+y =ξ w−2(w2 w2 ),
+(3.8)
+n n n n− n−1
+(z
+n
+=ξ
+n
+w
+n
+−2w
+n
+2
+−1
+.
+Note that compared to the previous one, we use w2 in place of w . This adjustment is mainly needed
+n n
+for the diagonal part. As before, we clearly have that y = (y ) and z = (z ) are adapted sequences with
+n n
+ξ =y +z for n 1. We claim that y and z satisfy (ii). The argument is an adaptationof that used in
+n n n
+≥
+the proof of item (ii) from Theorem 3.1, so we only present a sketch.
+We verify first that y L ( ;ℓc). Define r by 1/p = 1/2+1/r. For n 1, write y = β α where
+∈ p M 1 ≥ n n n
+β =ξ w−2(w2 w2 )1/2 and α =(w2 w2 )1/2. It follows that
+n n n n− n−1 n n− n−1
+y = (β α )
+Lp(M;ℓc 1 ) n n n≥1 Lp(M;ℓc
+1
+)
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) ξ w− (cid:1) 2 (cid:13) (cid:13) (cid:13)(w2 w2 )1/2 2 1/2 (w2 w2 )1/2 2 1/2
+≤ n n n− n−1 2 | n− n−1 | r
+= (cid:16)n X ≥1 (cid:13) (cid:13) ξ w−1[w−1(w2 w2 (cid:13) (cid:13) )1 (cid:17) /2] 2 (cid:13) (cid:13) (cid:13) (cid:0) 1 n X / ≥ 2 1 (w2 w2 ) (cid:1) 1/2 (cid:13) (cid:13) (cid:13) .
+n n n n− n−1 2 n− n−1
+r
+Observing that w−1(w2 (cid:16) w n X 2 ≥1 (cid:13) (cid:13) )1/2 is a sequence of con (cid:13) (cid:13) tr (cid:17) actio (cid:13) (cid:13) (cid:13)n (cid:0) s n , X ≥ w 1 e have (cid:1) (cid:13) (cid:13) (cid:13)
+{ n n− n−1 } n≥1
+y ξ w−1 2 1/2 (w2 w2 ) 1/2 .
+Lp(M;ℓc 1 ) ≤ n n 2 n− n−1 r
+Moreover,as r = 2p = (cid:13) (cid:13) p (cid:13) (cid:13) , we have (cid:16)n X ≥1 (cid:13) (cid:13) (cid:13) (cid:13) (cid:17) (cid:13) (cid:13) (cid:13) (cid:0) n X ≥1 (cid:1) (cid:13) (cid:13) (cid:13)
+2−p α
+w2 w2 1/2 = ςα = ς α = ξ α .
+n− n−1 r k k r k kp k kLp(M;ℓc 2 )
+(cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13)
+Using (3.6), the above est(cid:13)imate leads to: (cid:13)
+2 1/2
+y ξ .
+Lp(M;ℓc 1 ) ≤ p Lp(M;ℓc 2 )
+On the other hand, we may also wri(cid:13)te:(cid:13) (cid:0) (cid:1) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13)
+z ξ w−2w2 2 1/2
+Lc p ond(M;ℓc 2 ) ≤ E n−1 | n n n−1| p
+n≥1
+(cid:13) (cid:13) (cid:13)(cid:0)X (cid:1) (cid:13)
+(cid:13) (cid:13) = (cid:13) w ξ w−2w (cid:13) 2w 1/2 .
+n−1 E n−1 | n n n−1 | n−1 p
+n≥1
+(cid:13)(cid:0)X (cid:1) (cid:13)
+As before, we may deduce that (cid:13) (cid:13)
+z 2 ξ 2α ξ w−2w 2 .
+Lc p ond(M;ℓc 2 ) ≤ Lp(M;ℓc 2 ) n n n−1 2
+n≥1
+(cid:13) (cid:13) (cid:13) (cid:13) X(cid:13) (cid:13)
+Using (3.6) and the fact that
+(cid:13)
+(w
+(cid:13)−1w
+) i
+(cid:13)
+s a
+(cid:13)
+sequence of
+(cid:13)
+contractions,
+(cid:13)
+we conclude that
+n n−1 n≥1
+z 2 ξ 2α ξ w−1 2 2 ξ 2
+Lc p ond(M;ℓc 2 ) ≤ Lp(M;ℓc 2 ) n n 2 ≤ p Lp(M;ℓc 2 )
+n≥1
+(cid:13) (cid:13) (cid:13) (cid:13) X(cid:13) (cid:13) (cid:13) (cid:13)
+The proof is complete.(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:3)
+
+--- PAGE 10 ---
+10 RANDRIANANTOANINA,WU,ANDXU
+ThefollowingnoncommutativeDavisdecompositioneasilyfollowsfromTheorem3.1when1 p<2. A
+≤
+notablenewfeatureofthisdecompositionisasimultaneouscontrolonthe c and c normsfor2 q < .
+Hp Hq ≤ ∞
+Decompositions of such a nature are important for some aspects of noncommutative martingale theory,
+for instance, for the analytic theory of quantum stochastic integrals and the study of noncommutative
+martingales in symmetric spaces.
+Corollary 3.4. Let 1 p < 2 q < . Then every martingale x c( ) c( ) admits a
+≤ ≤ ∞ ∈ Hp M ∩ Hq M
+decomposition into two martingales xc and xd such that:
+(i) x=xc+xd;
+(ii) xc + xd 25/2 x ;
+hc p hd p ≤ Hc p
+(iii) (cid:13) (cid:13) xc (cid:13) (cid:13) hc q +(cid:13) (cid:13) xd (cid:13) (cid:13) hd q ≤ Cq (cid:13) (cid:13) x (cid:13) (cid:13)Hc q with an absolute constant C.
+Proof. (cid:13) (cid:13)Le (cid:13) (cid:13)t ξ = (cid:13) (cid:13)(dx (cid:13) (cid:13)n ) n≥1 . (cid:13) (cid:13)It (cid:13) (cid:13)is enough to take martingales xc and xd with dxc n = z n −E n−1 (z n ) and
+dxd = y (y ), where y and z are the adapted sequences from Theorem 3.1. Clearly, x = xd+xc.
+n n −E n−1 n
+From the facts that
+E
+n−1 ’s are contractive projections on L p (
+M
+), we get that
+k
+xd
+k
+hd
+p ≤
+2
+k
+y
+k
+ℓp(Lp(M)) .
+Also, since for every n ≥ 1, E n−1 | dxc n| 2 ≤E n−1 | z n | 2, we immediately get k xc k hc p ≤k z kLc p ond(M;ℓc 2 ) . For the
+hc-norm of xc, we have from the noncommutative Stein inequality and Theorem 3.1(iii) that
+q
+xc z γ z 3γ x .
+hc q ≤ Lc q ond(M;ℓc 2 ) ≤ q Lq(M;ℓc 2 ) ≤ q Hc q
+Theorderofγ
+q
+isfrom[26 (cid:13) (cid:13)]. T (cid:13) (cid:13)he est (cid:13) (cid:13)im (cid:13) (cid:13)ateon
+k
+xd
+khd
+q
+fo (cid:13) (cid:13)llo (cid:13) (cid:13)wsfromthe fact (cid:13) (cid:13)th (cid:13) (cid:13)atforq
+≥
+2,the identity map
+from L ( ;ℓc) into ℓ (L ( )) is a contraction. (cid:3)
+q M 2 q q M
+Remark 3.5. Corollary3.4goesbeyondthe versionofthe noncommutativeDavis’decompositionofPerrin
+([35, Theorem 2.1]) since for any given 2 q < , it provides through the use of interpolation a
+0
+≤ ∞
+decompositionthat workssimultaneouslyfor all1 p q with universalconstants. This fact is essential
+0
+≤ ≤
+for the applications in the next section.
+AnapplicationoftheproofofTheorem3.3tothecasep=1providesuniformprevisibleestimates. The
+next result should be compared with [18, Theorem III.3.5] and [33, Theorem 4.4].
+Corollary 3.6. Every martingale x c( ) admits a decomposition into two martingales xc and xd
+∈ H1 M
+such that:
+(i) x=xc+xd;
+(ii) xc + xd 25/2 x ;
+hc 1 hd 1 ≤ Hc 1
+(iii) the martingale xc satisfies the previsible uniform estimates:
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+dxc 2 2S2 (x), n 1.
+| n| ≤ c,n−1 ≥
+Proof. It suffices to apply the decomposition (3.8) to p=1. That is, we set for n 1,
+≥
+dxd =dx S−1(S S ) [dx S−1(S S )]
+n n c,n c,n − c,n−1 −E n−1 n c,n c,n − c,n−1
+(dxc
+n
+=dx
+n
+S
+c
+−
+,n
+1S
+c,n−1 −E n−1
+[dx
+n
+S
+c
+−
+,n
+1S
+c,n−1
+].
+The verification of (ii) follows exactly the proof of Theorem 3.3. For the previsible estimates, we have for
+n 1,
+≥
+dxc 2 2(dx S−1S 2+ [dx S−1S ]2).
+| n| ≤ | n c,n c,n−1 | |E n−1 n c,n c,n−1 |
+Since
+dx S−1S 2 =S S−1(S2 S2 )S−1S S2 ,
+| n c,n c,n−1 | c,n−1 n c,n− c,n−1 c,n c,n−1 ≤ c,n−1
+we clearly get the desired estimate. (cid:3)
+Remark 3.7. Corollaries 3.4 and 3.6 are not valid for the case 0 < p < 1 even for classical martingales.
+Indeed, if Corollary 3.4 was valid for 0 < p < 1, we would then have h1c( )+hc( ) = c( ). On
+p M p M Hp M
+the other hand, one can easily see that h1
+p
+c(
+M
+)
+⊆
+L
+p
+(
+M
+) and for classical martingales, we also have
+
+--- PAGE 11 ---
+DAVIS DECOMPOSITION 11
+hc( ) L ( ). Thus, there would exist a constant C such that x C x for all (classical)
+p M ⊆ p M p k k p ≤ p k k Hp
+martingales x . However, such constant C does not exist (see [9, Example 8.1]).
+p p
+∈H
+Our next result shows that our decomposition in Theorem 3.1 for p = 1 is stronger than the noncom-
+mutative L´epingle-Yor inequality.
+Corollary 3.8. Let (ξ ) be an adapted sequence in L ( ). Then we have
+n n≥1 1
+M
+(ξ )2 1/2 2√2 ξ 2 1/2 .
+n−1 n n
+|E | 1 ≤ | | 1
+(cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13) (cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13)
+For classical martingales(cid:13), the inequality abov(cid:13)e is know(cid:13)n as the L´epin(cid:13)gle-Yor inequality ([30]). Its
+noncommutative analogue as stated in Corollary 3.8 was proved in [38] with constant 2. Unfortunately,
+our alternative proof below yields only the constant 2√2. We should note that the optimal constant for
+the classical situation is √2 (see [34]).
+Proof of Corollary 3.8. Let ξ = (ξ ) be an adapted sequence in L ( ;ℓc). Apply Theorem 3.1 to get a
+n 1 M 2
+decomposition into two adapted sequences y and z such that:
+y + z 2√2 ξ .
+ℓ1(L1(M)) Lc 1 ond(M;ℓc 2 ) ≤ L1(M;ℓc 2 )
+Note that since we are not u(cid:13)si(cid:13)ng item (iii)(cid:13)of(cid:13)Theorem 3.1, the a(cid:13)ss(cid:13)umption that the adapted sequence ξ
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+belongs to L ( ;ℓc) is not needed. Since (b)2 (b2) for every b L ( ), it follows that
+∞ M 2 |E n−1 | ≤E n−1 | | ∈ 2 M
+(3.9) (z )2 1/2 z .
+|E n−1 n | 1 ≤ Lc 1 ond(M;ℓc 2 )
+Moreover,asℓ (L ( )) embeds (cid:13) (cid:13) (cid:13)c (cid:0) o n X n ≥ t 1 ractivelyinto (cid:1) L (cid:13) (cid:13) (cid:13)( ;ℓ (cid:13) (cid:13)c) (cid:13) (cid:13) andthe expectations ’sarecontractionin
+1 1 M 1 M 2 E n
+L ( ), we also have
+1
+M
+(3.10) (y )2 1/2 (y ) y .
+|E n−1 n | 1 ≤ E n−1 n 1 ≤ n 1
+(cid:13) (cid:13)(cid:0) n X ≥1 (cid:1) (cid:13) (cid:13) n X ≥1 (cid:13) (cid:13) n X ≥1 (cid:13) (cid:13)
+Combining (3.9) and (3.1(cid:13)0), we deduce that (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+(ξ )2 1/2 y + z .
+|E n−1 n | 1 ≤ ℓ1(L1(M)) Lc 1 ond(M)
+This proves the desired in (cid:13) (cid:13) (cid:13)e (cid:0) q n X u ≥ a 1 lity. (cid:1) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:3)
+In the following, we extend the Davis decomposition to the case of martingales in a certain class of
+noncommutative symmetric spaces. This is one of the main tools that we use in the next section.
+Theorem 3.9. Let 1<p<q < and E be a symmetric Banach function space with the Fatou property
+∞
+and E Int(L ,L ). There exist two positive constants α and β such that:
+p q E E
+∈
+(i) for every x c ( ), the following inequality holds:
+∈HE M
+α−1inf xd + xc x ,
+E hd hc ≤ Hc
+E E E
+where the infimum is taken over all n x(cid:13)d (cid:13)hd( (cid:13)) an(cid:13)d x o c (cid:13)hc(cid:13)( ) such that x=xd+xc.
+(ii) for every x hd hc ( ), the follow (cid:13) in ∈ g (cid:13) in E eq M ua (cid:13) lity (cid:13) holds: ∈ (cid:13)E(cid:13) M
+∈ E ∩ E M
+x β max x , x .
+Hc ≤ E hd hc
+E E E
+Proof. Throughout the proof we ma(cid:13)ke(cid:13)use of the follo n w(cid:13)in(cid:13)g not(cid:13)at(cid:13)ions o for the compatible couples
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+A:=(L
+p
+( ℓ
+∞
+),L
+q
+( ℓ
+∞
+)) and B :=(L
+p
+( B(ℓ
+2
+(N2))),L
+q
+( B(ℓ
+2
+(N2)))).
+M⊗ M⊗ M⊗ M⊗
+Also we may fix a symmetric function space F with nontrivial Boyd indices such that for any semifinite
+vonNeumannalgebra ,wehaveE( )=[L ( ),L ( )] asstatedinLemma2.2. Wenotethatwhen
+p q F,j
+N N N N
+
+--- PAGE 12 ---
+12 RANDRIANANTOANINA,WU,ANDXU
+1 < p < q < , c( ) and c( ) embed complementedly into L ( B(ℓ )) and L ( B(ℓ )),
+∞ Hp M Hq M p M⊗ 2 q M⊗ 2
+respectively. This implies that for every x c( )+ c( ) and t>0,
+∈Hp M Hq M
+K t,x; c( ), c( ) C K t, (x);L ( B(ℓ )),L ( B(ℓ )) .
+Hp M Hq M ≤ p,q D c p M⊗ 2 q M⊗ 2
+As a consequence(cid:0), we have that for eve(cid:1)ry x ∈HE c (cid:0)( M ), (cid:1)
+x = (x) x ,
+Hc
+E
+D c E(M⊗B(ℓ2)) ≈ E F,j
+where the interpolation on the la(cid:13)st(cid:13)norm i(cid:13)s taken(cid:13)with respect to t(cid:13)he(cid:13)couple ( c( ), c( )).
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) Hp M Hq M
+We are now ready to presentthe proofof (i). Let x c ( ) and fix a representationx= u in
+∈HE M ν∈Z ν
+the compatible couple ( c( ), c( )) such that:
+Hp M Hq M P
+(3.11) j , u 2 x .
+· { ν } ν F ≤ F,j
+W an e d r b ecall h t c h ( at f ) or e h v c e ( ryν ), ∈ sa Z ti , s u fy ν in ∈ g: Hp c( (cid:13) (cid:13) (cid:13)M (cid:0)) ∩Hq c( M (cid:1) (cid:13) (cid:13) (cid:13) ). By(cid:13) (cid:13) Co(cid:13) (cid:13) rollary3.4, there exista ν ∈ hd p ( M ) ∩ hd q ( M )
+ν ∈ p M ∩ q M
+(3.12) u =a +b
+ν ν ν
+and if s p,q , then
+∈{ }
+(3.13) a + b C(p,q) u .
+ν hd s ν hc s ≤ ν Hc s
+For each ν Z, we consider (a (cid:13)) (cid:13)∆(A)(cid:13)and(cid:13) U (b ) (cid:13)∆(B(cid:13)). As in [40], inequality (3.13) can be
+∈ D d ν(cid:13)∈(cid:13) (cid:13) (cid:13) D c ν ∈(cid:13) (cid:13)
+reinterpreted by using the J-functionals as follows:
+J t, (a );A C(p,q)J(t,u ), t>0,
+d ν ν
+(3.14) D ≤
+(J t(cid:0),U
+c
+(b
+ν
+);B(cid:1) C(p,q)J(t,u
+ν
+), t>0.
+D ≤
+One can show as in [40, Sublemm(cid:0)a 3.3] that th(cid:1)e series
+ν∈Z
+D
+d
+(a
+ν
+) is weakly unconditionally Cauchy
+in E( ℓ ). A fortiori, it is convergent in Σ(A). Similarly, we can also get that U (b ) is
+M⊗ ∞ P ν∈Z D c ν
+convergentin Σ(B). Set
+P
+α:= (a ) Σ(A) and β := U (b ) Σ(B).
+d ν c ν
+D ∈ D ∈
+ν∈Z ν∈Z
+X X
+The series (a ) may be viewed as a representation of α in the interpolation couple A. Similarly,
+ν∈Z
+D
+d ν
+U (b ) is a representation of β in the interpolation couple B. We claim that:
+ν∈Z
+D
+cPν
+(P3.15) α
+E(M⊗ℓ∞)
++ β
+E(M⊗B(ℓ2(N2))) ≤
+κ
+E
+x
+Hc
+E
+.
+To see this claim, we observe(cid:13)fro(cid:13)m (3.14) tha(cid:13)t f(cid:13)or every s>0, (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+j(s, (a ) ;A)+j(s, U (b ) ;B) 2C(p,q)j(s, u ).
+d ν ν c ν ν ν ν
+{D } { D } ≤ { }
+Taking the norms on the function space F together with (3.11) gives
+α + β 4C(p,q) x .
+F,j F,j ≤ F,j
+This proves (3.15). To conclude th(cid:13)e p(cid:13)roof, it(cid:13)is(cid:13)plain that the(cid:13)re(cid:13)exist a hd( ) and b hc ( ) such
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) ∈ E M ∈ E M
+that α = (a) and β = U (b). Moreover, it is clear from the construction that x = a+b. Indeed, the
+d c
+D D
+fact that α is a martingale difference sequence follows from the convergence of the series (a ) in
+ν∈Z
+D
+d ν
+Σ(A). Similarly, the representation above also gives that β is in the range of U in Σ(B). We may now
+D c P
+conclude from (3.15) that
+a + b κ x .
+hd(M) hc(M) ≤ E Hc
+E E E
+The proof of(i) is complete. Item ((cid:13)ii)(cid:13)can be ob(cid:13)tai(cid:13)nedby dualit(cid:13)y(cid:13)in the same manner as in PartIII of the
+proof of [40, Theorem 3.1]. The det (cid:13) ail (cid:13) s are left t (cid:13) o (cid:13) the reader. (cid:13) (cid:13) (cid:3)
+As an immediate application of Theorem 3.9, we have the following result:
+Corollary 3.10. Let E be a symmetric Banach function space with the Fatou property.
+
+--- PAGE 13 ---
+DAVIS DECOMPOSITION 13
+(i) If E Int(L ,L ) for some 1<p<2, then c ( )=hd( )+hc ( ) with equivalent norms.
+∈ p 2 HE M E M E M
+(ii) If E Int(L ,L ) for some 2<q < , then c ( )=hd( ) hc ( ) with equivalent norms.
+∈ 2 q ∞ HE M E M ∩ E M
+Proof. WealreadyhavefromTheorem3.9that c ( ) hd( )+hc ( ). Thereverseinclusionfollows
+from the fact that for 1 < v 2, hd( ) + hH c E ( M ) = ⊆ E c( M ). In E de M ed, this identification implies in
+particular that hd( ) c( ≤ ) and v hM c( ) v M c( ) H . v A M standard use of interpolation then gives
+hd( ) c ( v ) M and ⊂hc H ( v M ) c ( v ). M We ⊆ sh H o v uld M recall here that since E Int(L ,L ) and 1 <
+p E < M 2, b ⊆ y c H o E mp M lementatio E n, M we ⊆ ha H ve E hd M ( ) Int(hd( ),hd( )), hc ( ) In ∈ t(hc( p ),hc 2 ( )), and
+c ( ) Int( c( ), c( )). The ar E gu M ment ∈ for (ii) p is M ident 2 ic M al. E M ∈ p M 2 M (cid:3)
+HE M ∈ Hp M H2 M
+Remark 3.11. We do not know if the statement in the first item of Theorem 3.9 (respectively of Corol-
+lary 3.10) remains valid if one only assumes that E Int(L ,L ) for 1 < q < (respectively E
+1 q
+∈ ∞ ∈
+Int(L ,L ) ). Since both assertions hold for E =L , it is reasonableto conjecture that this should be the
+1 2 1
+case in general. We leave these as open problems.
+Remark 3.12. Weconcludethissectionbycallingtothereader’sattentionthatallstatementsaboveadmit
+corresponding row versions.
+4. Applications to noncommutative Burkholder/Rosenthal inequalities
+4.1. The case of noncommutative symmetric spaces. The main objective of this subsection is to
+provide versions of the Burkholder/Rosenthal inequality for martingales in noncommutative symmetric
+spaces. Recall that the noncommutative Burkholder/Rosenthal inequalities were proved by Junge and
+the third named author for martingales in noncommutative L -spaces for 1 < p < ([25]). We should
+p
+∞
+emphasize here that it is essential to separate the case 1 < p 2 from the one 2 p < . In fact, the
+≤ ≤ ∞
+originalclassicalcasewasonlyprovedfor2 p< anditwasin[25]thatthecorrespondingcase1<p<2
+≤ ∞
+was discovered. Our main result in this subsection strengthens the versions of Burkholder/Rosenthal
+inequalities for noncommutative symmetric spaces from [11, 40]. It reads as follows:
+Theorem 4.1. Let E be a symmetric Banach function space with the Fatou property.
+(i) If E Int(L ,L ) for some 1 < p < 2, then E( )=hd( )+hc ( )+hr ( ) with equivalent
+∈ p 2 M E M E M E M
+norms.
+(ii) If E Int(L ,L ) for some 2 < q < , then E( )=hd( ) hc ( ) hr ( ) with equivalent
+∈ 2 q ∞ M E M ∩ E M ∩ E M
+norms.
+We remark that (ii) was also obtained recently by Jiao et al. in [22, Theorem 1.5] under the more
+restrictive assumption that E Int(L ,L ). It is important to note that through the use of interpolation,
+2 4
+it is not difficult to deduce tha ∈ t if 1< p < 2 and E Int(L ,L ) then hw( ) E( ) for w d,c,r .
+Therefore,wealwayshaveinthiscasethathd( )+h∈ c ( )+ p hr ( 2 ) E E ( M ). S ⊆ imila M rly,when2 ∈ < { q < }
+and E Int(L ,L ) then E( ) hd( ) E Mhc ( E ) Mhr ( E ). M Th ⊆ us, it M is only necessary to prove th ∞ e
+∈ 2 q M ⊆ E M ∩ E M ∩ E M
+respective reverse inclusions. To this end, we will prove the following more general result:
+Theorem 4.2. Let 1<p<q < and E be a symmetric Banach function space with the Fatou property
+∞
+and such that E Int(L ,L ). Then there exist positive constants δ and η such that:
+p q E E
+∈
+(i) for every x E( ), the following inequality holds:
+∈ M
+δ−1inf xd + xc + xr x ,
+E hd hc hr ≤ E(M)
+E E E
+where the infimum is taken o n v(cid:13)er a(cid:13)ll xd (cid:13) h(cid:13)d( ),(cid:13)xc(cid:13) hoc ( (cid:13))(cid:13), and xr hr ( ) such that x =
+(cid:13) (cid:13) ∈(cid:13) (cid:13)E M (cid:13) (cid:13)∈ E M(cid:13) (cid:13) ∈ E M
+xd+xc+xr;
+(ii) for every x hd( ) hc ( ) hr ( ), the following inequality holds:
+∈ E M ∩ E M ∩ E M
+x η max x , x , x .
+E(M) ≤ E hd hc hr
+E E E
+Clearly, Theorem 4.2 and th(cid:13)e (cid:13)preceding discuss n io(cid:13)n(cid:13)imply(cid:13) T(cid:13)heo(cid:13)rem(cid:13) 4. o 1. Our strategy for the proof of
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+Theorem 4.2 is to use the corresponding Burkholder-Gundy along side our Davis decomposition stated in
+Theorem 3.9. The following version of the Burkholder-Gundy inequalities is implicit in [13]:
+
+--- PAGE 14 ---
+14 RANDRIANANTOANINA,WU,ANDXU
+Proposition 4.3. Let 1 < p < q < and E be a symmetric Banach function space with the Fatou
+∞
+property such that E Int(L ,L ). Then there exist positive constants C and c such that:
+p q E E
+∈
+(i) for every x E( ), the following inequality holds:
+∈ M
+inf xc + xr C x ,
+Hc Hr ≤ E E(M)
+E E
+where the infimum is taken ove n r(cid:13)all(cid:13)xc (cid:13)c ((cid:13) ), o and xr(cid:13) (cid:13)r ( ) such that x=xc+xr;
+(cid:13) (cid:13) ∈H(cid:13)E M(cid:13) (cid:13)∈H(cid:13)E M
+(ii) for every x c ( ) r ( ), the following inequality holds:
+∈HE M ∩HE M
+x c max x , x .
+E(M) ≤ E Hc Hc
+E E
+Proof. Assume that E Int(L ,L(cid:13))(cid:13)with 1 < p < q < n(cid:13) (cid:13). By(cid:13)th(cid:13)e bo o undedness of martingale transforms
+p (cid:13)q (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+∈ ∞
+on E( ) ([39, Proposition4.9]), there exists a constant κ such that for any given finite martingale x in
+E
+M
+E( ),
+M
+κ−1E ε dx x κ E ε dx
+E n n E(M) ≤ E(M) ≤ E n n E(M)
+n≥1 n≥1
+(cid:13)X (cid:13) (cid:13) (cid:13) (cid:13)X (cid:13)
+where (ε ) denotes a Radem(cid:13)acher seque(cid:13)nce on a(cid:13)giv(cid:13)en probability(cid:13)space. Acc(cid:13)ording to [13, Theorem 4.3],
+n
+we then have,
+(κ′ )−1 (dx ) x c (dx ) .
+E n E(M;ℓc 2 )+E(M;ℓr 2 ) ≤ E(M) ≤ E n E(M;ℓc 2 )∩E(M;ℓr 2 )
+Using the the noncomm(cid:13)utative(cid:13)Stein inequality on(cid:13)th(cid:13)e first inequ(cid:13)ality ([(cid:13)20]), we deduce that
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+C−1 x x c x .
+E Hc+Hr ≤ E(M) ≤ E Hc∩Hr
+E E E E
+This proves both items. (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:3)
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+Proof of Theorem 4.2. Let x E( ) and ε > 0. By Proposition 4.3(i), there exists a decomposition
+∈ M
+x=ac+ar so that
+(4.1) ac Hc + ar Hr C E x E(M) +ε.
+k k E k k E ≤ k k
+Applying Theorem 3.9 separately on ac and (ar)∗, there exist further decompositions ac = yd +yc and
+ar =zd+zr with yd,zd hd( ), yc hc ( ), and zr hr ( ) satisfying:
+∈ E M ∈ E M ∈ E M
+yd hd + yc hc δ E ac Hc +ε and zd hd + zr hr δ E ar Hr +ε.
+k k E k k E ≤ k k E k k E k k E ≤ k k E
+Set xd :=yd+zd, xc :=yc, and xr :=zr. Clearly, x=xd+xc+xr and the previous two inequalities lead
+to:
+xd + xc + xr δ C x +(δ +2)ε.
+hd hc hr ≤ E E k k E(M) E
+E E E
+This proves (i). Item (ii(cid:13)) is(cid:13)simila(cid:13)r. I(cid:13)ndeed,(cid:13)fro(cid:13)m combining Theorem 3.9(ii) and Proposition 4.3(ii), we
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+deduce that for every finite martingale x, one has:
+x c max x , x
+E(M) E Hc(M) Hr(M)
+k k ≤ {k k E k k E }
+≤ c E β E max {k x k hd E (M) , k x k hc E (M) , k x k hr E (M) } .
+The proof is complete. (cid:3)
+Remark 4.4. In orderto haveequivalences ofnorms as statedin Theorem4.1, the assumptions used there
+are in generalnecessary. Indeed, if E is a symmetric Banachfunction space that satisfies the equivalences
+of norms as stated in Theorem 4.1 then a fortiori, martingale difference sequences are unconditional in
+E( ). From [31], it follows that there exist 1<p q < so that E Int(L ,L ). On the other hand,
+p q
+M ≤ ∞ ∈
+it was noted in [29] that if 1<p<2<q < then L ( ) L ( ) fails to satisfy the noncommutative
+p q
+∞ M ∩ M
+Khintchine inequalities. In particular, it must fail the equivalences of norms stated in Theorem 4.1. This
+shows that separating the two cases E Int(L ,L ) for 1<p<2 and E Int(L ,L ) for 2<q < are
+p 2 2 q
+∈ ∈ ∞
+necessary. Ontheotherhand,therearesymmetricfunctionspaceswithBoydindicesequalto2butdonot
+appear to belong to either of the two classes of functions considered in Theorem 4.1. For instance, we do
+
+--- PAGE 15 ---
+DAVIS DECOMPOSITION 15
+notknowifeitheroftheversionsofthenoncommutativeBurkholder/RosenthalinequalitiesinTheorem4.1
+apply to martingales in L ( ,τ), or more generally in L ( ,τ) for any 1 q =2 .
+2,∞ 2,q
+M M ≤ 6 ≤∞
+4.2. Modular inequalities. In this subsection, we focus on noncommutative moment inequalities asso-
+ciatedwith Orliczfunctions, whichwereconsideredin[1, 14,41]. We will assume throughoutthat Φ is an
+Orlicz function satisfying the ∆ -condition, that is, for some constant C >0,
+2
+(4.2) Φ(2t) CΦ(t) t 0.
+≤ ≥
+We denote by L the Orlicz function space associated to Φ. Below, we write c( ), hc( ), etc. for
+martingale Hard Φ y spaces HL c Φ ( M ), hc LΦ ( M ), etc. We make the observation tha H t Φ if M L Φ * Φ L 2 M +L ∞ , then
+for an x hc( ), the Φ-moment τ Φ(s (x)) is understood to be the quantity τ tr Φ(U (x)) as
+∈ Φ M c ⊗ | D c |
+fully detailed in [41].
+(cid:2) (cid:3) (cid:2) (cid:3)
+Given 1 p q < , we recall that an Orlicz function Φ is said to be p-convex if the function
+≤ ≤ ∞
+t Φ(t1/p) is convex,and to be q-concave if the function t Φ(t1/q) is concave. The function Φ satisfies
+7→ 7→
+the ∆ -condition if and only if it is q-concave for some q < . Recall the so-called Matuzewska-Orlicz
+2
+∞
+indices p and q of Φ:
+Φ Φ
+logM (t) logM (t)
+Φ Φ
+p = lim and q = lim ,
+Φ Φ
+t→0+ logt t→∞ logt
+where
+Φ(ts)
+M (t)=sup .
+Φ
+Φ(s)
+s>0
+The indices p andq are usedinthe previouspapers[1,2,14,41] insteadofthe convexityandconcavity
+Φ Φ
+indices in the present one. It is easy to see that p p q q if Φ is p-convexand q-concave. We refer
+Φ Φ
+≤ ≤ ≤
+to [32] for backgrounds on Orlicz functions and spaces.
+Aspartofourmotivation,westatethefollowingΦ-momentversionofthenoncommutativeBurkholder-
+Gundy inequality:
+Theorem 4.5 ([1, 14]). Let 1 < p < q < and Φ be a p-convex and q-concave Orlicz function. Then
+∞
+there exists a positive constant c such that for every x L ( ),
+Φ Φ
+∈ M
+c−1inf τ Φ(S (y)) +τ Φ(S (z)) τ Φ(x) c max τ Φ(S (x)) ,τ Φ(S (x)) ,
+Φ c r ≤ | | ≤ Φ c r
+wheretheinfimu n m(cid:2)onthefirs(cid:3)tine(cid:2)quality is (cid:3)ta o keno(cid:2)ver all(cid:3)y c( ) n an(cid:2)d z r(cid:3)( (cid:2))suchtha(cid:3)t o x=y+z.
+∈HΦ M ∈HΦ M
+Proof. Thesecondinequalityisfrom[14,Corollary3.3]. ThefirstonefollowsfromaΦ-momentKhintchine
+inequality proved in [1] which states that for any given finite sequence (a ) in L ( ),
+k Φ
+M
+(4.3) inf τ Φ b 2)1/2 +τ Φ c∗ 2)1/2 CE τ Φ ε a ,
+| k | | k| ≤ k k
+n h (cid:0)(cid:0)X k (cid:1)(cid:1)i h (cid:0)(cid:0)X k (cid:1)(cid:1)io h (cid:2) (cid:0)(cid:12)X k (cid:12)(cid:1)(cid:3)i
+(cid:12) (cid:12)
+where(ε ) isaRademachersequenceandtheinfimumrunsoveralldecompositionsa =b +c withb
+k k≥1 k k k k
+andc inL ( ). We shouldnote that(4.3)wasstatedin[1]under the assumptionthat1<p q <2
+k Φ Φ Φ
+M ≤
+but the proof given there apply verbatim to the present situation. It is now standard to deduce the first
+inequalityfrom(4.3)usingtheΦ-momentversionsofthenoncommutativeSteininequalityandmartingale
+transforms. Both of these results were proved in [1]. (cid:3)
+ItisanaturalquestioniftheBurkholder/Rosenthalversionoftheabovetheoremholds. Afirstattempt
+inthisdirectionwasdonein[41]buttheresultsobtainedthererequirefarmorerestrictiveassumptionthan
+the one in Theorem 4.5. As in the case of noncommutative symmetric spaces, our approach is based on
+the considerationof our Davis decomposition. The following is one of our main results in this subsection.
+It is the Φ-moment analogue of the Davis decomposition stated in Theorem 3.9.
+Theorem 4.6. Let 1< p< q < and Φ be a p-convex and q-concave Orlicz function. Then there exist
+∞
+positive constants α and β such that:
+Φ Φ
+
+--- PAGE 16 ---
+16 RANDRIANANTOANINA,WU,ANDXU
+(i) for every martingale x c( ), the following inequality holds:
+∈HΦ M
+α−1inf τ Φ(s (xc)) + τ Φ(dxd ) τ Φ(S (x)) ,
+Φ c | n| ≤ c
+n (cid:2) (cid:3) n X ≥1 (cid:2) (cid:3)o (cid:2) (cid:3)
+where the infimum is taken over all xc hc( ) and xd hd( ) such that x=xc+xd;
+(ii) for every x hd( ) hc( ), the follo ∈ win Φ g M inequality h ∈ olds Φ : M
+∈ Φ M ∩ Φ M
+τ Φ(S (x)) β max τ Φ dx ,τ Φ(s (x)) .
+c Φ n c
+≤ | |
+(cid:2) (cid:3) nn X ≥1 (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3)o
+Before we present the proof, we need some preparations. We first record few technical facts from
+interpolation and duality that we will need in the sequel.
+Lemma 4.7 ([21, Lemma 6.2]). Let ( ,τ ) and ( ,τ ) be semifinite von Neumann algebras and Φ
+1 1 2 2
+M M
+be a p-convex and q-concave Orlicz function for 1 p q < . If W : L ( ) L ( ) and
+p 1 p 2
+≤ ≤ ∞ M → M
+W :L ( ) L ( ) are bounded linear operators, then there exists a constant C satisfying:
+q 1 q 2 Φ
+M → M
+τ Φ(Wx) C τ Φ(x) , x L ( ).
+2 Φ 1 Φ 1
+| | ≤ | | ∈ M
+Lemma 4.7 shows in particula(cid:2)r that if(cid:3)Φ is p-co(cid:2)nvex an(cid:3)d q-concave then the Orlicz function space L
+Φ
+belongs to Int(L ,L ).
+p q
+Lemma 4.8 ([41])). Let be a semifinite von Nemmann algebra and Φ be an Orlicz function such that
+N
+1<p<p q <q < . The following inequalities hold:
+Φ Φ
+≤ ∞
+(i) For every y L ( )+L ( ),
+p q
+∈ N N
+∞ ∞
+Φ t−1K t,y;L ( ), dt C Φ t−1/pK t1/p−1/q,y;L ( ),L ( ) dt.
+1 Φ,p,q p q
+N N ≤ N N
+Z0 Z0
+(cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+(ii) Ify L ( ) L ( )andu()isarepresentationofy inthecouples(L ( ),L ( ))and(L ( ), )
+p q p q 1
+∈ N ∩ N · N N N N
+then,
+∞ ∞
+Φ t−1/pJ t1/p−1/q,u(t);L ( ),L ( ) dt C Φ t−1J t,u(t);L ( ), dt.
+p q Φ,p,q 1
+N N ≤ N N
+Z0 Z0
+(cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+(iii) For every y L ( )+L ( ),
+p q
+∈ N N
+∞ ∞
+Φ t−1/pK t1/p−1/q,y;L ( ),L ( ) dt C inf Φ t−1/pJ t1/p−1/q,u(t);L ( ),L ( ) dt ,
+p q Φ,p,q p q
+N N ≤ N N
+Z0
+(cid:2) (cid:0) (cid:1)(cid:3)
+nZ0
+(cid:2) (cid:0) (cid:1)(cid:3) o
+where the infimum is taken over all representations u() of y.
+·
+Below Φ∗ denotes the Orlicz complementary function to Φ. The next lemma will be used for duality
+purposes.
+Lemma 4.9 ([41,Proposition2.3]). Let Φ be an Orlicz function which is p-convex and q-concave for some
+1<p q < and beasemifinitevonNeumnn. Forevery0 x L
+Φ
+( )thereexists0 y L Φ∗( )
+≤ ∞ N ≤ ∈ N ≤ ∈ N
+such that y commutes with x and satisfies: xy =Φ(x)+Φ∗(y).
+Proof of Theorem 4.6. Theproofisanadaptationoftheargumentusedin[41]sowewillonlyhighlightthe
+mainpoints. We beginwith the proofof(i). Since Φ is p-convexandq-concave,we havep p q q.
+Φ Φ
+≤ ≤ ≤
+Let 1 <p < p and q < q < . It is clear that Φ is p -convex and q -concave. Replacing p by p and q
+0 0 0 0 0
+∞
+by q if necessary, we may assume without loss of generality that 1 < p < p q < q < . Under this
+0 Φ Φ
+≤ ∞
+assumption, Lemma 4.8 applies to Φ. Below, C denotes a constant whose value may change from line
+Φ,p,q
+to line.
+Fix a martingale x such that ξ = (dx ) L ( ;ℓc) L ( ;ℓc). We make the observation that
+n n≥1 ∈ 1 M 2 ∩ ∞ M 2
+by complementation,
+t
+K(t,ξ)=K t,ξ;L ( ;ℓc),L ( ;ℓc) = µ (S (x)) ds, t>0.
+1 M 2 ∞ M 2 s c
+Z0
+(cid:0) (cid:1)
+
+--- PAGE 17 ---
+DAVIS DECOMPOSITION 17
+This leads to
+∞ ∞
+(4.4) τ Φ S (x) = Φ(µ (S (x))) dt Φ t−1K(t,ξ) dt
+c t c
+≈
+(cid:2) (cid:0) (cid:1)(cid:3)
+Z0 Z0
+h i
+where the equivalence comes from the boundedness of the Hilbert operator on L for 1 < r < and
+r
+∞
+Lemma 4.7.
+Choose u() a representation of ξ in the compatible couple (L ( ;ℓc),L ( ;ℓc)) such that:
+· 1 M 2 ∞ M 2
+(4.5) J(t,u(t)) CK(t,ξ), t>0,
+≤
+where C is an absolute constant. Thus, since Φ has the ∆ -condition, we have from (4.4) and (4.5) that
+2
+∞
+(4.6) Φ t−1J t,u(t) dt C τ Φ S (x) .
+Φ c
+≤
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Itisimportanttonotethatu()isalsoarepresentationofξ forthecouple(L ( ;ℓc),L ( ;ℓc)). Putting
+· p M 2 q M 2
+(4.6) together with Proposition 4.8(ii) yields:
+∞
+Φ t−1/pJ t1/p−1/q,u(t);L ( ;ℓc),L ( ;ℓc) dt C τ Φ S (x) .
+p M 2 q M 2 ≤ Φ,p,q c
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Consider Θ:L ( ;ℓc)+L ( ;ℓc) c( )+ c( ) defined by:
+p M 2 q M 2 →Hp M Hq M
+Θ (a ) = (a ) (a ) .
+n n≥1 n n n−1 n
+E −E
+n≥1
+(cid:0) (cid:1) X(cid:2) (cid:3)
+By the noncommutative Stein inequality, Θ is bounded and one can easily verify that Θ u() is a repre-
+·
+sentation of x for the couple ( c( ), c( )). Moreover,we have:
+Hp M Hq M (cid:0) (cid:1)
+∞
+Φ t−1/pJ t1/p−1/q,Θ u(t) ; c( ), c( ) dt C τ Φ S (x) .
+Hp M Hq M ≤ Φ,p,q c
+Z0
+h (cid:0) (cid:0) (cid:1) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+As in [41], we need to modify the representation as follows: set θ =1/p 1/q and define:
+−
+1
+v(t)= Θ u(t1/θa) .
+θ
+Then v() is a representationof x in the couple ( c((cid:0) ),Hc((cid:1) )) and the preceding inequality becomes:
+· Hp M q M
+∞
+(4.7) Φ t−1/pJ t1/p−1/q,v(t1/p−1/q); c( ), c( ) dt C τ Φ S (x) .
+Hp M Hq M ≤ Φ,p,q c
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+2ν+1
+Next, we discretize the integral in (4.7). If we set v = v(t) dt/t for every ν Z, then
+ν 2ν ∈
+(4.8) x= v , convergence inR c( )+ c( ).
+ν Hp M Hq M
+ν∈Z
+X
+By [41, Lemma 3.12(i)], we deduce from (4.7) that
+(4.9) 2ν/θΦ 2−ν/(θp)J 2ν,v ; c( ), c( ) C τ Φ S (x) .
+ν Hp M Hq M ≤ Φ,p,q c
+ν X ∈Z h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+The next step is to apply the simultaneous Davis decomposition (Corollary 3.4 and Remark 3.5). For
+each ν Z, there exist a hd( ) hd( ) and b hc( ) hc( ) such that:
+∈ ν ∈ p M ∩ q M ν ∈ p M ∩ q M
+(4.10) v =a +b
+ν ν ν
+and if s is equal to either p or q, then
+(4.11) a + b C(p,q) v .
+ν hd s ν hc s ≤ ν Hc s
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+(cid:13) (cid:13) (cid:13) (cid:13) (cid:13) (cid:13)
+
+--- PAGE 18 ---
+18 RANDRIANANTOANINA,WU,ANDXU
+As above, the inequalities in (4.11) can be reinterpreted using the J-functionals as follows:
+J t,a ;hd( ),hd( ) C(p,q)J t,v ; c( ), c( ) , t>0,
+(4.12) ν p M q M ≤ ν Hp M Hq M
+J(cid:0)t,b
+ν
+;hc
+p
+(
+M
+),hc
+q
+(
+M
+)(cid:1)
+≤
+C(p,q)J(cid:0)t,v
+ν
+;
+Hp
+c(
+M
+),
+Hq
+c(
+M
+)(cid:1), t>0.
+Following similar argu(cid:0)ment used in the pro(cid:1)of of [40, Su(cid:0)blemma 3.3], we have(cid:1)that the series
+ν∈Z
+a
+ν
+and
+b are convergentin hd( ) and hc( ) respectively. Set
+ν∈Z ν Φ M Φ M P
+(P4.13) a:= a hd( ) and b:= b hc( ).
+ν ∈ Φ M ν ∈ Φ M
+ν∈Z ν∈Z
+X X
+Combining (4.9) with (4.12) we further get:
+2ν/θΦ 2−ν/(θp)J(2ν,a ;hd( ),hd( )) C τ Φ S (x) ,
+ν p M q M ≤ Φ,p,q c
+(4.14) X
+ν∈Z
+h i (cid:2) (cid:0) (cid:1)(cid:3)
+2ν/θΦ 2−ν/(θp)J(2ν,b ;hc( ),hc( )) C τ Φ S (x) .
+ν p M q M ≤ Φ,p,q c
+ν X ∈Z h i (cid:2) (cid:0) (cid:1)(cid:3)
+Next, we convert the above inequalities into their corresponding continuous forms. By setting for t
+∈
+[2ν,2ν+1),
+a b
+a(t)= ν hd( ) hd( ) and b(t)= ν hc( ) hc( ),
+log2 ∈ p M ∩ q M log2 ∈ p M ∩ q M
+we get that a() is a representation of a for the couple (hd( ),hd( )) and b() is a representation of
+b for the coupl · e (hc( ),hc( )). Moreover, [41, Lemma 3 p .1 M 2(ii)] q an M d (4.14) pr · ovide integral estimates
+p M q M
+involving the J-functionals:
+∞
+Φ t−1/pJ t1/p−1/q,a(t1/p−1/q);hd( ),hd( ) dt C τ Φ S (x) ,
+p M q M ≤ Φ,p,q c
+(4.15) Z0 ∞ h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Φ t−1/pJ t1/p−1/q,b(t1/p−1/q);hc( ),hc( ) dt C τ Φ S (x) .
+p M q M ≤ Φ,p,q c
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+By Lemma 4.8(iii), these further yield:
+∞
+Φ t−1/pK t1/p−1/q,a;hd( ),hd( ) dt C τ Φ S (x) ,
+p M q M ≤ Φ,p,q c
+(4.16) Z0 ∞ h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Φ t−1/pK t1/p−1/q,b;hc( ),hc( ) dt C τ Φ S (x) .
+p M q M ≤ Φ,p,q c
+U
+Le
+:
+t hN
+c(
+1 :=
+)
+M⊗
+L
+ℓ
+Z
+∞
+(
+0
+a
+)
+nd
+a
+h
+r
+N
+e
+2
+iso
+:=
+me
+M
+(cid:0)
+tri
+⊗
+es
+B
+,
+(
+in
+ℓ 2
+e
+(
+q
+N
+u
+2
+a
+)
+l
+)
+it
+.
+ie
+S
+s
+in
+(4
+c
+.
+e
+16
+fo
+)
+r
+im
+e
+(cid:1)
+v
+p
+i
+e
+l
+r
+i
+y
+es:
+1 ≤ r < ∞
+(cid:2)
+,
+(cid:0)
+D d :
+h(cid:1)
+d r
+(cid:3)
+( M ) → L r ( N 1 ) and
+D c r M → r N 2
+∞
+Φ t−1/pK t1/p−1/q, (a);L ( ),L ( ) dt C τ Φ S (x) ,
+d p 1 q 1 Φ,p,q c
+D N N ≤
+(4.17) Z ∞ 0 h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Φ t−1/pK t1/p−1/q,U (b);L ( ),L ( ) dt C τ Φ S (x) .
+c p 2 q 2 Φ,p,q c
+D N N ≤
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+We apply Lemma 4.8(i) to see that the next two inequalities follow from (4.17):
+∞
+Φ t−1K t, (a);L ( ), dt C τ Φ S (x) ,
+d 1 1 1 Φ,p,q c
+D N N ≤
+(4.18) Z ∞ 0 h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+Φ t−1K t,U (b);L ( ), dt C τ Φ S (x) .
+c 1 2 2 Φ,p,q c
+D N N ≤
+Z0
+h (cid:0) (cid:1)i (cid:2) (cid:0) (cid:1)(cid:3)
+To conclude the proof, we observe that ∞ Φ t−1K t, (a);L ( ), dt τ Φ (a) and
+0 D d 1 N 1 N 1 ≈ Φ 1 |D d |
+∞ Φ t−1K t,U (b);L ( ), dt Rτ Φ h U (cid:0)(b) where τ and τ(cid:1)i are the nat(cid:2)ura(cid:0)l traces(cid:1)o(cid:3)n
+0 D c 1 N 2 N 2 ≈ Φ 2 | D c | 1 2 N 1
+aRnd
+N
+h
+2
+, res(cid:0)pectively. It is now st(cid:1)riaightforwa(cid:2)rd(cid:0)to verify(cid:1)(cid:3)that τ
+1
+Φ
+|D d
+(a)
+|
+=
+n≥1
+τ Φ
+|
+da
+n |
+and
+(cid:2) (cid:0) (cid:1)(cid:3) P (cid:2) (cid:0) (cid:1)(cid:3)
+
+--- PAGE 19 ---
+DAVIS DECOMPOSITION 19
+τ Φ U (b) =τ Φ s (b) , that is, we obtain that x=a+b and τ Φ da +τ Φ s (b)
+2 | D c | c n≥1 | n | c ≤
+C τ Φ S (x) . The proof of (i) is complete.
+Φ(cid:2) (cid:0) c (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3) P (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+N(cid:2)ow(cid:0)we pr(cid:1)o(cid:3)vide the argument for (ii). We adapt the duality technique used in [41]. Assume that Φ is
+p-convex and q-concave. If 1/p+1/p′ =1 and 1/q+1/q′ =1, then 1<q′ <p′ < . We observe that Φ∗
+∞
+is q′-convex and p′-concave. Therefore the inequality stated in (i) applies to Φ∗. By approximation, it is
+enough to verify the inequality for x L ( ) . Let = B(ℓ ) equipped with its natural trace
+1 2
+∈ M ∩M N M⊗
+which we will denote by τ .
+N
+For 1< r < , consider Π : L ( ) L ( ) defined by setting Π (a ) = a e . Clearly,
+∞ r N → r N ij n≥1 1n ⊗ n,1
+Π is a contraction. Using the noncommutative Stein inequality, Π:L ( ) L ( ) given by Π (a ) =
+r(cid:0)
+N →
+(cid:1) rPN ij
+[ (a ) (a )] e isalsoboundedforall1<r < . ByLemma4.7,thereexistsaconstant
+n≥1 E n 1n −E n−1 1n ⊗ n,1 ∞ (cid:0) (cid:1)
+C Φ∗ so that e e
+P
+(4.19) τ
+N
+Φ∗ Π((a
+ij
+)) C Φ∗τ
+N
+Φ∗ (a
+ij
+) .
+| | ≤ | |
+As in [41], we may fix t Φ >0 so(cid:2)tha(cid:0)t e for every(cid:1)(cid:3)operator 0(cid:2) ≤ z(cid:0) ∈ L Φ∗(cid:1)( N (cid:3) ),
+(4.20) Φ∗(t
+Φ
+z) (2C Φ∗α Φ∗)−1Φ∗(z)
+≤
+where α Φ∗ is the constant from (i) applied to Φ∗.
+Set w := dx e L ( ) . It is clear that w = S (x) e . By Lemma 4.9, we may
+n≥1 n ⊗ n,1 ∈ 1 N ∩N | | c ⊗ 1,1
+choose 0 y L Φ∗( ) such that y commutes with w and
+≤ P∈ N | |
+(4.21) Φ w +Φ∗(y)=y w.
+| | | |
+If w = uw is the polar decomposition of(cid:0)w,(cid:1)we set z := yu∗ L
+1
+( ) . Write z = (z
+ij
+) where
+| | ∈ N ∩N
+z L ( ) and set
+ij 1
+∈ M ∩M
+v = (z ) (z ).
+n 1n n−1 1n
+E −E
+n≥1
+X
+It is clear that τ (y w) = τ (zw) = τ(vx) and v L ( ) . In particular, we may view v as
+N N 1
+| | ∈ M ∩ M
+a martingale in c ( ). We now apply (i) to v. There exists a decomposition v = vd + vc with
+vc hc ( ) and H v Φ d ∗ Mhd ( ) satisfying:
+∈
+Φ∗
+M ∈
+Φ∗
+M
+(4.22) τ Φ∗(s
+c
+(vc)) + τ Φ∗(
+|
+dv
+n
+d
+|
+)
+≤
+2α Φ∗τ Φ∗ S
+c
+(v) .
+n≥1
+(cid:2) (cid:3) X (cid:2) (cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+Taking traces on (4.21) together with the decomposition of v, we have
+τ Φ(w) +τ Φ∗(y)]=τ(xv)
+N N
+| |
+(cid:2) (cid:3) (cid:2)
+=τ(xvd)+τ(xvc).
+One can verify that the following estimates hold (see [41] for details):
+τ(xvd)
+≤
+τ Φ t−
+Φ
+1
+|
+dx
+n |
++(2C Φ∗α Φ∗)−1 τ Φ∗
+|
+dv
+n
+d
+|
+n≥1 n≥1
+X (cid:2) (cid:0) (cid:1)(cid:3) X (cid:2) (cid:0) (cid:1)(cid:3)
+and
+τ(xvc)
+≤
+τ Φ t−
+Φ
+1s
+c
+(x) +(2C Φ∗α Φ∗)−1τ Φ∗ s
+c
+(vc) .
+Applying (4.19), (4.22), and taking the sum of the previous two estimates, we arrive at:
+(cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+τ Φ(w) +τ Φ∗(y) τ Φ t−1 dx +τ Φ t−1s (x) +C−1τ Φ∗(S (v))
+N | | N ≤ Φ | n | Φ c Φ∗ c
+n≥1
+(cid:2) (cid:3) (cid:2) (cid:3) X (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3)
+τ Φ t−1 dx +τ Φ t−1s (x) +C−1τ Φ∗(Π(z))
+≤ Φ | n | Φ c Φ∗ N | |
+n≥1
+X (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3)
+τ Φ t−1 dx +τ Φ t−1s (x) +τ Φ∗(z ) . e
+≤ Φ | n | Φ c N | |
+n≥1
+X (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3)
+
+--- PAGE 20 ---
+20 RANDRIANANTOANINA,WU,ANDXU
+As we clearly have τ Φ∗(z ) τ Φ∗(y) , we deduce that
+N N
+| | ≤
+τ Φ(S (cid:2)(x)) =(cid:3)τ Φ((cid:2)w) (cid:3) τ Φ t−1 dx +τ Φ t−1s (x)
+c N | | ≤ Φ | n | Φ c
+n≥1
+(cid:2) (cid:3) (cid:2) (cid:3) X (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)
+2max τ Φ t−1 dx ,τ Φ t−1s (x) .
+≤ Φ | n | Φ c
+nn X ≥1 (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:0) (cid:1)(cid:3)o
+The existence of the constant β in the statement (ii) now follows from the ∆ -condition. (cid:3)
+Φ 2
+The next result solves [41, Problem 6.3]. It can be deduced at once from combining both the row and
+column versions of Theorem 4.6 with Theorem 4.5.
+Theorem 4.10. Let 1 < p < q < and Φ be an Orlicz function that is p-convex and q-concave. Then
+∞
+there exist positive constants δ and η such that:
+Φ Φ
+(i) for every martingale x L ( ), the following inequality holds:
+Φ
+∈ M
+δ−1inf τ Φ(s (xc)) +τ Φ(s (xr)) + τ Φ(dxd ) τ Φ(x) ,
+Φ c r | n| ≤ | |
+n (cid:2) (cid:3) (cid:2) (cid:3) n X ≥1 (cid:2) (cid:3)o (cid:2) (cid:3)
+with the infimum being taken over all xc hc( ), xr hr( ), and xd hd( ) such that
+∈ Φ M ∈ Φ M ∈ Φ M
+x=xd+xc+xr;
+(ii) for every x hd( ) hc( ) hr( ), the following inequality holds:
+∈ Φ M ∩ Φ M ∩ Φ M
+τ Φ(x) η max τ Φ dx ,τ Φ(s (x)) ,τ Φ(s (x)) .
+Φ n c r
+| | ≤ | |
+(cid:2) (cid:3) nn X ≥1 (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3) (cid:2) (cid:3)o
+WearenowinapositionofstatingourΦ-momentversionofBurkholder/Rosenthalinequality. Itshould
+becomparedwitharecentversionoftheBurkholder-Gundyinequalityfrom[22,Theorem7.2]. Ourresult
+is much more general than the version obtained in [41]. In fact, it solves [41, Problems 6.4].
+Theorem 4.11. Let Φ be an Orlicz function.
+(i) If Φ is p-convex for some 1 < p < 2 and 2-concave, then there exists a positive constant C so that
+Φ
+the following holds for every martingale x L ( ):
+Φ
+∈ M
+C−1τ Φ(x) inf τ Φ(s (xc)) +τ Φ(s (xr)) + τ Φ(dxd ) C τ Φ(x) ,
+Φ | | ≤ c r | n| ≤ Φ | |
+(cid:2) (cid:3) n (cid:2) (cid:3) (cid:2) (cid:3) n X ≥1 (cid:2) (cid:3)o (cid:2) (cid:3)
+where the infimum is taken over all xc hc( ), xr hr( ), and xd hd( ) such that x =
+∈ Φ M ∈ Φ M ∈ Φ M
+xd+xc+xr;
+(ii) If Φ is 2-convex and q-concave for some q > 2, then there exists a positive constant c so that the
+Φ
+following holds for every martingale x L ( ):
+Φ
+∈ M
+c−1τ Φ(x) c max τ Φ dx , τ Φ(s (x)) , τ Φ(s (x)) c τ Φ(x) .
+Φ | | ≤ Φ | n | c r ≤ Φ | |
+(cid:2) (cid:3) nn X ≥1 (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3) (cid:2) (cid:3)o (cid:2) (cid:3)
+Proof. To prove (i), it is enough to verify that there exists a constant C so that for every decomposition
+Φ
+x=xd+xc+xr,
+τ Φ(x) C τ Φ(s (xc)) +τ Φ(s (xr)) + τ Φ(dxd ) ,
+| | ≤ Φ c r | n|
+(cid:2) (cid:3) n (cid:2) (cid:3) (cid:2) (cid:3) n X ≥1 (cid:2) (cid:3)o
+as the reverse inequality is already contained in Theorem 4.10. This follows from the facts that hs( )=
+2 M
+L ( ), hs( ) L ( ) for s d,c,r , and that the Hardy spaces are complemented subspaces of
+2 M p M ⊂ p M ∈ { }
+noncommutative L -spaces. Indeed, for w p,2 , let Π:L ( B(ℓ (N2))) hc( ) be the bounded
+projection(see[23] p forthefactthattheproj ∈ ec { tions } aresimulta w ne M ou ⊗ slybo 2 unded) → and w Θ M :hc( ) L ( )
+w M → w M
+theformalinclusion. BythenoncommutativeBurkholderinequality,Θ Π:L ( B(ℓ (N2))) L ( )
+w 2 w
+is bounded. By Lemma 4.7, we have for every a hc( ), ◦ M⊗ → M
+∈ Φ M
+τ Φ(a) =τ Φ(ΘΠ(U (a))) C τ tr Φ(U (a)) =C τ Φ(s (a)) .
+c Φ c Φ c
+| | | D | ≤ ⊗ | D |
+(cid:2) (cid:3) (cid:2) (cid:3) (cid:2) (cid:3) (cid:2) (cid:3)
+
+--- PAGE 21 ---
+DAVIS DECOMPOSITION 21
+Similar arguments can be applied to the diagonal and the row parts.
+(ii) Assume now that Φ is 2-convexand q-concave for some q >2. By the noncommutative Burkholder
+inequalities, the formal inclusion is bounded from L ( ) into hc( ) for all w 2. Denote this by I.
+w M w M ≥
+We have U I : L ( ) L ( B(ℓ (N2))) is bounded for all w 2. We deduce from Lemma 4.7
+c w w 2
+D M → M⊗ ≥
+that for every b L ( ),
+Φ
+∈ M
+τ Φ(s (b)) =τ tr Φ U I(b) C τ Φ(b) .
+c c Φ
+⊗ | D | ≤ | |
+Applying the same argument(cid:2)for the d(cid:3)iagonal a(cid:2)nd(cid:0)the row pa(cid:1)r(cid:3)ts, we h(cid:2)ave for(cid:3)every x L
+Φ
+( ),
+∈ M
+max τ Φ dx ,τ Φ(s (x)) ,τ Φ(s (x)) C τ Φ(x) .
+n c r Φ
+| | ≤ | |
+nn X ≥1 (cid:2) (cid:0) (cid:1)(cid:3) (cid:2) (cid:3) (cid:2) (cid:3)o (cid:2) (cid:3)
+The reverse inequality is already contained in Theorem 4.10(ii). (cid:3)
+We conclude by exhibiting examples of Orlicz functions for which the Φ-moment versions of the non-
+commutative Burkholder inequalities apply but not covered by the results from [41].
+Example 4.12. Let Φ = tplog(1+tq) with p > 1 and q > 0. One can check that p = p and q = p+q.
+Φ Φ
+Also, since Φ(t)/tp is increasing and Φ(t)/tp+q is decreasing, Φ is p-convex and p+q-concave.
+(i) If p+q =2 then the equivalence in Theorem 4.11(i) holds for Φ.
+(ii) If p=2 then the equivalence in Theorem 4.11(ii) holds for Φ.
+Acknowledgments. A portion of the work reported in this paper was completed while the first and
+second named authors visited the Harbin Institute of Technology in the Summer of 2017. It is their
+pleasure to express their gratitude to the Institute for Advanced Study in Mathematics of the HIT for
+providing stimulating working atmosphere and for financial supports. The second named author was
+partiallysupported by NSFC grantNo. 11601526andthe China PostdoctoralFoundation(2016M602420,
+2017T100606). ThethirdnamedauthorwaspartiallysupportedbyNSFCgrantNo. 11431011,theFrench
+project ISITE-BFC (ANR-15-IDEX-03) and IUF.
+References
+[1] T. Bekjan and Z. Chen, Interpolation and Φ-moment inequalities of noncommutative martingales, Probab. Theory
+RelatedFields152(2012), no.1-2,179–206. MR2875756
+[2] T.Bekjan,Z.Chen,andA.Os¸ekowski,Noncommutative maximal inequalitiesassociated with convex functions,Trans.
+Amer.Math.Soc.369(2017), no.1,409–427. MR3557778
+[3] T.Bekjan,Z.Chen,M.Perrin,andZ.Yin,AtomicdecompositionandinterpolationforHardyspacesofnoncommutative
+martingales,J.Funct.Anal.258(2010), no.7,2483–2505. MR2584751(2011d:46131)
+[4] C. Bennett, Banach function spaces and interpolation methods. I. The abstract theory, J. Funct. Anal. 17 (1974),
+409–440. MR0361826(50#14271)
+[5] C.BennettandR.Sharpley,Interpolation of operators, AcademicPressInc.,Boston,MA,1988. MR89e:46001
+[6] J.BerghandJ.L¨ofstr¨om,Interpolation spaces. An introduction, Springer-Verlag,Berlin,1976,GrundlehrenderMath-
+ematischenWissenschaften,No.223. MRMR0482275(58#2349)
+[7] D.L.Burkholder,Distributionfunction inequalitiesfor martingales,Ann.Probab.1(1973), 19–42. MR51#1944
+[8] D.L.Burkholder,B.J.Davis,andR.F.Gundy,Integral inequalitiesfor convex functionsof operators on martingales,
+Proceedings of the Sixth Berkeley Symposium on Mathematical Statistics and Probability (Univ. California, Berkeley,
+Calif.,1970/1971), Vol.II:Probabilitytheory, Univ.CaliforniaPress,Berkeley, Calif.,1972, pp.223–240. MR0400380
+(53#4214)
+[9] D.L.BurkholderandR.F.Gundy,Extrapolationandinterpolationofquasi-linearoperatorsonmartingales,ActaMath.
+124(1970), 249–304. MR0440695 (55#13567)
+[10] B.Davis,Onthe integrability of the martingale square function,IsraelJ.Math.8(1970), 187–190. MR42#3863
+[11] S. Dirksen, Noncommutative Boyd interpolation theorems, Trans. Amer. Math. Soc. 367 (2015), no. 6, 4079–4110.
+MR3324921
+[12] ,Weak-typeinterpolationfornoncommutativemaximaloperators,J.OperatorTheory73(2015),no.2,515–532.
+MR3346135
+[13] S.Dirksen,B.dePagter,D.Potapov,andF.Sukochev, Rosenthalinequalitiesinnoncommutative symmetricspaces,J.
+Funct.Anal.261(2011), no.10,2890–2925. MR2832586(2012k:46073)
+[14] S.DirksenandE.Ricard,SomeremarksonnoncommutativeKhintchineinequalities,Bull.Lond.Math.Soc.45(2013),
+no.3,618–624. MR3065031
+
+--- PAGE 22 ---
+22 RANDRIANANTOANINA,WU,ANDXU
+[15] P.G.Dodds,T.K.Dodds,andB.dePagter,Noncommutative Banach functionspaces,Math.Z.201(1989), 583–597.
+MR90j:46054
+[16] ,Fully symmetric operator spaces, Integral Equations Operator Theory15(1992), no.6,942–972. MR1188788
+(94j:46062)
+[17] ,Noncommutative K¨othe duality,Trans.Amer.Math.Soc.339(1993), 717–750. MR94a:46093
+[18] A.M.Garsia,Martingaleinequalities: Seminarnotesonrecentprogress,W.A.Benjamin,Inc.,Reading,Mass.-London-
+Amsterdam,1973,Mathematics LectureNotesSeries. MR56#6844
+[19] G. Hong, M. Junge, and J. Parcet, Algebraic Davis decomposition and asymmetric Doob inequalities, Comm. Math.
+Phys.346(2016), no.3,995–1019. MR3537343
+[20] Y. Jiao, Martingale inequalities in noncommutative symmetric spaces, Arch. Math. (Basel) 98 (2012), no. 1, 87–97.
+MR2885535
+[21] Y. Jiao, F. Sukochev, and D. Zanin, Johnson-Schechtman and Khintchine inequalities in noncommutative probability
+theory,J.Lond.Math.Soc.(2)94(2016), no.1,113–140. MR3532166
+[22] Y. Jiao, F. Sukochev, D. Zanin, and D. Zhou, Johnson–Schechtman inequalities for noncommutative martingales, J.
+Funct.Anal.272(2017), no.3,976–1016. MR3579131
+[23] M. Junge, Doob’s inequality for non-commutative martingales, J. Reine Angew. Math. 549 (2002), 149–190.
+MR2003k:46097
+[24] M. Junge and M. Perrin, Theory of Hp-spaces for continuous filtrations in von Neumann algebras, Ast´erisque (2014),
+no.362,vi+134. MR3241706
+[25] M. Junge and Q. Xu, Noncommutative Burkholder/Rosenthal inequalities, Ann. Probab. 31 (2003), no. 2, 948–995.
+MR2004f:46078; II:Applications,IsraelJ.Math.167(2008), 227–282. MR2448025.
+[26] , On the best constants in some non-commutative martingale inequalities, Bull. London Math. Soc. 37 (2005),
+no.2,243–253. MR2005k:46170
+[27] N.KaltonandS.Montgomery-Smith,InterpolationofBanachspaces,HandbookofthegeometryofBanachspaces,Vol.
+2,North-Holland,Amsterdam,2003, pp.1131–1175. MR1999193
+[28] N.J.KaltonandF.A.Sukochev,Symmetricnormsandspacesofoperators,J.ReineAngew.Math.621(2008),81–121.
+MR2431251(2009i:46118)
+[29] C.LeMerdyandF.Sukochev,Rademacheraveragesonnoncommutativesymmetricspaces,J.Funct.Anal.255(2008),
+no.12,3329–3355. MR2469025(2009k:46116)
+[30] D. L´epingle, Une in´egalit´e de martingales, S´eminaire de Probabilit´es, XII (Univ. Strasbourg, Strasbourg, 1976/1977),
+LectureNotesinMath.,vol.649,Springer,Berlin,1978,pp.134–137. MR520002
+[31] J. Lindenstrauss and L. Tzafriri, Classical Banach spaces. II, Springer-Verlag, Berlin, 1979, Function spaces.
+MR81c:46001
+[32] L.Maligranda,Orliczspaces and interpolation, Semin´ariosdeMatema´tica[SeminarsinMathematics],vol.5,Universi-
+dadeEstadual deCampinas,Departamento deMatema´tica,Campinas,1989. MR2264389(2007e:46025)
+[33] P.F.X.Mu¨ller,AdecompositionforHardymartingales,IndianaUniv.Math.J.61(2012),no.5,1801–1816. MR3119601
+[34] A. Os¸ekowski, Sharp L1(ℓq) estimate for a sequence and its predictable projection, Statist. Probab. Lett. 104 (2015),
+82–86. MR3360708
+[35] M.Perrin,Anoncommutative Davis’decomposition formartingales,J.Lond.Math.Soc.(2)80(2009),no.3,627–648.
+MR2559120(2011e:46104)
+[36] G.PisierandQ.Xu,Noncommutativemartingaleinequalities,Comm.Math.Phys.189(1997),667–698. MR98m:46079
+[37] ,Non-commutative Lp-spaces,HandbookofthegeometryofBanachspaces,Vol.2,North-Holland,Amsterdam,
+2003,pp.1459–1517. MR2004i:46095
+[38] Y. Qiu, A non-commutative version of L´epingle-Yor martingale inequality, Statist. Probab. Lett. 91 (2014), 52–54.
+MR3208115
+[39] N.Randrianantoanina,Non-commutativemartingaletransforms,J.Funct.Anal.194(2002),181–212. MR2003m:46098
+[40] N. Randrianantoanina and L. Wu, Martingale inequalities in noncommutative symmetric spaces, J. Funct. Anal. 269
+(2015), no.7,2222–2253. MR3378874
+[41] , Noncommutative Burkholder/Rosenthal inequalities associated with convex functions, Ann. Inst. H. Poincar´e
+Probab.Statist.53(2017), no.4,1575–1605. MR3729629
+[42] Q.Xu,A noncommutative Nikishin theorem,Unpublishednote.
+[43] ,Analyticfunctionswithvaluesinlatticesandsymmetricspacesofmeasurableoperators,Math.Proc.Cambridge
+Philos.Soc.109(1991), 541–563. MR92g:46036
+
+--- PAGE 23 ---
+DAVIS DECOMPOSITION 23
+Departmentof Mathematics,MiamiUniversity,Oxford,Ohio45056,USA
+E-mail address: randrin@miamioh.edu
+Schoolof MathematicsandStatistics, CentralSouth University,Changsha410075,China
+E-mail address: wulian@cnu.edu.cn
+Institute for Advanced Study in Mathematics, Harbin Institute of Technology, Harbin 150001, China; and
+Laboratoire de Math´ematiques, Universit´e de Bourgogne Franche-Comt´e, 25030 Besanc¸on Cedex, France; and
+InstitutUniversitaire de France
+E-mail address: qxu@univ-fcomte.fr

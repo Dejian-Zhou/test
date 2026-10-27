@@ -1,0 +1,3 @@
+\beamer@sectionintoc {1}{Background and main result}{2}{0}{1}
+\beamer@sectionintoc {2}{Ingredients of the proof}{16}{0}{2}
+\beamer@sectionintoc {3}{Applications}{25}{0}{3}

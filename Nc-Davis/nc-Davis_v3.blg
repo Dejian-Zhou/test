@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: nc-Davis_v3.aux
+The style file: amsplain.bst
+Database file #1: NCZhou.bib
+I was expecting a `,' or a `}'---line 52 of file NCZhou.bib
+ :  
+ :  AUTHOR = {de la Harpe, P.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 3228 of file NCZhou.bib
+ : @article {CRX2023
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3389 of file NCZhou.bib
+ : @article {JZZ2023
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3987 of file NCZhou.bib
+ : @article {Ra2023
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4125 of file NCZhou.bib
+ : @article {JX2003
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4550 of file NCZhou.bib
+ : @book {Ga1973
+ :              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4779 of file NCZhou.bib
+ : @book {Doob1953
+ :                ,
+I'm skipping whatever remains of this entry
+Warning--missing pages in FHW2023
+Warning--missing pages in JOW2025
+Warning--missing pages in PSZ2024
+You've used 64 entries,
+            2213 wiz_defined-function locations,
+            1005 strings with 12655 characters,
+and the built_in function-call counts, 20245 in all, are:
+= -- 1892
+> -- 744
+< -- 3
++ -- 306
+- -- 237
+* -- 1978
+:= -- 3154
+add.period$ -- 64
+call.type$ -- 64
+change.case$ -- 322
+chr.to.int$ -- 0
+cite$ -- 67
+duplicate$ -- 728
+empty$ -- 1794
+format.name$ -- 237
+if$ -- 4134
+int.to.chr$ -- 0
+int.to.str$ -- 64
+missing$ -- 135
+newline$ -- 202
+num.names$ -- 116
+pop$ -- 244
+preamble$ -- 1
+purify$ -- 257
+quote$ -- 0
+skip$ -- 426
+stack$ -- 0
+substring$ -- 1773
+swap$ -- 144
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 242
+warning$ -- 3
+while$ -- 218
+width$ -- 66
+write$ -- 627
+(There were 7 error messages)
