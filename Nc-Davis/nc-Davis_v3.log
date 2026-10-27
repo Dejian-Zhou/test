@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.11)  27 OCT 2026 21:49
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.11)  27 OCT 2026 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -171,9 +171,6 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count274
 \c@@ppsavesec=\count275
 \c@@ppsaveapp=\count276
-)
-(/usr/local/texlive/2024/texmf-dist/tex/latex/tools/showkeys.sty
-Package: showkeys 2023/07/08 v3.19 Show cite and label keys (DPC, MH)
 )
 (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
@@ -421,21 +418,15 @@ Package hyperref Info: Link coloring ON on input line 40.
 \openout3 = `nc-Davis_v3.out'.
 
  [1] [2] [3] [4] [5]
-Overfull \hbox (18.51176pt too wide) in paragraph at lines 290--291
-[]\TU/lmr/m/n/10 [[], []][]), we recall several different noncommutative maxima
-l function spaces, i.e., $\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10
- M\OML/cmm/m/it/10 ; `[]\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 , $\OT1/cmr/m/n/10 ^^C
-[](\OMS/cmsy/m/n/10 M\OML/cmm/m/it/10 ; `[]\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 ,
+Overfull \hbox (18.51176pt too wide) in paragraph at lines 289--290
+\TU/lmr/m/n/10 [[], []][]), we recall several different noncommutative maximal 
+function spaces, i.e., $\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 M
+\OML/cmm/m/it/10 ; `[]\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 , $\OT1/cmr/m/n/10 ^^C[]
+(\OMS/cmsy/m/n/10 M\OML/cmm/m/it/10 ; `[]\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 ,
  []
 
-[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-Overfull \hbox (10.4874pt too wide) in paragraph at lines 1143--1144
-[]\TU/lmr/m/n/10 Note that Theorem [][][]1.2[][] guarantees that, under the ass
-umption that the filtration is regular, $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 x\O
-MS/cmsy/m/n/10 k[] ^^T
- []
-
-[19] [20] (./nc-Davis_v3.bbl (./nc-Davis_v3.brf)
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+(./nc-Davis_v3.bbl (./nc-Davis_v3.brf)
 \tf@brf=\write4
 \openout4 = `nc-Davis_v3.brf'.
 
@@ -457,15 +448,15 @@ L3 programming layer <2024-02-20>
 Package rerunfilecheck Info: File `nc-Davis_v3.out' has not changed.
 (rerunfilecheck)             Checksum: B29D6407139299E4556466AE3ED25F5E;3567.
 Package rerunfilecheck Info: File `nc-Davis_v3.brf' has not changed.
-(rerunfilecheck)             Checksum: 3E2AC4F9021ECF1E15D210FA2219506B;4582.
+(rerunfilecheck)             Checksum: 8AD63329E5920A4580420CDB44D336DA;4534.
  ) 
 Here is how much of TeX's memory you used:
- 10955 strings out of 474773
- 165506 string characters out of 5757724
- 1951839 words of memory out of 5000000
- 32802 multiletter control sequences out of 15000+600000
- 565653 words of font info for 79 fonts, out of 8000000 for 9000
+ 10868 strings out of 474773
+ 164254 string characters out of 5757724
+ 1945839 words of memory out of 5000000
+ 32722 multiletter control sequences out of 15000+600000
+ 565637 words of font info for 77 fonts, out of 8000000 for 9000
  1509 hyphenation exceptions out of 8191
- 72i,21n,79p,905b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,21n,79p,905b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on nc-Davis_v3.pdf (23 pages).

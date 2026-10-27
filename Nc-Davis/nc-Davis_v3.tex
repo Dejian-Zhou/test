@@ -11,7 +11,7 @@
 \usepackage{amssymb}
 
  \usepackage{appendix}
-\usepackage{showkeys}
+%\usepackage{showkeys}
 
 
 %\usepackage[colorlinks, linkcolor=blue, citecolor=blue]{hyperref}
@@ -156,8 +156,7 @@ Throughout this paper, $c_p$ always denotes a positive constant only depending o
 
 
 
-We summarize the main idea of the proof of Theorem \ref{Davis} below. 
-\begin{remark}
+We summarize the main idea of the proof of Theorem \ref{Davis} as follows. 
 	As in the noncommutative setting, there is no pointwise noncommutative maximal function. Therefore, the Davis decomposition (\cite{Da1970}) based on maximal functions fails to be constructed in the noncommutative setting. Our proof presented here is somewhat inspired by \cite{BG1970} which is also regarded as the origin of the modern good-$\lambda$ method. We reformulate the arguments of Burkholder and Gundy in the language of the good-$\lambda$ method. Under the regularity condition, to prove 
 	\begin{equation}\label{BG}
 \|S(f)\|_{L_p(\Omega)}\leq c_p \|\sup_n|\mathbb{E}_n(f)|\|_{L_p(\Omega)} ,\quad 0<p<\infty,
@@ -173,7 +172,7 @@ We summarize the main idea of the proof of Theorem \ref{Davis} below.
 	which implies \eqref{BG} directly. 
 	
 	In the noncommutative, it is impossible to write the left-hand side of \eqref{good lambda} down (see \cite{JOW2025}).
-	Following the idea of \eqref{good lambda 2} and using the Cuculescu projections, we establish its noncommutative counterpart in Lemma \ref{distribution S}, which in term implies, 
+	Following the idea of \eqref{good lambda 2}, under the regularity assumption, we use the Cuculescu projections to establish its noncommutative counterpart in Lemma \ref{distribution S}, which in term implies, 
 	$$\|x\|_{H_1(\M)}\lesssim \sum_k 2^k\tau(1-q^{(2^k)}),$$
 	where $q^{(2^k)}$ is a Cuculescu projection related to the positive martingale $x$ (see Section \ref{sec-Cucu} for details).  After this, we introduce the Fuglede-Kadison determinant to help us to build the connection 
 	\begin{equation}\label{FK lem}
@@ -181,19 +180,19 @@ We summarize the main idea of the proof of Theorem \ref{Davis} below.
 		E}_n(x))_n\|_{L_1(\mathcal{M},\ell_{\infty})};
 	\end{equation}
 	see Lemma \ref{L1 e1}. 
-\end{remark}
 
- We also point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} made an interesting connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
+
+ We point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} made an interesting connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
  
  We also put some words on \eqref{FK lem}. Recall that \eqref{Junge strong pp} with best order constant $O((p-1)^{-2})$ (as $p\to 1$) implies that the following inequality cannot hold
 \begin{equation*}
-	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}\leq c_{\mathrm{abs}}\|x\|_{L_p(\mathcal{M})}.
+	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}\leq c_{\mathrm{abs}}\|x\|_{L_1(\mathcal{M})}.
 \end{equation*}
 If we compare this with \eqref{Nc weak 11}, it is nature conjecture 
 \begin{equation}\label{weak 11}
 	\sup_{\lambda>0}\lambda\tau(1-q^{(\lambda)}) \leq  c_{\mathrm{abs}}	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}.
 \end{equation}
-With an understanding of \eqref{weak 11} via Lemma \ref{key lemma},  we can quickly grasp \eqref{FK lem}. 
+ It is easy to see \eqref{weak 11} holds via Lemma \ref{key lemma}. With an understanding of this,  we can quickly grasp \eqref{FK lem}; 	see Lemma \ref{L1 e1}. 
 
 \begin{remark}\label{rem 1} We put a few comments below.
 	\begin{enumerate}[{\rm (i)}]
@@ -296,11 +295,7 @@ For $a=(a_n)_{n\geq1}\in L_p(\mathcal{M},\ell_{\infty})$,  define
 	\|a\|_{L_p(\mathcal M,\ell_{\infty})}=\inf\{\|y\|_{2p}\sup_{n\geq1}\|v_n\|_{\infty}\|z\|_{2p}\},
 \end{equation}
 where the infimum is taken over all possible factorizations of $a$ as above.
-According to the definitions, it is obvious that 
-\begin{equation*}
-	\|a\|_{\Lambda_{p,\infty}(\mathcal{M},\ell_{\infty})}\leq \|a\|_{L_p(\mathcal M,\ell_{\infty})},\quad \forall 0<p<\infty.
-\end{equation*}
-Besides, if $a=(a_n)_{n\geq1}\in L_{p}(\mathcal M,\ell_{\infty})$ and $a_n\geq0$ for each $n$, then (see \cite[p.\,392]{JX2007})
+If $a=(a_n)_{n\geq1}\in L_{p}(\mathcal M,\ell_{\infty})$ and $a_n\geq0$ for each $n$, then (see \cite[p.\,392]{JX2007})
 \begin{equation}\label{positive}
 	\|a\|_{L_p(\mathcal{M},\ell_{\infty})}= \inf\{\|A\|_{L_p(\mathcal M)}:  A\in L_p(\mathcal{M}),  0\leq a_n\leq A,\;\forall n\geq1 \}.
 \end{equation}
@@ -614,15 +609,7 @@ for every $\xi\in p(H)$.
 
 
 
-Let us end this subsection with the following well-known continuous Carleman inequality,  see for instance \cite[p. 250]{HLP1988}. In some literature, it is also referred to as the  P\'olya-Knopp’s inequality.
-\begin{lemma}\label{lem:continuous-carleman}
-	If $f\ge0$ and $f\in L_1(0,\infty)$, then
-	\begin{equation*}
-		\int_0^\infty
-		\exp\left\{\frac1t\int_0^t\log f(s)\,ds\right\}dt
-		\le e\int_0^\infty f(t)\,dt.
-	\end{equation*}
-\end{lemma}
+
 
 
 \section{Cuculescu projections}\label{sec-Cucu}
@@ -806,6 +793,15 @@ where the second inequality is due to  \cite{Fa1986}.  Hence,
 	The desired assertion follows by letting $N\to\infty$.
 \end{proof}
 
+We also recall the continuous Carleman inequality,  see for instance \cite[p. 250]{HLP1988}. In some literature, it is also referred to as the  P\'olya-Knopp’s inequality.
+\begin{lemma}\label{lem:continuous-carleman}
+	If $f\ge0$ and $f\in L_1(0,\infty)$, then
+	\begin{equation*}
+		\int_0^\infty
+		\exp\left\{\frac1t\int_0^t\log f(s)\,ds\right\}dt
+		\le e\int_0^\infty f(t)\,dt.
+	\end{equation*}
+\end{lemma}
 
 \begin{lemma}\label{L1 e1}
 	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $x_n=\mathcal{E}_n(x)\leq a$ for each $n\geq1$. We have 
@@ -895,7 +891,7 @@ Note that $\sum_{j\geq0}\pi_{j,k}=1$ in the sense of strong operator topology fo
 	Similarly, each $\mathcal{T}_{k-1}^r(d_k x)$ is a martingale difference.
 \end{proof}
 
-We here point out that for $y=x$ the above decomposition was used in \cite{Rand2005} and \cite{PR2006}. The present decomposition is taken from \cite[eq. (4.10)]{JRWZ2020}. 
+The above decomposition was already used in \cite{Rand2005}, \cite{PR2006} and \cite[eq. (4.10)]{JRWZ2020}. 
 
 For each positive $x\in L_2(\mathcal{M})$ and $\lambda>0$, the Cuculescu projections related to the martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ are  denoted by $(q_n^{(\lambda)})_n$ and $q^{(\lambda)}=\wedge_nq_n^{(\lambda)}$; see Lemma \ref{Cuculescu} for more details. Consider the decomposition of $x=x^c+x^r$ given in Lemma \ref{decom lem 2}. Then the following distribution estimate holds for each $\ell\in\mathbb{Z}$:
 \begin{equation}\label{dis S}
@@ -1106,14 +1102,13 @@ $$\|x\|_{\mathcal{BMO}(\mathcal{M})}=\max\{\|x\|_{\mathcal{BMO}^c(\mathcal{M})},
 The space $\mathcal{BMO}(\mathcal{M})$ is actually the dual space of martingale Hardy space $H_1(\M)$; see \cite[Appendix]{PX1997}.
 
 
-To apply the result in the present paper, we introduce the following regular filtration. 
+We here are in the dyadic filtration setting. 
 Consider $([0,1),\mathcal{F},m)$, where $m$ is the Lebesgue measure on $[0,1)$ and $\mathcal{F}$ is the $\sigma$-algebra  generated by all open sets in $[0,1)$. We simplify write $L_{\infty}([0,1),\mathcal{F},m)$ by $L_{\infty}(0,1)$.
-Define
+Define the dyadic filtration
 \begin{equation}\label{Fn}
-	F_n=\sigma\{ [\frac{k}{M_n}, \frac{k+1}{M_n}): 0\leq k<M_n\}, \quad \mathcal{F}_n=\sigma(F_n),\quad  n\geq0,
+	F_n=\sigma\{ [\frac{k}{2^n}, \frac{k+1}{2^n}): 0\leq k<2^n\}, \quad \mathcal{F}_n=\sigma(F_n),\quad  n\geq0.
 \end{equation}
-where $M_k$ is defined in the beginning of the subsection.
-Then $(\mathcal{F}_n)_{n\geq1}$ is a regular filtration of $\mathcal{F}$. The conditional expectations with respect to $(\mathcal{F}_n)_{n\geq1}$ are denoted by $(\mathbb{E}_n)_{n\geq1}$.
+ The conditional expectations with respect to $(\mathcal{F}_n)_{n\geq1}$ are denoted by $(\mathbb{E}_n)_{n\geq1}$.
 In fact, for $f\in L_1(0,1)$,
 \begin{equation}\label{condexp}
 	\mathbb{E}_n(f)=\sum_{Q\in F_n} \frac{1}{m(Q)}\int_{Q} f(x)dm(x) \chi_Q, \quad  n\geq1.
@@ -1122,10 +1117,10 @@ For each $n$, we simplify write $L_{\infty}([0,1),\mathcal{F}_n,m)$ by $ L_{\inf
 \begin{equation}\label{VNA F}
 	\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}.
 \end{equation}
-Then $(\mathcal{N}_n)_{n\geq 1}$, an increasing sequence of von Neumann subalgebras of $\mathcal{M}$,  is regular with regularity constant $c_{\rm reg}\leq \sup_{k}m_k<\infty$; see e.g. \cite{TZ2024}.   The conditional expectation of $\mathcal{M}$ onto $\mathcal{M}_n$ is $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ (simply $\mathbb{E}_n$), where $\mathrm{id}_{\mathcal{N}}$ is the identity map from $\mathcal{N}$ to $\mathcal{N}$.
+Then $(\mathcal{N}_n)_{n\geq 1}$, an increasing sequence of von Neumann subalgebras of $\mathcal{M}$,  is regular with regularity constant $c_{\rm reg}=2$.   The conditional expectation of $\mathcal{M}$ onto $\mathcal{M}_n$ is $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ (simply $\mathbb{E}_n$), where $\mathrm{id}_{\mathcal{N}}$ is the identity map from $\mathcal{N}$ to $\mathcal{N}$.
 
 
-For the case $\mathcal{M}=L_{\infty}(0,1)$, and $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)$ ($\mathcal{F}_n$ is defined as in \eqref{Fn} with $M_n=2^n$ there), we write $\mathcal{BMO}(0,1)$ instead of $ \mathcal{BMO}(L_{\infty}(0,1))$.  Garnett and Jones' famous dyadic Carleson's decomposition is rewritten as follows
+For the case $\mathcal{N}=\mathbb{C}$, and $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)$, we write $\mathcal{BMO}(0,1)$ instead of $ \mathcal{BMO}(L_{\infty}(0,1))$.  Garnett and Jones' famous dyadic Carleson's decomposition is rewritten as follows
 \begin{theorem}[{\cite[Theorem 2.1]{GJ1982}}]\label{GJ thm}
 For each $f\in \mathcal{BMO}(0,1)$, there exist $g\in L_{\infty}(0,1)$,  a sequence of dyadic intervals $(I_k)_k$,  and a sequence of real numbers $(a_k)_{k}$ such that
 	 $$f-\mathbb{E}(f)=g+\sum_ka_k\chi_{I_k}$$
@@ -1140,7 +1135,8 @@ $$f=v+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
 and 
 $$\|v\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
 
-Note that Theorem \ref{Davis} guarantees that, under the assumption that the filtration is regular,  $\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$ always holds for each martingale $x=(x_n)$. Hence, we can deduce from the above decomposition result that
+Note that Theorem \ref{Davis} guarantees that, under the assumption that the filtration is regular,  
+$$\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$$ always holds for each martingale $x=(x_n)$. Hence, we can deduce from the above decomposition result that
 
 \begin{theorem}\label{Ga decom}
 Consider a noncommutative probability space $(\mathcal{M},\tau)$ associated with a regular filtration $(\mathcal{M}_n)_{n\geq1}$. For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
@@ -1195,13 +1191,15 @@ We prefer to investigate these applications in future work because they extend b
 		\item 		
 		For Theorem \ref{Ga decom}, we refer the reader to \cite[Theorem II.4.1]{Ga1973} for its classical martingale version. In the commutative martingale setting, \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
 		
-		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. Recall that noncommutative version of $BMO(\mathbb{R})$ was introduced by Mei \cite[Chapter 1.3]{Me2007}. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. 
+		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. Recall that noncommutative version of $BMO(\mathbb{R})$ was introduced by Mei \cite[Chapter 1.3]{Me2007}. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. We leave the details to the interested reader.
 	\end{enumerate}
 \end{remark}
 
 
+{\bf Acknowledgement.}
+The first version of the work was completed when the fourth author was visiting UNSW in 2025. He would like to express his gratitude to the School of Mathematics and Statistics of UNSW for its warm hospitality. The last two authors would like to thank Dr. Edward McDonald for useful discussions.
 
-
+{\bf Statement for the AI use.}
 
 %
 %\section{Gundy's inequality}

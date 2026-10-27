@@ -35,45 +35,45 @@ I'm skipping whatever remains of this entry
 Warning--missing pages in FHW2023
 Warning--missing pages in JOW2025
 Warning--missing pages in PSZ2024
-You've used 64 entries,
+You've used 63 entries,
             2213 wiz_defined-function locations,
-            1005 strings with 12655 characters,
-and the built_in function-call counts, 20245 in all, are:
-= -- 1892
-> -- 744
+            997 strings with 12495 characters,
+and the built_in function-call counts, 19897 in all, are:
+= -- 1858
+> -- 731
 < -- 3
-+ -- 306
-- -- 237
-* -- 1978
-:= -- 3154
-add.period$ -- 64
-call.type$ -- 64
-change.case$ -- 322
++ -- 301
+- -- 233
+* -- 1943
+:= -- 3100
+add.period$ -- 63
+call.type$ -- 63
+change.case$ -- 317
 chr.to.int$ -- 0
-cite$ -- 67
-duplicate$ -- 728
-empty$ -- 1794
-format.name$ -- 237
-if$ -- 4134
+cite$ -- 66
+duplicate$ -- 717
+empty$ -- 1764
+format.name$ -- 233
+if$ -- 4063
 int.to.chr$ -- 0
-int.to.str$ -- 64
-missing$ -- 135
-newline$ -- 202
-num.names$ -- 116
-pop$ -- 244
+int.to.str$ -- 63
+missing$ -- 133
+newline$ -- 199
+num.names$ -- 114
+pop$ -- 241
 preamble$ -- 1
-purify$ -- 257
+purify$ -- 253
 quote$ -- 0
-skip$ -- 426
+skip$ -- 419
 stack$ -- 0
-substring$ -- 1773
-swap$ -- 144
+substring$ -- 1737
+swap$ -- 142
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 242
+type$ -- 238
 warning$ -- 3
-while$ -- 218
-width$ -- 66
-write$ -- 627
+while$ -- 214
+width$ -- 65
+write$ -- 617
 (There were 7 error messages)
