@@ -68,9 +68,9 @@
 \thanks{$*$ The corresponding author.}
 
 \begin{abstract}
-In the present paper, we establish the Davis inequality for noncommutative martingales. Particularly, we  show that, for each noncommutative martingale $x=(x_n)_{n\geq1}$ associated with a regular filtration, there exists a  constant $c_p>0$ such that
+We establish the Davis inequality for noncommutative martingales. We show that, for each noncommutative martingale $x=(x_n)_{n\geq1}$ associated with a regular filtration, there exists a  constant $c_p>0$ such that
 $$\|x\|_{H_p(\mathcal{M})}\leq c_p\|x\|_{L_p(\mathcal{M},\ell_{\infty})},\quad 0<p\leq 1,$$
-which provides an affirmative answer of an long-standing open question raised by Junge and Xu  in 2005. Our results apply to Mei's operator-valued Hardy spaces and Garnett-Jones' dyadic Carleson decomposition of noncommutative BMO spaces. 
+which provides an affirmative answer to an long-standing open question raised by Junge and Xu  in 2005. Our results apply to Mei's operator-valued Hardy spaces and Garnett-Jones' dyadic Carleson decomposition of noncommutative BMO spaces. 
 \end{abstract}
 
 \maketitle
@@ -78,7 +78,7 @@ which provides an affirmative answer of an long-standing open question raised by
 \section{Introduction}
 
 
-This paper concerns  the Davis-type inequalities for noncommutative martingales. Let us first recall the  commutative results. Let $(\Omega,\mathcal{F},\mathbb{P};\{\mathcal{F}_n\}_{n\geq1})$  be a probability space associated with an increasing filtration $\{\mathcal{F}_n\}_{n\geq1}$, and let $\{\mathbb{E}_k\}_{k\geq1}$ be the conditional expectation with respect to $\{\mathcal{F}_n\}_{n\geq1}$. Recall that the classical Doob inequalities assert that (see Doob \cite{Doob1953})
+This paper concerns  the Davis-type inequalities for noncommutative martingales. Let us first recall the  classical (commutative) results. Let $(\Omega,\mathcal{F},\mathbb{P};\{\mathcal{F}_n\}_{n\geq1})$  be a probability space associated with an increasing filtration $\{\mathcal{F}_n\}_{n\geq1}$, and let $\{\mathbb{E}_k\}_{k\geq1}$ be the conditional expectation with respect to $\{\mathcal{F}_n\}_{n\geq1}$. Recall that the classical Doob inequalities assert that (see Doob \cite{Doob1953})
 \begin{equation}\label{Doob w11}
 	\|\sup_n|\mathbb{E}_n(f)|\|_{L_{1,\infty}(\Omega)}\leq \|f\|_{L_1(\Omega)}
 \end{equation}
@@ -91,8 +91,7 @@ The Burkholder-Gundy inequality says that there exist constants $c_p$, $C_p$ suc
 c_p\|f\|_{H_p(\Omega)}\leq \|\sup_n|\mathbb{E}_n(f)|\|_{L_p(\Omega)}\leq c\|f\|_{H_p(\Omega)},\quad 1<p<\infty,
 \end{equation}
 where $\|f\|_{H_p(\Omega)}=\|S(f)\|_{L_p(\Omega)}$ and $S(f)=(\sum_{k\geq1}|\mathbb{E}_k(f)-\mathbb{E}_{k-1}(f)|^2)^{1/2}$ ($\mathbb{E}_0(f)=0$ for convenience).
-This inequality was first proved in \cite[Theorem 9]{Bu1966}, and moreover, when the filtration is regular (see e.g. \eqref{regular}), then \eqref{B 1966} was extended to the entire range $0 < p < \infty$; see \cite{BG1970}. It was also shown in \cite{BG1970} that inequality \eqref{B 1966}
-fails to hold without this regularity condition when $0 < p < 1$. 
+This inequality was first proved in \cite[Theorem 9]{Bu1966}, and if the filtration is regular (see e.g. \eqref{regular}), then \eqref{B 1966} was extended to the entire range $0 < p < \infty$; see \cite{BG1970}. Furthermore, it is shown in \cite{BG1970} that the assumption concerning the regularity condition is necessary for the inequality \eqref{B 1966} to hold when $0<p<1$.
 The Davis inequality \cite{Da1970} for commutative martingales completes the result of Burkholder and Gundy, which states that there exists a universal constant $c>0$ such that 
 \begin{equation}\label{Davis 1970}
 	\frac{1}{c}\|f\|_{H_1(\Omega)}\leq \|\sup_n|\mathbb{E}_n(f)|\|_{L_1(\Omega)}\leq c\|f\|_{H_1(\Omega)},
@@ -103,7 +102,7 @@ The study of noncommutative martingale theory goes back to Cuculescu \cite{Cu197
 
 The noncommutative analogues of \eqref{Doob w11} and \eqref{Doob spp} were also studied. 
 Due to the noncommutativity, it is impossible
-to define the supremum of a family of noncommutating operators; we refer the reader to \cite[p.\,386]{JX2007} for a detailed explanation. This makes it difficult to formulate a noncommutative maximal inequality.
+to define the supremum of a family of noncommutative operators; we refer the reader to \cite[p.\,386]{JX2007} for a detailed explanation. This makes it difficult to formulate a noncommutative maximal inequality.
 The first meaningful noncommutative maximal function appears in the seminal paper \cite{Cu1971} by Cuculescu who established the noncommutative analogue of Doob's weak $(1,1)$ maximal inequality \eqref{Doob w11}.
  Let $(\mathcal{M},\tau)$ be a noncommutative probability space associated with a weak-$\ast$ dense increasing filtration $(\mathcal{M}_n)_{n\geq1}$, and let $\mathcal{E}_n$ denote the  conditional expectation from $\mathcal{M}$ onto $\mathcal{M}_n$, $n\geq1$.
 For each positive $x\in L_1(\mathcal{M})$ and $\lambda>0$, Cuculescu \cite{Cu1971} constructed a projection $q^{(\lambda)}\in \M$  (see Lemma \ref{Cuculescu} below)  such that $\sup_n\|q^{(\lambda)}\mathcal{E}_n(x)q^{(\lambda)}\|_{\M}\leq \lambda$ and
@@ -116,7 +115,7 @@ and the Cuculescu projection $q^{(\lambda)}$ behaves as a noncommutative version
 As for commutative martingales, the $L_p(\Omega)$-norm of the Doob maximal function $\sup_n|\mathbb{E}_n(f)|$ can be understood as the $L_p(\Omega;\ell_{\infty})$-norm of $(\mathbb{E}_n(f))_{n\geq1}$. Here $L_p(\Omega;\ell_{\infty})$ denotes the $\ell_{\infty}$-valued Lebesgue space. The noncommutative $\ell_{\infty}$-valued Lebesgue space $L_p(\mathcal{M},\ell_{\infty})$ (see \eqref{e-infty} and \eqref{positive} below) was first introduced by Pisier \cite{Pi1998} for hyperfinite von Neumann algebras, and by Junge \cite{Ju2002} in full generality. Moreover, in the remarkable paper \cite{Ju2002}, via Hilbert module theory and a duality argument, Junge established the following noncommutative Doob maximal inequality
 \begin{equation}\label{Junge strong pp}	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{p}(\mathcal{M},\ell_{\infty})}\leq c_p\|x\|_{L_p(\mathcal{M})},\quad 1<p\leq \infty.
 \end{equation}
-This is different from the classical Doob inequality \eqref{Doob spp} in that now the best order of $c_p$ is $O(\frac{1}{(p-1)^2})$ as $p\to1$; this was proved by Junge and Xu in \cite[Theorem 8]{JX2005}. In \cite{JX2007}, Junge and Xu proved a noncommutative Marcinkiewicz interpolation which can be used to prove \eqref{Junge strong pp} with optimal order constant. A combination of Junge's noncommutative Doob inequality \eqref{Junge strong pp} and Pisier-Xu Burkholder-Gundy inequality gives a  noncommutative analogue of \eqref{B 1966}: $$\alpha_p\|x\|_{H_p(\M)}\leq \|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{p}(\mathcal{M},\ell_{\infty})}\leq \beta_p\|x\|_{H_p(\mathcal{M})},\quad 1<p< \infty.$$
+This is different from the classical Doob inequality \eqref{Doob spp} in that now the best order of $c_p$ is $O(\frac{1}{(p-1)^2})$ as $p\to1$; this was proved by Junge and Xu in \cite[Theorem 8]{JX2005} with the help of  \cite{JX2007}. A combination of Junge's noncommutative Doob inequality \eqref{Junge strong pp} and Pisier-Xu Burkholder-Gundy inequality gives a  noncommutative analogue of \eqref{B 1966}: $$\alpha_p\|x\|_{H_p(\M)}\leq \|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{p}(\mathcal{M},\ell_{\infty})}\leq \beta_p\|x\|_{H_p(\mathcal{M})},\quad 1<p< \infty.$$
 Here the noncommutative Hardy space $H_p(\M)$ is defined by column and row square functions, we recall the definition in Section \ref{sec-mart}.
 
 It is natural to consider the  case $p=1$. However, Junge and Xu \cite[Lemma 13]{JX2005} showed that there \emph{does not} exist a universal constant $c>0$ such that
@@ -124,7 +123,7 @@ It is natural to consider the  case $p=1$. However, Junge and Xu \cite[Lemma 13]
 \|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1}(\mathcal{M},\ell_{\infty})}\leq c\|x\|_{H_1(\mathcal{M})}.
 \end{equation}
 This seemingly makes the prospect of a noncommutative extension of the Davis inequality \eqref{Davis 1970} hopeless.
-Instead of \eqref{fail Davis}, some authors have considered a noncommutative Davis-type inequality with a noncommutative conditioned square function in place of the maximal function. To be more specific, the noncommutative Davis-type inequality obtained in \cite[Theorem 2.1]{Pe2009} (and independently in \cite{JM2010}) gives that there exists a universal constant $c>0$ such that for each $x\in L_1(\M)$ we have
+Instead of \eqref{fail Davis}, some authors have considered a noncommutative Davis-type inequality with a noncommutative conditioned square function in place of the maximal function. To be more specific, the noncommutative Davis-type inequality obtained in \cite[Theorem 2.1]{Pe2009} (and independently in \cite{JM2010}) states that there exists a universal constant $c>0$ such that for each $x\in L_1(\M)$ we have
 \begin{equation}\label{Perrin}
 \inf_{d_nx=y_n+z_n}\Big\{	\Big\|\Big(\sum_{n\geq2}\mathcal{E}_{n-1}(|y_n|^2)+|y_1|^2\Big)^{1/2}\Big\|_{L_1(\M)}+\|(z_n)\|_{\ell_1(L_1(\M))}\Big\}\leq c	\|x\|_{H_1^c(\M)}.
 \end{equation}
@@ -155,7 +154,7 @@ Throughout this paper, $c_p$ always denotes a positive constant only depending o
 \end{theorem}
 
 
-
+We emphasize that in the case $0<p<1$ the assumption of regularity of filtration is necessary for the result of Theorem \ref{Davis} to hold.
 We summarize the main idea of the proof of Theorem \ref{Davis} as follows. 
 	As in the noncommutative setting, there is no pointwise noncommutative maximal function. Therefore, the Davis decomposition (\cite{Da1970}) based on maximal functions fails to be constructed in the noncommutative setting. Our proof presented here is somewhat inspired by \cite{BG1970} which is also regarded as the origin of the modern good-$\lambda$ method. We reformulate the arguments of Burkholder and Gundy in the language of the good-$\lambda$ method. Under the regularity condition, to prove 
 	\begin{equation}\label{BG}
@@ -171,10 +170,10 @@ We summarize the main idea of the proof of Theorem \ref{Davis} as follows.
 	\end{equation}
 	which implies \eqref{BG} directly. 
 	
-	In the noncommutative, it is impossible to write the left-hand side of \eqref{good lambda} down (see \cite{JOW2025}).
-	Following the idea of \eqref{good lambda 2}, under the regularity assumption, we use the Cuculescu projections to establish its noncommutative counterpart in Lemma \ref{distribution S}, which in term implies, 
+	In the noncommutative setting, it is impossible to write the left-hand side of \eqref{good lambda} down (see \cite{JOW2025}).
+	Using the idea of \eqref{good lambda 2}, under the regularity assumption, we employ the Cuculescu projections to establish its noncommutative counterpart in Lemma \ref{distribution S}, which implies, 
 	$$\|x\|_{H_1(\M)}\lesssim \sum_k 2^k\tau(1-q^{(2^k)}),$$
-	where $q^{(2^k)}$ is a Cuculescu projection related to the positive martingale $x$ (see Section \ref{sec-Cucu} for details).  After this, we introduce the Fuglede-Kadison determinant to help us to build the connection 
+	where $q^{(2^k)}$ is a Cuculescu projection related to the positive martingale $x$ (see Section \ref{sec-Cucu} for details).  After this, we employ the technique related to the Fuglede-Kadison determinant and show that
 	\begin{equation}\label{FK lem}
 		\sum_k 2^k\tau(1-q^{(2^k)}) \lesssim \|(\mathcal{
 		E}_n(x))_n\|_{L_1(\mathcal{M},\ell_{\infty})};
@@ -182,23 +181,23 @@ We summarize the main idea of the proof of Theorem \ref{Davis} as follows.
 	see Lemma \ref{L1 e1}. 
 
 
- We point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} made an interesting connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
+ We point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} established connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
  
- We also put some words on \eqref{FK lem}. Recall that \eqref{Junge strong pp} with best order constant $O((p-1)^{-2})$ (as $p\to 1$) implies that the following inequality cannot hold
+ We add a few words concerning on \eqref{FK lem}. Recall that \eqref{Junge strong pp} with best order constant $O((p-1)^{-2})$ (as $p\to 1$) implies that the following inequality cannot hold
 \begin{equation*}
 	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}\leq c_{\mathrm{abs}}\|x\|_{L_1(\mathcal{M})}.
 \end{equation*}
-If we compare this with \eqref{Nc weak 11}, it is nature conjecture 
+If we compare this with \eqref{Nc weak 11}, it is  natural to ask whether we have
 \begin{equation}\label{weak 11}
 	\sup_{\lambda>0}\lambda\tau(1-q^{(\lambda)}) \leq  c_{\mathrm{abs}}	\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_{1,\infty}(\mathcal{M},\ell_{\infty})}.
 \end{equation}
- It is easy to see \eqref{weak 11} holds via Lemma \ref{key lemma}. With an understanding of this,  we can quickly grasp \eqref{FK lem}; 	see Lemma \ref{L1 e1}. 
+ We show that \eqref{weak 11} holds with the help of Lemma \ref{key lemma}. With an understanding of this,  we can quickly grasp \eqref{FK lem}; 	see Lemma \ref{L1 e1}. 
 
-\begin{remark}\label{rem 1} We put a few comments below.
+\begin{remark}\label{rem 1} 
 	\begin{enumerate}[{\rm (i)}]
 		\item Under the regularity assumption, Theorem \ref{Davis} with $p=1$ provides an affirmative answer to the open question posed by Junge and Xu (i.e., the aforementioned Problem \ref{JX problem}). However, without the regularity assumption, the problem remains open.
-		\item It is not so surprising that Theorem \ref{Davis} holds for $0<p\leq 1$. Actually, for commutative regular martingales and $0<p\leq 1$, different kinds of martingale Hardy spaces $H_p(\Omega)$ are equivalent; see e.g. \cite{BG1970} and \cite[Corollary 2.23]{Weisz1994}.
-		\item With the same proof, the above results hold for general semi-finite von Neumann algebras associated with a regular filtration.
+		\item For commutative regular martingales and $0<p\leq 1$, different kinds of martingale Hardy spaces $H_p(\Omega)$ are equivalent; see e.g. \cite{BG1970} and \cite[Corollary 2.23]{Weisz1994}.
+		\item With the same proof, the above results hold for general semi-finite von Neumann algebras equipped with a regular filtration.
 	\end{enumerate}
 \end{remark}
 
@@ -213,7 +212,7 @@ Here, we outline two applications of Theorem \ref{Davis}. Further details can be
 \begin{remark}\label{app Davis} $\quad$
 	
 	\begin{enumerate}[{\rm (i)}]
-		\item In setting of classical harmonic analysis, there is a well-known and basic result which says that for each well-defined function $f$, $\|f\|_{\mathcal{H}_1(\mathbb{R})}\leq \|M(f)\|_{L_1(\mathbb{R})}$, where $\mathcal{H}_1(\mathbb{R})$ is the classical Hardy space and $M$ denotes the Hardy-Littlewood maximal function. We refer to \cite[p.\,39]{Gr2009} for more information about this topic. In Section \ref{sec-Mei}, using Theorem \ref{Davis}, we get a noncommutative analogue of this result for the operator-valued Hardy space $\mathcal{H}_1(\mathbb{R},\mathcal{N})$ introduced by Mei \cite{Me2007}; see Theorem \ref{Mei-H1} below for details.
+		\item In setting of classical harmonic analysis, there is a well-known and basic result which says that for each well-defined function $f$, $\|f\|_{\mathcal{H}_1(\mathbb{R})}\leq \|M(f)\|_{L_1(\mathbb{R})}$, where $\mathcal{H}_1(\mathbb{R})$ is the classical Hardy space and $M$ denotes the Hardy-Littlewood maximal function. We refer to \cite[p.\,39]{Gr2009} for more information about this topic. In Section \ref{sec-Mei}, using Theorem \ref{Davis}, we obtain a noncommutative analogue of this result for the operator-valued Hardy space $\mathcal{H}_1(\mathbb{R},\mathcal{N})$ introduced by Mei \cite{Me2007}; see Theorem \ref{Mei-H1} below for details.
 		\item  In the remarkable paper \cite{GJ1982}, Garnett and Jones demonstrated the Carleson decomposition theorem (\cite{Ca1976}) by establishing a dyadic Carleson decomposition (see Theorem \ref{GJ thm}). Applying Theorem \ref{Davis}, we first obtain a decomposition result for noncommutative martingale BMO space in Theorem \ref{Ga decom} which in turn implies the noncommutative analogue of Garnett-Jones' dyadic Carleson decomposition, that is, Theorem \ref{dyadic c-d}.
 		\item  Theorem \ref{Ga decom} is actually a noncommutative version of \cite[Theorem II.4.1]{Ga1973} due to Garsia. Moreover, both Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d} have further possible applications; see Remark \ref{cd Mei}. 
 	\end{enumerate}
@@ -226,7 +225,7 @@ Here, we outline two applications of Theorem \ref{Davis}. Further details can be
 
 
 
-The organization of the paper is as follows. Definitions and basic lemmas are presented in Section \ref{sec-pre}. We establish useful estimates for Cuculescu projections in Section \ref{sec-Cucu}. These estimates will be used throughout the text. Section \ref{sec-davis} contains the proofs of Theorem \ref{Davis}. Finally, in Section \ref{sec-application}, we provide several applications of our main results. 
+The organization of the paper is as follows. Definitions and basic lemmas are presented in Section \ref{sec-pre}. We establish new estimates for Cuculescu projections in Section \ref{sec-Cucu}. These estimates will be used throughout the text. Section \ref{sec-davis} contains the proofs of Theorem \ref{Davis}. Finally, in Section \ref{sec-application}, we provide several applications of our main results. 
 
 
 
@@ -286,7 +285,7 @@ As usual,  $L_\infty(\mathcal M)$ is $\mathcal {M}$ with the usual operator norm
 
 
 \subsection{Noncommutative maximal function spaces}\label{sec-maximalf}
-In this subsection, following \cite{Ju2002, PIS7}   (see also \cite{HJP2016,CGP2020}), we recall several different noncommutative maximal function spaces, i.e., $L_p(\mathcal M,\ell_{\infty})$, $\Lambda_{p,\infty}(\mathcal M,\ell_\infty)$, $\Lambda_{p,\infty}(\mathcal{M}, \ell_{\infty}^{c})$ and $\Lambda_{p}(\mathcal{M}, \ell_{\infty}^{c})$.
+In this subsection, following \cite{Ju2002, PIS7}   (see also \cite{HJP2016,CGP2020}), we recall the definition of the noncommutative maximal function spaces, i.e., $L_p(\mathcal M,\ell_{\infty})$.
 
 For $0< p\leq \infty$, define $L_p(\mathcal{M},\ell_{\infty})$ as  the space of all sequences $a=(a_n)_{n\geq1}$ in $L_p(\mathcal{M})$ for which there exist $y\in L_{2p}(\mathcal{M})$, $z\in  L_{2p}(\mathcal{M})$ and a bounded sequence $v=(v_{n})_{n\geq1}\subset \M$ such that
 $$a_n=yv_n z,\qquad \forall n\in \mathbb{N}.$$
@@ -301,7 +300,7 @@ If $a=(a_n)_{n\geq1}\in L_{p}(\mathcal M,\ell_{\infty})$ and $a_n\geq0$ for each
 \end{equation}
 
 
-The below result with $p=1$ is essentially due to Junge and Xu \cite[Proposition 2.1(i)]{JX2007}. The same argument used in \cite[Proposition 2.1(i)]{JX2007} also works for $0<p<1$. We still include the details for the reader's convenience. 
+The  result stated below with $p=1$ is essentially due to Junge and Xu \cite[Proposition 2.1(i)]{JX2007}. The same argument used in \cite[Proposition 2.1(i)]{JX2007} also works for $0<p<1$. We include the details for the reader's convenience. 
 \begin{lemma}\label{JX lemma}
 Let $0<p\leq 1$. Assume that $a=(a_n)_{n\geq1}\in L_p(\M,\ell_{\infty})$ with $\|a\|_{L_p(\M,\ell_{\infty})}\leq 1$. Then there exist positive $\{b^k\}_{k=1}^{16}\subset L_p(\M,\ell_{\infty})$ such that $a$ is a linear combination of $\{b^k\}_{k=1}^{16}$ and 
 $$\|b^k\|_{L_p(\M,\ell_{\infty})}\leq c_p,\quad \forall 1\leq k\leq 16.$$
@@ -326,7 +325,7 @@ Taking $c_p=\max\{2^{\frac{1}{p}-2},1\}$, the desired assertion follows.
 
 
 \subsection{Noncommutative, conditional expectations, martingales and Hardy spaces}\label{sec-mart}
-Throughout the paper, let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ satisfying $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
+Throughout the paper, let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ such that the union $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
 Assume that for each $n\geq1$ there exists conditional expectation $\mathcal{E}_n:\mathcal{M}\to\mathcal{M}_n$. 
 The conditional expectations $(\mathcal{E}_{n})_{n\geq1}$ satisfy
 \begin{enumerate}[{\rm (a)}]
