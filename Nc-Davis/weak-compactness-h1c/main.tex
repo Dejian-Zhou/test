@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\M}{\mathcal M}
+\newcommand{\N}{\mathcal N}
+\newcommand{\HH}{H_1^c}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\wstar}{\mathrm{w}^*}
+\DeclareMathOperator{\dist}{dist}
+
+\title{Weak Compactness in the Column Martingale Hardy Space}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+Let $(\M,\tau)$ be a finite von Neumann algebra equipped with a faithful
+normal tracial state, so that $\tau(1)=1$. Let $(\M_n)_{n\geq 1}$ be an
+increasing filtration with trace-preserving conditional expectations
+$\mathcal E_n$. For a martingale $x=(x_n)_{n\geq 1}$, put
+\[
+  dx_n=x_n-x_{n-1},\qquad x_0=0,\qquad
+  S_c(x)=\left(\sum_{n\geq 1}dx_n^*dx_n\right)^{1/2}.
+\]
+The column Hardy space $\HH=\HH(\M)$ is the completion of finite
+martingales under the norm
+\[
+  \|x\|_{\HH}=\|S_c(x)\|_1.
+\]
+A family $\mathcal F\subset L_1(\M)_+$ is called \emph{uniformly
+integrable} if it is norm bounded and
+\[
+  \lim_{R\to\infty}\sup_{h\in\mathcal F}
+  \tau\!\left(h\,\ind_{(R,\infty)}(h)\right)=0.
+\]
+For a finite trace, the displayed condition already implies norm
+boundedness. All weak topologies below are Banach-space weak topologies.
+
+\begin{theorem}\label{thm:main}
+A subset $K\subset \HH$ is relatively weakly compact if and only if
+\[
+  S_c(K)=\{S_c(x):x\in K\}
+\]
+is uniformly integrable in $L_1(\M)$.
+\end{theorem}
+
+We first record the consequence of Akemann's weak compactness criterion
+that will be used in the proof. The criterion says that a bounded subset
+$A\subset L_1(\N,\nu)$ is relatively weakly compact if and only if
+\[
+  \lim_{m\to\infty}\sup_{a\in A}\|q_m a q_m\|_1=0
+\]
+for every decreasing sequence of projections $q_m\downarrow 0$ in $\N$.
+Here $(\N,\nu)$ may be semifinite; see \cite[Definition~2.4 and the
+subsequent remarks]{Randrianantoanina}.
+
+\begin{lemma}\label{lem:small-trace}
+Let $(\N,\nu)$ be a semifinite von Neumann algebra with a faithful normal
+semifinite trace. If $A\subset L_1(\N,\nu)$ is relatively weakly compact,
+then
+\begin{equation}\label{eq:small-trace}
+  \lim_{\delta\downarrow 0}
+  \sup\bigl\{\|qaq\|_1:
+      a\in A,\ q\in\N\text{ a projection},\ \nu(q)\leq\delta\bigr\}=0.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If \eqref{eq:small-trace} fails, there exist $\varepsilon>0$,
+$a_j\in A$, and projections $r_j\in\N$ such that
+\[
+  \nu(r_j)\leq 2^{-j},
+  \qquad \|r_j a_j r_j\|_1\geq\varepsilon
+  \quad (j\geq 1).
+\]
+Define $q_m=\bigvee_{j\geq m}r_j$. Then $q_m$ decreases and
+\[
+  \nu(q_m)\leq\sum_{j\geq m}2^{-j}\longrightarrow 0.
+\]
+Faithfulness and normality of $\nu$ imply $q_m\downarrow 0$.
+Since $r_m\leq q_m$,
+\[
+  \|q_m a_m q_m\|_1
+  \geq\|r_m(q_m a_m q_m)r_m\|_1
+  =\|r_m a_m r_m\|_1
+  \geq\varepsilon.
+\]
+This contradicts Akemann's criterion.
+\end{proof}
+
+For completeness, we also recall a standard weak compactness
+approximation principle. If $E$ is a Banach space and a bounded set
+$A\subset E$ satisfies
+\begin{equation}\label{eq:approximation-principle}
+  A\subset W_\varepsilon+\varepsilon B_E
+\end{equation}
+for every $\varepsilon>0$, where $W_\varepsilon\subset E$ is weakly
+compact, then $A$ is relatively weakly compact.
+Indeed, identify $E$ with its canonical image in $E^{**}$ and let $C$
+be the weak-star closure of $A$ in $E^{**}$. The set
+$W_\varepsilon+\varepsilon B_{E^{**}}$ is weak-star compact, so
+\eqref{eq:approximation-principle} implies
+\[
+  C\subset W_\varepsilon+\varepsilon B_{E^{**}}.
+\]
+Consequently $\dist(z,E)\leq\varepsilon$ for every $z\in C$ and every
+$\varepsilon>0$. Since $E$ is norm closed in $E^{**}$, we have $C\subset E$.
+Thus $C$ is weakly compact in $E$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+We may assume $K\neq\varnothing$. Set
+\[
+  \N=\M\bar\otimes B(\ell_2),\qquad
+  \nu=\tau\otimes\Tr,\qquad
+  p=1\otimes e_{11},\qquad
+  E=L_1(\N,\nu)p,
+\]
+where $(e_{ij})_{i,j\geq 1}$ are the standard matrix units.
+In particular, $\nu(p)=1$. The column map
+\[
+  J:\HH\longrightarrow E,\qquad
+  Jx=\sum_{n\geq 1}dx_n\otimes e_{n1},
+\]
+is an isometric linear embedding. More precisely,
+\begin{equation}\label{eq:column-map}
+  |Jx|=S_c(x)\otimes e_{11},
+  \qquad
+  \|Jx\|_1=\|x\|_{\HH}.
+\end{equation}
+The map is first defined on finite martingales and then extended by
+completion. Its image is a norm-closed, hence weakly closed, subspace
+of $E$. Therefore $K$ is relatively weakly compact in $\HH$ if and only
+if $A=J(K)$ is relatively weakly compact in $E$, or equivalently in
+$L_1(\N,\nu)$.
+
+\medskip
+\noindent\emph{Necessity.}
+Suppose that $K$ is relatively weakly compact. Then $A$ is relatively
+weakly compact and
+\[
+  C_0=\sup_{a\in A}\|a\|_1<\infty.
+\]
+Fix $a=u|a|\in A$ and $R>0$. Let
+\[
+  e=\ind_{(R,\infty)}(|a|),\qquad
+  f=ueu^*,\qquad q=e\vee f.
+\]
+Since $e$ is dominated by the support of $|a|$, the operator $f$ is a
+projection equivalent to $e$. Hence
+\begin{equation}\label{eq:tail-support}
+  \nu(q)\leq\nu(e)+\nu(f)
+  =2\nu(e)\leq\frac{2C_0}{R}.
+\end{equation}
+Moreover, $fae=ae$, and thus
+\begin{equation}\label{eq:tail-compression}
+  \nu\!\left(|a|\,\ind_{(R,\infty)}(|a|)\right)
+  =\|fae\|_1
+  =\|f(qaq)e\|_1
+  \leq\|qaq\|_1.
+\end{equation}
+Applying Lemma~\ref{lem:small-trace} to
+\eqref{eq:tail-support}--\eqref{eq:tail-compression}, we obtain
+\[
+  \lim_{R\to\infty}\sup_{a\in A}
+  \nu\!\left(|a|\,\ind_{(R,\infty)}(|a|)\right)=0.
+\]
+Together with \eqref{eq:column-map}, this proves that $S_c(K)$ is
+uniformly integrable.
+
+\medskip
+\noindent\emph{Sufficiency.}
+Suppose that $S_c(K)$ is uniformly integrable. For $a\in A$ and $R>0$,
+define
+\[
+  a^{(R)}=a\,\ind_{[0,R]}(|a|).
+\]
+The truncated operator still has right support dominated by $p$.
+Since $\nu(p)=1$,
+\[
+  \|a^{(R)}\|_2^2
+  =\nu\!\left(|a|^2\ind_{[0,R]}(|a|)\right)
+  \leq R^2\nu(p)=R^2.
+\]
+Also,
+\begin{equation}\label{eq:uniform-truncation}
+  \begin{aligned}
+  \eta(R)
+  &:=\sup_{a\in A}\|a-a^{(R)}\|_1\\
+  &=\sup_{a\in A}
+     \nu\!\left(|a|\,\ind_{(R,\infty)}(|a|)\right)
+    \longrightarrow 0
+    \qquad (R\to\infty).
+  \end{aligned}
+\end{equation}
+The natural inclusion
+\[
+  L_2(\N,\nu)p\longrightarrow E
+\]
+is bounded: by the noncommutative H\"older inequality, for $b=bp$,
+\[
+  \|b\|_1=\|bp\|_1
+  \leq\|b\|_2\|p\|_2=\|b\|_2.
+\]
+Since $L_2(\N,\nu)p$ is a Hilbert space, the image $W_R$ of its closed
+ball of radius $R$ is weakly compact in $E$. We have
+\[
+  A\subset W_R+\eta(R)B_E.
+\]
+The approximation principle above and \eqref{eq:uniform-truncation}
+show that $A$ is relatively weakly compact in $E$. It follows from
+the closedness of $J(\HH)$ and the isometry of $J$ that $K$ is relatively
+weakly compact in $\HH$.
+\end{proof}
+
+\begin{remark}
+The spectral truncations $a^{(R)}$ need not belong to $J(\HH)$.
+This causes no difficulty: weak compactness is first established in the
+ambient column space $E$, and then transferred to the closed subspace
+$J(\HH)$.
+\end{remark}
+
+\begin{remark}[On the finite-trace hypothesis]
+The theorem is stated for a finite tracial probability space. It does
+not extend verbatim to arbitrary semifinite algebras.
+
+For example, equip $B(\ell_2)$ with its usual trace and use the constant
+filtration $\M_n=B(\ell_2)$. For the single-step martingales with
+$x^{(k)}_n=e_{1k}$ for all $n\geq 1$, the set
+$\{x^{(k)}:k\geq 1\}$ is relatively weakly compact in $H_1^c$:
+the row space spanned by the $e_{1k}$ is isometric to $\ell_2$, and
+$e_{1k}\to 0$ weakly in $S_1$. However,
+\[
+  S_c(x^{(k)})=e_{kk}.
+\]
+This family is not uniformly integrable in the projection-decrease
+sense. Indeed, for $q_m=\sum_{k\geq m}e_{kk}\downarrow 0$,
+\[
+  \sup_{k\geq 1}\|q_m e_{kk}q_m\|_1=1
+  \qquad (m\geq 1).
+\]
+Furthermore, spectral-tail decay alone does not characterize uniform
+integrability in this general semifinite setting.
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{Randrianantoanina}
+N.~Randrianantoanina,
+\emph{Sequences in non-commutative $L^p$-spaces},
+J.~Operator Theory \textbf{48} (2002), 255--272.
+Preprint: \href{https://arxiv.org/abs/math/0004144}{arXiv:math/0004144}.
+
+\end{thebibliography}
+
+\end{document}
