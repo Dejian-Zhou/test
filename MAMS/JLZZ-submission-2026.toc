@@ -1,0 +1,38 @@
+\contentsline {chapter}{\tocchapter {Chapter}{1}{Introduction}}{1}{chapter.1}%
+\contentsline {section}{\tocsection {}{1.1}{Functional inequalities on the Boolean cube}}{2}{section.1.1}%
+\contentsline {section}{\tocsection {}{1.2}{Banach space-valued functional inequalities}}{5}{section.1.2}%
+\contentsline {section}{\tocsection {}{1.3}{Functional inequalities on the Quantum Boolean cube}}{8}{section.1.3}%
+\contentsline {section}{\tocsection {}{1.4}{Outline of the paper}}{10}{section.1.4}%
+\contentsline {section}{\tocsection {}{1.5}{List of notations}}{13}{section.1.5}%
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Preliminaries}}{15}{chapter.2}%
+\contentsline {section}{\tocsection {}{2.1}{Quantum Boolean cube and Walsh system}}{15}{section.2.1}%
+\contentsline {section}{\tocsection {}{2.2}{The quantum Ornstein-Uhlenbeck semigroup}}{16}{section.2.2}%
+\contentsline {section}{\tocsection {}{2.3}{Auxiliary lemmas}}{17}{section.2.3}%
+\contentsline {chapter}{\tocchapter {Chapter}{3}{Holomorphic quantum semigroups}}{21}{chapter.3}%
+\contentsline {section}{\tocsection {}{3.1}{Holomorphic quantum Ornstein-Uhlenbeck semigroup}}{21}{section.3.1}%
+\contentsline {section}{\tocsection {}{3.2}{Quantum Rademacher projection}}{25}{section.3.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{4}{Quantum heat smoothing estimates}}{29}{chapter.4}%
+\contentsline {section}{\tocsection {}{4.1}{Quantum Mendel-Naor heat smoothing estimates}}{29}{section.4.1}%
+\contentsline {section}{\tocsection {}{4.2}{Quantum Heilman-Mossel-Oleszkiewicz heat smoothing estimate}}{32}{section.4.2}%
+\contentsline {section}{\tocsection {}{4.3}{A reverse Bernstein-Markov type inequality}}{40}{section.4.3}%
+\contentsline {chapter}{\tocchapter {Chapter}{5}{Bernstein-Markov type inequalities for low degree observables}}{45}{chapter.5}%
+\contentsline {section}{\tocsection {}{5.1}{Lower bound on the decay of the quantum heat semigroup}}{45}{section.5.1}%
+\contentsline {section}{\tocsection {}{5.2}{Bernstein-Markov type inequalities for Laplacian}}{49}{section.5.2}%
+\contentsline {section}{\tocsection {}{5.3}{Quantum Naor's inequality and Bernstein-Markov type inequalities for gradients}}{53}{section.5.3}%
+\contentsline {chapter}{\tocchapter {Chapter}{6}{Covariance quantum Poincar\'e and quantum Talagrand-type inequalities in tail spaces}}{61}{chapter.6}%
+\contentsline {section}{\tocsection {}{6.1}{Quantum tail Talagrand inequalities }}{61}{section.6.1}%
+\contentsline {section}{\tocsection {}{6.2}{Covariance Poincar\'e and Talagrand-type inequalities}}{65}{section.6.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{7}{Quantum correlation inequalities with lower bound}}{73}{chapter.7}%
+\contentsline {section}{\tocsection {}{7.1}{Quantum monotonically increasing function and Harris-Kleitman inequality}}{74}{section.7.1}%
+\contentsline {section}{\tocsection {}{7.2}{The Talagrand correlation inequality}}{77}{section.7.2}%
+\contentsline {section}{\tocsection {}{7.3}{Quantum KMS-correlation inequalities}}{88}{section.7.3}%
+\contentsline {chapter}{\tocchapter {Chapter}{8}{Quantum BKS inequality and its inverse}}{93}{chapter.8}%
+\contentsline {section}{\tocsection {}{8.1}{The quantum BKS-inequality}}{93}{section.8.1}%
+\contentsline {section}{\tocsection {}{8.2}{The inverse quantum BKS-inequality}}{96}{section.8.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{9}{Quantum Bohnenblust--Hille inequality and approximation of polynomials from tail spaces }}{99}{chapter.9}%
+\contentsline {section}{\tocsection {}{9.1}{Quantum Bohnenblust--Hille inequality}}{99}{section.9.1}%
+\contentsline {section}{\tocsection {}{9.2}{Approximation of polynomials from quantum tail spaces}}{102}{section.9.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{10}{Learning quantum observables}}{111}{chapter.10}%
+\contentsline {section}{\tocsection {}{10.1}{Asymptotic sharpness}}{113}{section.10.1}%
+\contentsline {section}{\tocsection {}{10.2}{More interesting estimates}}{125}{section.10.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Bibliography}}{129}{chapter*.1}%
