@@ -236,7 +236,7 @@ The organization of the paper is as follows. Definitions and basic lemmas are pr
 \section{Preliminary}\label{sec-pre}
 Throughout this paper, for a regular filtration $(\M_n)_{n\geq1}$, its regularity constant is always denoted by $c_{\mathrm{reg}}$; $c_p$ always denotes a positive constant only depends on symbol $p$, and  $c_{p,\mathrm{reg}}$ always denotes a positive constant depends on both $p$ and $c_{\mathrm{reg}}$, where $c_{\mathrm{reg}}$ is the regularity constant.
 
-\subsection{Noncommutative symmetric spaces }
+\subsection{Noncommutative symmetric spaces }{\color{red}rewrite a bit}
 Let $\mathcal M$ be a finite von Neumann algebra equipped with a normal faithful normalized  trace $\tau$.  We always assume $\mathcal{M}\subset B(H)$ for some Hilbert space $H$.
 Denote by $L_0(\mathcal{M})$ the topological $*$-algebra of all $\tau$-measurable operators, and denote by $\mathcal{P}(\mathcal{M})$ the lattice of projections in $\mathcal{M}$. Suppose that $a$ is a self-adjoint $\tau$-measurable operator and let $a=\int_{-\infty}^{\infty} \lambda d e_{\lambda}$ stand for its spectral decomposition. For any Borel subset $B$ of $\mathbb{R}$, the spectral projection of $a$ corresponding to the set $B$ is defined by $\chi_B(a)=\int_{-\infty}^{\infty} \chi_B(\lambda) d e_{\lambda}$.  For $x\in L_0(\mathcal{M})$, we denote by $r(x)$ and $l(x)$ the right and left support projections of $x$, respectively. In fact, the projection $r(x)$ (resp. $l(x)$) is  the least projection $e$ satisfying $xe=x$ (resp. $ex=x$). For $x\in L_0({\M})$, the spectral distribution function $\mathsf{d}(\cdot,x)$ is defined by
 $$\mathsf{d}(s,x)=\tau\big(\chi_{(s,\infty)}(|x|)\big),$$
@@ -245,7 +245,7 @@ $$\mu(t,x)=\inf\big\{s>0:\mathsf{d}(s,x)\leq t\big\},\quad t>0.$$
 The function $t\mapsto \mu(t,x)$ is decreasing and right-continuous.
 In the case that $\mathcal{M}$ is the abelian von Neumann algebra $L_{\infty}(0,1)$ with the trace given by integration with respect to the Lebesgue measure,  $L_0(\mathcal{M})$ is the space of all measurable functions, with non-trivial distribution, and $\mu(f)$ is the decreasing rearrangement of a measurable function $f$. For  more information of the singular value function we refer the reader to \cite{Fa1986,DdePS2023}.
 
-We collect several basic facts which are often used in the present paper. The proof of item (iv) below is referred to \cite[Proposition 3.2.10]{DdePS2023}. See for instance \cite[Lemma 2.1]{JRWZ2020} for Item (v).
+We collect several basic facts which are often used in the present paper. The proof of item (iv) below is referred to \cite[Proposition 3.2.10]{DdePS2023}. See for instance \cite[Lemma 2.1]{JRWZ2020} for Item (v). 
 \begin{fact}\label{Fact 1}
 	Let $x\in L_0(\mathcal{M})$.
 	\begin{enumerate}[\rm (i)] 
@@ -256,6 +256,8 @@ We collect several basic facts which are often used in the present paper. The pr
 		$$\mu(t,e)=\chi_{[0,\tau(e)]}(t),\quad t>0.$$
 		\item For each $x,y\in L_0(\M)$ and $t,s>0$, we have
 		$$\mathsf{d}(s+t,x+y)\leq \mathsf{d}(s,x)+\mathsf{d}(t,y).$$
+		\item For each $0<p<\infty$,
+		$$\mu(t,x)^p=\mu(t,|x|^p).$$
 	\end{enumerate}
 \end{fact}
 
@@ -490,17 +492,23 @@ Since  $e$ is the identity of this corner algebra $e\mathcal{M}e$, it follows th
 		\[\Delta_e(s+d)=\Delta_p(s)\Delta_q(d).\]
 \end{lemma}
 \begin{proof}
-According to the assumption, it is clear that for each $\varepsilon>0$,
-	\[\log_e(|s+d|+\varepsilon e)=\log_p(|s|+\varepsilon p)+\log_q(|d|+\varepsilon q).\]
-	{\color{red}need to verify the equality}
-	Then 
-		\[\tau\Big(\log_e(|s+d|+\varepsilon e)\Big)=\tau\Big(\log_p(|s|+\varepsilon p)\Big)+\tau\Big(\log_q(|d|+\varepsilon q)\Big),\]
-		and  the desired assertion follows from  the definition of the Fuglede-Kadison determinant.
+	Note that $sd=ds=0$ according to the assumption. Hence,
+	$$|s+d|=|s|+|d|.$$
+	For each $\varepsilon>0$, set $s_{\varepsilon}:=|s|+\varepsilon p\in p\M p$ and $d_{\varepsilon}:=|d|+\varepsilon q\in q\M q$. We also have $s_{\varepsilon}d_{\varepsilon}=d_{\varepsilon}s_{\varepsilon}=0$.
+Then
+		$$|s+d|+\varepsilon e=s_{\varepsilon}+d_{\varepsilon}.$$
+	Moreover, it is easy to see that for each $k\in \mathbb{N}$,
+	$$(s_{\varepsilon}+d_{\varepsilon})^k=s_{\varepsilon}^k+d_{\varepsilon}^k.$$
+Thus (also note that $e=p+q$),
+	\[\log_e(|s+d|+\varepsilon e)=\log_e(s_{\varepsilon}+d_{\varepsilon})=\log_p(s_{\varepsilon})+\log_q(d_{\varepsilon}),\]
+and
+		\[\tau\Big(\log_e(|s+d|+\varepsilon e)\Big)=\tau\Big(\log_p(|s|+\varepsilon p)\Big)+\tau\Big(\log_q(|d|+\varepsilon q)\Big).\]
+By taking $\varepsilon\to 0$,	the desired assertion follows from  the definition of the Fuglede-Kadison determinant.
 \end{proof}
 
 Next lemma is crucial for our further use. 
 \begin{lemma}\label{lem FK}
-	Let projections $e,p,q\in\mathcal{P}(\mathcal{M})$ be such that $e=p+q$ and $pq=qp=0$. Assume that $b\in(e\mathcal Me)_+$ is  invertible. If
+	Let projections $e,p,q\in\mathcal{P}(\mathcal{M})$ be such that $e=p+q$ and $pq=qp=0$.  If $b\in(e\mathcal Me)_+$ and
 	$b\geq\lambda p$ for some $\lambda\in (0,\infty)$, then
 	\[
 	\Delta_e(b)\geq\lambda^{\tau(p)}\Delta_q(qbq).
@@ -508,7 +516,7 @@ Next lemma is crucial for our further use.
 \end{lemma}
 
 \begin{proof}
-	According to the assumption, we may write 
+We first consider  $b\in(e\mathcal Me)_+$ is  invertible.	According to the assumption, we may write 
 	\begin{equation}\label{eq:b-block}
 		b=\begin{pmatrix}a&c\\c^*&d\end{pmatrix},
 	\end{equation}
@@ -596,14 +604,33 @@ for every $\xi\in p(H)$.
 		\Delta_e(b)
 		=\Delta_e(U)\Delta_e(D)\Delta_e(U^*)\notag=\Delta_p(s)\Delta_q(d),
 	\end{align*}
-	where we also used Lemma \ref{s plus d} in the second equality. 
-	By Lemma \ref{thm FK} (iii), we have
+	where we also used Lemma \ref{s plus d} in the second equality as $s\in p\M p$ and $d\in q\M q$. 	By Lemma \ref{thm FK} (iii), we have
 	\[
-	\Delta_p(s) \geq \Delta_p(\lambda p)
-	=\lambda^{\tau(p)}.
+	\Delta_p(s) \geq \Delta_p(\lambda p).
 	\]
-	{\color{red}write down the last equality in details.}
-	The desired assertion follows. 
+	On the other hand side, 
+	\begin{align*}
+		\Delta_p(\lambda p)
+		&=\exp\bigl(\tau(\log_p(\lambda p))\bigr)
+		=\exp\bigl(\tau((\log\lambda)p)\bigr)\\
+		&=\exp\bigl((\log\lambda)\tau(p)\bigr)=\lambda^{\tau(p)}.
+	\end{align*}
+Therefore,
+\[
+		\Delta_e(b)\geq \lambda^{\tau(p)} \Delta_q(d)=\lambda^{\tau(p)} \Delta_q(qbq).
+\]
+	This verifies the desired assertion whenever  $b\in(e\mathcal Me)_+$ is  invertible.
+	
+	If  $b\in(e\mathcal Me)_+$ is not necessary invertible, then we set 
+	$$b_{\varepsilon}=b+\varepsilon e,\quad \varepsilon>0.$$
+	It is clear that $b_{\varepsilon}\in(e\mathcal Me)_+$ is invertible. Thus, it follows from the above argument that
+		\[
+	\Delta_e(b_{\varepsilon})\geq\lambda^{\tau(p)}\Delta_q(qb_{\varepsilon}q)=\lambda^{\tau(p)}\Delta_q(q(b+\varepsilon e)q)=\lambda^{\tau(p)}\Delta_q(qbq+\varepsilon q).
+	\]
+	Taking $\varepsilon\to 0$, we get that 
+		\[
+	\Delta_e(b)\geq\lambda^{\tau(p)}\Delta_q(qbq ).
+	\]
 \end{proof}
 
 
@@ -635,8 +662,8 @@ Let $x=(x_n)_{n\geq1}$ be a positive bounded $L_1(\mathcal{M})$-martingale. For 
 		
 		\item for every $n\geq1 $, $q_n^{(\lambda)}x_nq_n^{(\lambda)}\leq \lambda q_n^{(\lambda)}$;
 		
-		\item if we set $q^{\lambda}= \wedge_{n=1}^{\infty} q_n^{(\lambda)}$, then
-		$\lambda\tau(1-q^{\lambda})\leq \tau((1-q^{\lambda})x)\leq \|x\|_{L_1(\mathcal{M})}$.
+		\item if we set $q^{(\lambda)}= \wedge_{n=1}^{\infty} q_n^{(\lambda)}$, then
+		$\lambda\tau(1-q^{(\lambda)})\leq \tau((1-q^{(\lambda)})x)\leq \|x\|_{L_1(\mathcal{M})}$.
 	\end{enumerate}
 \end{lemma}
 
@@ -652,9 +679,9 @@ and (in the sense of strong operator topology)
 \begin{equation}\label{sump}
 	\sum_{n\geq1} p_n^{(\lambda)}=1-q^{(\lambda)}.
 \end{equation}
-In addition, for each $k\geq1$, we have {\color{red}details?}
+In addition, for each $k\geq1$, $\chi_{(\lambda,\infty)}(q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)})\leq q_{k-1}^{(\lambda)}$ and
 \begin{equation}
-	p_k^{(\lambda)}=\chi_{(\lambda,\infty)}(q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)}),
+	p_k^{(\lambda)}=q_{k-1}^{(\lambda)}\big(1-q_k^{(\lambda)}\big)=q_{k-1}^{(\lambda)} \chi_{(\lambda,\infty)}(q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)})=\chi_{(\lambda,\infty)}(q_{k-1}^{(\lambda)}x_kq_{k-1}^{(\lambda)}),
 \end{equation}
 and therefore, 
 \begin{equation}\label{qxq geq p}
@@ -748,7 +775,7 @@ The assertion follows from \eqref{eq exe}, Lemma \ref{lem tau qN} and the basic 
 This subsection contains necessary results which will be used to prove Theorem \ref{Davis}. 
 
 \begin{lemma}\label{key lemma}
-For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$. 	Let $a\in L_0(\mathcal{M})$ be such that $\mathcal{E}_n(x)\leq a$  for each $n\geq1$, and set 
+For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(x_n)_{n\geq1}\in L_1(\mathcal{M})$. 	Let $a\in L_0(\mathcal{M})$ be such that $x_n\leq a$  for each $n\geq1$, and set 
 	\[A(t)=\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a)ds\Big).\]	
 For each $\lambda>0$, we have
 	$$\tau(1-q^{(\lambda)})\leq |\{t>0: \lambda\leq A(t)\}|.$$
@@ -763,7 +790,7 @@ For each $\lambda>0$, we have
 	\[r_n=\sum_{j=n}^{N}p_j^{(\lambda)}=q_{n-1}^{(\lambda)}-q_N^{(\lambda)},\qquad 1\leq n\leq N.\]
 	Then it is clear that $r_n=p_n^{(\lambda)}+r_{n+1}$ with $p_n^{(\lambda)}r_{n+1}=r_{n+1}p_n^{(\lambda)}=0$. Define 
 	\[b_n=r_nar_n\in r_n\mathcal{M}r_n,\quad 1\leq n\leq N.\]
-	{\color{red}why?}It is obvious that each $b_n$ is invertible in $ r_n\mathcal{M}r_n,$, and by \eqref{qxq geq p}, for each $n\geq1$, we have
+By \eqref{qxq geq p}, for each $n\geq1$, we have
 	\begin{align*}
 		b_n=r_nar_n\geq r_n x_n r_n=r_n q_{n-1}^{(\lambda)}x_n q_{n-1}^{(\lambda)} r_n\geq \lambda r_n p_n^{(\lambda)} r_n=\lambda p_n^{(\lambda)}.	
 	\end{align*}
@@ -776,7 +803,7 @@ For each $\lambda>0$, we have
 		&\geq \lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \Delta_{r_N}(\lambda p_{N}^{(\lambda)})\\
 		&=\lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \lambda^{\tau(p_{N}^{(\lambda)})}\\
 		&=\lambda^{\tau(1-q_N^{(\lambda)})}=\lambda^{\tau(r_1)},
-	\end{align*}{\color{red}provide the details to the last equality}
+	\end{align*}
 	where we also used  Lemma \ref{thm FK} (iii) in the last inequality. 
 	Consequently, 
 	$$\log \lambda^{\tau(r_1)}\leq \log 	\Delta_{r_1}(b_1),$$
@@ -810,7 +837,7 @@ We also recall the continuous Carleman inequality,  see for instance \cite[p. 25
 \end{lemma}
 
 \begin{lemma}\label{L1 e1}
-	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $x_n=\mathcal{E}_n(x)\leq a$ for each $n\geq1$. We have 
+	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(x_n)_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $0\leq x_n\leq a$ for each $n\geq1$. We have 
 	$$\sum_{k\in \mathbb{Z}} 2^{kp}\tau(1-q^{(2^k)})\leq \frac{2^pe}{2^p-1}\|a\|_p^p,\quad 0<p\leq 1.$$
 \end{lemma}
 
@@ -825,18 +852,19 @@ We also recall the continuous Carleman inequality,  see for instance \cite[p. 25
 		&= \int_0^{\infty}\sum_{k\in \mathbb{Z}} 2^{kp}\chi_{E_k}(t)dt\\
 		&=\int_0^{\infty}\sum_{\{k\in \mathbb{Z}: 2^k\leq A(t)\}} 2^{kp}dt\\
 		&\leq \frac{2^p}{2^p-1}\int_0^{\infty}A(t)^pdt\\
-		&=\frac{2^p}{2^p-1}\int_0^{\infty}\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a)^pdt\Big)dt\\
-		&\leq \frac{2^pe}{2^p-1} \|a\|_p^p.
+		&=\frac{2^p}{2^p-1}\int_0^{\infty}\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a)^pds\Big)dt\\
+		&=\frac{2^p}{2^p-1}\int_0^{\infty}\exp\Big(\frac{1}{t}\int_0^t\log\mu(s,a^p)ds\Big)dt \qquad \mbox{by Fact \ref{Fact 1}}\\
+		&\leq \frac{2^pe}{2^p-1} \int_0^{\infty} \mu(t,a^p)dt= \frac{2^pe}{2^p-1} \|a\|_p^p.
 	\end{align*}
-	where the last inequality is due to the Carleman inequality stated in Lemma \ref{lem:continuous-carleman}.
+	where  the last inequality is due to  Lemma \ref{lem:continuous-carleman}.
 \end{proof}
 
 Later we will need  the following variant of Lemma \ref{L1 e1}.
 \begin{proposition}\label{prop 3}
-	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(\mathcal{E}_n(x))_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $x_n=\mathcal{E}_n(x)\leq a$ for each $n\geq1$. We have 
-	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\leq e\Big(\frac{2^{p+1}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1$$
+	For $\lambda>0$, consider the Cuculescu projections $q^{(\lambda)}$ associated with the positive martingale 	 $x=(x_n)_{n\geq1}\in L_1(\mathcal{M})$.  Assume that	positive $a\in L_0(\mathcal{M})$ satisfies $0\leq x_n\leq a$ for each $n\geq1$. We have 
+	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\leq e\Big(\frac{2^{p}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1$$
 	and 
-	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)}	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\leq 7e\Big(\frac{2^{p+1}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1.$$
+	$$\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)}	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\leq 7e\Big(\frac{2^{p}}{2^p-1}\Big)^2\|a\|_p^p,\quad 0<p\leq 1.$$
 \end{proposition}
 \begin{proof}
 	The first inequality follows from Lemma \ref{L1 e1} and the below basic observation:	
@@ -846,9 +874,9 @@ Later we will need  the following variant of Lemma \ref{L1 e1}.
 		\sum_{\ell\in\mathbb{Z}}& 2^{\ell(p-2)}	\tau\Big(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})}\Big)\\
 		&\leq 2\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)} \sum_{j=-\infty}^{\ell}2^{2j}\sum_{k\geq j-1}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\\
 		&= 2\sum_{j\in\mathbb{Z}}\sum_{\ell\geq j} 2^{\ell(p-2)} 2^{2j}\sum_{k\geq j-1}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\\
-		&=\frac{2^{p+1}}{1-2^{p-2}}\sum_{j\in\mathbb{Z}}2^{jp}\sum_{k\geq j}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\
+		&=\frac{2}{1-2^{p-2}}\sum_{j\in\mathbb{Z}}2^{jp}\sum_{k\geq j}\tau(1-q^{(2^k)})+3\sum_{\ell\in\mathbb{Z}} 2^{\ell p} \sum_{k\geq \ell}\tau(1-q^{(2^k)})\
 	\end{align*}
-	Note that  $\frac{2^{p+1}}{1-2^{p-2}}\leq 4$ provided $0<p\leq 1$. Hence,  the second assertion of the proposition follows from the first one. 
+	Note that  $\frac{2}{1-2^{p-2}}\leq 4$ provided $0<p\leq 1$. Hence,  the second assertion of the proposition follows from the first one. 
 \end{proof}
 
 
@@ -863,9 +891,7 @@ Later we will need  the following variant of Lemma \ref{L1 e1}.
 In this section, we prove  Theorem \ref{Davis} in details. Under the regularity assumption, Theorem \ref{Davis}  provides a affirmative answer to Junge and Xu's open problem raised in \cite[Problem 16]{JX2005} (see also Problem \ref{JX problem} above). 
 
 
-
-
-To prove Theorem \ref{Davis}, we begin with the decomposition of the martingale $y$. To this end, let us  first recall the basic definition of triangular truncation. Let $(R_j)_{j\geq1}$ be a sequence of mutually orthogonal projections in $\mathcal{M}$. For each $x\in L_2(\mathcal{M})$, the triangular truncation are defined by 
+To prove Theorem \ref{Davis}, we begin with the decomposition of a given noncommutative martingale. To this end, let us  first recall the basic definition of triangular truncation. Let $(R_j)_{j\geq1}$ be a sequence of mutually orthogonal projections in $\mathcal{M}$. For each $x\in L_2(\mathcal{M})$, the triangular truncation are defined by 
 \begin{equation}\label{eq:tt}
 	\mathcal{T}^c(x)=\sum_{j\geq1}\sum_{i=1}^jR_ixR_j,\quad \mathcal{T}^r(x)=x-\mathcal{T}^c(x)=\sum_{i> j}R_ixR_j.
 \end{equation}
@@ -879,37 +905,40 @@ For $j\geq1$ and fixed $k\geq1$, define
 	\pi_{0,k}=e_{0,k}=\bigwedge_{i\geq0}q_k^{(2^i)}\qquad \mbox{and}\qquad \pi_{j,k}= e_{j,k}-e_{j-1,k}=\bigwedge_{i\geq j}q_k^{(2^i)}-\bigwedge_{i\geq j-1}q_k^{(2^i)}.
 \end{equation}
 The family of projections $(e_{j,k})_{j,k}$ are defined in \eqref{eq pro e}.
-Note that $\sum_{j\geq0}\pi_{j,k}=1$ in the sense of strong operator topology for every fixed $k\geq1$ (see \cite[Proposition 1.4]{Rand2004}). In what follows, for each $k\geq1$, we denote $\mathcal{T}_{k-1}^c$ and $\mathcal{T}_{k-1}^r$  the triangular truncation defined according to \eqref{eq:tt} with respect to the mutually orthogonal projections $(\pi_{j,k-1})_j$.
+Note that $\sum_{j\geq0}\pi_{j,k}=1$ in the sense of strong operator topology for every fixed $k\geq1$ (see \cite[Proposition 1.4]{Rand2004}). In what follows, for each $k\geq1$, we denote $\mathcal{T}_{k-1}^c$ and $\mathcal{T}_{k-1}^r$  the triangular truncation defined according to \eqref{eq:tt} with respect to the mutually orthogonal projections $(\pi_{j,k-1})_j$. The following decomposition was already used in \cite{Rand2005}, \cite{PR2006} and \cite[eq. (4.10)]{JRWZ2020}. 
 
 \begin{lemma}\label{decom lem 2}
 	Suppose that martingale $x\in L_2(\M)$.
-	For each $k\geq1$, $d_kx=\mathcal{T}_{k-1}^c(d_k y)+\mathcal{T}_{k-1}^r(d_k x)$, $\mathcal{T}_{k-1}^c(d_k x)$ and $\mathcal{T}_{k-1}^r(d_k x)$ are martingale differences. Consequently, 
+	For each $k\geq1$, $d_kx=\mathcal{T}_{k-1}^c(d_k x)+\mathcal{T}_{k-1}^r(d_k x)$, $\mathcal{T}_{k-1}^c(d_k x)$ and $\mathcal{T}_{k-1}^r(d_k x)$ are martingale differences. Consequently, 
 	$$x=x^c+x^r,$$
-	where $x^c=(x_n^c)_{n\geq1}$ and  $x^r=(y_n^r)_{n\geq1}$ are two martingales. Here, for each $n\geq1$, 
-	\begin{equation}
+	where $x^c=(x_n^c)_{n\geq1}$ and  $x^r=(x_n^r)_{n\geq1}$ are two martingales. Here, for each $n\geq1$, 
+	\begin{equation}\label{xcxr}
 		x_n^c=\sum_{k=1}^n\mathcal{T}_{k-1}^c(d_k x),\quad x_n^r=\sum_{k=1}^n\mathcal{T}_{k-1}^r(d_k x).
 	\end{equation}
 \end{lemma}
 
 \begin{proof}
 	It follows from Lemma \ref{Cuculescu} (i) that $q_{k-1}^{(2^i)}\in \mathcal{M}_{k-1}$ for every $i$, and consequently for each $j$ and $k$, $\pi_{j,k-1}\in \M_{k-1}$. Thus, for each $k\geq1$, 
-	$\mathcal{T}^c_{k-1}(d_k x)=\sum_{j\geq 1}\sum_{i\leq j}\pi_{i,k-1}d_ky\pi_{j,k-1}$ is a martingale difference.		
-	Similarly, each $\mathcal{T}_{k-1}^r(d_k x)$ is a martingale difference.
+	$\mathcal{T}^c_{k-1}(d_k x)=\sum_{j\geq 1}\sum_{i\leq j}\pi_{i,k-1}d_kx\pi_{j,k-1}$ is a martingale difference.		
+	Indeed, for each $k$, we see that 
+	$$\mathcal{E}_{k-1}(\mathcal{T}^c_{k-1}(d_k x))= \sum_{j\geq 1}\sum_{i\leq j}\pi_{i,k-1}\mathcal{E}_{k-1}(d_kx)\pi_{j,k-1}=0. $$
+	Thus, the martingale  $x^c=(x_n^c)_{n\geq1}$ defined according to \eqref{xcxr} is a martingale. 
+	Similarly, each $\mathcal{T}_{k-1}^r(d_k x)$ is a martingale difference, and the martingale  $x^r=(x_n^r)_{n\geq1}$ defined according to \eqref{xcxr} is a martingale. 
 \end{proof}
 
-The above decomposition was already used in \cite{Rand2005}, \cite{PR2006} and \cite[eq. (4.10)]{JRWZ2020}. 
+
 
 For each positive $x\in L_2(\mathcal{M})$ and $\lambda>0$, the Cuculescu projections related to the martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ are  denoted by $(q_n^{(\lambda)})_n$ and $q^{(\lambda)}=\wedge_nq_n^{(\lambda)}$; see Lemma \ref{Cuculescu} for more details. Consider the decomposition of $x=x^c+x^r$ given in Lemma \ref{decom lem 2}. Then the following distribution estimate holds for each $\ell\in\mathbb{Z}$:
 \begin{equation}\label{dis S}
-	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250\cdot \frac{1}{2^{\ell}} \tau\Big((1-q^{(2^\ell)}|x|\Big)+\tau(1-e_{\ell}).
+	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250\cdot \frac{1}{2^{\ell}} \tau\Big((1-q^{(2^\ell)}x\Big)+\tau(1-e_{\ell}).
 \end{equation}
-This is implicit in \cite{JRWZ2020}. More precisely, it is a combination of \cite[(4.13)]{JRWZ2020}, \cite[(3.2)]{JRWZ2020}  and \cite[(3.3)]{JRWZ2020} (although  \cite[Remark 4.7 ]{JRWZ2020} provides an alternative estimate for the distribution of the square function, it is insufficient for our purposes).   The same  estimate applies to the distribution function of $S_r(x^r)$.  Applying the following lemma, we will obtain  new distribution estimates of the noncommutative square functions under regularity conditions.
+We refer the reader to \eqref{def:S} for the column and row definitions of the square functions. The inequality \eqref{dis S} is implicit in \cite{JRWZ2020}. More precisely, it is a combination of \cite[(4.13)]{JRWZ2020}, \cite[(3.2)]{JRWZ2020}  and \cite[(3.3)]{JRWZ2020} (although  \cite[Remark 4.7 ]{JRWZ2020} provides an alternative estimate for the distribution of the square function, it is insufficient for our purposes).   The same  estimate applies to the distribution function of $S_r(x^r)$.  Applying the following lemma, we will obtain  new distribution estimates of the noncommutative square functions under regularity conditions.
 
 
 
 \begin{lemma}\label{lem CGPr}
-	Consider the Cuculescu projections $(q_n^{(\lambda)})_n$ (introduced in Lemma \ref{Cuculescu}) with respect to the positive martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ in $L_1(\M)$. Assume that $(\mathcal{M}_n)$ is regular with regularity constant $c_{\mathrm{reg}}$. For each $\lambda>0$, we have
-	$$\tau\Big((1-q^{(\lambda)})x\Big)\leq 2c_{\mathrm{reg}}\lambda\tau(1-q^{\lambda}).$$
+	Consider the Cuculescu projections $(q_n^{(\lambda)})_n$ (introduced in Lemma \ref{Cuculescu}) with respect to the positive martingale $x=(\mathcal{E}_n(x))_{n\geq1}$ in $L_1(\M)$. Assume that $(\mathcal{M}_n)$ is regular with regularity constant $c_{\mathrm{reg}}\geq 1$. For each $\lambda>0$, we have
+	$$\tau\Big((1-q^{(\lambda)})x\Big)\leq c_{\mathrm{reg}}\lambda\tau(1-q^{\lambda}).$$
 \end{lemma}
 \begin{proof}
 	It follows from the regularity assumption that (see \eqref{regular})
@@ -921,7 +950,7 @@ This is implicit in \cite{JRWZ2020}. More precisely, it is a combination of \cit
 	\begin{align*}
 		\tau((1-q^{(\lambda)})x)&=\tau(p_1^{(\lambda)}x)+\sum_{n\geq2} \tau(p_n^{(\lambda)}x)\\
 		&=\tau(p_1^{(\lambda)}xp_1^{(\lambda)})+\sum_{n\geq2} \tau\Big(p_n^{(\lambda)}\mathcal{E}_n(x)p_n^{(\lambda)}\Big)\\
-		&\leq \lambda\tau(p_1^{(\lambda)})+c_{\mathrm{reg}}\lambda \sum_{n\geq1}\tau (p_n^{(\lambda)})\leq 2c_{\mathrm{reg}}\lambda \tau(1-q^{(\lambda)}).
+		&\leq \lambda\tau(p_1^{(\lambda)})+c_{\mathrm{reg}}\lambda \sum_{n\geq2}\tau (p_n^{(\lambda)})\leq c_{\mathrm{reg}}\lambda \tau(1-q^{(\lambda)}).
 	\end{align*}
 	The proof is complete. 
 \end{proof}
@@ -929,7 +958,7 @@ This is implicit in \cite{JRWZ2020}. More precisely, it is a combination of \cit
 
 
 
-We realize that Lemma \ref{lem CGPr} is actually a noncommutative version of Gundy's inequality \cite[Theorem 2]{Gu1969}. 
+We point out that Lemma \ref{lem CGPr} is actually a noncommutative version of Gundy's inequality \cite[Theorem 2]{Gu1969}. 
 We then deduce the following distribution estimates for noncommutative square functions. 
 
 
@@ -954,10 +983,10 @@ Now we are in a position to prove Theorem \ref{Davis}.
 \begin{proof}[Proof of Theorem \ref{Davis}]
 	Let $0<p\leq 1$. Take positive $x\in L_2(\mathcal{M})$ and assume  $\|(\mathcal{E}_n(x))_{n\geq1}\|_{L_p(\M,\ell_{\infty})}$ is finite. 	According to the definition of $\|\cdot\|_{L_p(\mathcal{M},\ell_{\infty})}$, we can take positive $a\in L_p(\mathcal{M})$   such that $x_n=\mathcal{E}_n(x)\leq a$ for all $n\geq1$ and 
 	$$\|a\|_p\leq \|x\|_{L_p(\mathcal{M},\ell_{\infty})}.$$
-	By Lemma \ref{distribution S}, we have 
+	By \eqref{eq FK 2} and Lemma \ref{distribution S}, we have 
 	\begin{equation}\label{Scyc}
 		\begin{aligned}
-			\|x^c\|_{H_p^c(\M)}^p&=\|S_c(y^c)\|_p^p=p\int_0^{\infty}\lambda^{p-1}\tau(\chi_{(\lambda,\infty)}(S_c(x^c))) d\lambda\\
+			\|x^c\|_{H_p^c(\M)}^p&=\|S_c(x^c)\|_p^p=p\int_0^{\infty}\lambda^{p-1}\tau(\chi_{(\lambda,\infty)}(S_c(x^c))) d\lambda\\
 			&\leq p\sum_{\ell\in\mathbb{Z}} 2^{\ell p}\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\\
 			&\leq 4p\sum_{\ell\in\mathbb{Z}} 2^{\ell(p-2)} \tau(q^{(2^{\ell})}xq^{(2^{\ell})}xq^{(2^{\ell})})+p(250c_{\mathrm{reg}}+1)\sum_{\ell\in\mathbb{Z}} 2^{\ell p}\sum_{k\geq \ell}\tau(1-q^{(2^k)}).
 		\end{aligned}
@@ -1015,7 +1044,7 @@ harmonic function with values in $S_{\mathcal{N}}$, and so in $\mathcal{N}$.
 Following \cite[p.\,7-8]{Me2007}, for each $S_{\mathcal{N}}$-valued simple function $f$ on $\mathbb{R}$, define the noncommutative
 analogues of the classical Littlewood-Paley $g$-function
 \begin{equation*}
-	G_c(f)(s)=\Big(\int_0^{\infty}\varepsilon|\frac{\partial}{\partial \varepsilon}P_{\varepsilon}(f)(s)|^2d\varepsilon\Big)^{1/2},\quad s\in \mathbb{R}
+	G_c(f)(s)=\Big(\int_0^{\infty}\varepsilon\Big|\frac{\partial}{\partial \varepsilon}P_{\varepsilon}(f)(s)\Big|^2d\varepsilon\Big)^{1/2},\quad s\in \mathbb{R}
 \end{equation*}
 and 
 $$\|f\|_{\mathcal{H}^c_1(\mathbb{R},\mathcal{N})}= \|G_c(f)\|_{L_1(\mathcal{M})},\quad \mathcal{M}:=L_{\infty}(\mathbb{R})\bar{\otimes}\mathcal{N}.$$
@@ -1069,7 +1098,7 @@ Firstly, it is clear that
 	$$\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})}.$$
 	Therefore, we have
 		$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|f\|_{H_1(\mathcal{M}, \mathcal{D})}\leq c\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})},$$
-		where the first inequality is due to Lemma \ref{lem Mei}, and the second inequality is due to Theorem \ref{Davis}  (see also Remark \ref{rem 1}(v)). We can apply Theorem \ref{Davis} because the related filtration is regular as explained above. 
+		where the first inequality is due to Lemma \ref{lem Mei}, and the second inequality is due to Theorem \ref{Davis}. We can apply Theorem \ref{Davis} because the related filtration is regular as explained above. 
 \end{proof}
 
 
@@ -1153,7 +1182,7 @@ $$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}
 
 
 
-We shall apply Theorem \ref{Ga decom} to deduce a noncommutative version of Theorem \ref{GJ thm}. The dyadic sigma-algebra $\mathcal{F}_n=\sigma(F_n)$ is defined as in \eqref{Fn} with $M_n=2^n$ there.
+We shall apply Theorem \ref{Ga decom} to deduce a noncommutative version of Theorem \ref{GJ thm}. The dyadic sigma-algebra $\mathcal{F}_n=\sigma(F_n)$ is defined as in \eqref{Fn}.
 
 \begin{theorem}\label{dyadic c-d}
 	Let $\mathcal{M}=L_{\infty}(0,1)\bar{\otimes}\mathcal{N}$ where $(\mathcal{N},\varphi)$ is a noncommutative probability space. Consider the regular filtration $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}$ as in \eqref{VNA F}.  For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$,  a sequence $(I_k)_k$ of dyadic intervals and a sequence of positive elements $(a_i)_{i}\subset \mathcal{N}$ such that
@@ -1195,9 +1224,9 @@ We prefer to investigate these applications in future work because they extend b
 	
 	\begin{enumerate}[{\rm (i)}]
 		\item 		
-		For Theorem \ref{Ga decom}, we refer the reader to \cite[Theorem II.4.1]{Ga1973} for its classical martingale version. In the commutative martingale setting, \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
+		In the classical martingale setting, Theorem \ref{Ga decom} goes back to \cite[Theorem II.4.1]{Ga1973}. We also point out that \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
 		
-		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. Recall that noncommutative version of $BMO(\mathbb{R})$ was introduced by Mei \cite[Chapter 1.3]{Me2007}. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. We leave the details to the interested reader.
+		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. We leave the details to the interested reader.
 	\end{enumerate}
 \end{remark}
 

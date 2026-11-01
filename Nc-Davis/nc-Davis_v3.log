@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) (preloaded format=pdflatex 2026.10.21)  31 OCT 2026 09:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) (preloaded format=pdflatex 2026.10.21)  31 OCT 2026 15:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -469,12 +469,15 @@ pdmap/pdftex.map}] [2] [3] [4]
 \tf@brf=\write4
 \openout4 = `nc-Davis_v3.brf'.
 
- [21{/opt/homebrew/Cellar/texlive/20260301_2/share/texmf-dist/fonts/enc/dvips/c
+ [21]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22{/opt/homebrew/Cellar/texlive/20260301_2/share/texmf-dist/fonts/enc/dvips/c
 m-super/cm-super-ts1.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-[23] (./nc-Davis_v3.aux)
+ [23]
+[24] (./nc-Davis_v3.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -482,16 +485,16 @@ L3 programming layer <2026-01-19>
 Package rerunfilecheck Info: File `nc-Davis_v3.out' has not changed.
 (rerunfilecheck)             Checksum: B29D6407139299E4556466AE3ED25F5E;3567.
 Package rerunfilecheck Info: File `nc-Davis_v3.brf' has not changed.
-(rerunfilecheck)             Checksum: 4BE61FBACB8A2422145D6C0F42A9DAEE;4534.
+(rerunfilecheck)             Checksum: AEBEB88C908E91588DE8857E8A6168EE;4496.
  ) 
 Here is how much of TeX's memory you used:
- 11284 strings out of 467525
- 169593 string characters out of 5407384
- 600706 words of memory out of 5000000
- 39712 multiletter control sequences out of 15000+600000
+ 11287 strings out of 467525
+ 169613 string characters out of 5407384
+ 601737 words of memory out of 5000000
+ 39713 multiletter control sequences out of 15000+600000
  637271 words of font info for 78 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 75i,21n,79p,906b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,21n,79p,906b,683s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20260301_2/share/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></opt/homebrew/Cellar/texlive/20260301_2/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmbx8.pfb></opt/homebrew/Cellar/texlive/202603
@@ -527,10 +530,10 @@ ts/type1/public/amsfonts/symbols/msbm10.pfb></opt/homebrew/Cellar/texlive/20260
 301_2/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></opt/home
 brew/Cellar/texlive/20260301_2/share/texmf-dist/fonts/type1/public/cm-super/sfr
 m0800.pfb>
-Output written on nc-Davis_v3.pdf (23 pages, 454136 bytes).
+Output written on nc-Davis_v3.pdf (24 pages, 457024 bytes).
 PDF statistics:
- 861 PDF objects out of 1000 (max. 8388607)
- 774 compressed objects within 8 object streams
- 203 named destinations out of 1000 (max. 500000)
+ 872 PDF objects out of 1000 (max. 8388607)
+ 783 compressed objects within 8 object streams
+ 205 named destinations out of 1000 (max. 500000)
  113 words of extra memory for PDF output out of 10000 (max. 10000000)
 
