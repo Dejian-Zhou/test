@@ -70,7 +70,7 @@
 \begin{abstract}
 We establish the Davis inequality for noncommutative martingales. We show that, for each noncommutative martingale $x=(x_n)_{n\geq1}$ associated with a regular filtration, there exists a  constant $c_p>0$ such that
 $$\|x\|_{H_p(\mathcal{M})}\leq c_p\|x\|_{L_p(\mathcal{M},\ell_{\infty})},\quad 0<p\leq 1,$$
-which provides an affirmative answer to an long-standing open question raised by Junge and Xu  in 2005. Our results apply to Mei's operator-valued Hardy spaces and Garnett-Jones' dyadic Carleson decomposition of noncommutative BMO spaces. 
+which provides an affirmative answer to an long-standing open question raised by Junge and Xu  in 2005. Our results apply to Garnett-Jones' dyadic Carleson decomposition of noncommutative BMO spaces and  Mei's operator-valued Hardy spaces. 
 \end{abstract}
 
 \maketitle
@@ -181,7 +181,7 @@ We summarize the main idea of the proof of Theorem \ref{Davis} as follows.
 	see Lemma \ref{L1 e1}. 
 
 
- We point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008}).  Recently, the last two authors and Potapov \cite{PSZ2024} established connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
+ We point out that the use of the  Fuglede-Kadison determinant is new in the noncommutative martingale setting, however, it is frequently used in the noncommutative analytic Hardy space theory (see e.g. \cite{BL2008} and the references therein).  Recently, the last two authors and Potapov \cite{PSZ2024} established connection between noncommutative martingale Hardy spaces and noncommutative analytic Hardy spaces. Precisely because of this connection, we are motivated to bring the Fuglede-Kadison determinant into noncommutative martingale theory. 
  
  We add a few words concerning on \eqref{FK lem}. Recall that \eqref{Junge strong pp} with best order constant $O((p-1)^{-2})$ (as $p\to 1$) implies that the following inequality cannot hold
 \begin{equation*}
@@ -207,16 +207,7 @@ If we compare this with \eqref{Nc weak 11}, it is  natural to ask whether we hav
 
 
 
-Here, we outline two applications of Theorem \ref{Davis}. Further details can be found in Section \ref{sec-Mei} and Section \ref{sec-car-dyadic}.
-
-\begin{remark}\label{app Davis} $\quad$
-	
-	\begin{enumerate}[{\rm (i)}]
-		\item In setting of classical harmonic analysis, there is a well-known and basic result which says that for each well-defined function $f$, $\|f\|_{\mathcal{H}_1(\mathbb{R})}\leq \|M(f)\|_{L_1(\mathbb{R})}$, where $\mathcal{H}_1(\mathbb{R})$ is the classical Hardy space and $M$ denotes the Hardy-Littlewood maximal function. We refer to \cite[p.\,39]{Gr2009} for more information about this topic. In Section \ref{sec-Mei}, using Theorem \ref{Davis}, we obtain a noncommutative analogue of this result for the operator-valued Hardy space $\mathcal{H}_1(\mathbb{R},\mathcal{N})$ introduced by Mei \cite{Me2007}; see Theorem \ref{Mei-H1} below for details.
-		\item  In the remarkable paper \cite{GJ1982}, Garnett and Jones demonstrated the Carleson decomposition theorem (\cite{Ca1976}) by establishing a dyadic Carleson decomposition (see Theorem \ref{GJ thm}). Applying Theorem \ref{Davis}, we first obtain a decomposition result for noncommutative martingale BMO space in Theorem \ref{Ga decom} which in turn implies the noncommutative analogue of Garnett-Jones' dyadic Carleson decomposition, that is, Theorem \ref{dyadic c-d}.
-		\item  Theorem \ref{Ga decom} is actually a noncommutative version of \cite[Theorem II.4.1]{Ga1973} due to Garsia. Moreover, both Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d} have further possible applications; see Remark \ref{cd Mei}. 
-	\end{enumerate}
-\end{remark}
+Finally, we outline two applications of Theorem \ref{Davis}.  In the remarkable paper \cite{GJ1982}, Garnett and Jones demonstrated the Carleson decomposition theorem (\cite{Ca1976}) by establishing a dyadic Carleson decomposition (see Theorem \ref{GJ thm}). Applying Theorem \ref{Davis}, we can establish noncommutative analogue of Garnett-Jones' dyadic Carleson decomposition, that is, Theorem \ref{dyadic c-d}. Further details can be found in  Section \ref{sec-car-dyadic}.
 
 
 
@@ -225,7 +216,10 @@ Here, we outline two applications of Theorem \ref{Davis}. Further details can be
 
 
 
-The organization of the paper is as follows. Definitions and basic lemmas are presented in Section \ref{sec-pre}. We establish new estimates for Cuculescu projections in Section \ref{sec-Cucu}. These estimates will be used throughout the text. Section \ref{sec-davis} contains the proofs of Theorem \ref{Davis}. Finally, in Section \ref{sec-application}, we provide several applications of our main results. 
+
+
+
+The organization of the paper is as follows. Definitions and basic lemmas are presented in Section \ref{sec-pre}. In Section \ref{sec FK deter}, we introduce basic information of the Fuglede-Kadison determinant and prove usefule lemmas. We establish new estimates for Cuculescu projections in Section \ref{sec-Cucu} with the help of the Fuglede-Kadison determinant.  Section \ref{sec-davis} contains the proofs of Theorem \ref{Davis}. Finally, in Section \ref{sec-application}, we provide several applications of our main results. 
 
 
 
@@ -236,9 +230,18 @@ The organization of the paper is as follows. Definitions and basic lemmas are pr
 \section{Preliminary}\label{sec-pre}
 Throughout this paper, for a regular filtration $(\M_n)_{n\geq1}$, its regularity constant is always denoted by $c_{\mathrm{reg}}$; $c_p$ always denotes a positive constant only depends on symbol $p$, and  $c_{p,\mathrm{reg}}$ always denotes a positive constant depends on both $p$ and $c_{\mathrm{reg}}$, where $c_{\mathrm{reg}}$ is the regularity constant.
 
-\subsection{Noncommutative symmetric spaces }{\color{red}rewrite a bit}
+\subsection{Noncommutative Lebesgue spaces  and singular value function}
 Let $\mathcal M$ be a finite von Neumann algebra equipped with a normal faithful normalized  trace $\tau$.  We always assume $\mathcal{M}\subset B(H)$ for some Hilbert space $H$.
-Denote by $L_0(\mathcal{M})$ the topological $*$-algebra of all $\tau$-measurable operators, and denote by $\mathcal{P}(\mathcal{M})$ the lattice of projections in $\mathcal{M}$. Suppose that $a$ is a self-adjoint $\tau$-measurable operator and let $a=\int_{-\infty}^{\infty} \lambda d e_{\lambda}$ stand for its spectral decomposition. For any Borel subset $B$ of $\mathbb{R}$, the spectral projection of $a$ corresponding to the set $B$ is defined by $\chi_B(a)=\int_{-\infty}^{\infty} \chi_B(\lambda) d e_{\lambda}$.  For $x\in L_0(\mathcal{M})$, we denote by $r(x)$ and $l(x)$ the right and left support projections of $x$, respectively. In fact, the projection $r(x)$ (resp. $l(x)$) is  the least projection $e$ satisfying $xe=x$ (resp. $ex=x$). For $x\in L_0({\M})$, the spectral distribution function $\mathsf{d}(\cdot,x)$ is defined by
+Denote by $L_0(\mathcal{M})$ the topological $*$-algebra of all $\tau$-measurable operators, and denote by $\mathcal{P}(\mathcal{M})$ the lattice of projections in $\mathcal{M}$. Suppose that $a$ is a self-adjoint $\tau$-measurable operator and let $a=\int_{-\infty}^{\infty} \lambda d e_{\lambda}$ stand for its spectral decomposition. For any Borel subset $B$ of $\mathbb{R}$, the spectral projection of $a$ corresponding to the set $B$ is defined by $\chi_B(a)=\int_{-\infty}^{\infty} \chi_B(\lambda) d e_{\lambda}$.  For $0<p<\infty$, the noncommutative Lebesgue space is defined by 
+$$L_p(\M):=\{x\in L_0(\M): \tau(|x|^p)<\infty\}$$
+equipped with the (quasi-) norm
+$$\|x\|_p=[\tau(|x|^p)]^{1/p}.$$
+As usual,  $L_\infty(\mathcal M)$ is $\mathcal {M}$ with the usual operator norm.  We refer the reader to \cite{Pi20031} and \cite{DdePS2023} for more information about the noncommutative Lebesgue spaces.
+
+
+
+
+For $x\in L_0({\M})$, the spectral distribution function $\mathsf{d}(\cdot,x)$ is defined by
 $$\mathsf{d}(s,x)=\tau\big(\chi_{(s,\infty)}(|x|)\big),$$
 and the generalized singular value function $\mu(x)$ is defined by
 $$\mu(t,x)=\inf\big\{s>0:\mathsf{d}(s,x)\leq t\big\},\quad t>0.$$
@@ -264,24 +267,12 @@ We collect several basic facts which are often used in the present paper. The pr
 
 
 
-A Banach (or quasi-Banach) function space $(E,\|\cdot\|_E)$ on the interval $(0,1)$ is called symmetric if for every $g\in E$ and for every measurable function $f\in L_0(0,1)$ with $\mu(f)\leq \mu(g)$, we have $f\in E$ and $\|f\|_E\leq \|g\|_E$. 
-Following \cite{KS2008}, for a given symmetric  Banach (or quasi-Banach) function space $(E,\|\cdot\|_E)$, we define the corresponding noncommutative space on $(\mathcal {M},\tau)$ by setting
-$$E(\mathcal{M}):=\big\{x\in L_0(\mathcal{M} ):\mu(x)\in E\big\}.$$
-The associated norm (or quasi-norm) is
-\begin{equation}\label{def-sp}
-	\|x\|_{E(\mathcal M)}=\|\mu(x)\|_E.
-\end{equation}
-It is shown in \cite{KS2008} (resp. \cite{Su2014}) that if $E(0,1)$ is a symmetric  Banach (resp. quasi-Banach) function space, then $E(\mathcal{ M})$ is a Banach space  (resp. a quasi-Banach).
 
-In the present paper, we concern the following concrete examples of  symmetric (quasi-) Banach function spaces. 
-
-Consider the usual Lebesgue space $L_p(0,1)$, $0<p<\infty$. The noncommutative Lebesgue space $L_p(\mathcal{M})$ can be defined according to \eqref{def-sp}, that is, 
-$$\|x\|_{L_p(\mathcal{M})}^p=\int_0^1 \mu(t,x)^pdt,\quad 0<p<\infty.$$
 Moreover, for each $x\in L_p(\mathcal{M})$, we have the following relationship (\cite[Proposition 3.3.9]{DdePS2023} or \cite[Corollary 2.8]{Fa1986})
 \begin{equation}\label{eq FK 2}
 	\tau(|x|^p)=\int_0^1 \mu(t,x)^pdt=p\int_{0}^\infty \lambda^{p-1}\tau\big(\chi_{(\lambda,\infty)}(|x|)\big) d\lambda.
 \end{equation}
-As usual,  $L_\infty(\mathcal M)$ is $\mathcal {M}$ with the usual operator norm.  We refer the reader to \cite{Pi20031} for more information about the noncommutative Lebesgue spaces.
+
 
 
 
@@ -401,7 +392,7 @@ If $x\in H_p^c(\mathcal{M})$ or $x\in H_p^r(\mathcal{M})$, then $S_c(x)\in L_p(\
 %	to the usual almost everywhere convergence by virtue of Egorov's theorem.
 
 
-\section{Fuglede-Kadison determinant}
+\section{Fuglede-Kadison determinant}\label{sec FK deter}
 The Fuglede-Kadison determinant was introduced in \cite{FK1952}, and was further studied and discussed in  \cite{DDSZ2020,HS2007}. We here apply  the  Fuglede-Kadison determinant defined on the corner algebra. Let $\mathcal M$ be a finite von Neumann algebra equipped with a normal faithful normalized  trace $\tau$.  Given a projection $p\in \mathcal{P}(\mathcal{M})$ (when we are in the semifinite von Neumann algebra setting, we need to assume  $\tau(p)<\infty$), the trace  $\tau^p$ on the  corner algebra $p\mathcal{M}p$ is defined by setting $\tau^p=\tau|_{p\mathcal{M}p}$. We may shortly write $\tau$  instead of $\tau^p$ whenever no confusion appears.  
 Define the corner spectral
 measure associated with the restricted trace by
@@ -609,12 +600,14 @@ for every $\xi\in p(H)$.
 	\Delta_p(s) \geq \Delta_p(\lambda p).
 	\]
 	On the other hand side, 
-	\begin{align*}
+	\begin{equation}\label{delta p}
+	\begin{split}
 		\Delta_p(\lambda p)
 		&=\exp\bigl(\tau(\log_p(\lambda p))\bigr)
 		=\exp\bigl(\tau((\log\lambda)p)\bigr)\\
 		&=\exp\bigl((\log\lambda)\tau(p)\bigr)=\lambda^{\tau(p)}.
-	\end{align*}
+	\end{split}
+	\end{equation}
 Therefore,
 \[
 		\Delta_e(b)\geq \lambda^{\tau(p)} \Delta_q(d)=\lambda^{\tau(p)} \Delta_q(qbq).
@@ -719,14 +712,32 @@ projections. For each $\ell\in\mathbb{Z}$ and each $n\geq1$, set
 \begin{equation}\label{eq pro e}
 e_{\ell,n}=\bigwedge_{k\geq \ell}q_{n}^{(2^{k})}, \quad e_{\ell}=\bigwedge_{k\geq \ell}q^{(2^k)}.
 \end{equation}
-The family of projections $(e_{\ell,n})_{\ell,n}$ is decreasing on $n$ and increasing on $\ell$. Of course,  $(e_{\ell})_{\ell}$ is increasing on $\ell$, and $e_{\ell}\leq e_{\ell,n}$ for all $n$. For each $\ell\in\mathbb{Z}$ and $n\geq1$, we have 
-\begin{align*}
+The family of projections $(e_{\ell,n})_{\ell,n}$ is decreasing on $n$ and increasing on $\ell$. Of course,  $(e_{\ell})_{\ell}$ is increasing on $\ell$, and $e_{\ell}\leq e_{\ell,n}$ for all $n$. Moreover, $e_{\ell,n}\to e_{\ell}$ in the sense of strong operator topology. 
+In \cite[eq. (2.5)]{JRWZ2020}, it was proved that for each $\ell\in\mathbb{Z}$ and $n\geq1$, 
+\begin{align}\label{exe n}
 	\tau(e_{\ell,n}x_ne_{\ell,n}x_ne_{\ell,n})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(e_{j,n}-e_{j-1,n}).
-\end{align*}	
-We refer to \cite[eq. (2.5)]{JRWZ2020} for a detailed proof of the last inequality, and by the same argument as for \cite[eq. (2.5)]{JRWZ2020},  we can show {\color{red}provide the details to the next inequality}
+\end{align}	
+Note that $x_n$ converges to $x$ in $L_1(\mathcal{M})$. Then
+\begin{align*}
+	\|e_{\ell,n}x_ne_{\ell,n}-e_{\ell}xe_{\ell}\|_1&\leq \|e_{\ell,n}(x_n-x)e_{\ell,n}\|_1+\|(e_{\ell,n}-e_{\ell})xe_{\ell,n}\|_1+\|e_{\ell}x(e_{\ell,n}-e_{\ell})\|_1\\
+	&\leq \|x_n-x\|_1
+	+\|(e_{\ell,n}-e_{\ell})x\|_1
+	+\|x(e_{\ell,n}-e_{\ell})\|_1\longrightarrow0,\quad  n\to \infty.
+\end{align*}
+Observe that for each $\ell\in\mathbb{Z}$,
+$$e_{\ell,n}x_ne_{\ell,n}=e_{\ell,n}q_n^{(2^{\ell})}x_nq_n^{(2^{\ell})}e_{\ell,n}\leq 2^{\ell}e_{\ell,n},\quad e_{\ell}xe_{\ell}=e_{\ell}q^{(2^{\ell})}xq^{(2^{\ell})}e_{\ell}\leq 2^{\ell}e_{\ell}.$$
+Consequently, for each $\ell\in\mathbb{Z}$,
+\begin{align*}
+	\|e_{\ell,n}x_ne_{\ell,n}-e_{\ell}xe_{\ell}\|_2^2&\leq \|e_{\ell,n}x_ne_{\ell,n}-e_{\ell}xe_{\ell}\|_{\infty}\|e_{\ell,n}x_ne_{\ell,n}-e_{\ell}xe_{\ell}\|_1\\
+	&\leq 2^{\ell+1}	\|e_{\ell,n}x_ne_{\ell,n}-e_{\ell}xe_{\ell}\|_1 \longrightarrow 0,\quad n\to 0.
+\end{align*}
+This implies that for each $\ell\in\mathbb{Z}$,
+$$	\tau(e_{\ell,n}x_ne_{\ell,n}x_ne_{\ell,n})=\|e_{\ell,n}x_ne_{\ell,n}\|_2^2\to \|e_{\ell}xe_{\ell}\|_2^2=	\tau(e_{\ell}xe_{\ell}xe_{\ell}).$$
+Therefore, taking limit from \eqref{exe n}, we have
 \begin{equation}\label{eq exe}
-	\tau(e_{\ell}xe_{\ell}xe_{\ell})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(e_{j}-e_{j-1})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(1-e_{j-1}).
+	\tau(e_{\ell}xe_{\ell}xe_{\ell})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(e_{j}-e_{j-1})\leq 2\sum_{j=-\infty}^{\ell} 2^{2j}\tau(1-e_{j-1}),
 \end{equation}	
+where we also used the fact  $\lim_n\tau(e_{j,n}-e_{j-1,n})=\tau(e_{j}-e_{j-1})$ since the trace $\tau$ is normal and $(e_{\ell,n})_n$ converges to $e_{\ell}$ in the sense of strong operator topology.
 
 
 The following lemma is implicit in \cite{JOW2018}. For completeness, we still include the proof.
@@ -782,11 +793,12 @@ For each $\lambda>0$, we have
 	Here, for $S\subset \mathbb{R}$, $|S|$  denotes the Lebesgue measure of $S$.  
 \end{lemma}
 \begin{proof}
- Note that 
+Fix $\lambda>0$. Note that 
 	$$\tau(1-q^{(\lambda)})=\lim_{N\to\infty}\tau(1-q_N^{(\lambda)})$$
-	as $q^{(\lambda)}=\wedge_n q_n^{(\lambda)}$. Hence, it suffices to show 
+	as $q^{(\lambda)}=\wedge_n q_n^{(\lambda)}$ and the trace $\tau$ is normal. Hence, it suffices to show 
 	$$\tau(1-q_N^{(\lambda)})\leq |\{t>0: \lambda\leq A(t)\}|,\quad \forall N\in\mathbb{N}. $$
-	Set ($r_{N+1}=0$ for convenience)
+	
+	Fix $N\in \mathbb{N}$. Set ($r_{N+1}=0$ for convenience)
 	\[r_n=\sum_{j=n}^{N}p_j^{(\lambda)}=q_{n-1}^{(\lambda)}-q_N^{(\lambda)},\qquad 1\leq n\leq N.\]
 	Then it is clear that $r_n=p_n^{(\lambda)}+r_{n+1}$ with $p_n^{(\lambda)}r_{n+1}=r_{n+1}p_n^{(\lambda)}=0$. Define 
 	\[b_n=r_nar_n\in r_n\mathcal{M}r_n,\quad 1\leq n\leq N.\]
@@ -804,7 +816,7 @@ By \eqref{qxq geq p}, for each $n\geq1$, we have
 		&=\lambda^{\tau(p_1^{(\lambda)})+\cdots +\tau(p_{N-1}^{(\lambda)})} \lambda^{\tau(p_{N}^{(\lambda)})}\\
 		&=\lambda^{\tau(1-q_N^{(\lambda)})}=\lambda^{\tau(r_1)},
 	\end{align*}
-	where we also used  Lemma \ref{thm FK} (iii) in the last inequality. 
+	where we also used  Lemma \ref{thm FK} (iii) in the last inequality and \eqref{delta p} in the first equality. 
 	Consequently, 
 	$$\log \lambda^{\tau(r_1)}\leq \log 	\Delta_{r_1}(b_1),$$
 	and by the definition of the Fuglede-Kadison determinant \eqref{eq:corner-det},
@@ -973,8 +985,8 @@ We then deduce the following distribution estimates for noncommutative square fu
 
 \begin{proof}
 	We only deal with $x^c$ and the estimate for $x^r$ can be similarly done.  	Note that \[\tau(1-e_{\ell})\leq \sum_{k\geq \ell}\tau(1-q^{(2^k)}),\quad \forall \ell\in\mathbb{Z}.\]
-	Then, by Lemma \ref{lem CGPr}, we have
-	\[	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(y^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250c_{\mathrm{reg}} \tau\Big(1-q^{(2^\ell)}\Big)+\sum_{k\geq \ell}\tau(1-q^{(2^k)}).\]
+	Then, combining \eqref{dis S} and Lemma \ref{lem CGPr}, we have
+	\[	\tau\Big(\chi_{(2^{\ell},\infty)}(S_c(x^c))\Big)\leq  4\cdot\frac{1}{2^{2\ell}} \tau(q^{(2^\ell)}xq^{(2^\ell)}xq^{(2^\ell)})+250c_{\mathrm{reg}} \tau\Big(1-q^{(2^\ell)}\Big)+\sum_{k\geq \ell}\tau(1-q^{(2^k)}).\]
 	The desired assertion follows. 
 \end{proof}
 
@@ -1026,6 +1038,142 @@ In this section, we collect applications of our main results.
 
 
 
+
+%Our results can be also applied to other models in operator-valued harmonic analysis. 
+%
+%\begin{remark}\label{rem haar}
+%	For each $I\in D_n$ for some $n\in\mathbb{Z}$, there are $I_L,I_R\in D_{n+1}$ such that $I_L\cup I_R=I$, where $I_L,I_R$ are referred to the left and right parts
+%	of $I$, respectively. The Haar function associated with the interval is defined by setting
+%	$$h_I=m(I)^{-\frac{1}{2}}\chi_{I_L}-m(I)^{\frac{1}{2}}\chi_{I_R}.$$
+%	Then, for each $f\in L_2(\mathcal{M})$, it is not hard to see that $(T_N(f))_{N\in\mathbb{Z}}$ forms a martingale which is $L_2(\M)$-dominated by $f=(\mathcal{E}_N(f))_{N\in\mathbb{Z}}$ in the sense of Definition \ref{def:ds2} (also Definition \ref{def:ds1} (i)), where the dyadic
+%	Haar multiplier  $T_N(f)$ in operator-valued setting is defined by setting $$T_N(f)=\sum_{n\leq N} \sum_{I\in D_n}\epsilon_I \langle f,h_I\rangle h_I,\quad \epsilon_I\in \{1,-1\}.$$
+%	Hence, our Theorem \ref{Davis ds} applies to the Haar multiplier. Our results also apply to Haar shift operators studied in \cite{Va2010} since this kind of operators fulfill Definition \ref{def:ds1} (ii) (to check this, one needs to borrow some argument from \cite[Section 3]{AJO2021}).
+%\end{remark}
+
+
+
+
+\subsection{Carleson's decomposition of noncommutative martingale BMO spaces}\label{sec-car-dyadic}
+Here, we study the Carleson decomposition of noncommutative martingale BMO spaces via Theorem \ref{Davis}. In the classical setting, Carleson \cite{Ca1976} firstly provided a decomposition for functions in $BMO(\mathbb{R})$, and its dyadic version was given by Garnett and Jones \cite[Theorem 2.1]{GJ1982}. To better state their result, let us first recall related notations.  Let $(\mathcal{M},\tau)$ be a noncommutative measure space and let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ satisfying $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
+Assume that for each $n\geq1$ there exists conditional expectation $\mathcal{E}_n:\mathcal{M}\to\mathcal{M}_n$. 
+The column noncommutative martingale BMO space is  defined by (let $\mathcal{E}_0(x)=0$ for convenience):
+$$\mathcal{BMO}^c(\mathcal{M})=\{x\in L_2(\mathcal{M}):\sup_{n\geq1} \|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}<\infty\}$$
+equipped with the norm 
+$$\|x\|_{\mathcal{BMO}^c(\mathcal{M})}=\sup_{n\geq1}\|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}^{\frac{1}{2}},$$
+and similarly, we define  the row BMO space as 
+$$\mathcal{BMO}^r(\mathcal{M})=\{x:x^*\in \mathcal{BMO}^c(\mathcal{M})\}$$
+equipped with the norm 
+$\|x\|_{\mathcal{BMO}^r(\mathcal{M})}=\|x^*\|_{\mathcal{BMO}^c(\mathcal{M})}.$ Finally, define 
+$$\mathcal{BMO}(\mathcal{M})=\mathcal{BMO}^c(\mathcal{M})\cap \mathcal{BMO}^r(\mathcal{M})$$
+equipped with the norm 
+$$\|x\|_{\mathcal{BMO}(\mathcal{M})}=\max\{\|x\|_{\mathcal{BMO}^c(\mathcal{M})},\|x\|_{\mathcal{BMO}^r(\mathcal{M})}\}.$$
+The space $\mathcal{BMO}(\mathcal{M})$ is actually the dual space of martingale Hardy space $H_1(\M)$; see \cite[Appendix]{PX1997}.
+
+
+
+Our first decomposition of  noncommutative martingale BMO space is read as follows. 
+\begin{theorem}\label{Ga decom}
+Assume that the filtration $(\mathcal{M}_n)_{n\geq1}$ is regular. For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
+$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
+and 
+$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+\end{theorem}
+
+
+\begin{proof}
+Since the filtration is regular, then Theorem \ref{Davis} guarantees that
+\begin{equation}\label{d 1}
+\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}
+\end{equation}
+ for each martingale $x=(x_n)_{n\geq1}$.
+Recall that Talebi et al.   \cite[Theorem 2.3]{TMS2019} proved the same assertion of the theorem with the help of  \eqref{d 1} (this was made as an assumption there).
+Then we can apply \cite[Theorem 2.3]{TMS2019}  to get our desired assertion here.  
+\end{proof}
+
+We next would like to establish a noncommutative Garnett and Jones' famous dyadic Carleson's decomposition. To this end, let us first recall the semi-commutative dyadic filtration. Let $(\mathcal{N},\varphi)$ be a semifinite von Neumann algebra equipped with a normal semifinite faithful trace $\varphi$. 
+ For each $n\in\mathbb{Z}$, let $\mathcal{D}_{n}$ be the $\sigma$-algebra generated by
+$D_n=\left\{D_n^{k}: k\in \mathbb{Z}\right\},$
+where the dyadic intervals $D_n^{k}$ in $\mathbb{R}$ are defined   as
+\begin{equation}
+D_n^{k}=(k2^{-n}, (k+1)2^{-n}],
+\end{equation}
+and let 
+\begin{equation}\label{dyadic Mn}
+\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N},\quad n\in\mathbb{Z}.
+\end{equation}
+Denote by $\mathbb{E}_n$ the conditional expectation $L_{\infty}(\mathbb{R})\to L_{\infty}(\mathcal{D}_n)$:
+$$\mathbb{E}_n(f)=\sum_{I\in D_n}\frac{1}{m(I)}\int_If(t)dt\chi_I.$$
+Then each $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ is the conditional expectation from $\mathcal{M}=L_{\infty}(\mathbb{R})\bar{\otimes} \mathcal{N}$ onto $ \mathcal{M}_n= L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, where $\mathrm{id}_{\mathcal{N}}$ is the identity map on $\mathcal{N}$.  
+
+The following fact is well-known; see e.g. \cite[p.\,561]{Parcet2} for its proof.
+
+\begin{lemma}
+	The filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is regular with constant $2$, where $\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, $n\in\mathbb{Z}$.
+\end{lemma}
+
+
+For the case $\mathcal{N}=\mathbb{C}$, and $\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)$, we write $\mathcal{BMO}(\mathbb{R})$ instead of $ \mathcal{BMO}(L_{\infty}(\mathbb{R}))$.  Garnett and Jones' famous dyadic Carleson's decomposition is rewritten as follows
+\begin{theorem}[{\cite[Theorem 2.1]{GJ1982}}]\label{GJ thm}
+	For each $f\in \mathcal{BMO}(\mathbb{R})$, there exist $g\in L_{\infty}(\mathbb{R})$,  a sequence of dyadic intervals $(I_k)_k$,  and a sequence of real numbers $(a_k)_{k}$ such that
+	$$f-\mathbb{E}(f)=g+\sum_ka_k\chi_{I_k}$$
+	with $\|g\|_{\infty}\leq \|f\|_{\mathcal{BMO}(\mathbb{R})}$
+	and for each dyadic interval $I$, there exists a universal constant $c>0$,
+	$$\frac{1}{m(I)}\sum_{I_k\subset I}|a_k| m(I_k)\leq c\|f\|_{\mathcal{BMO}(\mathbb{R})}.$$
+\end{theorem}
+
+
+
+
+We shall apply Theorem \ref{Ga decom} to deduce a noncommutative version of Theorem \ref{GJ thm}. 
+
+\begin{theorem}\label{dyadic c-d}
+	Let $\mathcal{M}=L_{\infty}(\mathbb{R})\bar{\otimes}\mathcal{N}$ where $(\mathcal{N},\varphi)$ is a noncommutative space. Consider the regular filtration $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}$ as in \eqref{dyadic Mn}.  For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$,  a sequence $(I_k)_k$ of dyadic intervals and a sequence of positive elements $(a_i)_{i}\subset \mathcal{N}$ such that
+	$$f=g+\sum_ia_i\chi_{I_i}$$
+	with $\|g\|_{L_{\infty}(\mathcal{M})}\leq \|f\|_{\mathcal{BMO}(\mathcal{M})}$,
+	and for each dyadic interval $I_0$, there exists a universal constant $c>0$
+	$$\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_i m(I_i)\Big\|_{\mathcal{N}}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+\end{theorem}
+
+\begin{proof}
+	By Theorem \ref{Ga decom}, there
+	exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
+	$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
+	and 
+	$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_ku_k\|_{L_{\infty}(\mathcal{M})}\leq  c \|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
+	Note that now the conditional expectation is given by $\mathcal{E}_n=\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$. Hence,
+	$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_{k\geq1} \sum_{I\in \mathcal{D}_k}\frac{1}{m(I)}\int_I u_k(t)dt \chi_I.$$
+For each $k$ and $I\in \mathcal{D}_k$, set $b_{k,I}=\frac{1}{m(I)}\int_I u_k(t)dt\in \mathcal{N}$. Therefore, we can rewrite 
+$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_k\sum_{I\in \mathcal{D}_k} b_{k,I} \chi_{I} =\sum_i a_i\chi_{I_i}.$$
+On the other hand, concerning dyadic $I_0\in \mathcal{D}_n$ for some $n\geq 1$, we have 
+\begin{align*}
+	\sum_{i:I_i\subset I_0} a_i m(I_i)&=\sum_{k\geq n+1}\sum_{I\in \mathcal{D}_k,I\subset I_0} b_{k,I}m(I)\\
+	&=\sum_{k\geq n+1}\sum_{I\in \mathcal{D}_k,I\subset I_0} \int_I u_k(t)dt=\sum_{k\geq n+1}\int_{I_0}u_k(t)dt\\
+	&\leq \int_{I_0} \sum_{k\geq1}u_k(t)dt.
+\end{align*}
+Thus, we have
+	\begin{align*}
+\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{\mathcal{N}}&=\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{L_{\infty}(\M)}\\
+&\leq \frac{1}{m(I_0)}\int_{I_0} \|\sum_{k\geq1}u_k\|_{L_{\infty}(\M)}dt\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.
+	\end{align*}
+The proof is complete. 
+\end{proof}
+
+
+Let us conclude this subsection with a brief discussion on the potential applications of Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d}.
+We prefer to investigate these applications in future work because they extend beyond the scope of our paper and likely require an additional effort.
+
+\begin{remark}\label{cd Mei} 
+	
+	\begin{enumerate}[{\rm (i)}]
+		\item 		
+		In the classical martingale setting, Theorem \ref{Ga decom} goes back to \cite[Theorem II.4.1]{Ga1973}. We also point out that \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
+		
+		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. 
+	\end{enumerate}
+\end{remark}
+
+
+
 \subsection{Operator-valued Hardy space and Hardy-Littlewood maximal function}\label{sec-Mei}
 In last decades,  operator-valued harmonic analysis has gained rapid developments. We refer the reader to \cite{Me2007,XXX2016}  for operator-valued Hardy spaces; to \cite{CCP2022,Parcet2,HLX2023} for noncommutative CZ theory. It is also known that operator-valued  harmonic analysis often provides deep insights in harmonic analysis in the general noncommutative setting, and sometimes plays essential role based on the so-called transference principles (see e.g. \cite{CXY2013,HLW2021,XXX2016} and the references therein).
 
@@ -1035,7 +1183,7 @@ Let $(\mathcal{N},\varphi)$ be a semifinite von Neumann algebra equipped with a 
 By a $S_{\mathcal{N}}$-valued simple function $f$ on $(\mathbb{R}, m)$ we mean $f$ has the following form:
 $$f =\sum_{i=1}^n a_i\chi_{A_i},$$
 where $a_i\in S_{\mathcal{N}}$ and $A_i$'s are measurable disjoint subsets of $\R$ with $m(A_i) < \infty$. 
- For a $S_{\mathcal{N}}$-valued simple function $f$,  its Poisson integral on the upper half plane $\mathbb R^2_
+For a $S_{\mathcal{N}}$-valued simple function $f$,  its Poisson integral on the upper half plane $\mathbb R^2_
 + = \{(s, \varepsilon)|\varepsilon > 0\}$ is defined by:
 $$ P_{\varepsilon}(f)(s)= \int_{\mathbb R}P_{\varepsilon}(s-t)f(t)dt, \quad (s,\varepsilon) \in \R^2_+,$$
 where $P_{\varepsilon}(s)=\frac{1}{\pi}\frac{\varepsilon}{
@@ -1061,25 +1209,13 @@ For   each $S_{\mathcal{N}}$-valued simple function $f$ on $\mathbb{R}$ and $h=(
 $$A_h(f)(t)=\frac{1}{h_1+h_2}\int_{t-h_1}^{t+h_2}f(s)ds.$$
 In the commutative case, i.e., $\mathcal{N}=\mathbb{C}$, it is well-known (see e.g. \cite[p.\,39]{Gr2009}) that  there exists a universal  constant $c>0$ such that
 \begin{equation}\label{classical mH1}
- \|f\|_{\mathcal{H}_1(\mathbb{R})}\leq c\|\sup_{h}|A_{h}(f)|\|_{L_1(\mathbb{R})}.
+	\|f\|_{\mathcal{H}_1(\mathbb{R})}\leq c\|\sup_{h}|A_{h}(f)|\|_{L_1(\mathbb{R})}.
 \end{equation}
 This is almost obvious in the commutative setting. Due to noncommutativity and the absence of pointwise estimates, this is not evident at all in the noncommutative framework. We now apply Theorem \ref{Davis} to get the operator-valued analogue of \eqref{classical mH1}.
 
 
-To apply Theorem \ref{Davis}, we need to introduce noncommutative dyadic martingale Hardy space. For each $n\in\mathbb{Z}$, let $\mathcal{D}_{n}$ be the $\sigma$-algebra generated by
-$D_n=\left\{D_n^{k}: k\in \mathbb{Z}\right\},$
-where the dyadic intervals $D_n^{k}$ is defined   as
-$$D_n^{k}=(k2^{-n}, (k+1)2^{-n}],$$
-and let 
-$$\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N},\quad n\in\mathbb{Z}.$$
-Denote by $\mathbb{E}_n$ the conditional expectation $L_{\infty}(\mathbb{R})\to L_{\infty}(\mathcal{D}_n)$:
-$$\mathbb{E}_n(f)=\sum_{I\in D_n}\frac{1}{m(I)}\int_If(t)dt\chi_I.$$
-Then each $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ is the conditional expectation from $\mathcal{M}=L_{\infty}(\mathbb{R})\bar{\otimes} \mathcal{N}$ onto $ \mathcal{M}_n= L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, where $\mathrm{id}_{\mathcal{N}}$ is the identity map on $\mathcal{N}$.  The noncommutative dyadic martingale Hardy space (see Section \ref{sec-mart} for definition) with respect to the filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is denoted by $H_1(\mathcal{M},\mathcal{D})$. 
-The following fact is well-known; see e.g. \cite[p.\,561]{Parcet2} for its proof.
+In what follows, we shall use the filtration  $(\mathcal{M}_n)$ introduced in \eqref{dyadic Mn}. The noncommutative dyadic martingale Hardy space (see Section \ref{sec-mart} for definition) with respect to the filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is denoted by $H_1(\mathcal{M},\mathcal{D})$. 
 
-\begin{lemma}
-	The filtration $(\mathcal{M}_n)_{n\in\mathbb{Z}}$ is regular with constant $2$, where $\mathcal{M}_n=L_{\infty}(\mathcal{D}_n)\bar{\otimes} \mathcal{N}$, $n\in\mathbb{Z}$.
-\end{lemma}
 
 The lemma below is a direct consequence of \cite[Corollary 5.3]{Me2007}. 
 \begin{lemma}\label{lem Mei}
@@ -1090,146 +1226,21 @@ The lemma below is a direct consequence of \cite[Corollary 5.3]{Me2007}.
 
 Now we state our main result of this subsection.
 \begin{theorem}\label{Mei-H1}
-For each $f\in L_1(\mathcal{M})$, there exists a universal constant $c>0$ such that 
+	For each $f\in L_1(\mathcal{M})$, there exists a universal constant $c>0$ such that 
 	$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})}.$$
 \end{theorem}
 \begin{proof}
-Firstly, it is clear that 
+	Firstly, it is clear that 
 	$$\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})}.$$
 	Therefore, we have
-		$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|f\|_{H_1(\mathcal{M}, \mathcal{D})}\leq c\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})},$$
-		where the first inequality is due to Lemma \ref{lem Mei}, and the second inequality is due to Theorem \ref{Davis}. We can apply Theorem \ref{Davis} because the related filtration is regular as explained above. 
+	$$\|f\|_{\mathcal{H}_1(\mathbb{R},\mathcal{N})}\leq c\|f\|_{H_1(\mathcal{M}, \mathcal{D})}\leq c\|(\mathbb{E}_n(f))_n\|_{L_1(\mathcal{M},\ell_{\infty})}\leq c\|(A_h(f))_{h\in \mathbb{R}_+\times \mathbb{R}_+}\|_{L_1(\mathcal{M},\ell_{\infty})},$$
+	where the first inequality is due to Lemma \ref{lem Mei}, and the second inequality is due to Theorem \ref{Davis}. We can apply Theorem \ref{Davis} because the related filtration is regular as explained above. 
 \end{proof}
 
 
 \begin{remark}
 	The same idea applies to operator-valued Hardy space defined on a  homogeneous metric measure space; see for instance \cite{FHW2023}. 
 \end{remark}
-
-%Our results can be also applied to other models in operator-valued harmonic analysis. 
-%
-%\begin{remark}\label{rem haar}
-%	For each $I\in D_n$ for some $n\in\mathbb{Z}$, there are $I_L,I_R\in D_{n+1}$ such that $I_L\cup I_R=I$, where $I_L,I_R$ are referred to the left and right parts
-%	of $I$, respectively. The Haar function associated with the interval is defined by setting
-%	$$h_I=m(I)^{-\frac{1}{2}}\chi_{I_L}-m(I)^{\frac{1}{2}}\chi_{I_R}.$$
-%	Then, for each $f\in L_2(\mathcal{M})$, it is not hard to see that $(T_N(f))_{N\in\mathbb{Z}}$ forms a martingale which is $L_2(\M)$-dominated by $f=(\mathcal{E}_N(f))_{N\in\mathbb{Z}}$ in the sense of Definition \ref{def:ds2} (also Definition \ref{def:ds1} (i)), where the dyadic
-%	Haar multiplier  $T_N(f)$ in operator-valued setting is defined by setting $$T_N(f)=\sum_{n\leq N} \sum_{I\in D_n}\epsilon_I \langle f,h_I\rangle h_I,\quad \epsilon_I\in \{1,-1\}.$$
-%	Hence, our Theorem \ref{Davis ds} applies to the Haar multiplier. Our results also apply to Haar shift operators studied in \cite{Va2010} since this kind of operators fulfill Definition \ref{def:ds1} (ii) (to check this, one needs to borrow some argument from \cite[Section 3]{AJO2021}).
-%\end{remark}
-
-
-
-
-\subsection{Carleson's decomposition of noncommutative martingale BMO spaces}\label{sec-car-dyadic}
-Here, we study the Carleson decomposition of noncommutative martingale BMO spaces via Theorem \ref{Davis}. In the classical setting, Carleson \cite{Ca1976} firstly provided a decomposition for functions in $BMO(\mathbb{R})$, and its dyadic version was given by Garnett and Jones \cite[Theorem 2.1]{GJ1982}. To better state their result, let us first recall related notations. The results (Theorems \ref{Ga decom} and \ref{dyadic c-d}) below actually work for semifinite von Neumann algebras, and to simplify the discussion, let us only consider the finite case. Following the symbols introduced in Section \ref{sec-mart}, let $(\mathcal{M},\tau)$ be a noncommutative probability space and let $(\mathcal{M}_n)_{n\geq1}$ be a sequence of  increasing von Neumann sub-algebras of $\mathcal{M}$ satisfying $\cup_n\mathcal{M}_n$ is weak$^*$ dense in $\mathcal{M}$.
-Assume that for each $n\geq1$ there exists conditional expectation $\mathcal{E}_n:\mathcal{M}\to\mathcal{M}_n$. 
-The column noncommutative martingale BMO space is  defined by (let $\mathcal{E}_0(x)=0$ for convenience):
-$$\mathcal{BMO}^c(\mathcal{M})=\{x\in L_2(\mathcal{M}):\sup_{n\geq1} \|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}<\infty\}$$
-equipped with the norm 
-$$\|x\|_{\mathcal{BMO}^c(\mathcal{M})}=\sup_{n\geq1}\|(\mathcal{E}_n|x-\mathcal{E}_{n-1}(x)|^2)_{n\geq1}\|_{\infty}^{\frac{1}{2}},$$
-and similarly, we define  the row BMO space as 
-$$\mathcal{BMO}^r(\mathcal{M})=\{x:x^*\in \mathcal{BMO}^c(\mathcal{M})\}$$
-equipped with the norm 
-$\|x\|_{\mathcal{BMO}^r(\mathcal{M})}=\|x^*\|_{\mathcal{BMO}^c(\mathcal{M})}.$ Finally, define 
-$$\mathcal{BMO}(\mathcal{M})=\mathcal{BMO}^c(\mathcal{M})\cap \mathcal{BMO}^r(\mathcal{M})$$
-equipped with the norm 
-$$\|x\|_{\mathcal{BMO}(\mathcal{M})}=\max\{\|x\|_{\mathcal{BMO}^c(\mathcal{M})},\|x\|_{\mathcal{BMO}^r(\mathcal{M})}\}.$$
-The space $\mathcal{BMO}(\mathcal{M})$ is actually the dual space of martingale Hardy space $H_1(\M)$; see \cite[Appendix]{PX1997}.
-
-
-We here are in the dyadic filtration setting. 
-Consider $([0,1),\mathcal{F},m)$, where $m$ is the Lebesgue measure on $[0,1)$ and $\mathcal{F}$ is the $\sigma$-algebra  generated by all open sets in $[0,1)$. We simplify write $L_{\infty}([0,1),\mathcal{F},m)$ by $L_{\infty}(0,1)$.
-Define the dyadic filtration
-\begin{equation}\label{Fn}
-	F_n=\sigma\{ [\frac{k}{2^n}, \frac{k+1}{2^n}): 0\leq k<2^n\}, \quad \mathcal{F}_n=\sigma(F_n),\quad  n\geq0.
-\end{equation}
- The conditional expectations with respect to $(\mathcal{F}_n)_{n\geq1}$ are denoted by $(\mathbb{E}_n)_{n\geq1}$.
-In fact, for $f\in L_1(0,1)$,
-\begin{equation}\label{condexp}
-	\mathbb{E}_n(f)=\sum_{Q\in F_n} \frac{1}{m(Q)}\int_{Q} f(x)dm(x) \chi_Q, \quad  n\geq1.
-\end{equation}
-For each $n$, we simplify write $L_{\infty}([0,1),\mathcal{F}_n,m)$ by $ L_{\infty}(\mathcal{F}_n) $, and let
-\begin{equation}\label{VNA F}
-	\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}.
-\end{equation}
-Then $(\mathcal{N}_n)_{n\geq 1}$, an increasing sequence of von Neumann subalgebras of $\mathcal{M}$,  is regular with regularity constant $c_{\rm reg}=2$.   The conditional expectation of $\mathcal{M}$ onto $\mathcal{M}_n$ is $\mathbb{E}_n\otimes \mathrm{id}_{\mathcal{N}}$ (simply $\mathbb{E}_n$), where $\mathrm{id}_{\mathcal{N}}$ is the identity map from $\mathcal{N}$ to $\mathcal{N}$.
-
-
-For the case $\mathcal{N}=\mathbb{C}$, and $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)$, we write $\mathcal{BMO}(0,1)$ instead of $ \mathcal{BMO}(L_{\infty}(0,1))$.  Garnett and Jones' famous dyadic Carleson's decomposition is rewritten as follows
-\begin{theorem}[{\cite[Theorem 2.1]{GJ1982}}]\label{GJ thm}
-For each $f\in \mathcal{BMO}(0,1)$, there exist $g\in L_{\infty}(0,1)$,  a sequence of dyadic intervals $(I_k)_k$,  and a sequence of real numbers $(a_k)_{k}$ such that
-	 $$f-\mathbb{E}(f)=g+\sum_ka_k\chi_{I_k}$$
-	 with $\|g\|_{\infty}\leq \|f\|_{\mathcal{BMO}(0,1)}$
-	 and for each dyadic interval $I$, there exists a universal constant $c>0$,
-	 $$\frac{1}{m(I)}\sum_{I_k\subset I}|a_k| m(I_k)\leq c\|f\|_{\mathcal{BMO}(0,1)}.$$
-\end{theorem}
-
-We are going to show a noncommutative version of this result. Recall that, under the assumption  $\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$ for each martingale $x=(x_n)_{n\geq1}$, it was recently established by Talebi et al. \cite[Theorem 2.3]{TMS2019} that 
-for each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $v\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
-$$f=v+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
-and 
-$$\|v\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
-
-Note that Theorem \ref{Davis} guarantees that, under the assumption that the filtration is regular,  
-$$\|x\|_{H_1(\mathcal{M})}\leq c\|x\|_{L_1(\mathcal{M},\ell_{\infty})}$$ always holds for each martingale $x=(x_n)$. Hence, we can deduce from the above decomposition result that
-
-\begin{theorem}\label{Ga decom}
-Consider a noncommutative probability space $(\mathcal{M},\tau)$ associated with a regular filtration $(\mathcal{M}_n)_{n\geq1}$. For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
-$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
-and 
-$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_{k\geq1}u_k\|_{L_{\infty}(\mathcal{M})}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
-\end{theorem}
-
-
-
-We shall apply Theorem \ref{Ga decom} to deduce a noncommutative version of Theorem \ref{GJ thm}. The dyadic sigma-algebra $\mathcal{F}_n=\sigma(F_n)$ is defined as in \eqref{Fn}.
-
-\begin{theorem}\label{dyadic c-d}
-	Let $\mathcal{M}=L_{\infty}(0,1)\bar{\otimes}\mathcal{N}$ where $(\mathcal{N},\varphi)$ is a noncommutative probability space. Consider the regular filtration $\mathcal{M}_n=L_{\infty}(\mathcal{F}_n)\bar{\otimes}\mathcal{N}$ as in \eqref{VNA F}.  For each positive $f\in \mathcal{BMO}(\mathcal{M})$, there exist positive $g\in L_{\infty}(\mathcal{M})$,  a sequence $(I_k)_k$ of dyadic intervals and a sequence of positive elements $(a_i)_{i}\subset \mathcal{N}$ such that
-	$$f=g+\sum_ia_i\chi_{I_i}$$
-	with $\|g\|_{L_{\infty}(\mathcal{M})}\leq \|f\|_{\mathcal{BMO}(\mathcal{M})}$,
-	and for each dyadic interval $I_0$, there exists a universal constant $c>0$
-	$$\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_i m(I_i)\Big\|_{\mathcal{N}}\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
-\end{theorem}
-
-\begin{proof}
-	By Theorem \ref{Ga decom}, there
-	exist positive $g\in L_{\infty}(\mathcal{M})$ and positive $(u_k)_{k\geq1}\subset L_{\infty}(\mathcal{M})$ satisfying (in the sense of the strong operator topology)
-	$$f=g+\sum_{k\geq1}\mathcal{E}_k(u_k)$$
-	and 
-	$$\|g\|_{L_{\infty}(\mathcal{M})}+\|\sum_ku_k\|_{L_{\infty}(\mathcal{M})}\leq  c \|f\|_{\mathcal{BMO}(\mathcal{M})}.$$
-	Note that now the conditional expectation is given by $\mathcal{E}_n=\mathbb{E}_n\otimes 1_{\mathcal{N}}$, where $\mathbb{E}_n$ is as in \eqref{condexp}. Hence,
-	$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_{k\geq1} \sum_{I\in F_k}\frac{1}{m(I)}\int_I u_k(t)dt \chi_I.$$
-For each $k$ and $I\in F_k$ (see \eqref{Fn} for the definition), set $b_{k,I}=\frac{1}{m(I)}\int_I u_k(t)dt\in \mathcal{N}$. Therefore, we can rewrite 
-$$\sum_{k\geq1}\mathcal{E}_k(u_k)=\sum_k\sum_{I\in F_k} b_{k,I} \chi_{I} =\sum_i a_i\chi_{I_i}.$$
-On the other hand, concerning dyadic $I_0\in F_n$ for some $n\geq 1$, we have 
-\begin{align*}
-	\sum_{i:I_i\subset I_0} a_i m(I_i)&=\sum_{k\geq n+1}\sum_{I\in F_k,I\subset I_0} b_{k,I}m(I)\\
-	&=\sum_{k\geq n+1}\sum_{I\in F_k,I\subset I_0} \int_I u_k(t)dt=\sum_{k\geq n+1}\int_{I_0}u_k(t)dt\\
-	&\leq \int_{I_0} \sum_{k\geq1}u_k(t)dt.
-\end{align*}
-Thus, we have
-	\begin{align*}
-\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{\mathcal{N}}&=\Big\|\frac{1}{m(I_0)}\sum_{i:I_i\subset I_0}a_k m(I_i)\Big\|_{L_{\infty}(\M)}\\
-&\leq \frac{1}{m(I_0)}\int_{I_0} \|\sum_{k\geq1}u_k\|_{L_{\infty}(\M)}dt\leq c\|f\|_{\mathcal{BMO}(\mathcal{M})}.
-	\end{align*}
-The proof is complete. 
-\end{proof}
-
-
-Let us conclude this paper with a brief discussion on the potential applications of Theorem \ref{Ga decom} and Theorem \ref{dyadic c-d}.
-We prefer to investigate these applications in future work because they extend beyond the scope of our paper and likely require an additional effort.
-
-\begin{remark}\label{cd Mei} 
-	
-	\begin{enumerate}[{\rm (i)}]
-		\item 		
-		In the classical martingale setting, Theorem \ref{Ga decom} goes back to \cite[Theorem II.4.1]{Ga1973}. We also point out that \cite[Theorem II.4.1]{Ga1973} has its own interest and applications.  For example, it can be used to study the weak relative compact set in Hardy space $H_1(\Omega)$, and to  study the distance between martingale $BMO(\Omega)$ space and $L_{\infty}(\Omega)$ space which goes back to \cite{GJ1978}. See \cite[Theorem 2.6.2]{Lo1993} and \cite[Chapter 4.6]{Lo1993} for more information. Similarly, we can explore corresponding possible applications of Theorem \ref{Ga decom} in the noncommutative realm.
-		
-		\item 	In \cite{GJ1978}, Garnett and Jones applied Theorem \ref{GJ thm} to prove the original Carleson decomposition \cite{Ca1976} of functions in $BMO(\mathbb{R})$. It is possible for us to use Theorem \ref{dyadic c-d} to investigate the noncommutative analogue of the Carleson decomposition of elements in noncommutative BMO. We leave the details to the interested reader.
-	\end{enumerate}
-\end{remark}
-
 
 {\bf Acknowledgement.}
 The first version of the work was completed when the fourth author was visiting UNSW in 2025. He would like to express his gratitude to the School of Mathematics and Statistics of UNSW for its warm hospitality. The last two authors would like to thank Dr. Edward McDonald for useful discussions.
