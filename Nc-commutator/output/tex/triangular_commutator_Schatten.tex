@@ -1,0 +1,264 @@
+% !TeX program = xelatex
+% Compile twice with XeLaTeX.
+\documentclass[UTF8,11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{定理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{说明}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{证明}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\title{三角投影交换子作为 Hilbert--Schmidt 空间上算子的 Schatten 类刻画}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+设 $H$ 为可分复 Hilbert 空间，$P_0=0<P_1<P_2<\cdots$ 为有限秩正交投影，
+并且 $P_n\to I$ 强算子收敛。记
+\[
+ E_n=P_n-P_{n-1},\qquad d_n=\rank E_n,\qquad \HH=S_2(H).
+\]
+在 Hilbert 空间 $\HH$ 上，令 $\PP$ 为块上三角正交投影：
+\[
+ \PP(A)=\sum_{i\leq j}E_iAE_j.
+\]
+给定 $X\in B(H)$，记 $L_X(A)=XA$，并考虑
+\[
+ \CC_X=[L_X,\PP],\qquad
+ \CC_X(A)=X\PP(A)-\PP(XA).
+\]
+\textbf{本文的 $S_p(\HH)=S_p(S_2(H))$ 指算子 $\CC_X$ 本身的 Schatten 类，}
+其定义使用 Hilbert 空间 $\HH$ 上的奇异值；它与 $\CC_X:S_p(H)\to S_p(H)$
+是否有界是两个不同问题。
+
+\section*{充要条件和精确范数公式}
+
+\begin{theorem}\label{thm:main}
+对任意 $0<p<\infty$（特别是 $1<p<\infty$），下列条件等价：
+\[
+ \boxed{\quad
+ \CC_X\in S_p\bigl(S_2(H)\bigr)
+ \quad\Longleftrightarrow\quad
+ \sum_{n=1}^{\infty}d_n\norm{[X,P_n]}_{S_p(H)}^p<\infty.
+ \quad}
+\]
+而且有精确等式
+\begin{equation}\label{eq:main}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ =\sum_{n=1}^{\infty}d_n\norm{[X,P_n]}_{S_p(H)}^p.
+\end{equation}
+等价地，该条件可以写为
+\begin{equation}\label{eq:corners}
+ \boxed{\quad
+ \sum_{n=1}^{\infty}d_n\left(
+ \norm{(I-P_n)XP_n}_{S_p(H)}^p
+ +\norm{P_nX(I-P_n)}_{S_p(H)}^p\right)<\infty.
+ \quad}
+\end{equation}
+\eqref{eq:corners} 中的和也精确等于 \eqref{eq:main} 的左侧。
+对于 $0<p<1$，这里使用 Schatten 拟范数。
+\end{theorem}
+
+\begin{proof}
+\textbf{第一步：将交换子分解为角块交换子的直和。}
+对每个 $n$，取 $E_nH$ 的一组标准正交基
+$\{\eta_{n,r}:1\leq r\leq d_n\}$。
+所有这些向量合起来构成 $H$ 的标准正交基。
+由 Hilbert--Schmidt 范数的列表示，映射
+\[
+ U:\HH\longrightarrow\bigoplus_{n\geq1}\bigoplus_{r=1}^{d_n}H,
+ \qquad U(A)=(A\eta_{n,r})_{n,r}
+\]
+是酉算子，因为
+\[
+ \norm A_2^2=\sum_{n\geq1}\sum_{r=1}^{d_n}\norm{A\eta_{n,r}}_H^2,
+\]
+且任意平方可和的向量列均唯一确定一个 Hilbert--Schmidt 算子。
+
+固定 $n,r$。由于 $\eta_{n,r}\in E_nH$，有
+\[
+ \PP(A)\eta_{n,r}=P_nA\eta_{n,r}.
+\]
+因此
+\begin{align*}
+ \CC_X(A)\eta_{n,r}
+ &=XP_nA\eta_{n,r}-P_nXA\eta_{n,r}\\
+ &=[X,P_n]A\eta_{n,r}.
+\end{align*}
+于是得到了真正的酉等价
+\begin{equation}\label{eq:unitary}
+ \boxed{\quad
+ U\CC_XU^{-1}
+ =\bigoplus_{n\geq1}\bigoplus_{r=1}^{d_n}[X,P_n].
+ \quad}
+\end{equation}
+换言之，$[X,P_n]$ 的每个非零奇异值，在这一分量中恰好重复 $d_n$ 次。
+
+\medskip
+\textbf{第二步：对奇异值求 $p$ 次幂和。}
+每个 $K_n=[X,P_n]$ 都是有限秩算子，因为 $P_n$ 有限秩且 $X$ 有界。
+直和算子的奇异值由各分量的非零奇异值汇集而成，只要这些奇异值趋于零。
+若 $\sum_nd_n\norm{K_n}_p^p<\infty$，则
+\[
+ \norm{K_n}^p\leq\norm{K_n}_p^p\longrightarrow0.
+\]
+因此 \eqref{eq:unitary} 的直和是紧算子，其奇异值 $p$ 次幂之和正是
+$\sum_nd_n\norm{K_n}_p^p$，证明了充分性及公式 \eqref{eq:main}。
+反过来，若 $\CC_X\in S_p(\HH)$，
+则其有限分量直和的奇异值 $p$ 次幂和一致有界；
+对分量数取极限，即得同一公式和该级数的收敛性。
+这一论证对所有 $p>0$ 都成立。
+
+\medskip
+\textbf{第三步：改写为两个方向的角块条件。}
+设
+\[
+ B_n=(I-P_n)XP_n,
+ \qquad A_n=P_nX(I-P_n).
+\]
+相对于 $H=P_nH\oplus(I-P_n)H$，有
+\[
+ K_n=[X,P_n]=\begin{pmatrix}0&-A_n\\B_n&0\end{pmatrix},
+ \qquad
+ K_n^*K_n=\begin{pmatrix}B_n^*B_n&0\\0&A_n^*A_n\end{pmatrix}.
+\]
+从而对任意 $p>0$，
+\[
+ \norm{K_n}_p^p=\norm{B_n}_p^p+\norm{A_n}_p^p.
+\]
+代入 \eqref{eq:main}，即得 \eqref{eq:corners}。
+\end{proof}
+
+\begin{remark}[为何会出现重数 $d_n$]
+在 $S_2(H)E_n$ 上，左乘 $[X,P_n]$ 对 $E_nH$ 的每一个基向量所对应的列，
+都独立作用一次。因此一个块列包含 $d_n$ 个相同的 Hilbert 空间算子分量。
+重数为一时 $d_n=1$；一般的有限维块情形不能省略这个因子。
+\end{remark}
+
+\begin{corollary}[自伴符号]
+若 $X=X^*$，则两个角块互为伴随，因而
+\[
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ =2\sum_{n\geq1}d_n\norm{(I-P_n)XP_n}_{S_p(H)}^p.
+\]
+所以自伴情形只需检验一个方向的角块的加权 $p$ 次幂可和性。
+\end{corollary}
+
+\section*{重数为一的矩阵形式及 Hilbert--Schmidt 特例}
+
+在标准巢 $H=\ell_2(\mathbb N)$、
+$P_n$ 投影到 $\operatorname{span}\{e_1,\ldots,e_n\}$ 的情形，
+令 $X=(x_{ij})$，则 $d_n=1$，上述条件成为
+\begin{equation}\label{eq:matrix}
+ \sum_{n=1}^{\infty}\left(
+  \norm{(x_{ij})_{i>n,\,j\leq n}}_{S_p}^p
+  +\norm{(x_{ij})_{i\leq n,\,j>n}}_{S_p}^p
+ \right)<\infty.
+\end{equation}
+这里的矩阵表示相应两个 Hilbert 空间之间的角块算子，
+范数为其奇异值的 Schatten 范数。
+
+当 $p=2$ 时可以把这一条件完全展开：
+\begin{align}
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ &=\sum_{n\geq1}\left(
+   \sum_{i>n,\,j\leq n}|x_{ij}|^2
+   +\sum_{i\leq n,\,j>n}|x_{ij}|^2\right)\notag\\
+ &=\boxed{\ \sum_{i\ne j}|i-j|\,|x_{ij}|^2\ }.\label{eq:hs}
+\end{align}
+事实上，当 $i>j$ 时，$x_{ij}$ 恰好出现在 $n=j,j+1,\ldots,i-1$
+这 $i-j$ 个下角块中；当 $i<j$ 时，计数同理。
+所以
+\[
+ \CC_X\in S_2(S_2(H))
+ \quad\Longleftrightarrow\quad
+ \sum_{i\ne j}|i-j|\,|x_{ij}|^2<\infty.
+\]
+对于 $p\ne2$，应使用 \eqref{eq:matrix} 中的角块奇异值范数；
+上述计算不提供将其改成逐项 $|x_{ij}|^p$ 加权和的依据。
+
+更一般地，在有限维块情形，令 $r_n=\rank P_n$、$r_0=0$，则
+\begin{equation}\label{eq:blockhs}
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{i\ne j}|r_{i-1}-r_{j-1}|\,
+   \norm{E_iXE_j}_{S_2(H)}^2.
+\end{equation}
+这是因为每个 $E_iXE_j$ 的权重为
+$\sum_{n=\min(i,j)}^{\max(i,j)-1}d_n$。
+
+\section*{与紧性、符号的 Schatten 条件的区别}
+
+由 \eqref{eq:unitary}，还立即得到
+\[
+ \CC_X\text{ 在 }S_2(H)\text{ 上紧}
+ \quad\Longleftrightarrow\quad
+ \norm{[X,P_n]}_{B(H)}\longrightarrow0.
+\]
+这是原文定理 2.1(ii) 的紧性条件的角块表述。
+本题要求的 Schatten 条件则进一步要求角块的\emph{全部奇异值}满足
+\eqref{eq:main} 的加权可和性。
+本文的直和分解与 \cite[p.~279, Remark (2)]{Power} 对 Hankel 分量的
+分解相呼应，但 \eqref{eq:unitary} 是直接针对整个交换子得到的公式。
+
+\begin{example}[即使 $X$ 为秩一，也不保证交换子属于给定 Schatten 类]
+固定 $p>0$，在标准重数为一巢上令
+\[
+ u_i=i^{-1/2-1/p},\qquad
+ X=u\otimes e_1^*.
+\]
+由于 $u\in\ell_2$，$X$ 是有界秩一算子，属于每个 $S_q(H)$，$q>0$。
+然而对 $n\geq1$，有
+\[
+ P_nX(I-P_n)=0,\qquad
+ (I-P_n)XP_n=((I-P_n)u)\otimes e_1^*.
+\]
+所以
+\[
+ \norm{[X,P_n]}_{S_p(H)}^p
+ =\left(\sum_{i>n}i^{-1-2/p}\right)^{p/2}
+ \asymp\frac1n.
+\]
+由调和级数发散及定理 \ref{thm:main}，
+$\CC_X\notin S_p(S_2(H))$。
+同时角块算子范数趋于零，故这个交换子仍然是紧算子。
+这说明条件不能简化为 $X\in S_p(H)$，甚至 $X$ 为有限秩也不够。
+\end{example}
+
+\begin{remark}[对角部分不影响结论]
+若 $D\in B(H)$ 为相对于 $(E_n)$ 的块对角算子，则
+$[D,P_n]=0$，因此 $\CC_{X+D}=\CC_X$。
+本题的条件和范数均只取决于 $X$ 的非对角块。
+\end{remark}
+
+\begin{remark}[只假定交换子有界时仍然成立]
+若沿用前一个问题中允许形式块矩阵符号的设置，只假定
+$\CC_X$ 已延拓为 $S_2(H)$ 上的有界算子，定理仍然成立。
+事实上，以 $\xi\otimes\eta_{n,r}^*$ 作输入，逐列公式表明形式矩阵
+$[X,P_n]$ 唯一确定一个范数不超过 $\norm{\CC_X}$ 的有界算子。
+它相对于 $P_nH\oplus(I-P_n)H$ 只有两个非对角角块，故仍然为有限秩。
+于是 \eqref{eq:unitary} 及其后的奇异值计算完全适用。
+因此公式要求的是角块算子的有界性及可和性，而不依赖于对角符号是否有界。
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem{Power}
+S. Power,
+\emph{Commutators with the triangular projection and Hankel forms on nest algebras},
+J. London Math. Soc. (2) \textbf{32} (1985), 272--282.
+\href{https://doi.org/10.1112/jlms/s2-32.2.272}{doi:10.1112/jlms/s2-32.2.272}.
+\end{thebibliography}
+
+\end{document}

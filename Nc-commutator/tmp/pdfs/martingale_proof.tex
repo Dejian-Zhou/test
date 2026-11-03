@@ -1,0 +1,75 @@
+\begin{proof}[定理 \ref{thm:sharp} 的证明]
+\textbf{\textup{(i)} $\Rightarrow$ \textup{(ii)}。}
+设 $\norm{\CC_X}_{S_r\to S_r}=M$。
+固定 $N>n$，取单位向量 $\eta\in E_nH$ 和任意 $\xi\in P_NH$，
+以秩一算子 $A=\xi\otimes\eta^*$ 为输入。由 \eqref{eq:entries}，
+\[
+ P_N\CC_X(A)P_N
+ =\bigl([X^{(N)},P_n]\xi\bigr)\otimes\eta^*.
+\]
+利用秩一算子的 Schatten 范数公式和压缩映射的压缩性，有
+\[
+ \norm{[X^{(N)},P_n]\xi}\leq M\norm\xi.
+\]
+因此 $\beta(X)\leq M$。引理 \ref{lem:bmo-beta} 给出
+$\mathfrak b_{\rm sh}(X)\leq\sqrt2 M$，证明了必要性及
+\eqref{eq:sharpbounds} 的下界。
+
+\medskip
+\textbf{\textup{(ii)} $\Rightarrow$ \textup{(iii)}。}
+设 $\mathfrak b_{\rm sh}(X)<\infty$。
+由引理 \ref{lem:bmo-beta}，$\beta(X)\leq\mathfrak b_{\rm sh}(X)$。
+利用引理 \ref{lem:completion} 取有界完成 $B,C$，满足
+\[
+ B_{ik}=X_{ik}\ (i>k),\quad C_{ik}=X_{ik}\ (i<k),\qquad
+ \norm B\leq\beta_-(X),\quad\norm C\leq\beta_+(X).
+\]
+在 $S_r(H)$ 上定义
+\begin{equation}\label{eq:factorization}
+ T=\QQ L_B\PP-\PP L_C\QQ.
+\end{equation}
+这里 $\PP,\QQ$ 在有限角上正是 \eqref{eq:martingale-transform} 的鞅变换
+及其补变换，在 $1<r<\infty$ 的 $S_r$ 上有界。
+对有限支撑矩阵 $A$，逐块计算得到
+\[
+ (TA)_{ij}=\begin{cases}
+   \displaystyle\sum_{k\leq j}X_{ik}A_{kj},&i>j,\\[4pt]
+   \displaystyle-\sum_{k>j}X_{ik}A_{kj},&i\leq j.
+ \end{cases}
+\]
+这正是 \eqref{eq:entries}，所以 $T=\CC_X$；稠密性保证延拓唯一。
+并且
+\[
+ \norm{\CC_X}_{S_r\to S_r}
+ \leq t_rq_r\bigl(\beta_-(X)+\beta_+(X)\bigr)
+ \leq2t_rq_r\,\mathfrak b_{\rm sh}(X).
+\]
+这证明了充分性及上界；\textup{(iii)} $\Rightarrow$ \textup{(i)} 显然。
+
+\medskip
+\textbf{$S_2$ 上的精确角块范数。}
+由 $\beta(X)<\infty$，每个 $K_j=[X,P_j]$ 均为有界算子。
+逐块列有
+\[
+ \CC_X(A)E_j=K_jAE_j.
+\]
+所以
+\[
+ \norm{\CC_X(A)}_2^2
+ \leq\beta(X)^2\sum_j\norm{AE_j}_2^2
+ =\beta(X)^2\norm A_2^2.
+\]
+结合已证的秩一测试下界，得到
+$\norm{\CC_X}_{S_2\to S_2}=\beta(X)$。
+再由 \eqref{eq:bmo-beta} 即得 \eqref{eq:exact2}。
+\end{proof}
+
+\begin{remark}[为何必须减去首项]
+PSZ 所用的 BMO 范数包含
+$\norm{\mathbb E_1(|x|^2)}_\infty^{1/2}$ 这一项，因而会检测块对角部分。
+但 $\CC_{X+D}=\CC_X$ 对任意形式块对角矩阵 $D$ 成立。
+所以定理中的条件应是 $X-\DD X\in\mathrm{BMO}_{\rm sh}^{0}$，
+不能在允许形式符号时直接要求整个 $X$ 的非齐次 BMO 范数有限。
+例如 $X=\sum_n nE_n$ 产生零交换子，而其未归一化的局部 BMO 范数无界。
+\end{remark}
+

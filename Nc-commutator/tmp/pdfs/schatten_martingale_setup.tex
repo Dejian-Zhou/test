@@ -1,0 +1,67 @@
+\subsection{压缩的条件尾平方函数与 Schatten 刻画}
+
+沿用第 \ref{sec:martingale} 节的壳过滤，记
+\[
+ x_n=\mathbb E_nX,\qquad
+ \Delta_1X=\mathbb E_1X,\qquad
+ \Delta_kX=x_k-x_{k-1}\quad(k\geq2).
+\]
+这里 $\Delta_k$ 是 PSZ 的鞅差分算子 $d_k$；使用不同字母以区别于重数
+$d_n=\rank E_n$。由 \eqref{eq:shell-difference} 的无限角版本，
+\begin{equation}\label{sch:eq:difference}
+ \Delta_kX=P_{k-1}XE_k+E_kXP_{k-1},\qquad k\geq2.
+\end{equation}
+这将 PSZ Section 2.3 的行、列平方函数用于壳鞅的未来差分。
+定义压缩的条件尾平方函数
+\begin{align}
+ s_{n,c}(X)
+ &=\left[P_n\mathbb E_n\bigl(|X-x_n|^2\bigr)P_n\right]^{1/2},
+       \label{sch:eq:tail-column}\\
+ s_{n,r}(X)
+ &=\left[P_n\mathbb E_n\bigl(|X^*-x_n^*|^2\bigr)P_n\right]^{1/2}.
+       \label{sch:eq:tail-row}
+\end{align}
+这两个正算子均支撑在有限秩投影 $P_n$ 上。
+注意行型中 $|X^*-x_n^*|^2=(X-x_n)(X-x_n)^*$。
+上式使用 $X-x_n$，即第 $n$ 步之后的鞅尾部；
+它与 BMO 定义 \eqref{eq:martingale-bmoc} 中的 $X-x_{n-1}$ 有一个明确的指标区别。
+
+\begin{theorem}[壳鞅尾平方函数的 Schatten 可和性]\label{sch:thm:main}
+对任意 $0<p<\infty$（特别是 $1<p<\infty$），
+\begin{equation}\label{sch:eq:criterion}
+ \boxed{\quad
+ \CC_X\in S_p\bigl(S_2(H)\bigr)
+ \iff
+ \sum_{n\geq1}d_n\left(
+   \norm{s_{n,c}(X)}_{S_p(H)}^p+
+   \norm{s_{n,r}(X)}_{S_p(H)}^p\right)<\infty.
+ \quad}
+\end{equation}
+而且有精确等式
+\begin{equation}\label{sch:eq:main}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ =\sum_{n\geq1}d_n\left(
+   \norm{s_{n,c}(X)}_{S_p(H)}^p+
+   \norm{s_{n,r}(X)}_{S_p(H)}^p\right).
+\end{equation}
+两种平方函数还可以完全由未来鞅差分表示：
+\begin{align}
+ s_{n,c}(X)^2
+ &=\sum_{k>n}(\Delta_kX\,P_n)^*(\Delta_kX\,P_n),
+       \label{sch:eq:tail-diff-column}\\
+ s_{n,r}(X)^2
+ &=\sum_{k>n}(P_n\Delta_kX)(P_n\Delta_kX)^*.
+       \label{sch:eq:tail-diff-row}
+\end{align}
+对固定 $n$，这些正算子级数在 $B(P_nH)$ 中按算子范数收敛。
+等价地，保留原先的角块形式，仍有
+\begin{equation}\label{sch:eq:corners}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ =\sum_{n\geq1}d_n\norm{[X,P_n]}_{S_p(H)}^p
+ =\sum_{n\geq1}d_n\left(
+  \norm{(I-P_n)XP_n}_{S_p(H)}^p+
+  \norm{P_nX(I-P_n)}_{S_p(H)}^p\right).
+\end{equation}
+对于 $0<p<1$，以上使用 Schatten 拟范数。
+\end{theorem}
+

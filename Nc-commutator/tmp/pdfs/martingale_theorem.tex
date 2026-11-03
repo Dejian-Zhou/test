@@ -1,0 +1,95 @@
+\begin{theorem}[三角鞅变换交换子的 BMO 刻画]\label{thm:sharp}
+对上述形式块矩阵 $X$，下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item 对某个 $1<r<\infty$，$\CC_X=[L_X,\PP]$ 在 $S_r(H)$ 上有界；
+ \item 零块对角符号属于壳过滤的行、列鞅 BMO 交空间，即
+ \[
+ X_0\in\mathrm{BMO}_{\rm sh}^{0},\qquad
+ \mathfrak b_{\rm sh}(X)<\infty;
+ \]
+ \item 对所有 $1<r<\infty$，$\CC_X$ 在 $S_r(H)$ 上有界。
+\end{enumerate}
+而且原先的角块量与鞅 BMO 量满足
+\begin{equation}\label{eq:bmo-beta}
+ \beta(X)\leq\mathfrak b_{\rm sh}(X)\leq\sqrt2\,\beta(X).
+\end{equation}
+对每个 $1<r<\infty$，有
+\begin{equation}\label{eq:sharpbounds}
+ \boxed{\quad
+ \frac{\mathfrak b_{\rm sh}(X)}{\sqrt2}
+ \leq\norm{\CC_X}_{S_r\to S_r}
+ \leq2t_rq_r\,\mathfrak b_{\rm sh}(X).
+ \quad}
+\end{equation}
+特别地，
+\begin{equation}\label{eq:exact2}
+ \frac{\mathfrak b_{\rm sh}(X)}{\sqrt2}
+ \leq\norm{\CC_X}_{S_2\to S_2}
+ =\beta(X)\leq\mathfrak b_{\rm sh}(X).
+\end{equation}
+\end{theorem}
+
+这个表述使用的是 PSZ 的特定壳过滤，而非任意非交换鞅过滤。
+它把原先的符号半范数识别为标准行、列鞅 BMO 范数在零块对角符号上的等价范数。
+两者通常并不精确相等。
+
+\begin{lemma}[零块对角符号的 BMO 与角块比较]\label{lem:bmo-beta}
+式 \eqref{eq:bmo-beta} 成立。
+\end{lemma}
+
+\begin{proof}
+这是 PSZ Lemmas 3.12--3.14 及 Theorem 3.16 在零块对角情形的具体化。
+为明确常数和有限角约定，下面直接证明。
+固定 $N$，令 $y=X_0^{(N)}$，$Q_n=P_N-P_n$，并记
+\[
+ \gamma_N=\max_{1\leq n\leq N}\max\{
+   \norm{Q_nyP_n},\norm{P_nyQ_n}\}.
+\]
+由于去掉对角不改变角块，有 $\sup_N\gamma_N=\beta(X)$。
+对 $1\leq n\leq N$，令 $R_n=y-\mathbb E_{n-1}^{(N)}y$。
+
+\medskip
+\textbf{由 BMO 控制角块。}
+由条件期望的块形式可知
+\[
+ Q_nR_nP_n=Q_nyP_n,\qquad
+ P_n\mathbb E_n^{(N)}(R_n^*R_n)P_n
+   =(R_nP_n)^*(R_nP_n).
+\]
+故 $\norm{Q_nyP_n}\leq\norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}$。
+对 $y^*$ 使用同一论证，得到
+$\norm{P_nyQ_n}\leq\norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}$。
+因此 $\gamma_N\leq\norm y_{\mathrm{BMO}(\mathcal F^{(N)})}$。
+
+\medskip
+\textbf{由角块控制 BMO。}
+利用 $E_kyE_k=0$，对所有 $n$ 都有
+\[
+ R_nP_n=Q_nyP_n+
+       \bigl(P_{n-1}yE_n+E_nyP_{n-1}\bigr).
+\]
+右侧两个算子的值域分别在 $Q_nH$ 与 $P_nH$ 中，互相正交；
+括号内是关于 $P_{n-1}H\oplus E_nH$ 的非对角二乘二矩阵，
+其范数不超过 $\gamma_N$。所以
+\[
+ \norm{R_nP_n}^{2}\leq2\gamma_N^2.
+\]
+当 $k>n$ 时，$R_nE_k=yE_k$，且
+\[
+ yE_k=P_{k-1}yE_k+Q_kyE_k,
+ \qquad \norm{yE_k}^{2}\leq2\gamma_N^2,
+\]
+其中再次使用了值域的正交性。
+于是 $\mathbb E_n^{(N)}(R_n^*R_n)$ 的每个对角块的范数均不超过
+$2\gamma_N^2$，从而
+\[
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}
+ \leq\sqrt2\,\gamma_N.
+\]
+对 $y^*$ 同理得到行 BMO 估计。因此
+\[
+ \gamma_N\leq\norm y_{\mathrm{BMO}(\mathcal F^{(N)})}
+       \leq\sqrt2\,\gamma_N.
+\]
+对 $N$ 取上确界即得 \eqref{eq:bmo-beta}。
+\end{proof}

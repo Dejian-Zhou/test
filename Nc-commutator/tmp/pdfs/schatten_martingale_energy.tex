@@ -1,0 +1,44 @@
+\subsection{Hilbert--Schmidt 情形的可预测加权鞅能量}
+
+\begin{corollary}[可预测加权能量公式]\label{sch:cor:energy}
+对 $k\geq2$，定义可预测正算子
+\[
+ W_{k-1}=\sum_{n=1}^{k-1}d_nP_n\in\mathcal M_{k-1}.
+\]
+则
+\begin{equation}\label{sch:eq:energy}
+ \boxed{\quad
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{k\geq2}\left(
+   \norm{\Delta_kX\,W_{k-1}^{1/2}}_2^2
+  +\norm{W_{k-1}^{1/2}\Delta_kX}_2^2\right).
+ \quad}
+\end{equation}
+因此 $\CC_X$ 为 $S_2(H)$ 上的 Hilbert--Schmidt 算子，
+当且仅当右侧可预测加权鞅能量有限。
+\end{corollary}
+
+\begin{proof}
+在 \eqref{sch:eq:main} 中取 $p=2$，并使用
+\eqref{sch:eq:tail-diff-column}--\eqref{sch:eq:tail-diff-row}，得到
+\[
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{n\geq1}\sum_{k>n}d_n\left(
+   \norm{\Delta_kX\,P_n}_2^2+\norm{P_n\Delta_kX}_2^2\right).
+\]
+各项非负，故可交换求和次序。固定 $k$，由迹的循环性，
+\begin{align*}
+ \sum_{n<k}d_n\norm{\Delta_kX\,P_n}_2^2
+ &=\Tr\bigl((\Delta_kX)^*\Delta_kX\,W_{k-1}\bigr)
+  =\norm{\Delta_kX\,W_{k-1}^{1/2}}_2^2,\\
+ \sum_{n<k}d_n\norm{P_n\Delta_kX}_2^2
+ &=\Tr\bigl(\Delta_kX(\Delta_kX)^*W_{k-1}\bigr)
+  =\norm{W_{k-1}^{1/2}\Delta_kX}_2^2.
+\end{align*}
+代回即得 \eqref{sch:eq:energy}。
+\end{proof}
+
+在重数为一的情形，$W_{k-1}=\sum_{j<k}(k-j)E_j$。
+因此该公式恰好恢复 \eqref{sch:eq:hs} 中的权重 $|i-j|$，
+为原先的矩阵元素条件提供了可预测鞅能量的表达。
+

@@ -1,0 +1,2748 @@
+                                    International Mathematics Research Notices, 2024, 2024(21), 13724–13757
+                                                                              https://doi.org/10.1093/imrn/rnae218
+                                                                     Advance access publication date 2 October 2024
+                                                                                                                   Article
+
+
+
+
+                                                                                                                             Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Noncommutative Nest Hardy Spaces and
+Martingales
+Denis Potapov1 , Fedor Sukochev1 , and Dejian Zhou2, *
+1 School of Mathematics and Statistics, UNSW, Australia
+2 School of Mathematics and Statistics, Central South University, Changsha 410083, China
+
+*Correspondence to be sent to: e-mail: zhoudejian@csu.edu.cn
+Communicated by Prof. Dan-Virgil Voiculescu
+
+
+
+Let (M, τ ) be a finite von Neumann algebra equipped with a normalized faithful trace and let A be a
+nest of order type N. The nest algebra is defined by Hr∞ (A) = {x ∈ M : ex = exe, e ∈ A}, and the related
+noncommutative Hardy space Hrp (A) is the completion of Hr∞ (A) in Lp (M). In the present paper, we make
+a connection between Hrp (A) and certain noncommutative martingale Hardy space via showing that tri-
+angular truncation is a concrete martingale transform. We include several related results for noncom-
+mutative nest Hardy spaces in the spirit of recent development of noncommutative martingale theory.
+
+
+
+
+1 Introduction
+In his seminal paper [1], Arveson introduced the notion of subdiagonal algebras. Let M be a von
+Neumann algebra equipped with a normal faithful tracial state τ . Let D be a von Neumann subalgebra of
+M, and let E : M → D be the unique normal faithful conditional expectation such that τ ◦ E = τ . A weak-
+∗-closed subalgebra H∞ (M) of M is called a finite subdiagonal algebra of M with respect to E (or D ) if
+
+   (i) {x + y∗ : x, y ∈ H∞ (M)} is weak-∗-dense in M;
+  (ii) E (xy) = E (x)E (y) for all x, y ∈ H∞ (M); and
+ (iii) {x : x, x∗ ∈ H∞ (M)} = D .
+
+   The subalgebra D is then called the diagonal of H∞ (M). According to [15], H∞ (M) is automatically
+maximal in the sense that it is contained in no proper subdiagonal algebra with respect to E other than
+itself. For 0 < p < ∞, the Hardy space Hp (M) is defined as the closure of H∞ (M) in Lp (M). If M = L∞ (D)
+where D is the open unit disc in the complex plane, then H∞ (M) = H∞ (D) is the algebra of analytic
+and bounded functions on D and the diagonal subalgebra D is given by C; moreover, Hp (M) = Hp (D) is
+the classical analytic Hardy space. Hence, Hp (M)’s are noncommutative extensions of classical Hardy
+spaces on the unit disc D. On the other hand, the triangular algebra studied in Kadison and Singer’s
+paper [30] (see also [37]) provides an important noncommutative example for H∞ (M). Many results
+on the classical Hardy spaces in the unit disc have been extended to the noncommutative setting. For
+instance, we refer the reader to [3, 8, 19, 32–34, 42, 47, 48, 53], and the survey papers [7, 45] for more
+information and references.
+   Parallel to the development of the theory of noncommutative Hardy spaces, the noncommutative
+martingale Hardy space theory also got rapid development recently. Indeed, in 1997, Pisier and Xu
+[43] introduced suitable definition of noncommmutative martingale Hardy spaces and established
+
+
+
+
+Received: June 10, 2024. Revised: June 10, 2024. Accepted: September 9, 2024
+© The Author(s) 2024. Published by Oxford University Press. All rights reserved. For permissions, please e-mail:
+journals.permission@oup.com.
+                                          Noncommutative Nest Hardy Spaces and Martingales              |   13725
+
+
+remarkable noncommutative Burkholder–Gundy inequality. Since then many classical martingale
+results have been successfully transferred to the noncommutative setting. For example, the duality,
+interpolation, atomic decomposition of noncommutative martingale Hardy spaces are investigated by
+many researchers; see, for instance, [4, 9, 16, 25, 26, 40, 41, 51, 52]. We also refer the reader to [22], [21],
+and [24] for recent advance about noncommutative martingales.
+
+
+
+
+                                                                                                                     Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+   In the commutative setting, the Hardy space Hp (D) in harmonic analysis has deep connection with
+martingales. For example, Maurey [35] proved the famous result that H1 (D) is isomorphic to a dyadic
+martingale Hardy space. A natural question is whether there exists some connection between the above
+noncommutative Hardy spaces and noncommutative martingales. We answer this question positively in the
+sense of noncommutative Hardy spaces associated with nest algebras. Let A be a nest of order type N,
+that is (see, e.g., [2, Example 2.2]),
+
+                                                  A = {ek , 1}k≥0 ,
+
+where 1 denotes the identity of M, and {ek }k≥0 is a sequence of increasing projections in M such that
+e0 = 0 and ∨k ek = 1. The nest algebra Hr∞ (M, A) (shortly Hr∞ (A)) with respect to A is defined by (see, e.g.,
+[2,p. 11] or [12,p. 22])
+
+                                    Hr∞ (A) = {x ∈ M : xe = exe,           ∀e ∈ A}.
+
+If M ⊂ B(H) for some Hilbert space H and each ek (H) has dimension k, then the nest algebra Hr∞ (A) is a
+triangular algebra in the sense of [30]. Moreover, the nest algebra Hr∞ (A) is a finite subdiagonal algebra
+with the diagonal algebra D given by Hr∞ (A) ∩ Hc∞ (A), where Hc∞ (A) = {x∗ : x ∈ Hr∞ (A)}. For 0 < p < ∞,
+the noncommutative Hardy space Hrp (A) is the completion of Hr∞ (A) with respect to the Lp (M) norm.
+The symbol “r” appears in Hrp (A) because later we would like to compare it with row martingale Hardy
+spaces (see, e.g., Proposition 3.7). Note that the Hardy space Hrp (A) can be also defined by the triangular
+truncation given as follows:
+
+                                                
+                                                 k
+                                       T(x) =             j x
+                                                          e   ek ,   x ∈ Hr∞ (A),
+                                                k≥1 j=1
+
+
+where e  1 = e1 and e
+                    k = ek − ek−1 , k ≥ 2. Indeed, x ∈ Hrp (A) if and only if x = T(x) and x ∈ Lp (M). One of our
+key points for the approach is that we write the above triangular truncation T as a noncommutative
+martingale transform; see Proposition 3.4. This kind of phenomenon is not new. Indeed, very recently
+the authors of [18] investigated the relationship between main triangular truncation introduced by [31]
+and certain noncommutative dyadic martingale transforms.
+    After making the connection between noncommutative nest Hardy spaces and martingales, we study
+related results in the setting noncommutative nest Hardy spaces by the techniques imported from the
+(noncommutative) martingale theory. The main results are listed below.
+    In Section 3, we show that the triangular truncation T defined above is actually a concrete martingale
+transform (Proposition 3.4). A few results follow. For example, we show that the triangular truncation T is
+bounded on martingale BMO space, see Corollary 3.6. It is stronger than [46, Theorem 1]. For 0 < p ≤ 1,
+the Hardy space HTp (M) is the sum of column and row martingale Hardy spaces Hpc (M), Hpr (M); see
+Theorem 3.11. We also prove an equivalent characterization of BMO space, see Theorem 3.16. This result
+is stronger than [47, Theorem 2.3] and [39, Theorem 2].
+    Section 4 considers noncommutative maximal inequalities with respect to the family projections
+P = (Pk )k≥1 given in (4.1). The results in this section will be used in Section 5. Observe that Theorem 4.2
+follows from the noncommutative Doob inequalities established in [11, 25]. However, we still provide
+another method which is based on triangular truncation. As a byproduct, we also obtain new asymmet-
+ric maximal Doob inequalities, Proposition 4.6. It has independent interest and can be compared with
+[17, Theorems A and B].
+    In Section 5, we consider atomic decomposition, duality and interpolation of the nest Hardy space
+Hrp (A). The atomic decomposition, see Theorem 5.1, is proved with the help of factorization. This result
+is comparable with the algebraic atomic decomposition of noncommutative martingale Hardy spaces
+studied in [9, 17, 50]. The duality result Theorem 5.3 is motivated by [26, Theorem 4.1]. In [26], it was
+13726    |   D. Potapov et al.
+
+
+proved that the dual space of noncommutative martingale Hardy space is some BMO type space, that
+is, [Hpr (M)]∗ = Lrp MO (M), 1 ≤ p < 2. As a consequence of our duality result, we obtain an equivalent
+characterization of Hrq (A) with 2 < q < ∞; see Corollary 5.6. By the duality and our characterization of
+BMO spaces, see Theorem 3.18, we show every upper triangular matrix in BMO space has a bounded
+extension, see Corollary 5.7. This is an alternative proof for [39, Theorem 1]. Finally, in spirit of Musat’s
+
+
+
+
+                                                                                                                  Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+[38] interpolation result for noncommutative martingales, we give a proof for the complex interpolation
+between Hrp (A) and BMOr (A) (see the definition after (2.6)).
+
+
+2 Preliminary
+Throughout this paper, denote by c a universal positive constant, which may vary from line to line, and
+denote by cp a positive constant depends only on p.
+
+
+2.1 Noncommutative Lebesgue and vector-valued spaces
+Throughout, let M ⊂ B(H) be a finite von Neumann algebra on some Hilbert space equipped with a
+normalized faithful trace τ . Let L0 (M) denote the topological ∗-algebra of all τ -measurable operators.
+For 0 < p < ∞, the noncommutative Lebesgue space Lp (M) is defined by
+
+                                          Lp (M) = {x ∈ L0 (M) : τ (|x|p ) < ∞}
+
+equipped with the (quasi-) norm
+
+                                                     xp = [τ (|x|p )]1/p .
+
+L∞ (M) is M equipped with the operator norm. We refer the reader to [14] for more information about
+the noncommutative Lebesgue spaces.
+    Following [25, 44], for 1 ≤ p ≤ ∞, define Lp (M, ∞ ) to be the space of all sequences x = (xk )k≥1 in
+Lp (M) for which there exist a, b ∈ L2p (M) and a bounded sequence y = (yk )k≥1 such that
+
+                                                   xk = ayk b,          k ≥ 1.
+
+For x = (xk )k≥1 ∈ Lp (M, ∞ ), define
+
+                                 xLp (M,∞ ) = inf{aL2p (M) sup yk ∞ bL2p (M) },                  (2.1)
+                                                                       k≥1
+
+
+where the infimum is taken over all possible factorizations of x as above. In addition, if x = (xk )k≥1 ∈
+E(M, ∞ ) and xk = x∗k for each k ≥ 1, then (see [29, p. 392])
+
+                 xLp (M,∞ ) ≤ inf{aLp (M) : a ∈ Lp (M), −a ≤ xk ≤ a, ∀k ≥ 1} ≤ 2xLp (M,∞ ) .
+
+
+    Following [25, 38], for 2 ≤ p ≤ ∞, Lp (M, c∞ ) is defined to be the space of all sequences x = (xk )k≥1 in
+Lp (M) for which
+                                                                                 1/2
+                                      (xk )k≥1 Lp (M,c∞ ) = (|xk |2 )k≥1 L p (M,∞ )                 (2.2)
+                                                                                  2
+
+
+is finite. For x = (xk )k≥1 in Lp (M), define
+
+                                         (xk )k≥1 Lp (M,r∞ ) = (x∗k )k≥1 Lp (M,c∞ ) .
+
+
+   Note that for each 1 ≤ p ≤ ∞, Lp (M, ∞ ) is a Banach space (see [29]); and for each 2 ≤ p ≤ ∞, Lp (M, c∞ )
+is also a Banach space (see [38, Lemma 3.5]). In what follows, we will use the following useful lemmas.
+
+   Lemma 2.1 ([38, Lemma 3.5]). Let 2 ≤ p ≤ ∞ and 1/p + 1/q = 1/2. For x = (xk )k≥1 ∈ Lp (M, r∞ ), we
+     have
+                                                         1/2          1/2    
+                                                                                 
+                      xLp (M,r∞ ) = sup      x∗k vk 22     :    vk v∗k       ≤1 .
+                                                                                              q
+                                                       k≥1                        k≥1
+                                           Noncommutative Nest Hardy Spaces and Martingales           |   13727
+
+
+   Lemma 2.2 ([25, Remark 3.7]). Let 1 < p ≤ ∞, and let 1/p + 1/p = 1. Assume that x = (xk )k≥1 is
+     sequence of positive operators in Lp (M). We have
+
+                                                                                            
+                                                                                
+                           xLp (M,∞ ) = sup         τ (xk yk ) : yk ≥ 0,  yk              ≤1 .
+                                                                                      Lp (M)
+
+
+
+
+                                                                                                                   Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                                   k                         k
+
+
+
+2.2 Nest algebra and related noncommutative Hardy and BMO spaces
+Let A be a totally ordered family of projections in M containing 0 and 1. The nest algebra Hr∞ (M, A)
+(shortly Hr∞ (A)) with respect to A is defined by
+
+                                      Hr∞ (A) = {x ∈ M : xe = exe,         ∀e ∈ A}.
+
+Similarly, define
+
+                                      Hc∞ (A) = {x ∈ M : ex = exe,         ∀e ∈ A}.
+
+Note that x ∈ Hr∞ (A) if and only x∗ ∈ Hc∞ (A). For 0 < p < ∞, the noncommutative Hardy space Hrp (A)
+(resp. Hcp (A)) is the completion of Hr∞ (A) (resp. Hc∞ (A)) with respect to the Lp (M) norm.
+
+   Remark 2.3. In this paper, we only consider the nest of order type N, that is,
+
+                                                       A = {ek , 1}k≥0 ,
+
+      where {ek }k≥0 is a sequence of increasing projections in M such that e0 = 0 and ∨k ek = 1. We
+      refer the reader to [2, Example 2.2] for more details.
+
+  The following result, taken from [3, Theorem 3.4], is the well-known Riesz factorization theorem of
+Hardy spaces.
+
+   Theorem 2.4. Let 0 < p, q, s ≤ ∞ with 1/s = 1/p + 1/q. Then, each x ∈ Hrs (A) can be factored as
+     x = yz with y = Hrp (A) and z ∈ Hrq (A); moreover,
+
+
+                                xs = inf{yp zq : x = yz, y ∈ Hrp (A), z ∈ Hrq (A)}.
+
+      The same result holds for the Hcs (A) spaces.
+
+  We also introduce BMO type spaces as follows. For each k ≥ 1, let
+
+                                        Zr,k (x) = ek x(1 − ek−1 ),    ∀x ∈ M.                             (2.3)
+
+and
+
+                                        Zc,k (x) = (1 − ek−1 )xek ,    ∀x ∈ M.                             (2.4)
+
+For 2 ≤ q ≤ ∞, define
+
+                        Lrq MO(A) = {x ∈ Hr∞ (A) : xLrq MO := (Zr,k (x))k≥1 Lq (M,r∞ ) < ∞}           (2.5)
+
+and
+
+                              Lcq MO(A) = {x ∈ Hc∞ (A) : xLcq MO := x∗ Lrq MO < ∞}.                    (2.6)
+
+In the case when q = ∞, we write BMOr (A) (resp. BMOc (A)) instead of Lr∞ MO(A) (resp. Lc∞ MO(A)).
+13728    |   D. Potapov et al.
+
+
+2.3 Noncommutative martingales and related Hardy and BMO spaces
+Let (Mn )n≥1 be a sequence of increasing von Neumann sub-algebras of M satisfying ∪n Mn is weak∗
+dense in M. Assume that for each n ≥ 1 there exists conditional expectation En : M → Mn .
+   The conditional expectations (En )n≥1 satisfy the following:
+
+
+
+
+                                                                                                                             Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+  (a) En (xy) = En (x)y, En (yx) = yEn (x), n ≥ 1 and y ∈ Mn ;
+  (b) En Em = En for m ≥ n; and
+  (c) τ (En (x)) = τ (x), n ≥ 1.
+
+   Since each En preserves the trace, it extends to a contractive projection from Lp (M, τ ) onto Lp (Mn , τ )
+for all 1 ≤ p ≤ ∞.
+   A sequence x = (xn )n≥1 ⊂ L1 (M) is called a martingale if
+
+                                                  En (xn+1 ) = xn ,          n ≥ 1.
+
+If in addition, (xn )n≥1 ⊂ Lp (M) with 1 ≤ p < ∞, then x is called an Lp -martingale. In this case, set
+
+                                                     xp = sup xn p .
+                                                                       n≥1
+
+
+If xp < ∞, then x = (xn )n≥1 is called a bounded Lp -martingale. A martingale is called finite if there
+exists some N such that xm = xN for m ≥ N. In what follows, the sequence of martingale differences
+corresponding to the martingale x = (xn )n≥1 is denoted by (dn x)n≥1 with d1 x = x1 and
+
+                                               dn x = xn − xn−1 ,             ∀n ≥ 2.                                (2.7)
+
+For an element y ∈ L1 (M), note that the sequence (En (y))n≥1 is a martingale.
+
+   Remark 2.5. If x ∈ Lp (M) with 1 ≤ p < ∞, then (En (x))n≥1 is a bounded Lp -martingale and En (x)
+     converges to x in Lp (M). Conversely, if (xn )n≥1 is a bounded Lp -martingale with 1 < p < ∞, then
+     there exists x∞ ∈ Lp (M) such that xn = En (x∞ ) for each n ≥ 1. In this paper, we often identify a
+     martingale with its final value x∞ whenever the latter exists.
+
+   For 0 < p < ∞ and any finite sequence a = (an )n≥1 ⊂ Lp (M), define
+                                                  1/2                                          1/2 
+                                                                                                         
+                        aLp (M,c2 ) =     |an |2       ,            aLp (M,r2 ) =     |a∗n |2       .
+                                                               p                                                 p
+                                            n≥1                                                n≥1
+
+
+This gives two quasi-norms on the family of all finite sequences in Lp (M). The corresponding completion
+is a Banach space, denoted by Lp (M, c2 ) or Lp (M, r2 ), respectively. It is easy to check that a sequence
+a = (an )n≥1 ⊂ Lp (M) belong to Lp (M, c2 ) if and only if supN ( N n=1 |an | )
+                                                                               2 1/2
+                                                                                     p < ∞, if this is the case, then
+( N n=1 |an | 2 1/2
+               )    converges  to (  n≥1 |an | 2 1/2
+                                                )    in Lp (M ).
+    Recall that for 1 ≤ p < ∞ Lp (M, c2 ) (resp. Lp (M, r2 )) is viewed 1-complemented subspace of
+Lp (M ¯⊗B(2 )); see, for example, [43,p. 670]. Hence, the following duality can be deduced from the duality
+between Lp (M ¯     ⊗B(2 )) and Lq (M ¯
+                                       ⊗B(2 )) with 1 ≤ p < ∞ and 1p + 1q = 1:
+
+                              (Lp (M, c2 ))∗ = Lq (M, c2 ),            (Lp (M, r2 ))∗ = Lq (M, r2 ).             (2.8)
+
+
+  For 0 < p ≤ 2, define Hpr (M) (resp. Hpc (M)) as the completion of all finite L2 -martingales under the
+quasi-norm
+
+
+                        xHrp := (dn x)n≥1 Lp (M,r2 )      (resp. xHcp := (dn x)n≥1 Lp (M,c2 ) ).
+
+
+If x ∈ Hpc (M) or x ∈ Hpr (M), then Sc (x) ∈ Lp (M) or Sr (x) ∈ Lp (M), where the column and row square
+functions Sc (x) and Sr (x) are defined by
+
+                                                          1/2                                    1/2
+                                 Sc (x) =         |dn x|2          ,    Sr (x) =          |dn x∗ |2          .       (2.9)
+                                            n≥1                                     n≥1
+                                         Noncommutative Nest Hardy Spaces and Martingales               |   13729
+
+
+  For 2 ≤ q ≤ ∞, define (let E0 = 0 for convenience)
+
+
+                    Lrq MO(M) = {x ∈ L2 (M) : (En |x∗ − En−1 (x∗ )|2 )n≥1 L q (M,∞ ) < ∞}
+                                                                                           2
+
+
+
+
+                                                                                                                     Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+equipped with the norm
+
+                                                                                   1
+                               xLrq MO = (En |x∗ − En−1 (x∗ )|2 )n≥1 L2 q (M,∞ ) .
+                                                                                       2
+
+
+
+
+Similarly, define
+
+
+                                    Lcq MO(M) = {x : x∗ ∈ Lrq MO(M)}
+
+
+equipped with the norm
+
+
+                                            xLcq MO = x∗ Lrq MO .
+
+
+In the case when q = ∞, we write BMO c (M) (resp. BMO r (M)) instead of Lc∞ MO (M) (resp.
+Lc∞ MO(M)). These are noncommutative martingale BMO spaces (see, e.g., [43]).
+    The following filtration is associated with the growing family of projections A and is called the shell
+filtration. A number of the results that we present below are proved for the shell filtration. We clearly
+state that each time. We do not know if those results work for other filtrations.
+
+   Example 2.6. Let A be as in Remark 2.3. Set
+
+
+                                        
+                                        e1 = e1 ,    k = ek − ek−1 ,
+                                                     e                        k ≥ 2.                        (2.10)
+
+
+            ek )k≥1 are mutually orthogonal. Let k ≥ 1, and let
+      Then (
+
+
+                        Mk = {a : a ∈ ek Mek        or   a∈         n Me
+                                                                    e   n },          Mk = VNA(Mk ),       (2.11)
+                                                              n>k
+
+
+      where VNA(Mk ) denotes the von Neumann algebra generated by Mk . Then (Mk )k≥1 is a
+      sequence of increasing von Neumann subalgebras of M. Moreover, the map Ek : M → Mk
+      defined by
+
+                                                                    
+                                             Ek (x) = ek xek +            n x
+                                                                          e   en                            (2.12)
+                                                                    n>k
+
+
+      is the corresponding conditional expectation. The sum makes sense for the strong operator
+      topology; see for instance [12, Proposition 4.4].
+
+2.4 Useful lemmas
+We collect several useful lemmas in this subsection.
+   The following lemma is well known, and we refer the reader to [10, Section 3] and [6] for more
+information.
+
+   Lemma 2.7. Assume that (qk )k≥1 ⊂ M are mutually orthogonal projections. For each x ∈ Lp (M),
+     we have
+
+                                      B(x)Lp (M) ≤ xLp (M) ,          1 ≤ p ≤ ∞,
+
+      where B is the block projection defined by B(x) =               k≥1 qk xqk .
+
+
+  The following basic lemma is taken from [36, Proposition 1.1].
+13730    |   D. Potapov et al.
+
+
+   Lemma 2.8. Let 0 < p, q, r ≤ ∞ with 1/p + 1/q = 1/r. Assume that finite sequences (ak )k ⊂ Lp (M)
+     and (bk )k ⊂ Lq (M). We have
+                                                     1/2           1/2 
+                                                                              
+                                   a∗k bk  ≤     |ak |2           |bk |2       .
+                                                r                        p                    q
+
+
+
+
+                                                                                                                  Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                      k                     k                  k
+
+
+
+3 Triangular Truncation and Martingale Transforms
+In this section, first we show that each triangular truncation is seen as a martingale transform. Then, we
+explore the connection between the Hardy space Hrp (A) (resp. BMOr (A)) and the martingale Hardy space
+Hpc (M) (resp. martingale BMO space BMOr (M)) with respect to the shell filtration (Mk )k≥1 given in
+(2.11). We always assume that each martingale has the form x = (En (x))n≥1 , x ∈ L1 (M) (see Remark 2.5).
+
+3.1 Triangular truncation and martingale transform
+         ek )k be as in (2.10). The triangular truncation operators T and T⊥ with respect to e are defined
+Let e = (
+by
+
+                                      
+                                       k
+                             T(x) =             j x
+                                                e   ek ,    T⊥ (x) = x − T(x),        x ∈ L2 (M).         (3.1)
+                                      k≥1 j=1
+
+
+
+Observe that T(x) is well defined. Indeed, writing TN (x) = N k=1
+                                                                   k
+                                                                       j x
+                                                                   j=1 e   ek , T(x) = limN→∞ TN (x) in L2 (M).
+    Recall that triangular truncation operators are of strong type (p, p) with 1 < p < ∞, and of weak type
+(1, 1); see, for instance, [13, Theorem 1.4].
+
+   Lemma 3.1. We have
+
+
+                             T(x)Lp (M) ,         T⊥ (x)Lp (M) ≤ cp xLp (M) ,     1 < p < ∞,
+
+
+      and
+
+
+                                   T(x)L1,∞ (M) ,         T⊥ (x)L1,∞ (M) ≤ cxL1 (M) .
+
+
+      Here cp = O(1/(p − 1)) as p → 1.
+
+   Next we study the relationship between triangular truncation operators and martingale transforms.
+To begin with, we show that the shell filtration (Mk )k≥1 , defined in Example 2.6, is regular. Recall that
+we say a filtration is regular if for any positive x ∈ M, there exists a positive constant c such that
+
+                                                       Ek (x) ≤ cEk−1 (x).
+
+
+   Lemma 3.2. The shell filtration (Mk )k≥1 given in (2.11) is regular with constant 2.
+
+
+
+Proof. Take positive x ∈ M. We shall show
+
+
+                                                Ek (x) ≤ 2Ek−1 (x),      k ≥ 2.
+
+
+We start with
+
+
+                                              (ek−1 −
+                                                     ek )x(ek−1 −
+                                                                 ek ) ≥ 0.
+
+
+Opening the brackets, we arrive at
+
+                                      
+                                      ek xek−1 + ek−1 x
+                                                       ek ≤ ek−1 xek−1 +
+                                                                        ek x
+                                                                            ek .
+                                          Noncommutative Nest Hardy Spaces and Martingales        |   13731
+
+
+Hence, for each k,
+
+                                ek xek = (
+                                          ek + ek−1 )x(
+                                                       ek + ek−1 )
+
+                                       =ek xek−1 + ek−1 xek + ek−1 xek−1 +
+                                                                            ek x
+                                                                                ek                     (3.2)
+                                                               
+
+
+
+
+                                                                                                               Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                       ≤ 2 ek−1 xek−1 +      ek .
+                                                          ek x
+
+Furthermore, according to (2.12),
+                                                      
+                                 Ek (x) = ek xek +           m x
+                                                             e   em
+                                                     m≥k+1
+                                                                        
+                                        ≤ 2 ek−1 xek−1 +   ek +
+                                                        ek x      m x
+                                                                   e   em
+                                                                        m≥k+1
+
+                                        = 2Ek−1 (x).
+
+The proof is complete.                                                                                    
+
+  Recall that the martingale difference operator is denoted by dj = Ej − Ej−1 for each j ≥ 1 (let E0 = 0 for
+convenience).
+
+   Lemma 3.3. For each k ≥ 2 and x ∈ M, we have
+
+                                                       ek = ek−1 dk (x).
+                                                 ek−1 x
+
+      Similarly,
+
+                                                 k xek−1 = dk (x)ek−1 .
+                                                 e
+
+
+Proof. By (2.12), for each j ≥ 2, we have
+
+                                         dj (x) = ej xej − ej−1 xej−1 −
+                                                                       ej x
+                                                                           ej
+
+We write
+
+                                          ej xej = (
+                                                    ej + ej−1 )x(
+                                                                 ej + ej−1 ).
+
+Then, combining the last two formulas, we have
+
+                                                j xej−1 + ej−1 x
+                                        dj (x) = e               ej ,     j ≥ 2.                       (3.3)
+
+Thus, for each k ≥ 2, we have
+
+                                ek−1 dk (x) = ek−1 (
+                                                    ek xek−1 + ek−1 x
+                                                                     ek ) = ek−1 x
+                                                                                  ek .
+
+The second equality can be similarly proved.                                                              
+
+   Now we are ready to show that triangular truncation is a martingale transform (see Remark 3.5 below
+for detail explanation).
+
+   Proposition 3.4. Let T and T⊥ be the triangular truncation defined in (3.1). For each x ∈ L2 (M), we
+      have E1 (T(x)) = E1 (x),
+
+                                            dn (T(x)) = en−1 dn (x),      n ≥ 2,                       (3.4)
+
+      and consequently,
+
+                                                               
+                                            T(x) = E1 (x) +          ek−1 dk (x).
+                                                               k≥2
+13732   |   D. Potapov et al.
+
+
+      Similarly, we have
+                                                      
+                                           T⊥ (x) =         dk (x)ek−1 ,    x ∈ L2 (M).
+                                                      k≥2
+
+
+
+
+                                                                                                                                  Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Proof. Let x ∈ L2 (M). For each N ≥ 2, we have
+
+                                                              
+                                                              N 
+                                                                k
+                                                TN (x) =                j x
+                                                                        e   ek .
+                                                              k=1 j=1
+
+
+Note that TN (x) converges to T(x) in L2 (M) as N → ∞. Hence, for each n ≥ 1,
+
+                          lim Ek (TN (x) − T(x))L2 (M) ≤ lim TN (x) − T(x)L2 (M) = 0.
+                          N→∞                                     N→∞
+
+Consequently,
+
+                                      E1 (T(x)) = lim E1 (TN (x)) in L2 (M)                                               (3.5)
+                                                      N→∞
+
+and for n ≥ 2
+
+                                      dn (T(x)) = lim dn (TN (x))            in L2 (M).                                   (3.6)
+                                                      N→∞
+
+
+                                                                     N
+  For each N, it follows from (2.12) that E1 (TN (x)) =                 k x
+                                                                     k=1 e  ek . By Lemma 2.7, we have
+
+
+                                     
+                                     N                
+                                           k x
+                                           e   ek →         k x
+                                                            e   ek = E1 (x),        N→∞
+                                     k=1              k≥1
+
+
+
+in L2 (M). Thus, it follows from (3.5) that E1 (T(x)) = E1 (x). On the other hand, for N ≥ n, by (2.12), we
+have
+
+                                                        
+                                                        N                  
+                                                                           n
+                                       En (TN (x)) =          k x
+                                                              e   ek +           ek−1 x
+                                                                                       ek .
+                                                        k=1                k=2
+
+
+Therefore, for N ≥ n,
+
+
+                          dn (TN (x)) = En (TN (x)) − En−1 (TN (x)) = en−1 x
+                                                                            en = en−1 dn (x),
+
+
+where the last equality is due to Lemma 3.3. From (3.6), we deduce that dn (T(x)) = en−1 dn (x). Note that
+
+
+                                                                                              
+                                                                                              N
+                0 = lim T(x) − EN (T(x))L2 (M) = lim T(x) − [E1 (T(x)) +                         dk (T(x))]L2 (M) .
+                    N→∞                                     N→∞
+                                                                                              k=1
+
+
+Thus, we conclude from (3.4) that
+
+                                                                  
+                                             T(x) = E1 (x) +            ek−1 dk (x).
+                                                                  k≥2
+
+
+
+  The formula for T⊥ can be similarly proved.                                                                               
+
+
+   Remark 3.5. For a given bounded L1 -martingale x = (xn )n≥1 , define a martingale y by setting
+
+
+                                      dn y = ξn−1 dk (x),       ξn−1 ∈ Mn−1 ,           n ≥ 1.
+                                          Noncommutative Nest Hardy Spaces and Martingales          |   13733
+
+
+      We call y is a martingale transform of x (see, for instance, [49], [40]). Note that ek−1 ∈ Mk−1
+      for each k. Hence, the above result actually states that T(x) is a martingale transform of x =
+      (En (x))n≥1 . Motivated by this, in the forthcoming paper, we will provide a new martingale proof
+      for the weak (1, 1) boundedness of the triangular truncation T.
+
+
+
+
+                                                                                                                 Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+   It was proved in [46, Theorem 1] that for each x ∈ M, there exists a positive constant c such that
+
+
+                               max{T(x)BMOc (M) , T(x)BMOr (M) } ≤ cxM .
+
+
+We improve this result with the help of Proposition 3.4. To see the improvement, one needs to recall
+that max{xBMOc (M) , xBMOr (M) } ≤ 2xM for each x ∈ M (see, e.g., [43, p. 693]).
+
+   Corollary 3.6. For each x ∈ BMO c (M), we have
+
+
+                                          T(x)BMOc (M) ≤ xBMOc (M)
+
+
+      and
+
+                                         T(x)BMOr (M) ≤ 2xBMOr (M) .
+
+
+Proof. It is known that (see, e.g., [43, p. 693])
+
+                                                                       
+                               En (|y − En−1 (y)|2 ) = En         |dk y|2 ,   y ∈ L2 (M).
+                                                            k≥n
+
+
+
+Hence, from this and the definition of BMO c (M), we have
+
+                                                                   1/2
+                                                                      
+                                T(x)BMOc (M) = sup En  |dk (T(x))|2 
+                                                       n                             ∞
+                                                                   k≥n
+                                                                          1/2
+                                                                             
+                                                    = sup En  |ek−1 dk (x)|2 
+                                                       n                             ∞
+                                                                   k≥n
+                                                                     1/2
+                                                                        
+                                                    ≤ sup En  |dk (x)|2 
+                                                       n                         ∞
+                                                                   k≥n
+
+                                                    = xBMOc (M) ,
+
+
+where we used Proposition 3.4 in the second equality and the “≤” is due to the fact ek−1 ≤ 1. This shows
+the first inequality. With the same argument, applying 3.4 for T⊥ , we obtain
+
+
+                                       T⊥ (x)BMOr (M) ≤ xBMOr (M) .
+
+
+From this, we have
+
+
+        T(x)BMOr (M) = x − T⊥ (x)BMOr (M) ≤ xBMOr (M) + T⊥ (x)BMOr (M) ≤ 2xBMOr (M) .
+
+
+This is the second desired inequality.                                                                     
+
+3.2 Comparison: Hardy spaces and martingale Hardy spaces
+Let us now compare the Hardy space Hrp (A) defined with the help of sequence of projections and the
+martingale Hardy space Hpc (M) with respect to the shell filtration (Mk )k≥1 given in (2.11). The first result
+is as follows.
+13734    |   D. Potapov et al.
+
+
+   Proposition 3.7. For 0 < p ≤ ∞, we have
+
+                                                      Hrp (A) ⊂ Hpr (M).
+
+      Similarly, we have Hcp (A) ⊂ Hpc (M).
+
+
+
+
+                                                                                                                       Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+   We need the following nontrivial result from [3, Theorem 2.1].
+
+   Lemma 3.8. If x ∈ Hr∞ (A), then
+
+                                               E1 (x)p ≤ xp ,             0 < p < 1.
+
+
+
+
+   Now we prove Proposition 3.7.
+
+Proof of Proposition 3.7. It suffices to prove that for each x ∈ Hr∞ (A),
+
+                                             xHrp ≤ cp xp ,       0 < p ≤ ∞.
+
+Note that in this case xek = ek xek for all k ≥ 1. Hence, by (3.3), we have
+
+                                j xej−1 + ej−1 x
+                        dj (x) = e                   j ej−1 xej−1 + ej−1 x
+                                                 ej = e                    ej = ej−1 x
+                                                                                      ej ,            j ≥ 2,
+
+and consequently,
+                                                                                  
+                                    x = E1 (x) +           dj (x) = E1 (x) +             ej−1 x
+                                                                                               ej .
+                                                     j≥2                           j≥2
+
+
+Writing y = x − E1 (x), we have dj (y) = dj (x) = ej−1 x
+                                                        ej and
+
+                                                                        1/2
+                                       Sr (y) =           dj (y)dj (y)∗          = (yy∗ )1/2 .                 (3.7)
+                                                    j≥2
+
+
+By Lemma 2.7 and Lemma 3.8,
+                                                      
+                                                k x  
+                                  E1 (x)p =   e   ek  ≤ xp ,                  0 < p ≤ ∞.                 (3.8)
+                                                                 p
+                                                    k≥1
+
+
+Using the fact that  · Hrp is a quasi-norm, we have
+
+                             xHrp ≤ cp yHrp + cp E1 (x)Hrp
+                                                                
+                                                                 
+                                    = cp (    dj (y)dj (y)∗ )1/2  + cp E1 (x)p
+                                                                          p
+                                              j≥2
+
+                                     (3.7)
+                                       = cp (yy∗ )1/2 p + cp E1 (x)p
+
+                                     = cp yp + cp E1 (x)p
+
+                                                                              (3.8)
+                                     ≤ c2p xp + c2p E1 (x)p + cp E1 (x)p ≤ cp xp .
+
+The proof is complete.                                                                                           
+
+  Before going further, let us state the following result which will be used to prove Theorem 3.11.
+Actually, the following martingale inequalities hold for general regular noncommutative martingales.
+                                        Noncommutative Nest Hardy Spaces and Martingales         |   13735
+
+
+   Lemma 3.9. For 0 < p ≤ 2 and x ∈ L2 (M), we have
+
+                                      xp ≤ cp xHcp ,     xp ≤ cp xHrp .
+
+
+
+
+                                                                                                              Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Proof. The case 1 < p < 2 follows from the noncommutative Burkholder–Gundy inequality [43, Theorem
+2.1], and the case p = 1 is given in [43,p. 696].
+   Now we consider the case 0 < p < 1. According to [20, Theorem 4.11], we have
+
+                                           sup En (x)p ≤ cp xhcp .
+                                            n
+
+
+Here hcp denotes the conditioned martingale Hardy space (see [9] or [20] for more information). Since the
+shell filtration (Mk )k≥1 is regular (see Lemma 3.2 above), it follows from [9, Theorem 5.9] that hcp = Hpc
+with equivalent quasi-norms. Thus,
+
+                                      xp ≤ sup En (x)p ≤ cp xHcp ,
+                                                n
+
+where the first inequality is due to the fact xp ≤ En (x)p , n ≥ 1, provided 0 < p < 1 (see, e.g., [26,
+Theorem 7.1]). The second inequality of the lemma can be proved similarly.                               
+
+   Proposition 3.10. For each x ∈ L2 (M), there exists a positive constant cp such that
+
+                                        T(x)p ≤ cp xHcp ,     0<p≤2                               (3.9)
+
+      and
+
+                                        T(x)p ≤ cp xHrp ,    0 < p ≤ 2.                          (3.10)
+
+      Similarly, we have
+
+                                T⊥ (x)p ≤ cp min{xHrp , xHcp },        0 < p ≤ 2.
+
+
+Proof. We first show (3.9). The case when p = 2 is trivial. Hence, we only need to consider 0 < p < 2. By
+Lemma 3.9 and Proposition 3.4, we have
+
+                              T(x)p ≤ cp T(x)Hcp
+                                                                  1/2 
+                                                                         
+                                      =  |E1 (x)|2 +   |ek−1 dk x|2      
+                                                                               p
+                                                       k≥2
+                                                             1/2 
+                                                                    
+                                      ≤  |E1 (x)|2 +   |dk x|2       = xHcp .
+                                                                         p
+                                                       k≥2
+
+
+By the same argument, we show that
+
+                                            T⊥ (x)p ≤ cp xHrp .                                  (3.11)
+
+
+  Now we turn to deal with (3.10). Combining (3.11) and Lemma 3.9, we write
+
+                                 T(x)p ≤ cp T⊥ (x)p + cp xp
+
+                                          ≤ cp xHrp + cp xHrp ≤ cp xHrp .
+
+The proof is complete.                                                                                  
+
+    For the triangular truncation T and 0 < p ≤ 2, let us define the space HTp (M) as the completion of
+L2 (M) with respect to the quasi-norm
+
+
+                                          xHTp = xp + T(x)p .
+13736   |    D. Potapov et al.
+
+
+For each x ∈ L2 (M) and 1 < p ≤ 2, by Lemma 3.1, we have xp ≤ xHpT ≤ (cp +1)xp . Hence, for 1 < p ≤ 2,
+Lp (M) = HTp (M) with equivalent norms. Also recall that (see [43, Corollary 2.2])
+
+                                       Lp (M) = Hpc (M) + Hpr (M),             1 < p ≤ 2,
+
+
+
+
+                                                                                                                                                      Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+with equivalent norms. Consequently,
+
+                                       HTp (M) = Hpc (M) + Hpr (M),              1<p≤2
+
+with equivalent norms. We shall show below that this also holds for 0 < p ≤ 1.
+
+   Theorem 3.11. For 0 < p ≤ 2, we have
+
+
+                                                   HTp (M) = Hpc (M) + Hpr (M)
+
+
+      with equivalent quasi-norms.
+
+Proof. It suffices to show that for each x ∈ L2 (M),
+
+
+                                                     xHTp ≤ cp xHcp +Hrp
+
+
+and
+
+
+                                                     xHcp +Hrp ≤ cp xHTp .                                                               (3.12)
+
+
+The first inequality above easily follows from Lemma 3.9 and Proposition 3.10.
+  It remains to show (3.12). To this end, write x = T(x) + T⊥ (x). Then
+
+
+                                    xHcp +Hrp ≤ T(x)Hrp + T⊥ (x)Hcp
+
+                                               ≤ cp T(x)p + cp T⊥ (x)p
+
+                                               ≤ cp T(x)p + cp [cp (xp + T(x)p )],
+
+                                               = cp (xp + T(x)p ) = cp xHpT ,
+
+
+where the second inequality is due to Proposition 3.7. The proof of the theorem is complete.                                                    
+
+3.3 BMO type spaces
+In this subsection, we aim to compare different BMO type spaces. We begin with the following basic
+lemma. Unless otherwise specified, the results of this subsection are stated for the shell filtration.
+
+   Lemma 3.12. For each x ∈ L2 (M) and n ≥ 1,
+
+                                                                                                                   
+            En (|x − En−1 (x)|2 ) = en−1 x∗ e
+                                           n xen−1 + en x∗ (1 − en )xen +             ek x∗ (1 − ek )x
+                                                                                                      ek +               j x∗ ej−1 x
+                                                                                                                          e           ej .
+                                                                               k≥n+1                                j≥n
+
+
+
+      Moreover, if ek x = ek xek for each k ≥ 1, then for each n ≥ 1
+                                                                                            
+                     En (|x − En−1 (x)|2 ) = en−1 x∗ e
+                                                    n xen−1 + en x∗ (1 − en )xen +                 k x∗ (1 − ek )x
+                                                                                                    e               ek .                     (3.13)
+                                                                                           k≥n+1
+
+
+Proof. For x ∈ L2 (M), by the orthogonality of martingale differences, we have (see also [43,p. 693])
+
+                                                                                        
+                         En (|x − En−1 (x)|2 ) =         En (|dk (x)|2 ) = |dn (x)|2 +           En (|dj (x)|2 ).                            (3.14)
+                                                   k≥n                                   j≥n+1
+                                                   Noncommutative Nest Hardy Spaces and Martingales                                   |   13737
+
+
+Here the sum makes sense in L2 (M). Note that by (3.3) we have
+
+
+                                        |dj (x)|2 = ej−1 x∗ e        ej x∗ ej−1 x
+                                                           j xej−1 +           ej ,             j ≥ 1.                                  (3.15)
+
+
+
+
+                                                                                                                                                   Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+According to (2.12), we have, for j ≥ n + 1
+
+                                                                                      
+                              En (ej−1 x∗ e
+                                         j xej−1 ) = en ej−1 x∗ e
+                                                                j xej−1 en +                k ej−1 x∗ e
+                                                                                             e         j xej−1 e
+                                                                                                               k
+                                                                                     k≥n+1
+
+                                                                           j−1
+                                                                           
+                                                        = en x∗ e
+                                                               j xen +           k ej−1 x∗ e
+                                                                                  e         j xej−1
+                                                                                                    ek                                    (3.16)
+                                                                          k=n+1
+
+                                                                           j−1
+                                                                           
+                                                        = en x∗ e
+                                                               j xen +           k x∗ e
+                                                                                  e    j x
+                                                                                           ek ,
+                                                                          k=n+1
+
+
+
+and
+
+                                                                          
+                         ej x∗ ej−1 x
+                     En (                      ej x∗ ej−1 x
+                                     ej ) = en [           ej ]en +                ej x∗ ej−1 x
+                                                                                 ek [                   j x∗ ej−1 x
+                                                                                                     ek = e
+                                                                                                 ej ]               ej .                 (3.17)
+                                                                         k≥n+1
+
+
+
+Combining (3.15), (3.16), and (3.17), we have
+
+
+                                                                      
+                                                                         j−1
+                                                                                                      
+                           En (|dj (x)|2 ) =           en x∗ e
+                                                            j xen +                 k x∗ e
+                                                                                     e    j x
+                                                                                              ek +           j x∗ ej−1 x
+                                                                                                             e           ej
+                   j≥n+1                       j≥n+1                   j≥n+1 k=n+1                   j≥n+1
+                                                                                                          
+                                         = en x∗ (1 − en )xen +                 ek x∗ (1 − ek )x
+                                                                                               ek +               ej x∗ ej−1 x
+                                                                                                                              ej .
+                                                                        k≥n+1                              j≥n+1
+
+
+
+This, together with (3.14) and (3.15) (with j = n there) gives us the first desired equality. The second
+equality of the lemma follows from the first one.                                                     
+
+   Lemma 3.13. Let Zr,n and Zc,n be as in (2.3) and (2.4). For each x ∈ BMO c (M), we have
+
+
+                                                        sup Zc,n (x)∞ ≤ 2xBMOc .
+                                                         n
+
+
+
+      Similarly,
+
+                                                        sup Zr,n (x)∞ ≤ 2xBMOr .
+                                                          n
+
+
+Proof. We only show the first inequality since the second one can be proved similarly. For each n ≥ 2,
+write
+
+
+                                    Zc,n (x)2∞ = |Zc,n (x)|2 ∞ = en x∗ (1 − en−1 )xen ∞                                             (3.18)
+
+
+and write
+
+
+                                      en x∗ (1 − en−1 )xen = en x∗ (1 − en )xen + en x∗ e
+                                                                                       n xen .
+
+
+By (3.2), we know that
+
+
+                     en x∗
+                          en xen ≤ 2(en−1 x∗         en x∗
+                                            en xen−1 +        en ) ≤ 2en−1 x∗
+                                                           en x              en xen−1 + 2E1 (|x|2 ).
+13738   |   D. Potapov et al.
+
+
+Hence, by Lemma 3.12, we deduce that
+
+                                  en x∗ (1 − en−1 )xen ≤ 2En (|x − En−1 (x)|2 ) + 2E1 (|x|2 ).                                             (3.19)
+
+Also note that
+
+
+
+
+                                                                                                                                                    Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                   E1 (|x|2 )∞ = E1 (|x − E0 (x)|2 )∞ ≤ sup En (|x − En−1 (x)|2 )∞ = x2BMOc .
+                                                                   n
+
+Therefore, combining (3.18) and (3.19), we obtain
+
+                   sup Zc,n (x)2∞ ≤ 2 sup En (|x − En−1 (x)|2 )∞ + 2E1 (|x|2 )∞ ≤ 4x2BMOc .
+                     n                          n
+
+The first desired inequality follows.                                                                                                         
+
+   Lemma 3.14. Let Zr,n and Zc,n be as in (2.3) and (2.4). For each x ∈ L2 (M), we have
+
+                                                                       √
+               xBMO := max{xBMOc , xBMOr } ≤                      2 max{sup Zr,n (x)∞ , sup Zc,n (x)∞ }.
+                                                                                         n                   n
+
+
+      Moreover, if x ∈ BMOc (A), then
+
+                                                                    √
+                                                    xBMOc ≤        2xBMOc (A) ,
+
+
+      and if x ∈ BMOr (A), then
+                                                                    √
+                                                    xBMOr ≤        2xBMOr (A) .
+
+
+Proof. Denote by
+
+
+                                  Zc := sup Zc,n (x)∞ = sup en x∗ (1 − en−1 )xen 1/2
+                                                                                     ∞
+                                            n                      n
+
+
+and
+
+
+                             Zr := sup Zr,n (x)∞ = sup (1 − en−1 )x∗ en x(1 − en−1 )1/2
+                                                                                        ∞ .
+                                      n                       n
+
+
+Note that for each j ≥ 1
+
+
+                 ej x∗ ej−1 x
+                                j (1 − ej−1 )x∗ ej−1 x(1 − ej−1 )
+                             ej = e                                    j (1 − ej−1 )x∗ ej x(1 − ej−1 )
+                                                                   ej ≤ e                                  j Z2r
+                                                                                                       ej ≤ e
+
+
+and
+
+
+                                      ej x∗ (1 − ej )xej = ej ej+1 x∗ (1 − ej )xej+1 ej ≤ ej Z2c
+
+
+Then it follows from Lemma 3.12 that for each n ≥ 1,
+
+                                                                                                                   
+         En (|x − En−1 (x)|2 ) = en−1 x∗ e
+                                        n xen−1 + en x∗ (1 − en )xen +                      k x∗ (1 − ek )x
+                                                                                             e               ek +         j x∗ ej−1 x
+                                                                                                                          e           ej
+                                                                                  k≥n+1                             j≥n
+                                                                                                                   
+                               ≤ en−1 x∗ (1 − en−1 )xen−1 + en Z2c +                 k ek x∗ (1 − ek )xek e
+                                                                                     e                    k +             j Z2r
+                                                                                                                           e
+                                                                            k≥n+1                                    k≥n
+                                                                         
+                               ≤ en−1 Z2c + en Z2c +           k Z2c +
+                                                               e                j Z2r
+                                                                                e
+                                                       k≥n+1              k≥n
+
+                               ≤ 2Z2c + (1 − en−1 )Z2r .
+                                             Noncommutative Nest Hardy Spaces and Martingales       |   13739
+
+
+Consequently,
+
+                                                                                √
+                          xBMOc = sup En (|x − En−1 (x)|2 )1/2
+                                                               ∞ ≤               2 max{Zc , Zr }.
+                                            n
+
+
+
+
+                                                                                                                Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Similarly, we show
+
+                                                             √
+                                                xBMOr ≤     2 max{Zc , Zr }.
+
+The first inequality of the lemma follows.
+   As for x ∈ BMOc (A), we know that ek x = ek xek for each k ≥ 1. Repeating the above argument and using
+(3.13), we have
+
+                                                         √     √
+                                          xBMOc ≤       2Zc = 2xBMOc (A) .
+
+Similarly, for x ∈ BMOr (A),
+                                                               √
+                                                xBMOr ≤       2xBMOr (A) .
+                                                                                                           
+
+  The space BMOT introduced in [33] is given as follows:
+
+                                        BMOT = {x = y + Tz : y, z ∈ L∞ (M)},
+
+equipped with the norm
+
+                                             xBMOT = inf{y∞ + z∞ }.
+
+
+  The following lemma provides an equivalent description of the BMOT -norm. It says that the duality
+holds:
+
+                                                   (HT1 (M))∗ = BMOT ,
+
+which is known to experts (see, e.g., [33]). We write down the details for the reader’s convenience.
+
+   Lemma 3.15. For each x ∈ BMOT , we have
+
+                   1
+                     xBMOT ≤ sup{|τ (yx∗ )| : T(y)1 , T⊥ (y)1 ≤ 1, y ∈ L1 (M)} ≤ 2xBMOT .
+                   3
+
+Proof. We first prove the right-hand side inequality. Take x ∈ BMOT , and take x1 , x2 ∈ M such that
+x = x1 + T(x2 ) with
+
+                                                x1 ∞ + x2 ∞ ≤ xBMOT .
+
+Let y ∈ L1 (M) be such that T(y)1 ≤ 1 and T⊥ (y)1 ≤ 1. From this, we have y1 ≤ T(y)1 +T⊥ (y)1 ≤ 2,
+and it is obvious that
+
+                               τ (yx∗ ) = τ (yx∗1 ) + τ (y[T(x2 )]∗ ) = τ (yx∗1 ) + τ (T(y)x∗2 ).
+
+Therefore,
+
+                   |τ (yx∗ )| ≤ y1 x1 ∞ + T(y)1 x2 ∞ ≤ 2(x1 ∞ + x2 ∞ ) ≤ 2xBMOT .
+
+Taking the supremum over such y we obtain the right-hand side inequality.
+13740    |   D. Potapov et al.
+
+
+   To prove the left-hand side inequality, denote the middle term by A. Let x be such that |τ (yx∗ )| ≤ A
+for any y ∈ L1 (M) with T(y)1 ≤ 1 and T⊥ (y)1 ≤ 1. In particular, we have
+
+                                         |τ (yx∗ )| ≤ A,     y = T(y), y1 ≤ 1
+
+
+
+
+                                                                                                                        Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+and
+
+                                        |τ (yx∗ )| ≤ A,     y = T⊥ (y), y1 ≤ 1.
+
+By the Hahn-Banach theorem, there exist a functional f on L1 (M) such that
+
+                                             |f (y)| ≤ Ay1 ,      y ∈ L1 (M)
+
+and such that f (y) = τ (yx∗ ) for every y = T(y). Similarly, there exist a functional g on L1 (M) such that
+
+                                             |g(y)| ≤ Ay1 ,       y ∈ L1 (M)
+
+and such that g(y) = τ (yx∗ ) for every y = T⊥ (y). Since the Banach dual of L1 (M) is M, it follows that
+there exist x1 , x2 ∈ M such that x1 ∞ ≤ A, x2 ∞ ≤ A and such that
+
+                                   f (y) = τ (yx∗1 ),   g(y) = τ (yx∗2 ),        y ∈ L1 (M).
+
+Thus, τ (yx∗ ) = τ (yx∗1 ) for every y = T(y) and τ (yx∗ ) = τ (yx∗2 ) for every y = T⊥ (y). Hence, T(x) = T(x1 ) and
+T⊥ (x) = T⊥ (x2 ). It follows that
+
+                x = T(x) + T⊥ (x) = T(x1 ) + T⊥ (x2 ) = T(x1 − x2 ) + x2 ,            x1 ∞ ≤ A, x2 ∞ ≤ A.
+
+Consequently,
+
+                                       xBMOT ≤ x1 − x2 ∞ + x2 ∞ ≤ 3A.
+
+
+This proves the left-hand side inequality.                                                                        
+   Theorem 3.16. The following are equivalent:
+
+   (i) x ∈ BMO (M) := BMO r (M) ∩ BMO c (M);
+  (ii) x ∈ BMOT ; and
+ (iii) max{supn Zr,n (x)∞ , supn Zc,n (x)∞ } < ∞.
+
+
+Proof. Note that BMOT is the dual of HT1 (M) (see its definition proceeding Lemma 3.9), and BMO (M) =
+(H1c (M) + H1r (M))∗ (see [43,p. 693]). Then, by Theorem 3.11, items (i) and (ii) are equivalent. By Lemma
+3.13 and Lemma 3.14, we know that items (i) and (iii) are equivalent. The proof is complete.             
+
+   Remark 3.17. A few comments are listed as below.
+
+   (i) For the case M = B(H), Ovchinnikov [39, Theorem 2] previously announced that items (ii) and (iii)
+       in last theorem are equivalent but not proved there. We later will provide a direct proof for this;
+       see Corollary 5.8 below.
+  (ii) According to the noncommutative John-Nirenberg inequality established in [28, Theorem 1.1], the
+       statement given in Theorem 3.16 is also equivalent to
+
+                                 max{xBMOcp (M) , xBMOrp (M) } < ∞,                  2 < p < ∞,
+
+      where xBMOpr (M) = x∗ BMOpc (M) and
+
+                                  xBMOpc (M) = sup              sup            (x − En−1 (x))ap .
+                                                        n   a∈Lp (Mn ),ap ≤1
+
+
+
+ (iii) Combining Theorem 3.16 and [28, Theorem 1.2], we have the following large deviation inequality
+       for elements of BMOT , that is, there exist universal constants c1 , c2 > 0 such that if x ∈ BMOT with
+                                          Noncommutative Nest Hardy Spaces and Martingales      |   13741
+
+
+     xBMOT < 1, then for any t > 0, there exists projection e ∈ M such that (x − E1 (x))eM ≤ t and
+
+                                                    τ (1 − e) ≤ c2 e−tc1 .
+
+
+
+
+                                                                                                             Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+  The argument above also gives us an equivalent description of the BMOc (A)-norm.
+
+   Theorem 3.18. Assuming that x ∈ BMOc (A), then
+
+
+                                           xBMOc (A) ≈ xBMOc ≈ x,c ,
+
+
+      where
+
+
+                                         x,c = sup en |x − en xen |2 en 1/2
+                                                                             ∞ .
+                                                     n
+
+
+      Similar result holds for x ∈ BMOr (A).
+
+Proof. Let x ∈ BMOc (A). By Lemma 3.13 and Lemma 3.14, we obtain
+
+
+                                              xBMOc (A) ≈ xBMOc .
+
+
+Note also that for each n ≥ 1
+
+
+                                       en |x − en xen |2 en = en x∗ (1 − en )xen .                  (3.20)
+
+
+Thus, combining (3.20) and (3.13), we deduce that
+
+                          1
+                         √ xBMOc (M) ≤ sup en |x − en xen |2 en 1/2
+                                                                    ∞ ≤ xBMO c (M) .
+                           2              n
+
+
+The proof is complete.                                                                                   
+
+4 Noncommutative Maximal Inequalities
+Let A = {1, ek }k≥0 be as in Remark 2.3, and let
+
+
+                                              Pk (x) = ek xek ,    k ≥ 1.                            (4.1)
+
+
+Theorem 4.2 proves noncommutative maximal inequality with respect to the family of operators
+(Pk )k≥1 . We will see that Theorem 4.2 easily follows from noncommutative martingale Doob inequalities.
+However, we also would like to provide a new method which is based on triangular truncation operators.
+As a byproduct, we also obtain several new asymmetric Doob maximal inequalities.
+
+   Definition 4.1. Let 1 ≤ p ≤ ∞. Assume that A = (Ak )k≥1 is a sequence of positive operators defined
+     on Lp (M).
+
+  (i) We say that A is of weak type (p, p) (p < ∞) if for any x ∈ Lp (M) and any λ > 0, there exist a
+      constant c > 0 and a projection eλ ∈ M such that
+
+                                              x p
+                                                  p
+                                τ (1 − eλ ) ≤ c       ,     and      sup eλ Ak (x)eλ ∞ ≤ λ.
+                                                λ                      k
+
+
+  (ii) We say that A is of type (p, p) if there exists a positive constant cp such that
+
+                                      A(x)Lp (M,∞ ) ≤ cp xLp (M) ,      1 ≤ p ≤ ∞.
+13742    |   D. Potapov et al.
+
+
+   Theorem 4.2. Consider the sequence of positive operators P = (Pk )k≥1 defined in (4.1). We have
+
+   (i) P is of weak type (1, 1).
+  (ii) P is of type (p, p), 1 < p ≤ ∞.
+
+
+
+
+                                                                                                                    Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+   According to (2.12), for each k ≥ 1 and positive x ∈ M,
+
+
+                                                  Pk (x) = ek xek ≤ Ek (x).
+
+
+Thus, with slight argument, Theorem 4.2 immediately follows from the following result which is taken
+from [11] and [25] (actually it holds for general noncommutative martingales).
+
+   Lemma 4.3. Consider the conditional expectations E = (Ek )k≥1 given in Example 2.6. We have
+
+   (i) E is of weak type (1, 1).
+  (ii) E is of type (p, p), 1 < p ≤ ∞.
+
+
+  We are going to prove Theorem 4.2 via another method which is based on the triangular truncation
+operators. In what follows, for each x ∈ M, write 1 (x) = P1 (x) and
+
+
+                                           k (x) = Pk (x) − Pk−1 (x),               k ≥ 2.
+
+
+k is known as the shell decomposition.
+
+   Lemma 4.4. Let x ∈ M. For each l ≥ 1, we have
+
+   (i) l (T(x)) = T(x) el ;
+  (ii) l (T⊥ (x)) = e
+                     l T⊥ (x); and
+ (iii) el xel = T(x)el + el T⊥ (x).
+
+
+                     k el = el
+Proof. (i) Note that e                                        k el = el e
+                               ek = 0 provided k ≥ l + 1, and e         k = e
+                                                                             k for k ≤ l. Hence, for each l ≥ 1,
+we have
+
+
+                                                
+                                                  k               
+                                                                    l 
+                                                                      k       
+                                          (3.1)
+                                 el T(x)el = el     j x
+                                                    e   ek el = el      j x
+                                                                        e   ek el
+                                                    k≥1 j=1                           k=1 j=1
+
+
+                                              
+                                              l 
+                                                k                  
+                                                                   l
+                                          =                ek =
+                                                        ej x            ek x
+                                                                             ek .
+                                              k=1 j=1              k=1
+
+
+
+Since (
+       ek )k≥1 are pairwise disjoint, it follows that
+
+
+                                                 
+                                                   k                   
+                                                                        l
+                                          el =
+                                      T(x)                 j x
+                                                            e      l =
+                                                                ek e      j x
+                                                                          e   el = el x
+                                                                                       el .
+                                                  k≥1 j=1                    j=1
+
+
+
+Hence,
+
+
+                                                          
+                                                          l                 
+                                                                            l−1
+                           el T(x)el − el−1 T(x)el−1 =              ek −
+                                                                ek x                   ek = el x
+                                                                                    ek x        el = T(x)
+                                                                                                          el .
+                                                          k=1               k=1
+
+
+
+This shows item (i). Item (ii) can be proved similarly.
+                                                  Noncommutative Nest Hardy Spaces and Martingales   |   13743
+
+
+   For item (iii), combining the first two items, we obtain
+
+                                            
+                                            l
+                                 el xel =         i (x)
+                                            i=1
+
+
+
+
+                                                                                                                  Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                            
+                                            l                   
+                                                                l
+                                       =          i (T(x)) +         i (T⊥ (x))
+                                            i=1                 i=1
+
+                                            
+                                            l                
+                                                             l
+                                       =              el +
+                                                  T(x)            l T⊥ (x) = T(x)el + el T⊥ (x).
+                                                                   e
+                                            i=1              i=1
+
+
+The proof is complete.                                                                                      
+
+Proof of Theorem 4.2: based on triangular truncation operators. We only need to prove P is of weak type
+(1, 1). Indeed, since P is of type (∞, ∞), once we show that P is weak type (1, 1), by the noncommutative
+Marcinkiewicz-type interpolation established in [29, Theorem 3.1], we obtain that P is of type (p, p) with
+1 < p < ∞.
+    Now we show that P is of weak type (1, 1). To this end, it suffices to show that for any given λ > 0,
+there exists a projection qλ such that
+
+
+                                                     sup qλ Pk (x)qλ ∞ ≤ 2λ                             (4.2)
+                                                      k
+
+
+and
+
+
+                                                    λτ (1 − qλ ) ≤ cxL1 (M) .                           (4.3)
+
+
+
+   Set
+
+
+                                       qλ1 = χ[0,λ] (|T(x)∗ |),        qλ2 = χ[0,λ] (|T⊥ (x)|)
+
+
+and let qλ = qλ1 ∧ qλ2 . Then, for each k, by Lemma 4.4 (iii), we have
+
+
+                         qλ Pk (x)qλ ∞ ≤ qλ T(x)ek qλ ∞ + qλ ek T⊥ (x)qλ ∞
+
+                                             ≤ qλ T(x)∞ + T⊥ (x)qλ ∞
+
+                                             = qλ T(x)T(x)∗ qλ 1/2   λ ⊥   ∗ ⊥    λ 1/2
+                                                                 ∞ + q T (x) T (x)q ∞ .
+
+
+Note that
+
+
+                                  qλ T(x)T(x)∗ qλ 1/2            ∗ 2 λ λ 1/2
+                                                    ∞ = q q1 |T(x) | q1 q ∞ ≤ λ.
+                                                          λ λ
+
+
+
+                           1/2
+Similarly, qλ T⊥ (x)∗ T⊥ qλ ∞ ≤ λ. Therefore,
+
+
+                                                      qλ Pk (x)qλ ∞ ≤ 2λ,
+
+
+which proves (4.2). On the other hand, by Lemma 3.1, we know that
+
+
+                                 λτ (1 − qλ ) ≤ λτ (1 − qλ1 ) + λτ (1 − qλ2 )
+
+                                                  ≤ cx∗ L1 (M) + cxL1 (M) = 2cxL1 (M) ,
+
+
+which shows (4.3). The proof is complete.                                                                   
+13744    |   D. Potapov et al.
+
+
+   Next we prove the dual to Theorem 4.2 (ii).
+
+   Corollary 4.5. For each finite positive sequence (xk )k≥1 ⊂ Lp (M), there exists cp > 0 such that
+
+                                                               
+                                                                   
+
+
+
+
+                                                                                                                        Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                     ek xk ek             ≤ cp  xk                     ,     1 ≤ p < ∞.
+                                                   Lp (M)                        Lp (M)
+                                     k≥1                               k≥1
+
+
+
+Proof. The case p = 1 is trivial. Here we only need to consider the case 1 < p < ∞. By the duality
+(Lp (M))∗ = Lp (M), there exists positive z ∈ Lp (M) with norm 1 such that
+
+                                                                          
+                                            
+                                   ek xk ek             = τ(  ek xk ek z) =   τ (xk ek zek )
+                                                 Lp (M)
+                                  k≥1                            k≥1                       k≥1
+                                                           
+                                                          a 
+                                                                        
+                                                                        
+                                                          ≤         xk             (Pk (z))k Lp (M,∞ )
+                                                                            Lp (M)
+                                                               k≥1
+                                                                
+                                                          b        
+                                                          ≤ cp  xk                   ,
+                                                                              Lp (M)
+                                                                  k≥1
+
+
+
+where “a” is due to Lemma 2.2, and “b” is due to Theorem 4.2 (ii).                                                  
+
+   We point out that Corollary 4.5 does not hold when p = ∞. If it did, by the duality result [25, Remark
+3.7], it would imply that P is of type (1, 1), and, by (2.12) and Lemma 2.7, E is of type (1, 1). However, the
+latter contradicts to [27, Lemma 13].
+   Alternative proof of Corollary 4.5 is based on [25, Theorem 0.1]. Indeed, according to (2.12), for each
+k ≥ 1 and positive xk ,
+
+
+                                                          ek xk ek ≤ Ek (xk ).
+
+
+Hence,
+                                                                                       
+                                                                                            
+                             ek xk ek              ≤  Ek (xk )                     ≤ cp  xk               ,
+                                            Lp (M)                           Lp (M)                    Lp (M)
+                             k≥1                           k≥1                                   k≥1
+
+
+
+where the last inequality is due to [25, Theorem 0.1].
+   Let us also discuss the asymmetric maximal inequalities which have independent interests. For any
+x = (xn )n≥1 ⊂ L1,∞ (M), we define
+
+
+                            xL1,∞ (M,c∞ ) = inf{aL1,∞ : a ≥ 0,                   |xn |2 ≤ a2 , ∀n ≥ 1}.
+
+
+Similarly, we define xL1,∞ (M,r∞ ) = x∗ L1,∞ (M,c∞ ) . From Lemma 4.4 (iii) and Lemma 3.1, it is not hard to
+see that
+
+
+                            {Pn (Tx)}n≥1 Lp (M,r∞ ) + {Pn (T⊥ x)}n≥1 Lp (M,c∞ ) ≤ cp xp .
+
+
+In spirit of this, we show the following result.
+
+   Proposition 4.6. Let 1 ≤ p < ∞.
+
+  (i) For 1 < p < ∞ and x ∈ Lp (M), there exists positive constant cp such that
+
+
+                                 {En (Tx)}n≥1 Lp (M,r∞ ) + {En (T⊥ x)}n≥1 Lp (M,c∞ ) ≤ cp xp ,
+
+
+     where cp = O(1/(p − 1)) as p → 1.
+                                               Noncommutative Nest Hardy Spaces and Martingales                            |   13745
+
+
+  (ii) For each x ∈ L1 (M), there exists a positive constant c such that
+
+
+                               {En (Tx)}n≥1 L1,∞ (M,r∞ ) + {En (T⊥ x)}n≥1 L1,∞ (M,c∞ ) ≤ cx1 .
+
+
+
+
+                                                                                                                                        Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Proof. We only show item (i), item (ii) can be proved similarly. By symmetry and linearity, it suffices to
+show that
+
+
+                                             {En (T1 x)}n≥1 Lp (M,r∞ ) ≤ cp xp ,
+
+
+where T1 x = Tx − E1 (x). According to Proposition 3.4 and Lemma 3.3, we know that
+
+                                                                           
+                                             T1 x =         ek−1 dk (x) =         ek−1 x
+                                                                                        ek .
+                                                      k≥2                   k≥2
+
+
+
+By (2.12), we have
+
+
+                                               En (T1 x) = (T1 x)en ,        ∀n ≥ 1.
+
+
+Hence, |En (T1 x)∗ |2 ≤ |(T1 x)∗ |2 , and consequently,
+
+
+                          {En (T1 x)}n≥1 Lp (M,r∞ ) ≤ T1 xp ≤ Txp + E1 (x)p ≤ cp xp ,
+
+
+where we used Lemma 3.1 and Lemma 2.7 in the last inequality. The behavior of the constant cp is
+because of Lemma 3.1.
+   To prove item (ii), with the same argument, we need to apply the weak estimates for triangular
+truncation operators in Lemma 3.1. The proof is complete.                                      
+
+   Remark 4.7.
+
+  (i) Let 1 < p < 2. It was proved in [17, Theorem B] that for general noncommutative martingales, there
+      exists a positive constant Kp such that
+
+
+                        inf {{En (y)}n≥1 Lp (M,r∞ ) + {En (z)}n≥1 Lp (M,c∞ ) } ≤ Kp xp ,             x ∈ Lp (M).        (4.4)
+                       x=y+z
+
+
+
+       In spirit of Proposition 4.6 (i), it is natural to ask whether one can find a concrete decomposition
+       x = y + z such that the last inequality holds.
+  (ii) Note that Proposition 4.6 (ii) can be viewed as endpoint case of (4.4). We do not know whether
+       Proposition 4.6 (ii) holds for general noncommutative martingales.
+
+
+   We conclude this section with the following result, which is comparable with the noncommutative
+Stein inequality established in [43, Theorem 2.3].
+
+   Proposition 4.8. Let 1 < p < ∞. For any finite sequence (xk )k≥1 ⊂ Lp (M), we have
+
+
+                                               1/2                             1/2 
+                                                                                         
+                                       |xk ek |2                    ≤ cp     |xk |2                  .
+                                                             Lp (M)                             Lp (M)
+                                       k≥1                                    k≥1
+13746    |   D. Potapov et al.
+
+
+Proof. We first show the case 2 ≤ p < ∞. By Corollary 4.5, we have
+
+                                1/2                            1/2
+                                                                   
+                        |xk ek |2                  =  ek |xk |2 ek 
+                                            Lp (M)                               Lp/2 (M)
+                       k≥1                                k≥1
+
+
+
+
+                                                                                                                                           Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                                                  1/2                              1/2 
+                                                                                                           
+                                                     ≤ cp   |xk |2                    = cp     |xk |2                      .
+                                                                          Lp/2 (M)                                    Lp (M)
+                                                            k≥1                                       k≥1
+
+
+
+
+   Now we consider the case 1 < p < 2. By the duality (2.8), there exists a sequence of operators in
+Lp (M) with ( k≥1 |yk |2 )1/2 Lp (M) ≤ 1 such that
+
+
+                                 1/2                 
+                                        
+                         |xk ek |2                  =         τ (xk ek y∗k )
+                                             Lp (M)
+                        k≥1                               k≥1
+                                                                1/2                                  1/2 
+                                                                                                               
+                                                      ≤    |xk |2                               |yk ek |2      
+                                                                                     Lp (M)                           Lp (M)
+                                                            k≥1                                     k≥1
+                                                                                                    1/2 
+                                                                                                             
+                                                      ≤ cp     |xk |2 )1/2                       |yk |2      
+                                                                                      Lp (M)                        Lp (M)
+                                                                k≥1                                  k≥1
+                                                                    1/2 
+                                                                           
+                                                      ≤ cp     |xk |2                         ,
+                                                                                       Lp (M)
+                                                                k≥1
+
+
+
+where the first inequality is due to Lemma 2.8, and the second inequality is due to the assertion we
+obtained in last paragraph.                                                                       
+
+5 Atomic Decomposition, Duality, and Interpolation
+In this section, we first establish atomic decomposition of the Hardy space Hrp (A). With the help of the
+atomic decomposition, we study the dual space of Hardy space Hrp (A) with 1 ≤ p < 2, and then we study
+complex interpolation between Hrp (A) and BMOr (A) spaces. Here the symbol A is explained in Remark 2.3.
+
+
+5.1 Atomic decomposition
+In this subsection, we aim to show the following atomic decomposition via the Riesz factorization
+Theorem 2.4.
+
+   Theorem 5.1. Let 0 < p, q, s ≤ ∞ with 1/s = 1/p + 1/q. Then, x ∈ Hrs (A) if and only if there exist
+     (ak )k≥1 ⊂ Lp (M) and (bk )k≥1 ⊂ Lq (M) such that
+
+  (i) x = k≥1 ak bk in Ls (M);
+ (ii) (1 − ek )ak = bk ek−1 = 0, k ≥ 1;
+
+   and
+
+                                                          1/2           1/2 
+                                                                                  
+                                     xs = inf     |a∗k |2           |bk |2       ,                                           (5.1)
+                                                                                 p                          q
+                                                          k≥1                           k≥1
+
+
+
+      where the infimum is taken over all decompositions satisfying (i) and (ii).
+
+Proof. Take x ∈ Hrs (A). According to Theorem 2.4, for any                            > 0, there exist y ∈ Hrp (A) and z ∈ Hrq (A) such
+that x = yz and
+
+
+                                                xs ≤ yp zq < xr + .                                                        (5.2)
+                                                Noncommutative Nest Hardy Spaces and Martingales                      |   13747
+
+
+             ek )k≥1 is defined in (2.10). For each k, set ak = y
+Recall that (                                                              k z. Then,
+                                                                 ek and bk = e
+
+                                                                              
+                                                x = yz =              ek z =
+                                                                     y                 ak bk .
+                                                               k≥1                k≥1
+
+
+
+
+                                                                                                                                  Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+It is not hard to see that k≥1 ak bk converges in Ls (M). The item (i) is verified. Note that, for each k, we
+have (note that y ∈ Hrp (A))
+
+
+                                  (1 − ek )ak = (1 − ek )y                   k = 0.
+                                                          ek = (1 − ek )ek yek e
+
+
+Similarly, for each k, we have
+
+
+                                                    k zek−1 = e
+                                           bk ek−1 = e        k ek−1 zek−1 = 0.
+
+
+Then item (ii) is verified. Finally, let us verify (5.1). Observe that
+
+
+                                   yp = (yy∗ )1/2 p
+                                             
+                                               m        1/2    
+                                                                   m        1/2 
+                                                                              
+                                           =     ek y∗
+                                                 y           =    ak a∗k      
+                                                                        p                            p
+                                                   k=1                              k=1
+
+
+and, by analogy,
+
+                                                           
+                                                             m        1/2 
+                                                                          
+                                                   zq =     |bk |2       .
+                                                                                         q
+                                                                  k=1
+
+
+Now (5.1) follows from (5.2).
+   Now we show the converse part. Let x = k≥1 ak bk ∈ Ls (M) with (ak )k≥1 and (bk )k≥1 satisfying (ii). By
+the Hölder inequality Lemma 2.8, (5.1) holds. Hence, to show x ∈ Hrs (A), it suffices to show that
+
+
+                                                       xej = ej xej ,        j ≥ 1.
+
+
+Indeed, for each j, we have
+
+                                  
+                          xej =         ak bk ej
+                                  k≥1
+
+
+                                  
+                                  j
+                                                                     (ii) 
+                                                                           j
+                                                                                                   
+                                                                                                   j
+                              =         ak bk ej +           ak bk ej =           ak bk ej + 0 =         ak bk ej .
+                                  k=1                k≥j+1                  k=1                    k=1
+
+
+
+On the other hand, by (ii), we know that, for each k ≥ 1,
+
+
+                                                ak = (1 − ek )ak + ek ak = ek ak .
+
+
+Then, for each j,
+
+                                         j                   j                 j
+                                                                             
+                           ej xej = ej (   ak bk ej ) = ej (   ek ak bk ej ) =   ak bk ej = xej .
+                                          k=1                    k=1                         k=1
+
+
+The desired assertion is proved, and hence, the proof of the theorem is complete.                                            
+
+   Remark 5.2. The above result is comparable with the algebraic atomic decomposition of noncom-
+     mutative martingale Hardy spaces studied in [9, Theorem 3.10] (see also [17], [50] and [23]).
+13748     |   D. Potapov et al.
+
+
+5.2 Duality
+It was proved in [26, Theorem 4.1] for noncommutative martingale Hardy spaces that for 1 ≤ p < 2,
+
+                                                                               1  1
+                                       (Hpc (M))∗ = Lcq MO (M),                  + = 1,
+                                                                               p  q
+
+
+
+
+                                                                                                                    Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+with equivalent norms. In spirit of this, we show the following duality. The space Lcq MO(A) below is given
+in (2.5).
+
+   Theorem 5.3. Let 1 ≤ p < 2 and 1/p + 1/q = 1. Then
+
+
+                                                      (Hrp (A))∗ = Lrq MO(A)
+
+
+        with equivalent norms. The same result holds for Hcp (A) and Lcq MO(A).
+
+  To show this, we need the following lemma. The notation Zr,k is referred to (2.3).
+
+   Lemma 5.4. Let 1 ≤ p < 2 and q be the conjugate index of p. For each y ∈ Lq (M) and x ∈ Hrp (A)
+     with xp ≤ 1, we have
+
+                                               |τ (xy∗ )| ≤ (Zr,k (y))k Lq (M,r∞ ) .
+
+        Similarly, for each y ∈ Lq (M) and x ∈ Hcp (A) with xp ≤ 1, we have
+
+                                               |τ (xy∗ )| ≤ (Zr,k (y))k Lq (M,c∞ ) .
+
+
+Proof. For y ∈ Lq (M), (Zr,k (y))k Lq (M,r∞ ) < ∞ by Lemma 5.12. According to Theorem 5.1, for x ∈ Hrp (A),
+there exist (ak )k≥1 ⊂ Ls (M) and (bk )k≥1 ⊂ L2 (M) such that (the number s is chosen to satisfy 1/p =
+1/2 + 1/s)
+
+   (i) x = k≥1 ak bk ;
+  (ii) (1 − ek )ak = bk ek−1 = 0, k ≥ 1; and
+ (iii) the estimate holds:
+                                                  1/2                     1/2 
+                                                                                    
+                                            |a∗k |2      ,              |bk |2       ≤ 1.
+                                                                  s                          2
+                                             k≥1                         k≥1
+
+
+
+
+  Also, observe that by (ii),
+
+
+                                   Zr,k (ak bk ) = ek ak bk (1 − ek−1 ) = ak bk ,           k ≥ 1.
+
+
+Thus,
+
+                                             
+                              |τ (y∗ x)| =         τ (y∗ ak bk )
+                                             k≥1
+                                                                              
+                                        =          τ (y∗ Zr,k (ak bk )) =            τ (Zr,k (y)∗ ak bk )
+                                             k≥1                               k≥1
+                                                                                                            (5.3)
+                                                                    1/2                1/2
+                                                              ∗
+                                        ≤          Zr,k (y) ak 22               bk 22
+                                             k≥1                            k≥1
+
+                                        ≤ (Zr,k (y))k Lq (M,r∞ ) ,
+
+where the last inequality is due to Lemma 2.1 since 1/q + 1/s = 1/2. The second inequality of the lemma
+can be similarly proved.                                                                              
+
+  Now we prove Theorem 5.3.
+                                                Noncommutative Nest Hardy Spaces and Martingales                         |   13749
+
+
+Proof of Theorem 5.3. Let 1 ≤ p < 2 and 1/p + 1/q = 1. We first show Lrq MO(A) ⊂ (Hrp (A))∗ . For each
+y ∈ Lrq MO(A), define a linear functional on Hrp (A) by
+
+                                                y (x) = τ (xy∗ ),                x ∈ Hrp (A).
+
+
+
+
+                                                                                                                                      Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+Without loss of generality, assume that xp ≤ 1. It follows from Lemma 5.4 that
+
+                          y  =        sup            |τ (y∗ x)| ≤ (Zr,k (y))k Lq (M,r∞ ) = yLrq MO ,
+                                    x∈Hrp (A),xp ≤1
+
+
+which says Lrq MO(A) ⊂ (Hrp (A))∗ .
+   Now we turn to the converse part. Let  ∈ (Hrp (A))∗ be such that (Hrp (A))∗ ≤ 1. Since Hr2 (A) ⊂ Hrp (A), it
+follows that  induces a continuous functional  on Hr2 (A). Hence, there exists y ∈ Hr2 (A) such that
+
+
+                                                 
+                                                 (x) = τ (y∗ x),                 x ∈ H2 (A).
+
+
+By the density of Hr2 (A) in Hrp (A), we have
+
+
+                                          (Hrp (A))∗ =               sup          |τ (y∗ x)| ≤ 1.                          (5.4)
+                                                              x∈Hr2 (A),xp ≤1
+
+
+
+We need to show
+
+
+                         yLrq MO = (Zr,k (y))k Lq (M,r∞ ) = (|Zr,k (y)∗ |2 )k L q (M,∞ ) < ∞.
+                                                                                                   1/2
+                                                                                                    2
+
+
+
+
+Let α be the conjugate index of q/2, and it is easy to see that α = s/2 (s is chosen to satisfy 1/p = 1/2+1/s).
+By Lemma 2.2, there exists a sequence of positive operators (bk )k ⊂ Lα (M) such that  k bk Lα (M) ≤ 1
+and
+
+                                                            
+                                         y2Lrq MO =             τ (|Zr,k (y)∗ |2 bk )
+                                                            k≥1
+                                                            
+                                                        =         τ ([ek y(1 − ek−1 )y∗ ek ]bk )
+                                                            k≥1
+                                                            
+                                                        =         τ (y∗ [ek bk ek y(1 − ek−1 )]),
+                                                            k≥1
+
+
+
+where the first equality is due to the definition of Zr,k given in (2.3), and the second equality is due to
+the tracial property. Define
+
+                                                                                   1/2     1/2
+                            x=         ek bk ek y(1 − ek−1 ) =                    ek bk    · bk ek y(1 − ek−1 ).
+                                 k≥1                                        k≥1
+
+
+
+By Theorem 5.1, we have that x ∈ Hrp (A), and moreover
+
+                                                1/2                          1/2 
+                                                                                       
+                                     |(ek bk )∗ |2
+                                           1/2                   1/2
+                         xp ≤                             |bk ek y(1 − ek−1 )|2      
+                                                                        s                                            2
+                                       k≥1                                    k≥1
+                                              1/2                  
+                                                                                                             1/2
+                                                                              τ ([ek y(1 − ek−1 )y∗ ek ]bk )
+                                            1/2
+                               ≤ cs1     |bk |2      
+                                                                    s
+                                          k≥1                           k≥1
+                                      1/2                       1/2
+                                                                    
+                               = cs   bk  s [τ (y∗ x)]1/2 = cs   bk  [τ (y∗ x)]1/2
+                                                  2                                           α
+                                        k≥1                                          k≥1
+
+                               ≤ cs [τ (y∗ x)]1/2 ,
+13750   |   D. Potapov et al.
+
+
+where the second inequality is due to Proposition 4.8. Hence, combining (5.4) and the proceeding
+inequality, we have
+
+                                 y2Lrq MO = τ (y∗ x) ≤ xp ≤ cs1 [τ (y∗ x)]1/2 ,
+
+
+
+
+                                                                                                              Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+which implies that y ∈ Lrq MO(A) with
+                                                              √
+                                                yLrq MO ≤    cs .
+
+The proof is complete.                                                                                  
+
+  Denote
+
+
+                                          BMOT,r = BMOT ∩ Hr2 (A),
+
+
+where the definition of BMOT is given proceeding Theorem 3.16. The following results are special case
+of Marsalli and West’s results proved in [33, Theorem 5] and [34, Corollary 6.3]:
+
+
+                                              (Hr1 (A))∗ = BMOT,r ,
+
+
+and
+
+                                                                       1  1
+                                (Hrp (A))∗ = Hrq (A),   1 < p < ∞,       + = 1.                       (5.5)
+                                                                       p  q
+
+Note that Lr∞ MO(A) is denoted by BMOr (A). By Marsalli and West’s results above, the following corollaries
+follow from Theorem 5.3.
+
+   Corollary 5.5. We have
+
+
+                                                BMOr (A) = BMOT,r
+
+
+      with equivalent norms.
+
+   Corollary 5.6. For 2 < q < ∞, we have
+
+
+                                                Hrq (A) = Lrq MO(A)
+
+
+      with equivalent norms. The same result holds for Hcq (A) and Lcq MO(A).
+
+   The following result shows that every upper triangular matrix in BMO space has a bounded extension.
+It goes back to [39, Theorem 1] when M = B(H) is the space of all bounded linear operators on some
+Hilbert space H.
+
+   Corollary 5.7. Let x ∈ Hr∞ (A). The following assertions are equivalent:
+
+   (i) x has a bounded extension, that is, there exists 
+                                                        x ∈ M such that T(
+                                                                          x) = x.
+  (ii) We have
+
+                                         xBMOr (A) = sup Zr,k (x)∞ < ∞.
+                                                          k
+
+
+
+Proof. Assume item (i) holds. It follows from Corollary 3.6 that
+
+
+                            xBMOr = T(
+                                         x)BMOr ≤ 2
+                                                     xBMOr ≤ 4
+                                                                xM < ∞,
+                                             Noncommutative Nest Hardy Spaces and Martingales      |   13751
+
+
+where in the last inequality we used the fact yBMOr ≤ 2yM for each y ∈ M (see, e.g., [43,p.693]).
+Now item (ii) follows from Lemma 3.13.
+    Conversely, according to Theorem 5.3 with p = 1 there, for each x ∈ BMOr (A), x can be viewed as a
+continuous linear functional on Hr1 (A). Also note that Hr1 (A) is a closed subspace of L1 (M). Hence, by
+the Hahn–Banach extension theorem, x has an extension,      x, which is a continuous linear functional on
+
+
+
+
+                                                                                                                Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+L1 (M), that is, 
+                 x ∈ M. Moreover,
+
+
+                                               x∗ y) = τ (x∗ y),
+                                            τ (                   ∀y ∈ Hr1 (A).
+
+
+Since y = T(y) for each y ∈ Hr1 (A) and T is self-adjoint, it follows that
+
+
+                              x∗ y) = τ (
+                           τ (          x∗ T(y)) = τ ([T(
+                                                          x)]∗ y) = τ (x∗ y),      ∀y ∈ Hr1 (A).
+
+
+             x) = x.
+Therefore, T(                                                                                            
+
+  We would also like to provide another proof to show the result below. It goes back to [39, Theorem 2]
+when M = B(H).
+
+   Corollary 5.8. Items (ii) and (iii) of Theorem 3.16 are equivalent.
+
+Proof. We start with (ii) ⇒ (iii). Take x ∈ BMOT . According to the definition of BMOT , we can find y, z ∈ M
+such that x = y + T(z) and
+
+
+                                               y∞ + z∞ ≤ xBMOT .
+
+
+Basic calculation gives us that for each k ≥ 1,
+
+
+                                                                        k z
+                                       Zc,k (T(z)) = (1 − ek−1 )T(z)ek = e  ek ,
+
+
+and
+
+
+                                  Zr,k (T(z)) = ek T(z)(1 − ek−1 ) = ek z(1 − ek−1 ).
+
+
+Thus,
+
+
+                           sup Zc,k (x)∞ ≤ sup Zc,k (y)∞ + sup Zc,k (T(z))∞
+                             k                      k                    k
+
+                                               = sup (1 − ek−1 )yek ∞ + sup    ek  ∞
+                                                                               ek z
+                                                    k                              k
+
+                                               ≤ y∞ + z∞ ≤ xBMOT .
+
+
+Similarly, we have supk Zr,k (x)∞ ≤ xBMOT , and consequently,
+
+
+                                 max{sup Zr,k (x)∞ , sup Zc,k (x)∞ } ≤ xBMOT ,
+                                        k                    k
+
+
+
+which is just (iii) of Theorem 3.16.
+   Now we show (iii) ⇒ (ii). Take x ∈ L2 (M) such that max{supn Zr,n (x)∞ , supn Zc,n (x)∞ } < ∞. Take
+y ∈ M such that T(y)1 ≤ 1 and T⊥ (y)1 ≤ 1. This means T(y) ∈ Hr1 (A) and T⊥ (y) ∈ Hc1 (A) with norm
+13752    |   D. Potapov et al.
+
+
+less 1. According to Lemma 5.4, we deduce that
+
+
+                                 |τ (yx∗ )| = |τ (T(y)x∗ ) + τ (T⊥ (y)x∗ )|
+
+                                          ≤ |τ (T(y)x∗ )| + |τ (T⊥ (y)x∗ )|
+
+
+
+
+                                                                                                                      Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                          ≤ (Zr,k (x))k Lq (M,r∞ ) + (Zc,k (x))k Lq (M,c∞ )
+
+                                          ≤ 2 max{sup Zr,k (x)∞ , sup Zc,k (x)∞ }.
+                                                         k                    k
+
+
+Consequently, by Lemma 3.15, we have
+
+
+                           xBMOT ≤ 3 sup{|τ (yx∗ )| : T(y)1 , T⊥ (y)1 ≤ 1, y ∈ M}
+
+                                       ≤ 6 max{sup Zr,n (x)∞ , sup Zc,n (x)∞ }.
+                                                     n                   n
+
+
+The proof is complete.                                                                                          
+
+5.3 Complex interpolation
+Let (X0 , X1 ) be an interpolation couple of Banach spaces; namely Xj , j = 0, 1 are continuously embedded
+into a Hausdorff topological vector space Y. Let S (respectively, S ) denote the open strip {z : 0 < Rez < 1}
+(respectively, the closed strip {z : 0 ≤ Rez ≤ 1}) in the complex plane C. Denote by ∂0 = {z ∈ S : Rez = 0},
+∂1 = {z ∈ S : Rez = 1} the boundaries of S . Let F (X0 , X1 ) be the space of bounded analytic functions
+f : S → X0 + X1 which extend continuously to S such that the functions t → f (j + it) are bounded and
+continuous from R into Xj , j = 0, 1. We equip F (X0 , X1 ) with the norm
+
+                                                                                     
+                                   f F (X0 ,X1 ) = max sup f (z)X0 , sup f (z)X1 .
+                                                             z∈∂0             z∈∂1
+
+
+Then F (X0 , X1 ) is a Banach space. For 0 ≤ θ ≤ 1, we define the complex interpolation space [X0 , X1 ]θ as
+the set of all x ∈ X0 + X1 satisfying that x = f (θ ) for some f ∈ F (X0 , X1 ). The norm on [X0 , X1 ]θ is defined
+by setting
+
+                                                                                             
+                             x[X0 ,X1 ]θ = inf f F (X0 ,X1 ) : f ∈ F (X0 , X1 ), f (θ) = x .
+
+
+It then follows that [X0 , X1 ]θ is a Banach space for 0 ≤ θ ≤ 1 (see [5, Theorem 4.1.2]).
+    Complex interpolation between Hrp (A) and Hr∞ (A) was first studied by Pisier [42]. We here concern
+the complex interpolation between Hrp (A) and BMOr (A) (which contains Hr∞ (A)). Recall that Musat [38]
+proved in the noncommutative martingale setting that
+
+
+                                           [BMO r (M), Hpr (M)] pq = Hqr (M).
+
+
+We here provide a proof to the following result by the techniques imported from [38].
+
+   Theorem 5.9. Let 1 ≤ p < q < ∞. We have
+
+
+                                                 [BMOr (A), Hrp (A)] pq = Hrq (A).
+
+
+      The same result holds for column spaces.
+
+   We need the following proposition whose proof is provided after the proof of Theorem 5.9.
+
+   Proposition 5.10. Let 2 ≤ p < q < ∞. Then,
+
+                                             [BMOr (A), Lrp MO(A)] pq = Lrq MO(A).
+                                              Noncommutative Nest Hardy Spaces and Martingales                |   13753
+
+
+   Combining Corollary 5.6 and the last proposition, we obtain
+
+                                   [BMOr (A), Hrp (A)] pq = Hrq (A),    2 < p < q < ∞.                             (5.6)
+
+
+
+
+                                                                                                                           Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+We will continue to finish the proof of Theorem 5.9 via Wolff’s interpolation theorem [54, Theorem 2]
+and duality argument.
+  The Wolff’s interpolation theorem states that for Banach spaces {Ai }4i=1 , if Banach space A1 ∩ A4 is
+dense in both A2 and A3 , A2 = [A1 , A3 ]θ and A3 = [A2 , A4 ]φ provided 0 < θ , φ < 1, then
+
+                                           A2 = [A1 , A4 ]ζ ,    A3 = [A1 , A4 ]ξ ,                                (5.7)
+
+where ζ = 1−θθ φ+θ φ and ξ = 1−θφ+θ φ .
+
+Proof of Theorem 5.9. We prove the theorem by considering cases: 1 < p < q < ∞ and 1 = p < q < ∞.
+   Case 1: 1 < p < q < ∞. We first assume that 2 < q < ∞. Note that for 1 < a < ∞, Hra (A) is
+complemented in La (M) (see, e.g., Lemma 3.1), and the complex interpolation between noncommutative
+Lebesgue spaces Lp (M) is well known. There exists s ∈ (q, ∞) such that
+
+                                                                                 1−φ  φ 1
+                          A3 := Hrq (A) = [Hrs (A), Hrp (A)]φ = [A2 , A4 ]φ ,        + = .
+                                                                                  s   p q
+
+By (5.6), we get
+
+                                                                                        θ  1
+                              A2 := Hrs (A) = [BMOr (A), Hrq (A)]θ = [A1 , A3 ]θ ,        = .
+                                                                                        q  s
+
+Thus, using (5.7), we obtain
+
+                                    A3 = Hrq (A) = [A1 , A4 ]ξ = [BMOr (A), Hrp (A)]ξ ,
+
+where ξ = 1−θφ+θ φ = pq . This, together with (5.7), further implies desired result for the range 1 < p < q < ∞.
+   Case 2: 1 = p < q < ∞. Take s > max{q, 2}. Then there exists φ ∈ (0, 1) such that 1−φ
+                                                                                      s
+                                                                                         + φ = 1q . On the
+other hand, combining [5, Corollary 4.5.2], the duality results (see Theorem 5.3 and (5.5)), and Case 1
+that
+
+                    ([Hrs (A), Hr1 (A)]φ )∗ = [(Hrs (A))∗ , (Hr1 (A))∗ ]φ = [Hrs (A), BMOr (A)]φ = Hrq (A).
+
+Thus,
+
+                                      A3 = Hrq (A) = [Hrs (A), Hr1 (A)]φ = [A2 , A4 ]φ .
+
+Note that s > 2. By Case 1, we have
+
+                                                                                       θ  1
+                              A2 = Hrs (A) = [BMOr (A), Hrq (A)]θ = [A1 , A3 ]θ ,        = .
+                                                                                       q  s
+
+Again, applying (5.7), we obtain
+
+                                    A3 = Hrq (A) = [A1 , A4 ]ξ = [BMOr (A), Hr1 (A)] pq .
+
+The proof of the theorem is complete.                                                                                
+
+   It remains to prove Proposition 5.10. We need the lemma below. Denote
+
+                         Zqr (M) = {x ∈ Lq (M) : xZqr = sup (Zr,k (x))k≥1 Lq (M,r∞ ) } < ∞.
+                                                                k≥1
+13754    |   D. Potapov et al.
+
+
+   Lemma 5.11. For each 2 < p ≤ ∞ and each θ ∈ [0, 1], the following continuous embedding holds:
+
+                                               [Z ∞
+                                                  r
+                                                    (M), Zpr (M)]θ ⊂ Z rp (M).
+                                                                                 θ
+
+
+
+Proof. Take s > 0 such that 1s + 1p = 12 . It follows from Lemma 2.1 that the bilinear map
+
+
+
+
+                                                                                                                        Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                         B : Zpr (M) × Ls (M, r2 ) → 2 (L2 (M))
+
+
+defined by setting
+
+
+                                              B : (x, (vk )k ) → (Zr,k (x)∗ vk )k
+
+
+is a contraction. Particularly,
+
+
+                                        B : Z∞
+                                             r
+                                               (M) × L2 (M, r2 ) → 2 (L2 (M))
+
+
+is also a contraction. Then, by the bilinear interpolation result ([5, Theorem 4.4.1]), for each θ ∈ [0, 1],
+we have
+
+
+                     T : [Z∞
+                            r
+                              (M), Zpr (M)]θ × [L2 (M, r2 ), Ls (M, r2 )]θ → 2 (L2 (M)) ≤ 1.
+
+
+Since Lα (M, r2 ) is 1-complemented in Lα (M ¯
+                                             ⊗B(2 )) for each α ≥ 1, it follows that [L2 (M, r2 ), Ls (M, r2 )]θ =
+Ls2 (M, 2 ) with s2 = 2 + s . On the other hand, it is easy to see
+         r          1    1−θ  θ
+
+
+
+
+                                                        1   θ 1
+                                                           + = .
+                                                        s2  p 2
+
+
+Therefore, according to Lemma 2.1, we further obtain
+
+                                             [Z∞
+                                               r
+                                                 (M), Zpr (M)]θ ⊂ Z rp (M).
+                                                                             θ
+                                                                                                                  
+
+   Lemma 5.12. If 2 < q ≤ ∞, then, for each x ∈ Lq (M), we have
+
+
+                                               (Zr,k (x))k≥1 Lq (M,r∞ ) ≤ cq xq .
+
+
+      Similarly, we also have
+
+                                               (Zc,k (x))k≥1 Lq (M,c∞ ) ≤ cq xq .
+
+
+Proof. Let x ∈ Lq (M), and take p > 0 satisfying 1/p + 1/q = 1/2. According to Lemma 2.1, for any given
+ > 0, we find sequence of (vk )k≥1 ⊂ Lp (M) such that
+
+                                                            1/2 
+                                                                   
+                                                       vk v∗k       ≤1
+                                                                        p
+                                                       k≥1
+
+
+
+and
+
+                                                                                         1/2
+                                 (Zr,k (x))k≥1 Lq (M,r∞ ) ≤         Zr,k (x)∗ vk 22          + .
+                                                                 k≥1
+                                                 Noncommutative Nest Hardy Spaces and Martingales           |   13755
+
+
+Observe that
+
+                                                
+                           Zr,k (x)∗ vk 22 =         τ (v∗k ek x(1 − ek−1 )x∗ ek vk )
+                     k≥1                         k≥1
+                                                 
+
+
+
+
+                                                                                                                        Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+                                           ≤           τ (v∗k ek |x∗ |2 ek vk )
+                                                 k≥1
+                                                                                               
+                                                                                                   
+                                           = τ |x∗ |2   ek vk v∗k ek ≤ |x∗ |2  2q   ek vk v∗k ek  p .
+                                                                                                      2
+                                                             k≥1                          k≥1
+
+
+
+Note that p ≥ 2. Finally, combining with Corollary 4.5, we obtain
+
+                                                                         1/2
+                                                                          
+                           (Zr,k (x))k≥1 Lq (M,r∞ ) ≤ cp xq   vk v∗k  p + ≤ cq xq + .
+                                                                                   2
+                                                                         k≥1
+
+
+
+Letting   → 0, the desired assertion follows.                                                                      
+
+  Now we provide the proof of Proposition 5.10.
+
+Proof of Proposition 5.10. Let 2 < p < q < ∞. Using Lemma 5.12 and Lemma 5.11 with θ = p/q, we have
+
+
+
+                           Lq (M) = [L∞ (M), Lp (M)]θ ⊂ [Z∞
+                                                          r
+                                                            (M), Zpr (M)]θ ⊂ Zqr (M).
+
+
+According to the definition of Lrp MO(A) and Zpr (M), this actually implies that
+
+
+                                      Hrq (A) ⊂ [BMOr (A), Lrp MO(A)]θ ⊂ Lrq MO(A).
+
+
+On the other hand, by Corollary 5.6, we deduce that
+
+
+                                      Hrq (A) = [BMOr (A), Lrp MO(A)]θ = Lrq MO(A).
+
+
+The proof is complete.                                                                                             
+
+Funding
+The work and the third author is partially founded by ARC. The third author is also partially supported by
+the NSFC (no. 12471134), the Science and Technology Innovation Program (and Department of Education
+funded research projects, no. 23B0022) of Hunan Province, and NSF of Hunan (no. 2023JJ20058).
+Innovation Research Group Project of Hunan Province (No. 2024JJ1010).
+
+
+Acknowledgments
+The authors would like to thank Dr. Edward McDonald for useful discussions and sharing his own results
+relevant to the subject of this article.
+
+
+References
+ 1. Arveson, W. B. “Analyticity in operator algebras.” Amer. J. Math. 89 (1967): 578–642.
+ 2. Arveson, W. “Ten Lectures on Operator Algebras.” CBMS Regional Conference Series in Mathematics, vol. 55,
+    Published for the Conference Board of the Mathematical Sciences, Washington, DC; by the American Mathematical
+    Society. Providence, RI, 1984.
+ 3. Bekjan, T. and Q. Xu. “Riesz and Szegö type factorizations for noncommutative Hardy spaces.” J. Oper.
+    Theory 62, no. 1 (2009): 215–31.
+13756    |   D. Potapov et al.
+
+
+ 4. Bekjan, T., Z. Chen, M. Perrin, and Z. Yin. “Atomic decomposition and interpolation for Hardy spaces of
+    noncommutative martingales.” J. Funct. Anal. 258, no. 7 (2010): 2483–505.
+ 5. Bergh, J. and J. Löfström Interpolation Spaces. An Introduction. Berlin-New York: Springer, 1976. Grundlehren
+    der Mathematischen Wissenschaften, no. 223.
+ 6. Bikchentaev, A. and F. Sukochev. “Inequalities for the block projection operators.” J. Funct. Anal. 280,
+
+
+
+
+                                                                                                                    Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+    no. 7 (2021) Paper No. 108851, 18.
+ 7. Blecher, D. P. and L. E. Labuschagne. “von Neumann algebraic Hp theory.” Function Spaces, Contemp. Math.,
+    vol. 435. 89–114. Providence, RI: Amer. Math. Soc, 2007.
+ 8. Blecher, D. P. and L. E. Labuschagne. “Applications of the Fuglede-Kadison determinant: Szegö’s theorem
+    and outers for noncommutative Hp .” Trans. Amer. Math. Soc. 360, no. 11 (2008): 6131–47.
+ 9. Chen, Z., N. Randrianantoanina, and Q. Xu. “Atomic decompositions for noncommutative martingales.”
+    J. Funct. Anal. 284, no. 9 (2023) Paper No. 109877.
+10. Chilin, V. I., A. V. Krygin, and P. A. Sukochev. “Extreme points of convex fully symmetric sets of
+    measurable operators.” Integr. Equations Oper. Theory 15, no. 2 (1992): 186–226.
+11. Cuculescu, I. “Martingales on von Neumann algebras.” J. Multivariate Anal. 1, no. 1 (1971): 17–27.
+12. Davidson, K. R. Nest Algebras, Triangular forms for operator algebras on Hilbert space. Pitman Research Notes
+    in Mathematics Series, vol. 191, Longman Scientific & Technical, Harlow. New York: copublished in the United
+    States with John Wiley & Sons, Inc., 1988.
+13. Dodds, P. G., T. K. Dodds, B. de Pagter, and F. A. Sukochev, “Lipschitz continuity of the absolute value in
+    preduals of semifinite factors.” Integral Equations Operator Theory 34, no. 1 (1999): 28–44.
+14. Dodds, P. , B. de Pagter, and F. Sukochev, Noncommutative Integration and Operator Theory. Birkhauser Cham,
+    2024.
+15. Exel, R. “Maximal subdiagonal algebras.” Amer. J. Math. 110, no. 4 (1988): 775–82.
+16. Hong, G. and T. Mei. “John-Nirenberg inequality and atomic decomposition for noncommutative
+    martingales.” J. Funct. Anal. 263, no. 4 (2012): 1064–97.
+17. Hong, G., M. Junge, and J. Parcet. “Algebraic Davis decomposition and asymmetric Doob inequalities.”
+    Comm. Math. Phys. 346, no. 3 (2016): 995–1019.
+18. Huang, J., F. Sukochev, and D. Zanin. “Optimal estimates for martingale transforms.” J. Funct. Anal. 282,
+    no. 11 (2022) Paper No. 109451, 42.
+19. Ji, G. and K. Saito. “Factorization in subdiagonal algebras.” J. Funct. Anal. 159, no. 1 (1998): 191–202.
+20. Jiao, Y., N. Randrianantoanina, L. Wu, and D. Zhou. “Square functions for noncommutative differentially
+    subordinate martingales.” Comm. Math. Phys. 374, no. 2 (2020): 975–1019.
+21. Jiao, Y., F. Sukochev, and D. Zhou. “Maximal inequalities of noncommutative martingale transforms.”
+    Canad. J. Math. 73, no. 1 (2021): 221–48.
+22. Jiao, Y., F. Sukochev, L. Wu, and D. Zanin. “Distributional inequalities for noncommutative martingales.”
+    J. Funct. Anal. 284, no. 5 (2023): 55.
+23. Jiao, Y., L. Wu, and D. Zhou. “Noncommutative martingale Hardy-Orlicz spaces: Dualities and inequali-
+    ties.” Sci. China Math. 66, no. 9 (2023): 2081–104.
+24. Jiao, Y., D. Zanin, and D. Zhou. “Noncommutative Burkholder/Rosenthal inequalities with maximal
+    diagonals.” J. Funct. Anal. 285, no. 2 (2023): 44.
+25. Junge, M. “Doob’s inequality for non-commutative martingales.” J. Reine Angew. Math. 549 (2002): 149–90.
+26. Junge, M. and Q. Xu. “Noncommutative Burkholder/Rosenthal inequalities.” Ann. Probab. 31, no. 2 (2003):
+    948–95.
+27. Junge, M. and Q. Xu. “On the best constants in some non-commutative martingale inequalities.” Bull.
+    London Math. Soc. 37, no. 2 (2005): 243–53.
+28. Junge, M. and M. Musat. “A noncommutative version of the John-Nirenberg theorem.” Trans. Amer. Math.
+    Soc. 359, no. 1 (2007): 115–42.
+29. Junge, M. and Q. Xu. “Noncommutative maximal ergodic theorems.” J. Amer. Math. Soc. 20, no. 2 (2007):
+    385–439.
+30. Kadison, R. V. and I. M. Singer. “Triangular operator algebras. Fundamentals and hyperreducible theory.”
+    Amer. J. Math. 82 (1960): 227–59.
+31. Kwapień, S. and A. Pełczyński. “The main triangle projection in matrix spaces and its applications.”
+    Studia Math. 34 (1970): 43–68.
+32. Labuschagne, L. E. and Q. Xu. “A Helson-Szegö theorem for subdiagonal subalgebras with applications
+    to Toeplitz operators.” J. Funct. Anal. 265, no. 4 (2013): 545–61.
+33. Marsalli, M. and G. West. “The dual of noncommutative H1 .” Indiana Univ. Math. J. 47, no. 2 (1998): 489–500.
+                                          Noncommutative Nest Hardy Spaces and Martingales               |   13757
+
+
+34. Marsalli, M. and G. West. “Noncommutative Hp spaces.” J. Oper. Theory 40, no. 2 (1998): 339–55.
+35. Maurey, B. “Isomorphismes entre espaces H1 .” Acta Math. 145, no. 1-2 (1980): 79–120.
+36. Mei, T. “Operator valued Hardy spaces.” Mem. Amer. Math. Soc. 188, no. 881 (2007) vi+64.
+37. Muhly, P. S., K. E. Saito, and B. Solel. “Coordinates for triangular operator algebras.” Ann. of Math. (2) 127,
+    no. 2 (1988): 245–78.
+
+
+
+
+                                                                                                                      Downloaded from https://academic.oup.com/imrn/article/2024/21/13724/7800636 by University of New South Wales user on 13 January 2025
+38. Musat, M. “Interpolation between non-commutative BMO and non-commutative Lp -spaces.” J. Funct.
+    Anal. 202, no. 1 (2003): 195–225.
+39. Ovchinnikov, V. I. “Noncommutative BMO spaces, coherent nuclearity, and bounded extensions of
+    matrices.” Dokl. Akad. Nauk 363, no. 1 (1998): 17–9.
+40. Parcet, J. and N. Randrianantoanina. “Gundy’s decomposition for non-commutative martingales and
+    applications.” Proc. London Math. Soc. (3) 93, no. 1 (2006): 227–52.
+41. Perrin, M. “A noncommutative Davis’ decomposition for martingales.” J. Lond. Math. Soc. (2) 80, no. 3
+    (2009): 627–48.
+42. Pisier, G. “Interpolation between Hp spaces and noncommutative generalizations. I.” Pacific J. Math. 155,
+    no. 2 (1992): 341–68.
+43. Pisier, G. and Q. Xu. “Non-commutative martingale inequalities.” Comm. Math. Phys. 189, no. 3 (1997):
+    667–98.
+44. Pisier, G. “Non-commutative vector valued Lp -spaces and completely p-summing maps.” Astérisque, no.
+    247 (1998): vi+131.
+45. Pisier, G. and Q. Xu. “Non-commutativeLp -spaces.” Handbook of the Geometry of Banach Spaces, Vol. 2.
+    1459–517. North-Holland, Amsterdam, 2003.
+46. Popa, N. “Non-commutative BMO space.” Arch. Math. (Basel) 74, no. 2 (2000): 111–4.
+47. Power, S. “Commutators with the triangular projection and Hankel forms on nest algebras.” J. London
+    Math. Soc. (2) 32, no. 2 (1985): 272–82.
+48. Power, S. C. “Factorization in analytic operator algebras.” J. Funct. Anal. 67, no. 3 (1986): 413–32.
+49. Randrianantoanina, N. “Non-commutative martingale transforms.” J. Funct. Anal. 194, no. 1 (2002):
+    181–212.
+50. Randrianantoanina, N., L. Wu, and D. Zhou. “Atomic decompositions and asymmetric Doob inequalities
+    in noncommutative symmetric spaces.” J. Funct. Anal. 280, no. 1 (2021): 108794 64.
+51. Randrianantoanina, N. “Interpolation between noncommutative martingale Hardy and BMO spaces: the
+    case 0.” Canad. J. Math. 74, no. 6 (2022): 1700–44.
+52. Randrianantoanina, N. “P. Jones’ interpolation theorem for noncommutative martingale Hardy spaces.”
+    Trans. Amer. Math. Soc. 376, no. 3 (2023): 2089–124.
+53. Sukochev, F., K. Tulenov, and D. Zanin. “Nehari-type theorem for non-commutative Hardy spaces.” J.
+    Geom. Anal. 27, no. 3 (2017): 1789–802.
+54. Wolff, T. H. “A note on interpolation spaces.” Harmonic Analysis (Minneapolis, Minn., 1981), Lecture Notes in
+    Math., vol. 908. 199–204. Berlin-New York: Springer, 1982.
+

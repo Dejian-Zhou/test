@@ -1,0 +1,194 @@
+\section{另一类能刻画 BMO 的可预测鞅变换}\label{sec:unitary-transform}
+
+本节给出一个在 $L_2$ 上为酉算子的例子，并说明普通标量符号变换不能自动替代它。
+以下交换子仍以 $L_X$ 为左乘，BMO 条件仍模去初始对角代数。
+
+\subsection{三角 Hilbert 变换与酉鞅变换}
+
+先考虑离散巢 $0=e_0<e_1<\cdots\uparrow1$，$q_n=e_n-e_{n-1}$，
+使用 PSZ 壳过滤，令 $\Delta_n=\E_n-\E_{n-1}$、$\E_0=0$，并记
+$\D=\E_1$。定义
+\begin{align}
+ \mathcal H(a)
+ &=\sum_{n\geq2}(2e_{n-1}-1)\Delta_n(a),\label{eq:hilbert-transform}\\
+ \mathcal U(a)
+ &=\D(a)+i\sum_{n\geq2}(2e_{n-1}-1)\Delta_n(a).
+       \label{eq:unitary-transform}
+\end{align}
+系数 $i(2e_{n-1}-1)$ 是 $\M_{n-1}$ 中的酉算子，故 $\mathcal U$ 是具有
+可预测酉系数的鞅变换，而非三角投影。
+在块矩阵上，它分别给严格上三角、块对角、严格下三角乘以 $i,1,-i$。
+由于这些块在 $L_2$ 中正交，$\mathcal U$ 是 $L_2(\M,\tau)$ 上的酉算子。
+同时
+\[
+ \mathcal H=2\T-I-\D,\qquad \mathcal U=\D+i\mathcal H.
+\]
+
+这个构造也适用于一般巢。对有限分割 $\pi$，令
+$\mathcal H_\pi=2\T_\pi-I-\D_\pi$，
+$\mathcal U_\pi=\D_\pi+i\mathcal H_\pi$。
+在 $L_2$ 上取强极限
+\[
+ D_2=\mathop{\mathrm{s\!-!lim}}_\pi\D_\pi,\qquad
+ \mathcal H_\N=2\T_\N-I-D_2,\qquad
+ \mathcal U_\N=D_2+i\mathcal H_\N.
+\]
+这里 $D_2$ 是一个 $L_2$ 正交投影，不要求它来自 $\M$ 上的保单位对角条件期望。
+由有限分割的恒等式取强极限，有
+\[
+ \mathcal H_\N^*=\mathcal H_\N,\quad
+ \mathcal H_\N^2=I-D_2,\quad
+ \mathcal H_\N D_2=D_2\mathcal H_\N=0.
+\]
+所以 $\mathcal U_\N^*\mathcal U_\N=mathcal U_\N\mathcal U_\N^*=I$。
+在一般巢下它是有限壳鞅变换的极限；在离散巢下就是 \eqref{eq:unitary-transform}。
+
+\Needspace{12\baselineskip}
+\begin{theorem}[酉壳变换的 BMO 刻画]\label{thm:unitary-bmo}
+对任意正规忠实半有限迹和上述一般巢，若 $x\in\M$，则
+\begin{equation}\label{eq:unitary-beta}
+ \boxed{\quad
+ \sqrt2\,\beta_\N(x)
+ \leq\norm{[L_x,\mathcal U_\N]}_{L_2\to L_2}
+ \leq2\sqrt2\,\beta_\N(x).
+ \quad}
+\end{equation}
+因而
+\begin{equation}\label{eq:unitary-bmo}
+ b_\N(x)\leq\norm{[L_x,\mathcal U_\N]}_{L_2\to L_2}
+       \leq2\sqrt2\,b_\N(x).
+\end{equation}
+三角 Hilbert 变换也满足
+\[
+ \beta_\N(x)\leq\norm{[L_x,\mathcal H_\N]}_{L_2\to L_2}
+       \leq2\beta_\N(x).
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{按列计算与上界。}
+在有限分割或离散巢的第 $n$ 个块列上，
+\begin{align*}
+ \mathcal U(a)q_n&=F_na q_n,\\
+ F_n&=i e_{n-1}+q_n-i(1-e_n)
+       =(1+i)e_n+(i-1)e_{n-1}-i1.
+\end{align*}
+故记 $K_n=[x,e_n]$ 时，
+\begin{equation}\label{eq:unitary-column}
+ [L_x,\mathcal U](a)q_n
+ =G_na q_n,\qquad G_n=(1+i)K_n+(i-1)K_{n-1}.
+\end{equation}
+从列正交性及引理 \ref{lem:ideal}，得到
+$\norm{[L_x,\mathcal U]}\leq2\sqrt2\,\beta_\N(x)$。
+一般巢的上界由有限分割的强极限得到。
+对 $\mathcal H$，同样的列系数为 $K_n+K_{n-1}$，故上界为 $2\beta_\N(x)$。
+
+\medskip
+\textbf{下界。}
+先设 $\M$ 为因子。若 $q=e-e_-$ 是巢原子，则在列 $L_2(\M)q$ 上的系数为
+$[x,F]$，其中 $F=i e_-+q-i(1-e)$。
+设 $B=(1-e)xe$、$A=ex(1-e)$，则
+\[
+ (1-e)[x,F]e=BR,\qquad e[x,F](1-e)=-RA,
+ \qquad R=2i e_-+(1+i)q.
+\]
+在 $e\M e$ 中，$R$ 可逆，且 $\norm{R^{-1}}\leq1/\sqrt2$。
+所以 $\norm{[x,F]}\geq\sqrt2\max\{\norm B,\norm A\}$。
+引理 \ref{lem:ideal} 将这个范数转为该列上的左乘范数。
+
+若 $e=e_-$，取 $f<e$、$q=e-f$。
+在严格上三角矩形 $fL_2(\M)q$ 上，$\mathcal U=iI$，
+而在严格下三角矩形 $(1-e)L_2(\M)q$ 上，$\mathcal U=-iI$。
+与定理 \ref{thm:bounded} 的下界测试相同，得到
+\[
+ \norm{[L_x,\mathcal U_\N]}
+ \geq2\max\{\norm{(1-e)xf},\norm{fx(1-e)}\}.
+\]
+令 $f\uparrow e$，得到该截断处的下界。
+一般中心按定理 \ref{thm:bounded} 的直接积分步骤处理。
+对于 $\mathcal H$，原子处的 $R$ 改为 $2e_-+q$，其逆范数不超过 $1$；
+连续截断处的系数仍为 $2$，故有陈述中的下界。
+最后结合 \eqref{eq:bmo-beta} 即得 \eqref{eq:unitary-bmo}。
+\end{proof}
+
+\begin{corollary}[允许 BMO 形式符号时的真正充要条件]\label{cor:unitary-formal}
+在离散巢中，允许推论 \ref{cor:formal} 的形式符号 $X$。
+则
+\[
+ \boxed{\quad
+ [L_X,\mathcal U]\in B(L_2(\M,\tau))
+ \iff X-\D X\in\mathrm{BMO}_{\rm sh}^c\cap\mathrm{BMO}_{\rm sh}^r.
+ \quad}
+\]
+这里右侧用零块对角有限截断的壳 BMO 范数一致有界来定义。
+对 $\mathcal H$ 也有同一充要条件，且上述范数比较仍成立。
+\end{corollary}
+
+\begin{proof}
+由 \eqref{eq:unitary-column}，当角块量有限时，每个 $G_n$ 有界且一致有界，
+故按列正交直和定义了所需的有界延拓。
+反过来，把一个有界延拓压缩到 $e_NL_2(\M)e_N$，
+使用有限分割的列公式与前述谱间隙下界。
+在非因子情形，按定理 \ref{thm:bounded} 证明中最后一个非零列的中心支撑分解，
+得到截断角块的统一界。
+最后取 $N$ 的上确界并应用 BMO 比较即得结论。
+\end{proof}
+
+\begin{remark}[不能遗漏初值]
+上面的 BMO 条件是模去 $\M_1=\D(\M)$ 的条件。
+若要求 PSZ 包含首项的非齐次 BMO，则还应加入 $\D X\in\M$；
+交换子本身不控制这一项。
+例如形式符号 $X=\sum_n n q_n$ 与 $\mathcal U,\mathcal H$ 均交换，
+但其完整非齐次 BMO 范数无界。
+在有界符号类 $X\in\M$ 内，BMO 条件与交换子有界性都自动成立；
+充要条件的非平凡含义在于允许不属于 $\M$ 的 BMO 符号。
+\end{remark}
+
+\subsection{普通交替符号变换的反例}
+
+\begin{example}[酉性及标量符号交替仍不足以保证 BMO 充分性]\label{ex:scalar-signs}
+在 $B(\ell_2(\mathbb N))$ 的标准巢中取
+\[
+ \varepsilon_n=(-1)^{n-1},\qquad
+ S_\varepsilon=\sum_{n\geq1}\varepsilon_n\Delta_n.
+\]
+它也是 $S_2$ 上的酉鞅变换，但下面的零对角符号
+\[
+ X_{ij}=\begin{cases}(j-i)^{-1},&i<j,\\0,&i\geq j\end{cases}
+\]
+属于壳 BMO，而 $[L_X,S_\varepsilon]$ 在 $S_2$ 上无界。
+\end{example}
+
+\begin{proof}
+下角块为零。每个上角块反向排列其行后，是 Hilbert 矩阵
+$((r+k-1)^{-1})_{r,k\geq1}$ 的一个截断。
+它们的范数一致有界：取 Schur 权重 $w_k=k^{-1/2}$，由
+\[
+ \sum_{k\geq1}\frac{1}{(r+k-1)\sqrt k}
+ \leq2\int_0^\infty\frac{dt}{(r+t)\sqrt t}
+ =\frac{2\pi}{\sqrt r},
+\]
+及对称的列估计，得 $\beta_\N(X)\leq2\pi$。
+故 $X$ 的零对角壳 BMO 范数有限。
+
+但在第一列上，$S_\varepsilon$ 是左乘对角算子
+$D_\varepsilon=\operatorname{diag}(1,-1,1,-1,\ldots)$。
+因此对有限支撑向量 $v$，
+\[
+ [L_X,S_\varepsilon](v\otimes e_1^*)
+ =[X,D_\varepsilon]v\otimes e_1^*.
+\]
+取 $v_N=N^{-1/2}\sum_{k=1}^N e_{2k}$，其范数为 $1$。
+对 $1\leq j\leq N/2$，交换子输出的第 $2j-1$ 个坐标的绝对值为
+\[
+ \frac{2}{\sqrt N}\sum_{k=j}^N\frac{1}{2k-2j+1}
+ \geq\frac{c\log N}{\sqrt N}.
+\]
+故 $\norm{[X,D_\varepsilon]v_N}\geq c'\log N\to\infty$。
+这个计算完全在有限支撑输入上进行，没有无界乘积的定义域歧义。
+\end{proof}
+
+经典交换鞅的 BMO 交换子刻画可见 Janson \cite{Janson}。
+其局部差分混合的非退化条件与这里 ``标量系数交替'' 并非同一条件；
+不能把经典结论未经核对直接搬到这个非交换壳过滤。
+

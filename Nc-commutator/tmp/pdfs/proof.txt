@@ -1,0 +1,307 @@
+                                                                     Lp
+                                          Power (1985)              2.1
+
+
+
+                           2.1                    X             H                                        1<
+p<∞        Lp                            X                                Lp
+                                                        
+                                             Lp B(H), Tr = Sp (H),
+
+ Schatten                                                            Lp (Ω)
+   X
+
+
+                                     1
+       H                Hilbert
+
+           0 = P0 < P 1 < P 2 < · · · ,               rank Pn < ∞,        Pn −→ I               ,
+
+   En = Pn − Pn−1
+
+                           A = {T ∈ B(H) : (I − Pn )T Pn = 0                     n},
+                L
+           H=       n≥1 En H
+                               X                                                X
+                    P(A) =           Ei AEj ,         Q = I − P,      D(A) =         Ej AEj .
+                               i≤j                                               j
+
+ p=2            P                         A ∩ S2                               1<p<∞
+
+
+                          tp := kPkSp →Sp < ∞,                qp := kQkSp →Sp < ∞.                           (1)
+
+                           p
+
+
+           XP − PX              X                       LX (A) = XA
+
+                           CX = [LX , P],              CX (A) = XP(A) − P(XA),                               (2)
+
+                A 7→ XA − AX
+
+   1.1 (                                     ).       X ∈ B(H)                  1 < p < ∞ CX        Sp (H)
+
+
+                                          kCX kSp →Sp ≤ 2tp kXkB(H) .                                        (3)
+
+                    X                    X ∈ Sp                 X ∈ (A + K(H)) ∩ (A + K(H))∗
+
+                                                          1
+2                 X                                                                                         2
+
+
+      . Schatten
+
+                                    kXAkp ≤ kXkB(H) kAkp ,              A ∈ Sp (H).
+
+          (1)
+
+                         kXP(A) − P(XA)kp ≤ kXkB(H) kP(A)kp + tp kXAkp
+                                                        ≤ 2tp kXkB(H) kAkp .
+
+                                    2.1(ii)                             S2
+
+
+
+
+                          2                        X
+                                                                                              X = (Xij )i,j≥1
+                               Xij : Ej H → Ei H                        X        H                   X (N ) =
+(Xij )1≤i,j≤N            PN H
+
+                                      β− (X) = sup           (PN − Pn )X (N ) Pn ,                         (4)
+                                                  N >n≥1
+
+                                      β+ (X) = sup           Pn X (N ) (PN − Pn ) ,                        (5)
+                                                  N >n≥1
+
+                                       β(X) = max{β− (X), β+ (X)}.                                         (6)
+
+                        Hilbert
+
+
+
+                  β(X) = sup max{k(I − Pn )XPn k , kPn X(I − Pn )k} = sup k[X, Pn ]k .                     (7)
+                           n                                                          n
+
+                                    Pn H ⊕ (I − Pn )H
+                                                                                      !
+                                                         0         −Pn X(I − Pn )
+                               [X, Pn ] =                                                 .
+                                                 (I − Pn )XPn               0
+
+                      A = (Akj )
+                                                  X                             
+                                     (CX A)ij =          Xik Akj 1{k≤j} − 1{i≤j} .                         (8)
+                                                   k
+
+                                                             Sp                 Sp               Sp → Sp
+                                                       (8)
+
+          2.1 (                ).                            X
+    (i)           1 < p < ∞ CX                Sp (H)
+
+    (ii) β(X) < ∞
+
+(iii)             1 < p < ∞ CX                Sp (H)
+2                    X                                                                                              3
+
+
+                 1<p<∞
+                                                                   
+                         β(X) ≤ kCX kSp →Sp ≤ tp qp β− (X) + β+ (X) ≤ 2tp qp β(X).                                 (9)
+
+    p=2
+                                                 kCX kS2 →S2 = β(X).                                              (10)
+
+                                                                              2.1
+
+                                   kQLY PkS2 →S2 = dist(Y, A),                Y ∈ B(H);                           (11)
+
+    [1, p. 277]                               1.6                                           B(H)
+
+         2.2 (                                  ).       β− (X) < ∞                   B ∈ B(H)
+
+                                   Ei BEj = Xij          (i > j),       kBk ≤ β− (X).
+
+    β+ (X) < ∞                     C ∈ B(H)
+
+                                   Ei CEj = Xij          (i < j),       kCk ≤ β+ (X).
+
+
+
+
+     .                      Y ∈ B(H)
+
+                                      kQLY PkS2 →S2 = sup k(I − Pj )Y Pj k .                                      (12)
+                                                               j
+
+
+
+
+                                          (QLY P)(A)Ej = (I − Pj )Y Pj AEj .
+                 P
+    kAk22 =                  2
+                     j kAEj k2        “≤”            j        A = ξ ⊗ η∗               ξ ∈ Pj H     η ∈ Ej H
+                 ξ                                                  ξ ⊗ η∗          h 7→ hh, ηiξ
+             YN = X (N )         (I − PN )H                   (12)     (11)           (4)
+
+                                                dist(YN , A) ≤ β− (X).
+
+             TN ∈ A
+                                             kYN − TN k ≤ β− (X) + N −1 .
+
+    BN = PN (YN − TN )PN                    kBN k ≤ β− (X) + N −1                    N ≥i>j            Ei BN Ej = Xij
+         H                         (BN )                                              B            kBk ≤ β− (X)
+                                    Xij
+                            X ∗ = (Xji
+                                    ∗)                                              β− (X ∗ ) = β+ (X)
+         C
+2                   X                                                                                                   4
+
+
+       2.1              .                 CX            Sp                                 M         N >n
+     η ∈ En H                 ξ ∈ PN H         A = ξ ⊗ η∗               (8)
+                                                                      
+                                         PN CX (A)PN = [X (N ) , Pn ]ξ ⊗ η ∗ .
+
+                         Schatten                                                          Sp
+
+                                         [X (N ) , Pn ]ξ ≤ kCX (A)kp ≤ M kξk .
+
+            [X (N ) , Pn ]   ≤ M                                                                    N, n
+β(X) ≤ M
+
+                         β(X) < ∞                2.2                      B, C             Sp
+
+                                                T = QLB P − PLC Q.                                                  (13)
+
+
+                                                         X
+                                                         
+                                                         
+                                                           Xik Akj ,             i > j,
+                                      (QLB PA)ij =           k≤j
+                                                         
+                                                         
+                                                         0,                      i ≤ j,
+                                                         X
+                                                         
+                                                                                 i ≤ j,
+                                                            Xik Akj ,
+                                      (PLC QA)ij =           k>j
+                                                         
+                                                         
+                                                         0,                      i > j.
+
+                             i>j≥k         Bik = Xik                             i≤j<k            Cik = Xik        T
+            (8)                                                                   Sp
+                                                                                   
+                             kT kSp →Sp ≤ qp tp (kBk + kCk) ≤ tp qp β− (X) + β+ (X) .
+
+               1<p<∞                                          (9)
+
+      S2                                                                Kj = [X, Pj ]           kKj k ≤ β(X)
+
+                                                CX (A)Ej = Kj AEj .
+
+
+                                      X                                 X
+                       kCX (A)k22 =        kKj AEj k22 ≤ β(X)2                kAEj k22 = β(X)2 kAk22 .
+                                      j                                  j
+
+                               (10)
+
+       2.3 (                                      2.3              ).
+    (1) β                                                    D = (Dij )                                       Dij = 0
+       i 6= j
+                                           CX+D = CX ,             β(X + D) = β(X).
+
+                                                “X ∈ B(H)”
+3                                                                                                               5
+
+
+    (2)                  2.3                                                               β(X) < ∞
+
+                                                                 ^
+                                                 X − DX ∈ B(H) + B(H),
+
+              Ye = −iHY                                 (HY )ij = sgn(j − i)Yij                             BMO
+                                                                                           BMO
+
+    (3)
+          von Neumann
+
+
+                                  3
+     3.1 (                             ).       H = ℓ2 (N)                                    Sen = en+1
+             S ∈ B(H)                 1.1         CS              1<p<∞             Sp                       enn
+
+
+                                                   CS (enn ) = en+1,n .
+
+                          Sp                1                                     21/p       CS
+
+     3.2 (                                                  ).                                             Den =
+nen                                                                    Sp
+                                                                                                           A ∈ Sp
+
+
+
+
+                                 A                               Sp
+                   (1)                                           Schatten Hölder
+
+
+
+                                      (HA)ij = sgn(j − i)Aij ,               sgn(0) = 0.
+
+               D               Sr 1 ≤ r ≤ ∞
+                 kHkS2 →S2 ≤ 1
+
+                          A, B                              Cotlar
+                                                    
+                          (HA)(HB) = H (HA)B + A(HB) − AB + (DA)(DB).                                        (14)
+
+                     i, k, j
+
+                          sgn(k − i) sgn(j − k)
+                                                                   
+                               = sgn(j − i) sgn(k − i) + sgn(j − k) − 1 + 1{i=k=j} .
+
+          H(A∗ ) = −(HA)∗              (14)        A∗ , A             A, B
+                                                                           
+                         (HA)∗ (HA) = A∗ A − (DA)∗ (DA) + H (HA)∗ A − A∗ HA .                                (15)
+                                                                                                  6
+
+
+               kHZkr ≤ hr kZkr            hr                         (15)       Sr       Hölder
+
+
+
+                             kHAk,2        ,2
+                                 2r ≤ 2 kAk2r + 2hr kHAk2r kAk2r .
+
+
+               kHAk2r / kAk2r
+                                                        p       
+                                 kHAk2r ≤ hr +           h2r + 2 kAk2r .
+
+   h2 ≤ 1                        r = 2, 4, 8, . . .                         Schatten
+2≤r<∞                       Hilbert–Schmidt                         H                H
+     1<r<2
+
+
+                            P = 12 (I + D + H),             Q = 12 (I − D − H),
+
+  P, Q            1<p<∞          Sp
+Sp (H)                (1)                  1.1        2.1
+
+
+
+
+[1] S. Power, Commutators with the triangular projection and Hankel forms on nest algebras,
+   J. London Math. Soc. (2) 32 (1985), 272–282. doi:10.1112/jlms/s2-32.2.272.
+         2.1                      277                         2.1   2.3
+

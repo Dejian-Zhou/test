@@ -7,7 +7,15 @@
 \usepackage{enumerate}
 
 \usepackage{geometry}
-\geometry{left=3.0cm, right=3.0cm, top=3.0cm, bottom=3.0cm}
+\geometry{left=3.0cm, right=3.0cm, top=3.0cm, bottom=3.0cm} 
+
+\usepackage{xcolor}
+\usepackage[
+colorlinks=true,
+linkcolor=blue, % 章节、公式等内部引用
+citecolor=blue, % 文献引用
+urlcolor=blue   % 网址
+]{hyperref}
 
 \newtheorem{thm}{Theorem}
 \newtheorem{lemma}[thm]{Lemma}
@@ -57,7 +65,7 @@ Define
 $$\Delta(w_A)=|A|w_A, \quad A\subset [n].$$
 Then the corresponding heat semigroup is  defined by 
 $$e^{-t\Delta}f=\sum_{A\subset [n]} e^{-t|A|}\widehat{f}(A)w_A.$$
-Here, $|A|$ denotes the volume of $A$.  Pisier's remarkable result states that the semigroup $(e^{-t\Delta})_t$ is holomorphic on the vector-valued Lebesgue space $L_2(\{-1,1\}^n,X)$ if and only if $X$ is $K$-convex. Since then, Pisier‘s theorem has found numerous applications, including in Boolean analysis. For applications related to the subject of the present paper, see [MN14, EI20b, Vol24]. 
+Here, $|A|$ denotes the volume of $A$.  Pisier's remarkable result states that the semigroup $(e^{-t\Delta})_t$ is holomorphic on the vector-valued Lebesgue space $L_2(\{-1,1\}^n,X)$ if and only if $X$ is $K$-convex. Since then, Pisier‘s theorem has found numerous applications, including in Boolean analysis. For applications related to the subject of the present paper, see for instance [MN14, EI20b, Vol24]. 
 
 In this paper, the authors established corresponding holomorphic extension theorem for quantum Ornstein-Uhlenbeck semigroups, see Theorem 3.1 in Chapter 3. It is of considerable interest to establish a noncommutative analogue. This point is further illustrated in Chapters 4 and 5 of the present paper. More precisely, this result is used to study the heat smoothing estimates and  Bernstein-Markov type inequalities on the quantum boolean cube $\mathbb{M}_{2^n}$. Although the proof of Theorem 3.1 in Chapter 3 is  inspired by Pisier's result, it incorporates several novel ideas, including an equivalent representation of the semigroup. Moreover, to the best of my knowledge, relatively few works have addressed the holomorphicity of noncommutative semigroups. It is also worthwhile to investigate the holomorphicity of this specific noncommutative semigroup.  
 
@@ -65,21 +73,22 @@ In this paper, the authors established corresponding holomorphic extension theor
  
   \medskip
  
- (2) Several correlation inequalities are proved in the quantum Boolean cube setting. The authors first introduce the notion of monotonically increasing element in the Boolean cube $\mathbb{M}_{2^n}$ via the quantum Walsh-Fourier system, and then establish the quantum analogues correlation inequalities of  Harris–Kleitman,Talagrand [Tal96], and Keller–Mossel–Sen [KMS14]. One of the most interesting feature of these inequalities is that the quantum Talagrand inequality correlation differs substantially from its classical counterpart. Recall that Talagrand [Tal96] proved that for monotone increasing functions 
+ (2) Several interesting correlation inequalities are proved in the quantum Boolean cube setting. Recall that Talagrand [Tal96] proved that for monotone increasing functions 
  $f,g: \{-1,1\}^n\to \{-1,1\}$, there exists an absolute constant $C>0$ such that 
  \begin{equation}\label{Ta 96}
  	\begin{split}
-	\mathrm{Cov}(f,g):=\mathbb{E}(fg)-\mathbb{E}(f)\mathbb{E}(g)&\geq C \Psi\Big(M(f,g)\Big),\\
-	& M(f,g)=\sum_{j\in [n]} \|D_j(f)\|_{L_1}\|D_j(g)\|_{L_1},
+ 		\mathrm{Cov}(f,g):=\mathbb{E}(fg)-\mathbb{E}(f)\mathbb{E}(g)&\geq C \Psi\Big(M(f,g)\Big),\\
+ 		& M(f,g)=\sum_{j\in [n]} \|D_j(f)\|_{1}\|D_j(g)\|_{1},
  	\end{split}
  \end{equation}
- where $\Psi(t)=t/\log(\frac{e}{t})$. 
- However, as the authors demonstrate in Example 7.6 (in Chapter 7), a straightforward generalization of this result to the quantum setting is not possible.
- Instead, the authors introduce a new quantity \(\mathcal{W}_1(T_1,T_2)\) (see eq. (7.11) of Chapter 7), which provides a lower bound in the desired correlation inequality. We note that the new quantum Talagrand correlation inequality (Theorem 7.10 in Chapter 7) is established under a so-called similarity assumption on $T_1,T_2\in \mathbb{M}_{2^n}$, inspired by the work in [KKM16]. 
+ where $\Psi(t)=t/\log(\frac{e}{t})$, and $D_j$ is the partial differential operator. The authors first introduce a new notion of monotonically increasing element in the quantum Boolean cube $\mathbb{M}_{2^n}$ via the quantum Walsh-Fourier system, and then establish the quantum analogues correlation inequalities of  Harris–Kleitman,Talagrand [Tal96], and Keller–Mossel–Sen [KMS14]. Since the quantum Boolean cube has more partial derivatives ($(\partial_{j,\ell})_{j\in n,\ell}$) than its classical counterpart, the definition of monotone increasing elements differs between the two settings, see eq. (7.1) and Definition 7.1 in Chapter 7.  This gives rise to new phenomena: the quantum Talagrand correlation inequality established in (Theorem 7.10 in Chapter 7)  differs substantially from its classical counterpart. 
+ As the authors demonstrate in Example 7.6 (in Chapter 7), a straightforward generalization of Talagrand  correlation inequality \eqref{Ta 96}  to the quantum setting is not possible.
+ Instead, the authors introduce a new quantity 
+ $$\mathcal{W}_1(T_1,T_2)=\sum_{j=1}^n\sum_{\ell=1}^3\|\partial_{j,\ell}T_1\|_{1}\|\partial_{j,\ell}T_2\|_{1}$$ (see eq. (7.11) of Chapter 7), which provides a lower bound in the desired correlation inequality. We note that the new quantum Talagrand correlation inequality (Theorem 7.10 in Chapter 7) is established under a so-called similarity assumption on $T_1,T_2\in \mathbb{M}_{2^n}$, inspired by the work in [KKM16]. Two other correlation inequalities are also proved. 
  
    \medskip
  
-(3) The authors study the quantum Bohnenblust–Hille inequality and  quantum learning theory.  The study of the Bohnenblust–Hille inequality has a long history. The inequality has also found a broad range of applications in functional analysis and related fields. Recently, the classical Bohnenblust–Hille inequality has also found applications in learning theory [EI22]. Later, Huang, Volberg, and other researchers proved the   Bohnenblust–Hille inequality in the quantum setting, where it has also found applications. In the present paper, the authors continue this line of research, and establish an improved  quantum Bohnenblust–Hille inequality with the optimal constant $3^{d/2}$ (see Remark 9.3 in Chapter 9).   As an application of the  quantum Bohnenblust–Hille inequality, the authors study the \(L_1\)-distance of polynomials on the quantum Boolean cube from tail spaces. 
+(3) The authors study the quantum Bohnenblust–Hille inequality and  quantum learning theory.  The study of the Bohnenblust–Hille inequality has a long history. The inequality has also found a broad range of applications in functional analysis and related fields. Recently, the classical Bohnenblust–Hille inequality has also found applications in learning theory [EI22]. Later, Huang, Volberg, and other researchers proved the   Bohnenblust–Hille inequality in the quantum setting, where it has also found applications. In the present paper, the authors continue this line of research, and establish an improved  quantum Bohnenblust–Hille inequality with the optimal constant $3^{d/2}$ (see Remark 9.3 in Chapter 9).   As an application of the  quantum Bohnenblust–Hille inequality, the authors study the \(L_1\)-distance of polynomials on the quantum Boolean cube from tail spaces.   Finally, in Chapter 10, the authors study quantum learning. As I understand it, the central problem is to approximate a given function accurately by functions of  degree less $d$. The use of so-called quantum decision tree seems interesting, see the proof of Theorem 10.9. 
  
  \medskip
  
@@ -87,7 +96,7 @@ In this paper, the authors established corresponding holomorphic extension theor
  This work is closely related to Banach space-valued  analysis, which has developed rapidly in recent years (see e.g. [IvHV20], [CEE23], [CEE24]), as well as to certain lines of research in quantum Boolean analysis (see e.g. [VZ24, RWZ24,BGX25]).  The present paper was evidently inspired by these related works.  However, it is also clear that the paper contains interesting new results and novel proofs. Some of the methods employed draw on recent advances in noncommutative analysis. In my view, this paper makes a worthwhile contribution and deserves a detailed referee report.
  
  
- \newpage
+\medskip
 
  
  My minor suggestions are listed below
@@ -97,6 +106,8 @@ In this paper, the authors established corresponding holomorphic extension theor
  	
  	
  	\item The classical Bohnenblust–Hille inequality appears to be related to Littlewood’s \(4/3\) inequality. It would be helpful to briefly mention this connection.
+ 	
+ 	\item  The title ``functional inequalities on the quantum Boolean cube'' would better reflect the subject matter of the paper.  
  \end{enumerate}
 
 \begin{thebibliography}{1}

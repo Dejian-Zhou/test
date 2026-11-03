@@ -1,0 +1,415 @@
+% !TeX program = xelatex
+% Compile twice: xelatex triangular_commutator_Lp.tex
+\documentclass[UTF8,11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=3pt,topsep=4pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{说明}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{证明}
+\newcommand{\BH}{B(H)}
+\newcommand{\Sp}{S_p(H)}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\QQ}{\mathcal Q}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\Alg}{\mathcal A}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\DeclareMathOperator{\rank}{rank}
+\title{三角投影交换子在非交换 $L_p$ 上的有界性\\
+\large 关于 Power (1985) 定理 2.1 的补充}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+\noindent\textbf{直接回答。}
+在原文定理 2.1 的框架下，$X$ 已假定为 $H$ 上的有界算子。
+若只要求交换子在 $1<p<\infty$ 的 $L_p$ 上有界，\textbf{不需要对 $X$ 增加任何条件}。
+这里的 $L_p$ 是
+\[
+ L_p\bigl(B(H),\Tr\bigr)=S_p(H),
+\]
+即 Schatten 类，并非未指定测度空间的交换型函数空间 $L_p(\Omega)$。
+下文先证明这一结论，再给出允许 $X$ 为形式块矩阵时的充要条件。
+
+\section{原文的设置和直接结论}
+
+设 $H$ 为可分复 Hilbert 空间，
+\[
+ 0=P_0<P_1<P_2<\cdots,\qquad \rank P_n<\infty,
+ \qquad P_n\longrightarrow I\quad\text{强算子收敛},
+\]
+并令 $E_n=P_n-P_{n-1}$。原文的巢代数为
+\[
+ \Alg=\{T\in\BH:(I-P_n)TP_n=0\ \text{对所有 }n\},
+\]
+即相对于 $H=\bigoplus_{n\geq1}E_nH$ 的块上三角代数。
+在有限支撑块矩阵上定义
+\[
+ \PP(A)=\sum_{i\leq j}E_iAE_j,\qquad
+ \QQ=I-\PP,\qquad
+ \DD(A)=\sum_jE_jAE_j.
+\]
+当 $p=2$ 时，$\PP$ 就是原文投影到 $\Alg\cap S_2$ 的正交投影。
+对每个 $1<p<\infty$，三角截断定理给出其唯一有界延拓，并且
+\begin{equation}\label{eq:tp}
+ t_p:=\norm{\PP}_{S_p\to S_p}<\infty,\qquad
+ q_p:=\norm{\QQ}_{S_p\to S_p}<\infty.
+\end{equation}
+这些常数可以只依赖于 $p$，与块的个数和维数无关。
+为使证明完整，附录给出这一事实的一个证明。
+
+\medskip
+原文 $X\PP-\PP X$ 中的 $X$ 表示\emph{左乘算子}
+$L_X(A)=XA$。因此本文研究的是
+\begin{equation}\label{eq:defC}
+ \CC_X=[L_X,\PP],\qquad
+ \CC_X(A)=X\PP(A)-\PP(XA),
+\end{equation}
+它与内部导子 $A\mapsto XA-AX$ 是不同的映射。
+
+\begin{theorem}[保留原文的有界符号假设]\label{thm:bounded}
+设 $X\in\BH$。则对每个 $1<p<\infty$，
+$\CC_X$ 是 $S_p(H)$ 上的有界线性算子，且
+\begin{equation}\label{eq:easybound}
+ \norm{\CC_X}_{S_p\to S_p}\leq 2t_p\norm{X}_{\BH}.
+\end{equation}
+特别地，不要求 $X$ 紧、不要求 $X\in S_p$，也不要求
+$X\in(\Alg+K(H))\cap(\Alg+K(H))^*$。
+\end{theorem}
+
+\begin{proof}
+Schatten 理想不等式给出
+\[
+ \norm{XA}_p\leq\norm{X}_{\BH}\norm{A}_p,
+ \qquad A\in S_p(H).
+\]
+结合 \eqref{eq:tp}，有
+\begin{align*}
+ \norm{X\PP(A)-\PP(XA)}_p
+ &\leq\norm{X}_{\BH}\norm{\PP(A)}_p
+       +t_p\norm{XA}_p\\
+ &\leq 2t_p\norm{X}_{\BH}\norm{A}_p.
+\end{align*}
+这证明了结论。原文定理 2.1(ii) 中的代数条件刻画的是
+$S_2$ 上的\emph{紧性}，而上述结论只涉及有界性。
+\end{proof}
+
+\section{若不预设 \texorpdfstring{$X$}{X} 有界：精确的符号条件}
+
+本节的强化结论适用于原文的同一离散巢，包括有限维块的重数情形。
+允许 $X=(X_{ij})_{i,j\geq1}$ 仅为形式块矩阵，
+其中 $X_{ij}:E_jH\to E_iH$；此时不预设 $X$ 在 $H$ 上定义有界算子。
+令 $X^{(N)}=(X_{ij})_{1\leq i,j\leq N}$，视为 $P_NH$ 上的算子，并定义
+\begin{align}
+ \beta_-(X)&=\sup_{N>n\geq1}
+     \norm{(P_N-P_n)X^{(N)}P_n},\label{eq:beta-}\\
+ \beta_+(X)&=\sup_{N>n\geq1}
+     \norm{P_nX^{(N)}(P_N-P_n)},\label{eq:beta+}\\
+ \beta(X)&=\max\{\beta_-(X),\beta_+(X)\}.\label{eq:beta}
+\end{align}
+这里所有范数均为 Hilbert 空间算子范数。
+这些有限截断的定义避免了无界矩阵乘法的定义域问题。
+若两个方向的角块已定义为有界算子，则等价地
+\begin{equation}\label{eq:cut}
+ \beta(X)=\sup_n\max\{
+ \norm{(I-P_n)XP_n},\norm{P_nX(I-P_n)}\}
+ =\sup_n\norm{[X,P_n]}.
+\end{equation}
+最后一个等号来自相对于 $P_nH\oplus(I-P_n)H$ 的表示
+\[
+ [X,P_n]=\begin{pmatrix}
+ 0&-P_nX(I-P_n)\\
+ (I-P_n)XP_n&0
+ \end{pmatrix}.
+\]
+
+对有限支撑 $A=(A_{kj})$，交换子的形式定义为
+\begin{equation}\label{eq:entries}
+ (\CC_X A)_{ij}
+ =\sum_k X_{ik}A_{kj}
+ \bigl(\mathbf1_{\{k\leq j\}}-\mathbf1_{\{i\leq j\}}\bigr).
+\end{equation}
+每个块的求和有限，但所得整个矩阵未必属于 $S_p$。
+所谓其在 $S_p$ 上有界，是指存在 $S_p\to S_p$ 的有界映射，
+在有限支撑矩阵上逐块满足 \eqref{eq:entries}。
+
+\begin{theorem}[一致角块条件]\label{thm:sharp}
+对上述形式块矩阵 $X$，下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item 对某个 $1<p<\infty$，$\CC_X$ 在 $S_p(H)$ 上有界；
+ \item $\beta(X)<\infty$；
+ \item 对所有 $1<p<\infty$，$\CC_X$ 在 $S_p(H)$ 上有界。
+\end{enumerate}
+而且对每个 $1<p<\infty$，有
+\begin{equation}\label{eq:sharpbounds}
+ \boxed{\quad
+ \beta(X)\leq\norm{\CC_X}_{S_p\to S_p}
+ \leq t_pq_p\bigl(\beta_-(X)+\beta_+(X)\bigr)
+ \leq2t_pq_p\beta(X).
+ \quad}
+\end{equation}
+在 $p=2$ 时，还有精确等式
+\begin{equation}\label{eq:exact2}
+ \norm{\CC_X}_{S_2\to S_2}=\beta(X).
+\end{equation}
+\end{theorem}
+
+先列出证明所需的有界完成引理。它使用原文在定理 2.1
+之前已证明的距离公式
+\begin{equation}\label{eq:nehari}
+ \norm{\QQ L_Y\PP}_{S_2\to S_2}=\dist(Y,\Alg),
+ \qquad Y\in\BH;
+\end{equation}
+见 \cite[p.~277]{Power}，其依据为原文定理 1.6 及其后的说明。
+这里的距离取 $B(H)$ 算子范数。
+
+\begin{lemma}[严格三角部分的有界完成]\label{lem:completion}
+若 $\beta_-(X)<\infty$，则存在 $B\in\BH$ 满足
+\[
+ E_iBE_j=X_{ij}\quad(i>j),\qquad
+ \norm B\leq\beta_-(X).
+\]
+若 $\beta_+(X)<\infty$，则存在 $C\in\BH$ 满足
+\[
+ E_iCE_j=X_{ij}\quad(i<j),\qquad
+ \norm C\leq\beta_+(X).
+\]
+注意这里是为给定的严格三角部分\emph{补齐其他块}，
+并未断言将其余块置零后所得的三角矩阵本身有界。
+\end{lemma}
+
+\begin{proof}
+先说明对任意 $Y\in\BH$，
+\begin{equation}\label{eq:Hcorner}
+ \norm{\QQ L_Y\PP}_{S_2\to S_2}
+ =\sup_j\norm{(I-P_j)YP_j}.
+\end{equation}
+事实上，逐块列计算得到
+\[
+ (\QQ L_Y\PP)(A)E_j=(I-P_j)YP_jAE_j.
+\]
+由 $\norm A_2^2=\sum_j\norm{AE_j}_2^2$ 得到 ``$\leq$''。
+固定 $j$，取 $A=\xi\otimes\eta^*$，其中 $\xi\in P_jH$、
+$\eta\in E_jH$ 均为单位向量，再对 $\xi$ 取上确界，得到反向不等式。
+这里 $\xi\otimes\eta^*$ 表示 $h\mapsto\langle h,\eta\rangle\xi$。
+
+将 $Y_N=X^{(N)}$ 在 $(I-P_N)H$ 上补零。
+由 \eqref{eq:Hcorner}、\eqref{eq:nehari} 以及 \eqref{eq:beta-}，有
+\[
+ \dist(Y_N,\Alg)\leq\beta_-(X).
+\]
+故可取 $T_N\in\Alg$ 使
+\[
+ \norm{Y_N-T_N}\leq\beta_-(X)+N^{-1}.
+\]
+令 $B_N=P_N(Y_N-T_N)P_N$。则 $\norm{B_N}\leq\beta_-(X)+N^{-1}$，
+且当 $N\geq i>j$ 时，$E_iB_NE_j=X_{ij}$。
+由于 $H$ 可分，有界序列 $(B_N)$ 有弱算子收敛子列。
+设其极限为 $B$，便有 $\norm B\leq\beta_-(X)$，
+且每个严格下三角块均保持为 $X_{ij}$。
+
+对形式伴随矩阵 $X^*=(X_{ji}^*)$ 应用刚证明的结论，
+并使用 $\beta_-(X^*)=\beta_+(X)$，再取伴随，即得到 $C$。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:sharp} 的证明]
+\textbf{必要性。}
+设 $\CC_X$ 在某个 $S_p$ 上有界，记其范数为 $M$。
+固定 $N>n$，取单位向量 $\eta\in E_nH$ 及任意 $\xi\in P_NH$，
+令 $A=\xi\otimes\eta^*$。由 \eqref{eq:entries} 可得
+\[
+ P_N\CC_X(A)P_N
+ =\bigl([X^{(N)},P_n]\xi\bigr)\otimes\eta^*.
+\]
+秩一算子的每个 Schatten 范数均等于两向量范数之积，
+而压缩在 $S_p$ 上是压缩映射，故
+\[
+ \norm{[X^{(N)},P_n]\xi}
+ \leq\norm{\CC_X(A)}_p\leq M\norm\xi.
+\]
+于是 $\norm{[X^{(N)},P_n]}\leq M$。
+该范数正是两个相反角块范数的最大值。
+对 $N,n$ 取上确界便得 $\beta(X)\leq M$。
+
+\medskip
+\textbf{充分性。}
+设 $\beta(X)<\infty$。由引理 \ref{lem:completion} 取有界完成 $B,C$。
+定义 $S_p$ 上的有界映射
+\begin{equation}\label{eq:factorization}
+ T=\QQ L_B\PP-\PP L_C\QQ.
+\end{equation}
+对有限支撑矩阵，直接计算得到
+\begin{align*}
+ (\QQ L_B\PP A)_{ij}
+ &=\begin{cases}
+     \displaystyle\sum_{k\leq j}X_{ik}A_{kj},&i>j,\\
+     0,&i\leq j,
+   \end{cases}\\
+ (\PP L_C\QQ A)_{ij}
+ &=\begin{cases}
+     \displaystyle\sum_{k>j}X_{ik}A_{kj},&i\leq j,\\
+     0,&i>j.
+   \end{cases}
+\end{align*}
+其中第一式仅用到 $i>j\geq k$ 时 $B_{ik}=X_{ik}$，
+第二式仅用到 $i\leq j<k$ 时 $C_{ik}=X_{ik}$。
+因此 $T$ 逐块等于 \eqref{eq:entries}，从而就是所需交换子的延拓。
+有限支撑矩阵在 $S_p$ 中稠密，故延拓唯一。
+此外，
+\[
+ \norm T_{S_p\to S_p}
+ \leq q_pt_p(\norm B+\norm C)
+ \leq t_pq_p\bigl(\beta_-(X)+\beta_+(X)\bigr).
+\]
+这对每个 $1<p<\infty$ 均成立，证明了等价性和 \eqref{eq:sharpbounds}。
+
+\medskip
+\textbf{$S_2$ 上的等式。}
+一致有界的角块定义了有界算子 $K_j=[X,P_j]$，且
+$\norm{K_j}\leq\beta(X)$。
+逐块列有
+\[
+ \CC_X(A)E_j=K_jAE_j.
+\]
+所以
+\[
+ \norm{\CC_X(A)}_2^2
+ =\sum_j\norm{K_jAE_j}_2^2
+ \leq\beta(X)^2\sum_j\norm{AE_j}_2^2
+ =\beta(X)^2\norm A_2^2.
+\]
+结合已证的下界即得 \eqref{eq:exact2}。
+\end{proof}
+
+\begin{remark}[条件的含义及其与原文定理 2.3 的关系]
+\leavevmode
+\begin{enumerate}[label=\textup{(\arabic*)}]
+ \item $\beta$ 是一个忽略块对角部分的半范数。
+ 若 $D=(D_{ij})$ 为形式块对角矩阵，即 $D_{ij}=0$ 对 $i\ne j$，则
+ \[
+  \CC_{X+D}=\CC_X,\qquad\beta(X+D)=\beta(X).
+ \]
+ 因而允许形式符号时，不能把 ``$X\in B(H)$'' 当作必要条件。
+ \item 在原文定理 2.3 所考虑的重数为一情形，将对角线归零以后，
+ $\beta(X)<\infty$ 等价于
+ \[
+ X-\DD X\in B(H)+\widetilde{B(H)},
+ \]
+ 其中 $\widetilde Y=-i\HH Y$ 是原文的三角共轭，
+ $(\HH Y)_{ij}=\operatorname{sgn}(j-i)Y_{ij}$。
+ 这正是原文所讨论的 BMO 型符号条件；不能在未指定定义时
+ 将它直接替换为其他非交换 BMO 空间。
+ \item 本文的充要条件针对原文的离散有限秩巢和左乘交换子。
+ 它没有把问题改成一般半有限 von Neumann 代数上的任意投影问题。
+\end{enumerate}
+\end{remark}
+
+\section{两个区分有界性与紧性的例子}
+
+\begin{example}[有界交换子可以不紧]
+在 $H=\ell_2(\mathbb N)$ 的标准重数为一巢上，令
+$Se_n=e_{n+1}$ 为单边移位。由于 $S\in B(H)$，定理 \ref{thm:bounded}
+给出 $\CC_S$ 在所有 $1<p<\infty$ 的 $S_p$ 上有界。
+但对矩阵单位 $e_{nn}$，有
+\[
+ \CC_S(e_{nn})=e_{n+1,n}.
+\]
+这些输入和输出的 $S_p$ 范数均为 $1$，且不同输出之间的距离为
+$2^{1/p}$，故 $\CC_S$ 不紧。
+\end{example}
+
+\begin{example}[无界对角符号也可以产生有界交换子]
+仍在标准巢上，取稠密定义的对角算子 $De_n=ne_n$。
+其有限支撑矩阵交换子恒为零，故唯一延拓是 $S_p$ 上的零映射。
+这说明精确的符号条件必须忽略对角部分。
+此例按有限支撑定义交换子，不主张两个含无界乘子的项
+分别对每个 $A\in S_p$ 都有定义。
+\end{example}
+
+\appendix
+\section{三角截断在 \texorpdfstring{$S_p$}{Sp} 上有界的证明}
+
+这里给出 \eqref{eq:tp} 的证明，所用基础工具只有 Schatten H\"older
+不等式、对偶性和复插值。先在任意有限个有限维块上工作，
+所有估计均与块的数目及维数无关。
+设
+\[
+ (\HH A)_{ij}=\operatorname{sgn}(j-i)A_{ij},\qquad
+ \operatorname{sgn}(0)=0.
+\]
+块对角映射 $\DD$ 在每个 $S_r$（$1\leq r\leq\infty$）上均为压缩映射：
+它是块对角标量酉算子的共轭作用的平均。
+此外，$\norm{\HH}_{S_2\to S_2}\leq1$。
+
+\medskip
+对任意块矩阵 $A,B$，逐项核对符号可得 Cotlar 型恒等式
+\begin{equation}\label{eq:cotlar}
+ (\HH A)(\HH B)
+ =\HH\bigl((\HH A)B+A(\HH B)\bigr)-AB+(\DD A)(\DD B).
+\end{equation}
+其依据是对任意 $i,k,j$ 有
+\begin{align*}
+ &\operatorname{sgn}(k-i)\operatorname{sgn}(j-k)\\
+ &\quad=\operatorname{sgn}(j-i)
+   \bigl(\operatorname{sgn}(k-i)+\operatorname{sgn}(j-k)\bigr)
+    -1+\mathbf1_{\{i=k=j\}}.
+\end{align*}
+由于 $\HH(A^*)=-(\HH A)^*$，在 \eqref{eq:cotlar} 中以 $A^*,A$
+替代 $A,B$ 得到
+\begin{equation}\label{eq:square}
+ (\HH A)^*(\HH A)
+ =A^*A-(\DD A)^*(\DD A)
+   +\HH\bigl((\HH A)^*A-A^*\HH A\bigr).
+\end{equation}
+设已经知道 $\norm{\HH Z}_r\leq h_r\norm Z_r$，其中 $h_r$ 与维数无关。
+对 \eqref{eq:square} 使用 $S_r$ 范数及 H\"older 不等式，可得
+\begin{align*}
+ \norm{\HH A}_{2r}^{,2}
+ &\leq 2\norm A_{2r}^{,2}
+       +2h_r\norm{\HH A}_{2r}\norm A_{2r}.
+\end{align*}
+解这一关于 $\norm{\HH A}_{2r}/\norm A_{2r}$ 的二次不等式，得到
+\[
+ \norm{\HH A}_{2r}\leq
+ \bigl(h_r+\sqrt{h_r^2+2}\bigr)\norm A_{2r}.
+\]
+从 $h_2\leq1$ 出发归纳，便得到 $r=2,4,8,\ldots$ 时的统一有界性。
+Schatten 类的复插值给出所有 $2\leq r<\infty$ 的有界性。
+在 Hilbert--Schmidt 对偶配对下，$\HH$ 的伴随仍为 $\HH$，
+因此对偶性又给出所有 $1<r<2$ 的有界性。
+
+最后，
+\[
+ \PP=\tfrac12(I+\DD+\HH),\qquad
+ \QQ=\tfrac12(I-\DD-\HH),
+\]
+故 $\PP,\QQ$ 在每个 $1<p<\infty$ 的 $S_p$ 上均一致有界。
+利用有限支撑矩阵的稠密性即可延拓到整个 $S_p(H)$。
+这就证明了 \eqref{eq:tp}，并完成定理 \ref{thm:bounded} 和
+\ref{thm:sharp} 中所用的三角截断有界性论证。
+
+\begin{thebibliography}{9}
+\bibitem{Power}
+S. Power,
+\emph{Commutators with the triangular projection and Hankel forms on nest algebras},
+J. London Math. Soc. (2) \textbf{32} (1985), 272--282.
+\href{https://doi.org/10.1112/jlms/s2-32.2.272}{doi:10.1112/jlms/s2-32.2.272}.
+本文使用其定理 2.1 之前的距离公式（第 277 页），并与定理 2.1、2.3 比较。
+\end{thebibliography}
+
+\end{document}

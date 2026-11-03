@@ -1,0 +1,87 @@
+\begin{proof}
+\textbf{第一步：将条件尾平方函数识别为角块的模。}
+令
+\[
+ R_n=X-\mathbb E_nX,\qquad
+ B_n=(I-P_n)XP_n,\qquad A_n=P_nX(I-P_n).
+\]
+壳条件期望的定义给出
+\[
+ R_nP_n=B_n,\qquad P_nR_n=A_n,
+ \qquad P_n\mathbb E_n(a)P_n=P_naP_n.
+\]
+因此
+\begin{equation}\label{sch:eq:tail-moduli}
+ s_{n,c}(X)^2=B_n^*B_n,\qquad
+ s_{n,r}(X)^2=A_nA_n^*.
+\end{equation}
+特别地，
+\[
+ \norm{s_{n,c}(X)}_p=\norm{B_n}_p,
+ \qquad \norm{s_{n,r}(X)}_p=\norm{A_n}_p.
+\]
+再由 \eqref{sch:eq:difference}，当 $k>n$ 时，
+\[
+ \Delta_kX\,P_n=E_kXP_n,\qquad
+ P_n\Delta_kX=P_nXE_k.
+\]
+利用 $\sum_{k>n}E_k=I-P_n$，立即得到
+\eqref{sch:eq:tail-diff-column}--\eqref{sch:eq:tail-diff-row}。
+这些正部分和单调递增、有界且支撑在有限维的 $P_nH$ 上，故按算子范数收敛。
+
+\medskip
+\textbf{第二步：按块列作酉分解。}
+对每个 $n$，取 $E_nH$ 的一组标准正交基
+$\{\eta_{n,j}:1\leq j\leq d_n\}$。
+所有这些向量合起来构成 $H$ 的标准正交基。映射
+\[
+ U:\HS\longrightarrow\bigoplus_{n\geq1}\bigoplus_{j=1}^{d_n}H,
+ \qquad U(A)=(A\eta_{n,j})_{n,j}
+\]
+是酉算子，因为
+\[
+ \norm A_2^2=\sum_{n\geq1}\sum_{j=1}^{d_n}\norm{A\eta_{n,j}}_H^2,
+\]
+且任意平方可和的向量列均唯一确定一个 Hilbert--Schmidt 算子。
+由于 $\PP$ 是 \eqref{eq:martingale-transform} 的三角鞅变换，
+对其第 $n$ 个块列有
+\[
+ \PP(A)\eta_{n,j}=P_nA\eta_{n,j}.
+\]
+从而
+\[
+ \CC_X(A)\eta_{n,j}=[X,P_n]A\eta_{n,j},
+\]
+即
+\begin{equation}\label{sch:eq:unitary}
+ \boxed{\quad
+ U\CC_XU^{-1}
+ =\bigoplus_{n\geq1}\bigoplus_{j=1}^{d_n}[X,P_n].
+ \quad}
+\end{equation}
+相对于 $H=P_nH\oplus(I-P_n)H$，有
+\[
+ K_n=[X,P_n]=\begin{pmatrix}0&-A_n\\B_n&0\end{pmatrix},
+ \qquad
+ K_n^*K_n=\begin{pmatrix}B_n^*B_n&0\\0&A_n^*A_n\end{pmatrix}.
+\]
+于是每个 $K_n$ 都是有限秩，且
+\begin{equation}\label{sch:eq:local-schatten}
+ \norm{K_n}_p^p
+ =\norm{B_n}_p^p+\norm{A_n}_p^p
+ =\norm{s_{n,c}(X)}_p^p+\norm{s_{n,r}(X)}_p^p.
+\end{equation}
+
+\medskip
+\textbf{第三步：汇集各分量的奇异值。}
+若 \eqref{sch:eq:criterion} 右侧级数收敛，则由
+\eqref{sch:eq:local-schatten} 有 $\norm{K_n}^p\leq\norm{K_n}_p^p\to0$。
+故 \eqref{sch:eq:unitary} 的直和是紧算子；
+各个 $K_n$ 的非零奇异值在相应分量中重复 $d_n$ 次。
+求 $p$ 次幂和即得 \eqref{sch:eq:main} 及 \eqref{sch:eq:corners}。
+反之，若 $\CC_X\in S_p(\HS)$，则有限分量直和的奇异值 $p$ 次幂和一致有界；
+对分量数取极限并使用 \eqref{sch:eq:local-schatten}，即得
+\eqref{sch:eq:criterion} 右侧级数收敛及同一精确等式。
+这对每个 $p>0$ 都成立。
+\end{proof}
+

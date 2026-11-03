@@ -1,0 +1,95 @@
+\section{壳过滤下的鞅 BMO 刻画}\label{sec:martingale}
+
+本节将一致角块条件改写为真正的非交换鞅 BMO 条件。
+采用 Potapov--Sukochev--Zhou \cite{PSZ}（以下简称 PSZ）中
+Example 2.6 的壳过滤（shell filtration）和 Section 2.3 的行、列 BMO 记号。
+保留本稿 $B(H)$ 上的离散有限秩巢，允许 $X=(X_{ij})$ 为形式块矩阵，
+其中 $X_{ij}:E_jH\to E_iH$，不预设 $X$ 在 $H$ 上有界。
+
+\subsection{壳过滤与三角鞅变换}
+
+由于 PSZ 的主要设置是有限 von Neumann 代数，而这里
+$(B(H),\Tr)$ 一般半有限，我们先在每个有限角上使用 PSZ 的定义。
+记
+\[
+ \mathcal M^{(N)}=B(P_NH),\qquad
+ \tau_N=\frac{\Tr}{\rank P_N},\qquad
+ X^{(N)}=(X_{ij})_{1\leq i,j\leq N}.
+\]
+对 $1\leq n\leq N$，令
+\begin{align}
+ \mathcal M_n^{(N)}
+ &=B(P_nH)\oplus\bigoplus_{k=n+1}^{N}B(E_kH),\label{eq:shell-algebra}\\
+ \mathbb E_n^{(N)}(a)
+ &=P_naP_n+\sum_{k=n+1}^{N}E_kaE_k.\label{eq:shell-expectation}
+\end{align}
+这些是保 $\tau_N$ 的条件期望，满足塔性质，构成递增的壳过滤。
+其首项为块对角条件期望
+\[
+ \mathbb E_1^{(N)}=\DD_N,\qquad
+ \DD_N(a)=\sum_{k=1}^{N}E_kaE_k.
+\]
+依照 PSZ 的惯例，记 $\mathbb E_0^{(N)}=0$，
+$d_1^{(N)}=\mathbb E_1^{(N)}$，
+$d_n^{(N)}=\mathbb E_n^{(N)}-\mathbb E_{n-1}^{(N)}$（$n\geq2$）。
+这里 $\mathbb E_0^{(N)}=0$ 仅为差分和范数的记号约定。
+直接计算得到
+\begin{equation}\label{eq:shell-difference}
+ d_n^{(N)}(a)=P_{n-1}aE_n+E_naP_{n-1},\qquad n\geq2.
+\end{equation}
+因此有限角上的三角投影正是 PSZ Proposition 3.4 的可预测鞅变换：
+\begin{equation}\label{eq:martingale-transform}
+ \PP_N(a)=\mathbb E_1^{(N)}(a)
+       +\sum_{n=2}^{N}P_{n-1}d_n^{(N)}(a),
+ \qquad P_{n-1}\in\mathcal M_{n-1}^{(N)}.
+\end{equation}
+其补投影为 $\QQ_N(a)=\sum_{n=2}^{N}d_n^{(N)}(a)P_{n-1}$。
+所以本稿的交换子也可记为这个三角鞅变换的左乘交换子
+$\CC_X=[L_X,\PP]$。
+
+\subsection{行、列鞅 BMO 与块对角归一化}
+
+对 $y\in\mathcal M^{(N)}$，定义
+\begin{align}
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}
+ &=\max_{1\leq n\leq N}
+ \norm{\mathbb E_n^{(N)}
+   \bigl(|y-\mathbb E_{n-1}^{(N)}y|^2\bigr)}_\infty^{1/2},\label{eq:martingale-bmoc}\\
+ \norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}
+ &=\norm{y^*}_{\mathrm{BMO}^{c}(\mathcal F^{(N)})},\label{eq:martingale-bmor}\\
+ \norm y_{\mathrm{BMO}(\mathcal F^{(N)})}
+ &=\max\left\{
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})},
+ \norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}\right\}.\label{eq:martingale-bmo}
+\end{align}
+其中 $|z|^2=z^*z$。这些是 PSZ Section 2.3 所用的非交换鞅 BMO 范数。
+由于交换子不受 $X$ 的块对角部分影响，应对符号作归一化
+\[
+ X_0^{(N)}=X^{(N)}-\DD_NX^{(N)},\qquad
+ \mathbb E_1^{(N)}X_0^{(N)}=0,
+\]
+并定义
+\begin{equation}\label{eq:bmo-zero}
+ \boxed{\quad
+ \mathfrak b_{\rm sh}(X)
+ :=\sup_{N\geq1}\norm{X_0^{(N)}}_{\mathrm{BMO}(\mathcal F^{(N)})}.
+ \quad}
+\end{equation}
+记 $X_0\in\mathrm{BMO}_{\rm sh}^{0}$ 表示该量有限。
+这是在有限角上按 PSZ 定义得到的壳鞅 BMO 条件；
+它是形式矩阵模去块对角部分后的范数条件，不要求形式符号本身属于 $S_2(H)$。
+
+当 $X\in B(H)$ 时，也可直接令
+\[
+ \mathbb E_n(a)=P_naP_n+\sum_{k>n}E_kaE_k,\qquad
+ X_0=X-\DD X,
+\]
+并在 $B(H)$ 上使用 \eqref{eq:martingale-bmoc}--\eqref{eq:martingale-bmo}
+的同一公式；所得 $\norm{X_0}_{\mathrm{BMO}_{\rm sh}}$
+等于 \eqref{eq:bmo-zero}。
+这是因为对 $n\leq N$，有限角上的残差等于
+$P_N(X_0-\mathbb E_{n-1}X_0)P_N$，相应条件平方随 $N$ 强收敛；
+其范数不超过无限角上的条件平方范数，反向不等式由取有限角极限得到。
+
+\medskip
+为与原先的一致角块条件对照，仍记

@@ -1,0 +1,922 @@
+% !TeX program = xelatex
+% Compile twice: xelatex triangular_commutator_martingale.tex
+\documentclass[UTF8,11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=3pt,topsep=4pt}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{说明}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{证明}
+\newcommand{\BH}{B(H)}
+\newcommand{\Sp}{S_r(H)}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\QQ}{\mathcal Q}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\TriH}{\mathcal H}
+\newcommand{\Alg}{\mathcal A}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\HS}{\mathfrak H}
+\numberwithin{equation}{section}
+\title{三角投影交换子的壳鞅 BMO 与 Schatten 类刻画\\
+\large 基于 Power (1985) 与 Potapov--Sukochev--Zhou (2024)}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+本文在同一个离散有限秩巢的框架下，统一讨论左乘交换子
+$\CC_X=[L_X,\PP]$ 的两个性质：
+\begin{enumerate}[label=\textup{(\arabic*)}]
+ \item $\CC_X$ 在非交换 $L_r(B(H),\Tr)=S_r(H)$ 上有界，$1<r<\infty$；
+ \item 将 $\CC_X$ 看成 Hilbert 空间 $S_2(H)$ 上的算子时，
+       $\CC_X\in S_p(S_2(H))$，$0<p<\infty$。
+\end{enumerate}
+为区分这两个空间的指标，第一类问题使用 $r$，第二类问题使用 $p$。
+第一类问题中，原文已有的假设 $X\in B(H)$ 足以保证有界性；
+若允许形式块矩阵符号，则充要条件可用 PSZ \cite{PSZ} 的壳过滤下
+零块对角符号的行、列鞅 BMO 范数刻画，见定理 \ref{thm:sharp}。
+这一鞅语言的表述与原先的一致角块条件等价。
+第二类问题的充要条件则是壳鞅的压缩条件尾平方函数在 Schatten 范数下加权可和，
+见定理 \ref{sch:thm:main}；当 $p=2$ 时还可写成可预测加权鞅能量。
+文中保留完整证明、自伴情形、Hilbert--Schmidt 特例和相关反例，
+并在附录证明三角截断的 $S_r$ 有界性。
+
+\section{统一设置与有界符号的直接结论}
+
+设 $H$ 为可分复 Hilbert 空间，
+\[
+ 0=P_0<P_1<P_2<\cdots,\qquad \rank P_n<\infty,
+ \qquad P_n\longrightarrow I\quad\text{强算子收敛},
+\]
+并令 $E_n=P_n-P_{n-1}$，记 $d_n=\rank E_n$、$\HS=S_2(H)$。原文的巢代数为
+\[
+ \Alg=\{T\in\BH:(I-P_n)TP_n=0\ \text{对所有 }n\},
+\]
+即相对于 $H=\bigoplus_{n\geq1}E_nH$ 的块上三角代数。
+在有限支撑块矩阵上定义
+\[
+ \PP(A)=\sum_{i\leq j}E_iAE_j,\qquad
+ \QQ=I-\PP,\qquad
+ \DD(A)=\sum_jE_jAE_j.
+\]
+当 $r=2$ 时，$\PP$ 就是原文投影到 $\Alg\cap S_2$ 的正交投影。
+对每个 $1<r<\infty$，三角截断定理给出其唯一有界延拓，并且
+\begin{equation}\label{eq:tp}
+ t_r:=\norm{\PP}_{S_r\to S_r}<\infty,\qquad
+ q_r:=\norm{\QQ}_{S_r\to S_r}<\infty.
+\end{equation}
+这些常数可以只依赖于 $r$，与块的个数和维数无关。
+为使证明完整，附录给出这一事实的一个证明。
+
+\medskip
+原文 $X\PP-\PP X$ 中的 $X$ 表示\emph{左乘算子}
+$L_X(A)=XA$。因此本文研究的是
+\begin{equation}\label{eq:defC}
+ \CC_X=[L_X,\PP],\qquad
+ \CC_X(A)=X\PP(A)-\PP(XA),
+\end{equation}
+它与内部导子 $A\mapsto XA-AX$ 是不同的映射。
+
+\begin{theorem}[保留原文的有界符号假设]\label{thm:bounded}
+设 $X\in\BH$。则对每个 $1<r<\infty$，
+$\CC_X$ 是 $S_r(H)$ 上的有界线性算子，且
+\begin{equation}\label{eq:easybound}
+ \norm{\CC_X}_{S_r\to S_r}\leq 2t_r\norm{X}_{\BH}.
+\end{equation}
+特别地，不要求 $X$ 紧、不要求 $X\in S_r$，也不要求
+$X\in(\Alg+K(H))\cap(\Alg+K(H))^*$。
+\end{theorem}
+
+\begin{proof}
+Schatten 理想不等式给出
+\[
+ \norm{XA}_r\leq\norm{X}_{\BH}\norm{A}_r,
+ \qquad A\in S_r(H).
+\]
+结合 \eqref{eq:tp}，有
+\begin{align*}
+ \norm{X\PP(A)-\PP(XA)}_r
+ &\leq\norm{X}_{\BH}\norm{\PP(A)}_r
+       +t_r\norm{XA}_r\\
+ &\leq 2t_r\norm{X}_{\BH}\norm{A}_r.
+\end{align*}
+这证明了结论。原文定理 2.1(ii) 中的代数条件刻画的是
+$S_2$ 上的\emph{紧性}，而上述结论只涉及有界性。
+\end{proof}
+
+\section{壳过滤下的鞅 BMO 刻画}\label{sec:martingale}
+
+本节将一致角块条件改写为真正的非交换鞅 BMO 条件。
+采用 Potapov--Sukochev--Zhou \cite{PSZ}（以下简称 PSZ）中
+Example 2.6 的壳过滤（shell filtration）和 Section 2.3 的行、列 BMO 记号。
+保留本稿 $B(H)$ 上的离散有限秩巢，允许 $X=(X_{ij})$ 为形式块矩阵，
+其中 $X_{ij}:E_jH\to E_iH$，不预设 $X$ 在 $H$ 上有界。
+
+\subsection{壳过滤与三角鞅变换}
+
+由于 PSZ 的主要设置是有限 von Neumann 代数，而这里
+$(B(H),\Tr)$ 一般半有限，我们先在每个有限角上使用 PSZ 的定义。
+记
+\[
+ \mathcal M^{(N)}=B(P_NH),\qquad
+ \tau_N=\frac{\Tr}{\rank P_N},\qquad
+ X^{(N)}=(X_{ij})_{1\leq i,j\leq N}.
+\]
+对 $1\leq n\leq N$，令
+\begin{align}
+ \mathcal M_n^{(N)}
+ &=B(P_nH)\oplus\bigoplus_{k=n+1}^{N}B(E_kH),\label{eq:shell-algebra}\\
+ \mathbb E_n^{(N)}(a)
+ &=P_naP_n+\sum_{k=n+1}^{N}E_kaE_k.\label{eq:shell-expectation}
+\end{align}
+这些是保 $\tau_N$ 的条件期望，满足塔性质，构成递增的壳过滤。
+其首项为块对角条件期望
+\[
+ \mathbb E_1^{(N)}=\DD_N,\qquad
+ \DD_N(a)=\sum_{k=1}^{N}E_kaE_k.
+\]
+依照 PSZ 的惯例，记 $\mathbb E_0^{(N)}=0$，
+$d_1^{(N)}=\mathbb E_1^{(N)}$，
+$d_n^{(N)}=\mathbb E_n^{(N)}-\mathbb E_{n-1}^{(N)}$（$n\geq2$）。
+这里 $\mathbb E_0^{(N)}=0$ 仅为差分和范数的记号约定。
+直接计算得到
+\begin{equation}\label{eq:shell-difference}
+ d_n^{(N)}(a)=P_{n-1}aE_n+E_naP_{n-1},\qquad n\geq2.
+\end{equation}
+因此有限角上的三角投影正是 PSZ Proposition 3.4 的可预测鞅变换：
+\begin{equation}\label{eq:martingale-transform}
+ \PP_N(a)=\mathbb E_1^{(N)}(a)
+       +\sum_{n=2}^{N}P_{n-1}d_n^{(N)}(a),
+ \qquad P_{n-1}\in\mathcal M_{n-1}^{(N)}.
+\end{equation}
+其补投影为 $\QQ_N(a)=\sum_{n=2}^{N}d_n^{(N)}(a)P_{n-1}$。
+所以本稿的交换子也可记为这个三角鞅变换的左乘交换子
+$\CC_X=[L_X,\PP]$。
+
+\subsection{行、列鞅 BMO 与块对角归一化}
+
+对 $y\in\mathcal M^{(N)}$，定义
+\begin{align}
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}
+ &=\max_{1\leq n\leq N}
+ \norm{\mathbb E_n^{(N)}
+   \bigl(|y-\mathbb E_{n-1}^{(N)}y|^2\bigr)}_\infty^{1/2},\label{eq:martingale-bmoc}\\
+ \norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}
+ &=\norm{y^*}_{\mathrm{BMO}^{c}(\mathcal F^{(N)})},\label{eq:martingale-bmor}\\
+ \norm y_{\mathrm{BMO}(\mathcal F^{(N)})}
+ &=\max\left\{
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})},
+ \norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}\right\}.\label{eq:martingale-bmo}
+\end{align}
+其中 $|z|^2=z^*z$。这些是 PSZ Section 2.3 所用的非交换鞅 BMO 范数。
+由于交换子不受 $X$ 的块对角部分影响，应对符号作归一化
+\[
+ X_0^{(N)}=X^{(N)}-\DD_NX^{(N)},\qquad
+ \mathbb E_1^{(N)}X_0^{(N)}=0,
+\]
+并定义
+\begin{equation}\label{eq:bmo-zero}
+ \boxed{\quad
+ \mathfrak b_{\rm sh}(X)
+ :=\sup_{N\geq1}\norm{X_0^{(N)}}_{\mathrm{BMO}(\mathcal F^{(N)})}.
+ \quad}
+\end{equation}
+记 $X_0\in\mathrm{BMO}_{\rm sh}^{0}$ 表示该量有限。
+这是在有限角上按 PSZ 定义得到的壳鞅 BMO 条件；
+它是形式矩阵模去块对角部分后的范数条件，不要求形式符号本身属于 $S_2(H)$。
+
+当 $X\in B(H)$ 时，也可直接令
+\[
+ \mathbb E_n(a)=P_naP_n+\sum_{k>n}E_kaE_k,\qquad
+ X_0=X-\DD X,
+\]
+并在 $B(H)$ 上使用 \eqref{eq:martingale-bmoc}--\eqref{eq:martingale-bmo}
+的同一公式；所得 $\norm{X_0}_{\mathrm{BMO}_{\rm sh}}$
+等于 \eqref{eq:bmo-zero}。
+这是因为对 $n\leq N$，有限角上的残差等于
+$P_N(X_0-\mathbb E_{n-1}X_0)P_N$，相应条件平方随 $N$ 强收敛；
+其范数不超过无限角上的条件平方范数，反向不等式由取有限角极限得到。
+
+\medskip
+为与原先的一致角块条件对照，仍记
+\begin{align}
+ \beta_-(X)&=\sup_{N>n\geq1}
+     \norm{(P_N-P_n)X^{(N)}P_n},\label{eq:beta-}\\
+ \beta_+(X)&=\sup_{N>n\geq1}
+     \norm{P_nX^{(N)}(P_N-P_n)},\label{eq:beta+}\\
+ \beta(X)&=\max\{\beta_-(X),\beta_+(X)\}.\label{eq:beta}
+\end{align}
+这里所有范数均为 Hilbert 空间算子范数。
+这些有限截断的定义避免了无界矩阵乘法的定义域问题。
+若两个方向的角块已定义为有界算子，则等价地
+\begin{equation}\label{eq:cut}
+ \beta(X)=\sup_n\max\{
+ \norm{(I-P_n)XP_n},\norm{P_nX(I-P_n)}\}
+ =\sup_n\norm{[X,P_n]}.
+\end{equation}
+最后一个等号来自相对于 $P_nH\oplus(I-P_n)H$ 的表示
+\[
+ [X,P_n]=\begin{pmatrix}
+ 0&-P_nX(I-P_n)\\
+ (I-P_n)XP_n&0
+ \end{pmatrix}.
+\]
+
+对有限支撑 $A=(A_{kj})$，交换子的形式定义为
+\begin{equation}\label{eq:entries}
+ (\CC_X A)_{ij}
+ =\sum_k X_{ik}A_{kj}
+ \bigl(\mathbf1_{\{k\leq j\}}-\mathbf1_{\{i\leq j\}}\bigr).
+\end{equation}
+每个块的求和有限，但所得整个矩阵未必属于 $S_r$。
+所谓其在 $S_r$ 上有界，是指存在 $S_r\to S_r$ 的有界映射，
+在有限支撑矩阵上逐块满足 \eqref{eq:entries}。
+
+\begin{theorem}[三角鞅变换交换子的 BMO 刻画]\label{thm:sharp}
+对上述形式块矩阵 $X$，下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item 对某个 $1<r<\infty$，$\CC_X=[L_X,\PP]$ 在 $S_r(H)$ 上有界；
+ \item 零块对角符号属于壳过滤的行、列鞅 BMO 交空间，即
+ \[
+ X_0\in\mathrm{BMO}_{\rm sh}^{0},\qquad
+ \mathfrak b_{\rm sh}(X)<\infty;
+ \]
+ \item 对所有 $1<r<\infty$，$\CC_X$ 在 $S_r(H)$ 上有界。
+\end{enumerate}
+而且原先的角块量与鞅 BMO 量满足
+\begin{equation}\label{eq:bmo-beta}
+ \beta(X)\leq\mathfrak b_{\rm sh}(X)\leq\sqrt2\,\beta(X).
+\end{equation}
+对每个 $1<r<\infty$，有
+\begin{equation}\label{eq:sharpbounds}
+ \boxed{\quad
+ \frac{\mathfrak b_{\rm sh}(X)}{\sqrt2}
+ \leq\norm{\CC_X}_{S_r\to S_r}
+ \leq2t_rq_r\,\mathfrak b_{\rm sh}(X).
+ \quad}
+\end{equation}
+特别地，
+\begin{equation}\label{eq:exact2}
+ \frac{\mathfrak b_{\rm sh}(X)}{\sqrt2}
+ \leq\norm{\CC_X}_{S_2\to S_2}
+ =\beta(X)\leq\mathfrak b_{\rm sh}(X).
+\end{equation}
+\end{theorem}
+
+这个表述使用的是 PSZ 的特定壳过滤，而非任意非交换鞅过滤。
+它把原先的符号半范数识别为标准行、列鞅 BMO 范数在零块对角符号上的等价范数。
+两者通常并不精确相等。例如，在标准重数为一巢中取
+$X=e_{12}+e_{32}$，则 $\beta(X)=1$，而 $\mathfrak b_{\rm sh}(X)=\sqrt2$。
+
+\begin{lemma}[零块对角符号的 BMO 与角块比较]\label{lem:bmo-beta}
+式 \eqref{eq:bmo-beta} 成立。
+\end{lemma}
+
+\begin{proof}
+这是 PSZ Lemmas 3.12--3.14 及 Theorem 3.16 在零块对角情形的具体化。
+为明确常数和有限角约定，下面直接证明。
+固定 $N$，令 $y=X_0^{(N)}$，$Q_n=P_N-P_n$，并记
+\[
+ \gamma_N=\max_{1\leq n\leq N}\max\{
+   \norm{Q_nyP_n},\norm{P_nyQ_n}\}.
+\]
+由于去掉对角不改变角块，有 $\sup_N\gamma_N=\beta(X)$。
+对 $1\leq n\leq N$，令 $R_n=y-\mathbb E_{n-1}^{(N)}y$。
+
+\medskip
+\textbf{由 BMO 控制角块。}
+由条件期望的块形式可知
+\[
+ Q_nR_nP_n=Q_nyP_n,\qquad
+ P_n\mathbb E_n^{(N)}(R_n^*R_n)P_n
+   =(R_nP_n)^*(R_nP_n).
+\]
+故 $\norm{Q_nyP_n}\leq\norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}$。
+对 $y^*$ 使用同一论证，得到
+$\norm{P_nyQ_n}\leq\norm y_{\mathrm{BMO}^{r}(\mathcal F^{(N)})}$。
+因此 $\gamma_N\leq\norm y_{\mathrm{BMO}(\mathcal F^{(N)})}$。
+
+\medskip
+\textbf{由角块控制 BMO。}
+利用 $E_kyE_k=0$，对所有 $n$ 都有
+\[
+ R_nP_n=Q_nyP_n+
+       \bigl(P_{n-1}yE_n+E_nyP_{n-1}\bigr).
+\]
+右侧两个算子的值域分别在 $Q_nH$ 与 $P_nH$ 中，互相正交；
+括号内是关于 $P_{n-1}H\oplus E_nH$ 的非对角二乘二矩阵，
+其范数不超过 $\gamma_N$。所以
+\[
+ \norm{R_nP_n}^{2}\leq2\gamma_N^2.
+\]
+当 $k>n$ 时，$R_nE_k=yE_k$，且
+\[
+ yE_k=P_{k-1}yE_k+Q_kyE_k,
+ \qquad \norm{yE_k}^{2}\leq2\gamma_N^2,
+\]
+其中再次使用了值域的正交性。
+于是 $\mathbb E_n^{(N)}(R_n^*R_n)$ 的每个对角块的范数均不超过
+$2\gamma_N^2$，从而
+\[
+ \norm y_{\mathrm{BMO}^{c}(\mathcal F^{(N)})}
+ \leq\sqrt2\,\gamma_N.
+\]
+对 $y^*$ 同理得到行 BMO 估计。因此
+\[
+ \gamma_N\leq\norm y_{\mathrm{BMO}(\mathcal F^{(N)})}
+       \leq\sqrt2\,\gamma_N.
+\]
+对 $N$ 取上确界即得 \eqref{eq:bmo-beta}。
+\end{proof}
+为证明充分性，再列出所需的有界完成引理。它使用原文在定理 2.1
+之前已证明的距离公式
+\begin{equation}\label{eq:nehari}
+ \norm{\QQ L_Y\PP}_{S_2\to S_2}=\dist(Y,\Alg),
+ \qquad Y\in\BH;
+\end{equation}
+见 \cite[p.~277]{Power}，其依据为原文定理 1.6 及其后的说明。
+这里的距离取 $B(H)$ 算子范数。
+
+\begin{lemma}[严格三角部分的有界完成]\label{lem:completion}
+若 $\beta_-(X)<\infty$，则存在 $B\in\BH$ 满足
+\[
+ E_iBE_j=X_{ij}\quad(i>j),\qquad
+ \norm B\leq\beta_-(X).
+\]
+若 $\beta_+(X)<\infty$，则存在 $C\in\BH$ 满足
+\[
+ E_iCE_j=X_{ij}\quad(i<j),\qquad
+ \norm C\leq\beta_+(X).
+\]
+注意这里是为给定的严格三角部分\emph{补齐其他块}，
+并未断言将其余块置零后所得的三角矩阵本身有界。
+\end{lemma}
+
+\begin{proof}
+先说明对任意 $Y\in\BH$，
+\begin{equation}\label{eq:Hcorner}
+ \norm{\QQ L_Y\PP}_{S_2\to S_2}
+ =\sup_j\norm{(I-P_j)YP_j}.
+\end{equation}
+事实上，逐块列计算得到
+\[
+ (\QQ L_Y\PP)(A)E_j=(I-P_j)YP_jAE_j.
+\]
+由 $\norm A_2^2=\sum_j\norm{AE_j}_2^2$ 得到 ``$\leq$''。
+固定 $j$，取 $A=\xi\otimes\eta^*$，其中 $\xi\in P_jH$、
+$\eta\in E_jH$ 均为单位向量，再对 $\xi$ 取上确界，得到反向不等式。
+这里 $\xi\otimes\eta^*$ 表示 $h\mapsto\langle h,\eta\rangle\xi$。
+
+将 $Y_N=X^{(N)}$ 在 $(I-P_N)H$ 上补零。
+由 \eqref{eq:Hcorner}、\eqref{eq:nehari} 以及 \eqref{eq:beta-}，有
+\[
+ \dist(Y_N,\Alg)\leq\beta_-(X).
+\]
+故可取 $T_N\in\Alg$ 使
+\[
+ \norm{Y_N-T_N}\leq\beta_-(X)+N^{-1}.
+\]
+令 $B_N=P_N(Y_N-T_N)P_N$。则 $\norm{B_N}\leq\beta_-(X)+N^{-1}$，
+且当 $N\geq i>j$ 时，$E_iB_NE_j=X_{ij}$。
+由于 $H$ 可分，有界序列 $(B_N)$ 有弱算子收敛子列。
+设其极限为 $B$，便有 $\norm B\leq\beta_-(X)$，
+且每个严格下三角块均保持为 $X_{ij}$。
+
+对形式伴随矩阵 $X^*=(X_{ji}^*)$ 应用刚证明的结论，
+并使用 $\beta_-(X^*)=\beta_+(X)$，再取伴随，即得到 $C$。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:sharp} 的证明]
+\textbf{\textup{(i)} $\Rightarrow$ \textup{(ii)}。}
+设 $\norm{\CC_X}_{S_r\to S_r}=M$。
+固定 $N>n$，取单位向量 $\eta\in E_nH$ 和任意 $\xi\in P_NH$，
+以秩一算子 $A=\xi\otimes\eta^*$ 为输入。由 \eqref{eq:entries}，
+\[
+ P_N\CC_X(A)P_N
+ =\bigl([X^{(N)},P_n]\xi\bigr)\otimes\eta^*.
+\]
+利用秩一算子的 Schatten 范数公式和压缩映射的压缩性，有
+\[
+ \norm{[X^{(N)},P_n]\xi}\leq M\norm\xi.
+\]
+因此 $\beta(X)\leq M$。引理 \ref{lem:bmo-beta} 给出
+$\mathfrak b_{\rm sh}(X)\leq\sqrt2 M$，证明了必要性及
+\eqref{eq:sharpbounds} 的下界。
+
+\medskip
+\textbf{\textup{(ii)} $\Rightarrow$ \textup{(iii)}。}
+设 $\mathfrak b_{\rm sh}(X)<\infty$。
+由引理 \ref{lem:bmo-beta}，$\beta(X)\leq\mathfrak b_{\rm sh}(X)$。
+利用引理 \ref{lem:completion} 取有界完成 $B,C$，满足
+\[
+ B_{ik}=X_{ik}\ (i>k),\quad C_{ik}=X_{ik}\ (i<k),\qquad
+ \norm B\leq\beta_-(X),\quad\norm C\leq\beta_+(X).
+\]
+在 $S_r(H)$ 上定义
+\begin{equation}\label{eq:factorization}
+ T=\QQ L_B\PP-\PP L_C\QQ.
+\end{equation}
+这里 $\PP,\QQ$ 在有限角上正是 \eqref{eq:martingale-transform} 的鞅变换
+及其补变换，在 $1<r<\infty$ 的 $S_r$ 上有界。
+对有限支撑矩阵 $A$，逐块计算得到
+\[
+ (TA)_{ij}=\begin{cases}
+   \displaystyle\sum_{k\leq j}X_{ik}A_{kj},&i>j,\\[4pt]
+   \displaystyle-\sum_{k>j}X_{ik}A_{kj},&i\leq j.
+ \end{cases}
+\]
+这正是 \eqref{eq:entries}，所以 $T=\CC_X$；稠密性保证延拓唯一。
+并且
+\[
+ \norm{\CC_X}_{S_r\to S_r}
+ \leq t_rq_r\bigl(\beta_-(X)+\beta_+(X)\bigr)
+ \leq2t_rq_r\,\mathfrak b_{\rm sh}(X).
+\]
+这证明了充分性及上界；\textup{(iii)} $\Rightarrow$ \textup{(i)} 显然。
+
+\medskip
+\textbf{$S_2$ 上的精确角块范数。}
+由 $\beta(X)<\infty$，每个 $K_j=[X,P_j]$ 均为有界算子。
+逐块列有
+\[
+ \CC_X(A)E_j=K_jAE_j.
+\]
+所以
+\[
+ \norm{\CC_X(A)}_2^2
+ \leq\beta(X)^2\sum_j\norm{AE_j}_2^2
+ =\beta(X)^2\norm A_2^2.
+\]
+结合已证的秩一测试下界，得到
+$\norm{\CC_X}_{S_2\to S_2}=\beta(X)$。
+再由 \eqref{eq:bmo-beta} 即得 \eqref{eq:exact2}。
+\end{proof}
+
+\begin{remark}[为何必须减去首项]
+PSZ 所用的 BMO 范数包含
+$\norm{\mathbb E_1(|x|^2)}_\infty^{1/2}$ 这一项，因而会检测块对角部分。
+但 $\CC_{X+D}=\CC_X$ 对任意形式块对角矩阵 $D$ 成立。
+所以定理中的条件应是 $X-\DD X\in\mathrm{BMO}_{\rm sh}^{0}$，
+不能在允许形式符号时直接要求整个 $X$ 的非齐次 BMO 范数有限。
+例如 $X=\sum_n nE_n$ 产生零交换子，而其未归一化的局部 BMO 范数无界。
+\end{remark}
+
+\begin{remark}[与 Power 的符号空间的关系]
+在原文重数为一的情形，由 \cite[Theorem 2.3]{Power}，
+$\beta(X)<\infty$ 等价于零对角形式矩阵
+$X_0$ 属于 $B(H)+\widetilde{B(H)}$。
+因此本定理还将这一三角 BMO 型符号空间识别为 PSZ 壳过滤的行、列鞅 BMO 交空间，
+其中三角共轭的约定为 $\widetilde Y=-i\TriH Y$。
+这与 \cite[Theorem 3.16]{PSZ} 的 BMO 识别相一致。
+\end{remark}
+
+\section{作为 Hilbert--Schmidt 空间上算子的 Schatten 类刻画}
+
+本节先取 $X\in B(H)$，并沿用第一节的 $E_n,d_n$ 和 $\HS=S_2(H)$。
+$S_p(\HS)$ 指 Hilbert 空间 $\HS$ 上算子的 Schatten 类；
+其定义使用 $\CC_X$ 本身的奇异值，而非 $\CC_X:S_r(H)\to S_r(H)$ 的算子范数。
+第 \ref{sec:compact} 节还将说明，若形式符号已产生 $S_2(H)$ 上的有界交换子，同一公式仍然成立。
+
+\subsection{压缩的条件尾平方函数与 Schatten 刻画}
+
+沿用第 \ref{sec:martingale} 节的壳过滤，令
+$\mathcal M_n=\mathbb E_n(B(H))$，并记
+\[
+ x_n=\mathbb E_nX,\qquad
+ \Delta_1X=\mathbb E_1X,\qquad
+ \Delta_kX=x_k-x_{k-1}\quad(k\geq2).
+\]
+这里 $\Delta_k$ 是 PSZ 的鞅差分算子 $d_k$；使用不同字母以区别于重数
+$d_n=\rank E_n$。由 \eqref{eq:shell-difference} 的无限角版本，
+\begin{equation}\label{sch:eq:difference}
+ \Delta_kX=P_{k-1}XE_k+E_kXP_{k-1},\qquad k\geq2.
+\end{equation}
+这将 PSZ Section 2.3 的行、列平方函数用于壳鞅的未来差分。
+定义压缩的条件尾平方函数
+\begin{align}
+ s_{n,c}(X)
+ &=\left[P_n\mathbb E_n\bigl(|X-x_n|^2\bigr)P_n\right]^{1/2},
+       \label{sch:eq:tail-column}\\
+ s_{n,r}(X)
+ &=\left[P_n\mathbb E_n\bigl(|X^*-x_n^*|^2\bigr)P_n\right]^{1/2}.
+       \label{sch:eq:tail-row}
+\end{align}
+这两个正算子均支撑在有限秩投影 $P_n$ 上。
+注意行型中 $|X^*-x_n^*|^2=(X-x_n)(X-x_n)^*$。
+上式使用 $X-x_n$，即第 $n$ 步之后的鞅尾部；
+它与 BMO 定义 \eqref{eq:martingale-bmoc} 中的 $X-x_{n-1}$ 有一个明确的指标区别。
+
+\begin{theorem}[壳鞅尾平方函数的 Schatten 可和性]\label{sch:thm:main}
+对任意 $0<p<\infty$（特别是 $1<p<\infty$），
+\begin{equation}\label{sch:eq:criterion}
+ \boxed{\quad
+ \CC_X\in S_p\bigl(S_2(H)\bigr)
+ \iff
+ \sum_{n\geq1}d_n\left(
+   \norm{s_{n,c}(X)}_{S_p(H)}^p+
+   \norm{s_{n,r}(X)}_{S_p(H)}^p\right)<\infty.
+ \quad}
+\end{equation}
+而且有精确等式
+\begin{equation}\label{sch:eq:main}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ =\sum_{n\geq1}d_n\left(
+   \norm{s_{n,c}(X)}_{S_p(H)}^p+
+   \norm{s_{n,r}(X)}_{S_p(H)}^p\right).
+\end{equation}
+两种平方函数还可以完全由未来鞅差分表示：
+\begin{align}
+ s_{n,c}(X)^2
+ &=\sum_{k>n}(\Delta_kX\,P_n)^*(\Delta_kX\,P_n),
+       \label{sch:eq:tail-diff-column}\\
+ s_{n,r}(X)^2
+ &=\sum_{k>n}(P_n\Delta_kX)(P_n\Delta_kX)^*.
+       \label{sch:eq:tail-diff-row}
+\end{align}
+对固定 $n$，这些正算子级数在 $B(P_nH)$ 中按算子范数收敛。
+等价地，保留原先的角块形式，仍有
+\begin{equation}\label{sch:eq:corners}
+ \begin{aligned}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ &=\sum_{n\geq1}d_n\norm{[X,P_n]}_{S_p(H)}^p\\
+ &=\sum_{n\geq1}d_n\left(
+  \norm{(I-P_n)XP_n}_{S_p(H)}^p+
+  \norm{P_nX(I-P_n)}_{S_p(H)}^p\right).
+ \end{aligned}
+\end{equation}
+对于 $0<p<1$，以上使用 Schatten 拟范数。
+\end{theorem}
+
+\begin{proof}
+\textbf{第一步：将条件尾平方函数识别为角块的模。}
+令
+\[
+ R_n=X-\mathbb E_nX,\qquad
+ B_n=(I-P_n)XP_n,\qquad A_n=P_nX(I-P_n).
+\]
+壳条件期望的定义给出
+\[
+ R_nP_n=B_n,\qquad P_nR_n=A_n,
+ \qquad P_n\mathbb E_n(a)P_n=P_naP_n.
+\]
+因此
+\begin{equation}\label{sch:eq:tail-moduli}
+ s_{n,c}(X)^2=B_n^*B_n,\qquad
+ s_{n,r}(X)^2=A_nA_n^*.
+\end{equation}
+特别地，
+\[
+ \norm{s_{n,c}(X)}_p=\norm{B_n}_p,
+ \qquad \norm{s_{n,r}(X)}_p=\norm{A_n}_p.
+\]
+再由 \eqref{sch:eq:difference}，当 $k>n$ 时，
+\[
+ \Delta_kX\,P_n=E_kXP_n,\qquad
+ P_n\Delta_kX=P_nXE_k.
+\]
+利用 $\sum_{k>n}E_k=I-P_n$，立即得到
+\eqref{sch:eq:tail-diff-column}--\eqref{sch:eq:tail-diff-row}。
+这些正部分和单调递增、有界且支撑在有限维的 $P_nH$ 上，故按算子范数收敛。
+
+\medskip
+\textbf{第二步：按块列作酉分解。}
+对每个 $n$，取 $E_nH$ 的一组标准正交基
+$\{\eta_{n,j}:1\leq j\leq d_n\}$。
+所有这些向量合起来构成 $H$ 的标准正交基。映射
+\[
+ U:\HS\longrightarrow\bigoplus_{n\geq1}\bigoplus_{j=1}^{d_n}H,
+ \qquad U(A)=(A\eta_{n,j})_{n,j}
+\]
+是酉算子，因为
+\[
+ \norm A_2^2=\sum_{n\geq1}\sum_{j=1}^{d_n}\norm{A\eta_{n,j}}_H^2,
+\]
+且任意平方可和的向量列均唯一确定一个 Hilbert--Schmidt 算子。
+由于 $\PP$ 是 \eqref{eq:martingale-transform} 的三角鞅变换，
+对其第 $n$ 个块列有
+\[
+ \PP(A)\eta_{n,j}=P_nA\eta_{n,j}.
+\]
+从而
+\[
+ \CC_X(A)\eta_{n,j}=[X,P_n]A\eta_{n,j},
+\]
+即
+\begin{equation}\label{sch:eq:unitary}
+ \boxed{\quad
+ U\CC_XU^{-1}
+ =\bigoplus_{n\geq1}\bigoplus_{j=1}^{d_n}[X,P_n].
+ \quad}
+\end{equation}
+相对于 $H=P_nH\oplus(I-P_n)H$，有
+\[
+ K_n=[X,P_n]=\begin{pmatrix}0&-A_n\\B_n&0\end{pmatrix},
+ \qquad
+ K_n^*K_n=\begin{pmatrix}B_n^*B_n&0\\0&A_n^*A_n\end{pmatrix}.
+\]
+于是每个 $K_n$ 都是有限秩，且
+\begin{equation}\label{sch:eq:local-schatten}
+ \norm{K_n}_p^p
+ =\norm{B_n}_p^p+\norm{A_n}_p^p
+ =\norm{s_{n,c}(X)}_p^p+\norm{s_{n,r}(X)}_p^p.
+\end{equation}
+
+\medskip
+\textbf{第三步：汇集各分量的奇异值。}
+若 \eqref{sch:eq:criterion} 右侧级数收敛，则由
+\eqref{sch:eq:local-schatten} 有 $\norm{K_n}^p\leq\norm{K_n}_p^p\to0$。
+故 \eqref{sch:eq:unitary} 的直和是紧算子；
+各个 $K_n$ 的非零奇异值在相应分量中重复 $d_n$ 次。
+求 $p$ 次幂和即得 \eqref{sch:eq:main} 及 \eqref{sch:eq:corners}。
+反之，若 $\CC_X\in S_p(\HS)$，则有限分量直和的奇异值 $p$ 次幂和一致有界；
+对分量数取极限并使用 \eqref{sch:eq:local-schatten}，即得
+\eqref{sch:eq:criterion} 右侧级数收敛及同一精确等式。
+这对每个 $p>0$ 都成立。
+\end{proof}
+
+\begin{remark}[为何会出现重数 $d_n$]
+在 $S_2(H)E_n$ 上，左乘 $[X,P_n]$ 对 $E_nH$ 的每一个基向量所对应的列，
+都独立作用一次。因此一个块列包含 $d_n$ 个相同的 Hilbert 空间算子分量。
+重数为一时 $d_n=1$；一般的有限维块情形不能省略这个因子。
+定理 \ref{sch:thm:main} 给出的是这些压缩条件尾平方函数的加权 $S_p$ 可和性，
+并非仅要求一个通常的鞅 Hardy 范数或 BMO 范数有限。
+\end{remark}
+
+\begin{corollary}[自伴符号]
+若 $X=X^*$，则 $s_{n,c}(X)=s_{n,r}(X)$，因而
+\begin{align*}
+ \norm{\CC_X}_{S_p(S_2(H))}^p
+ &=2\sum_{n\geq1}d_n\norm{s_{n,c}(X)}_{S_p(H)}^p\\
+ &=2\sum_{n\geq1}d_n\norm{(I-P_n)XP_n}_{S_p(H)}^p.
+\end{align*}
+所以自伴情形只需检验列型条件尾平方函数的加权 $p$ 次幂可和性。
+\end{corollary}
+
+\subsection{重数为一的矩阵形式及 Hilbert--Schmidt 特例}
+
+在标准巢 $H=\ell_2(\mathbb N)$、
+$P_n$ 投影到 $\operatorname{span}\{e_1,\ldots,e_n\}$ 的情形，
+令 $X=(x_{ij})$，则 $d_n=1$，上述条件成为
+\begin{equation}\label{sch:eq:matrix}
+ \sum_{n=1}^{\infty}\left(
+  \norm{(x_{ij})_{i>n,\,j\leq n}}_{S_p}^p
+  +\norm{(x_{ij})_{i\leq n,\,j>n}}_{S_p}^p
+ \right)<\infty.
+\end{equation}
+这里的矩阵表示相应两个 Hilbert 空间之间的角块算子，
+范数为其奇异值的 Schatten 范数。
+
+当 $p=2$ 时可以把这一条件完全展开：
+\begin{align}
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ &=\sum_{n\geq1}\left(
+   \sum_{i>n,\,j\leq n}|x_{ij}|^2
+   +\sum_{i\leq n,\,j>n}|x_{ij}|^2\right)\notag\\
+ &=\boxed{\ \sum_{i\ne j}|i-j|\,|x_{ij}|^2\ }.\label{sch:eq:hs}
+\end{align}
+事实上，当 $i>j$ 时，$x_{ij}$ 恰好出现在 $n=j,j+1,\ldots,i-1$
+这 $i-j$ 个下角块中；当 $i<j$ 时，计数同理。
+所以
+\[
+ \CC_X\in S_2(S_2(H))
+ \quad\Longleftrightarrow\quad
+ \sum_{i\ne j}|i-j|\,|x_{ij}|^2<\infty.
+\]
+对于 $p\ne2$，应使用 \eqref{sch:eq:matrix} 中的角块奇异值范数；
+上述计算不提供将其改成逐项 $|x_{ij}|^p$ 加权和的依据。
+
+更一般地，在有限维块情形，令 $r_n=\rank P_n$、$r_0=0$，则
+\begin{equation}\label{sch:eq:blockhs}
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{i\ne j}|r_{i-1}-r_{j-1}|\,
+   \norm{E_iXE_j}_{S_2(H)}^2.
+\end{equation}
+这是因为每个 $E_iXE_j$ 的权重为
+$\sum_{n=\min(i,j)}^{\max(i,j)-1}d_n$。
+
+\subsection{Hilbert--Schmidt 情形的可预测加权鞅能量}
+
+\begin{corollary}[可预测加权能量公式]\label{sch:cor:energy}
+对 $k\geq2$，定义可预测正算子
+\[
+ W_{k-1}=\sum_{n=1}^{k-1}d_nP_n\in\mathcal M_{k-1}.
+\]
+则
+\begin{equation}\label{sch:eq:energy}
+ \boxed{\quad
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{k\geq2}\left(
+   \norm{\Delta_kX\,W_{k-1}^{1/2}}_2^2
+  +\norm{W_{k-1}^{1/2}\Delta_kX}_2^2\right).
+ \quad}
+\end{equation}
+因此 $\CC_X$ 为 $S_2(H)$ 上的 Hilbert--Schmidt 算子，
+当且仅当右侧可预测加权鞅能量有限。
+\end{corollary}
+
+\begin{proof}
+在 \eqref{sch:eq:main} 中取 $p=2$，并使用
+\eqref{sch:eq:tail-diff-column}--\eqref{sch:eq:tail-diff-row}，得到
+\[
+ \norm{\CC_X}_{S_2(S_2(H))}^2
+ =\sum_{n\geq1}\sum_{k>n}d_n\left(
+   \norm{\Delta_kX\,P_n}_2^2+\norm{P_n\Delta_kX}_2^2\right).
+\]
+各项非负，故可交换求和次序。固定 $k$，由迹的循环性，
+\begin{align*}
+ \sum_{n<k}d_n\norm{\Delta_kX\,P_n}_2^2
+ &=\Tr\bigl((\Delta_kX)^*\Delta_kX\,W_{k-1}\bigr)
+  =\norm{\Delta_kX\,W_{k-1}^{1/2}}_2^2,\\
+ \sum_{n<k}d_n\norm{P_n\Delta_kX}_2^2
+ &=\Tr\bigl(\Delta_kX(\Delta_kX)^*W_{k-1}\bigr)
+  =\norm{W_{k-1}^{1/2}\Delta_kX}_2^2.
+\end{align*}
+代回即得 \eqref{sch:eq:energy}。
+\end{proof}
+
+在重数为一的情形，$W_{k-1}=\sum_{j<k}(k-j)E_j$。
+因此该公式恰好恢复 \eqref{sch:eq:hs} 中的权重 $|i-j|$，
+为原先的矩阵元素条件提供了可预测鞅能量的表达。
+
+\section{紧性、反例及形式符号的说明}\label{sec:compact}
+
+由 \eqref{sch:eq:unitary}，还立即得到
+\[
+ \CC_X\text{ 在 }S_2(H)\text{ 上紧}
+ \quad\Longleftrightarrow\quad
+ \norm{[X,P_n]}_{B(H)}\longrightarrow0.
+\]
+这是原文定理 2.1(ii) 的紧性条件的角块表述。
+本题要求的 Schatten 条件则进一步要求角块的\emph{全部奇异值}满足
+\eqref{sch:eq:main} 的加权可和性。
+本文的直和分解与 \cite[p.~279, Remark (2)]{Power} 对 Hankel 分量的
+分解相呼应，但 \eqref{sch:eq:unitary} 是直接针对整个交换子得到的公式。
+
+\begin{example}[即使 $X$ 为秩一，也不保证交换子属于给定 Schatten 类]
+固定 $p>0$，在标准重数为一巢上令
+\[
+ u_i=i^{-1/2-1/p},\qquad
+ X=u\otimes e_1^*.
+\]
+由于 $u\in\ell_2$，$X$ 是有界秩一算子，属于每个 $S_q(H)$，$q>0$。
+然而对 $n\geq1$，有
+\[
+ P_nX(I-P_n)=0,\qquad
+ (I-P_n)XP_n=((I-P_n)u)\otimes e_1^*.
+\]
+所以
+\[
+ \norm{[X,P_n]}_{S_p(H)}^p
+ =\left(\sum_{i>n}i^{-1-2/p}\right)^{p/2}
+ \asymp\frac1n.
+\]
+由调和级数发散及定理 \ref{sch:thm:main}，
+$\CC_X\notin S_p(S_2(H))$。
+同时角块算子范数趋于零，故这个交换子仍然是紧算子。
+这说明条件不能简化为 $X\in S_p(H)$，甚至 $X$ 为有限秩也不够。
+\end{example}
+
+\begin{remark}[对角部分不影响结论]
+若 $D\in B(H)$ 为相对于 $(E_n)$ 的块对角算子，则
+$[D,P_n]=0$，因此 $\CC_{X+D}=\CC_X$。
+本题的条件和范数均只取决于 $X$ 的非对角块。
+\end{remark}
+
+\begin{remark}[只假定交换子有界时仍然成立]
+若采用定理 \ref{thm:sharp} 中允许形式块矩阵符号的设置，只假定
+$\CC_X$ 已延拓为 $S_2(H)$ 上的有界算子，定理仍然成立。
+事实上，以 $\xi\otimes\eta_{n,r}^*$ 作输入，逐列公式表明形式矩阵
+$[X,P_n]$ 唯一确定一个范数不超过 $\norm{\CC_X}$ 的有界算子。
+它相对于 $P_nH\oplus(I-P_n)H$ 只有两个非对角角块，故仍然为有限秩。
+于是 \eqref{sch:eq:unitary} 及其后的奇异值计算完全适用。
+对于形式符号，定理 \ref{sch:thm:main} 的条件尾平方函数也按有限角定义：
+\[
+ \bigl(s_{n,c}^{(N)}(X)\bigr)^2
+ =P_n\mathbb E_n^{(N)}\bigl(
+   |X^{(N)}-\mathbb E_n^{(N)}X^{(N)}|^2\bigr)P_n,
+ \qquad N>n,
+\]
+行型对 $X^{(N)*}$ 使用同一公式。
+当 $N\to\infty$ 时，这些正算子在 $B(P_nH)$ 中单调有界并按范数收敛，
+其平方根给出 $s_{n,c}(X)$、$s_{n,r}(X)$。
+因而所有尾平方函数公式均适用，无须假定整个形式符号的乘积有定义。
+因此公式要求的是角块算子的有界性及尾平方函数的可和性，而不依赖于对角符号是否有界。
+\end{remark}
+
+\subsection{有界性与紧性的例子}
+
+\begin{example}[有界交换子可以不紧]
+在 $H=\ell_2(\mathbb N)$ 的标准重数为一巢上，令
+$Se_n=e_{n+1}$ 为单边移位。由于 $S\in B(H)$，定理 \ref{thm:bounded}
+给出 $\CC_S$ 在所有 $1<r<\infty$ 的 $S_r$ 上有界。
+但对矩阵单位 $e_{nn}$，有
+\[
+ \CC_S(e_{nn})=e_{n+1,n}.
+\]
+这些输入和输出的 $S_r$ 范数均为 $1$，且不同输出之间的距离为
+$2^{1/r}$，故 $\CC_S$ 不紧。
+\end{example}
+
+\begin{example}[无界对角符号也可以产生有界交换子]
+仍在标准巢上，取稠密定义的对角算子 $De_n=ne_n$。
+其有限支撑矩阵交换子恒为零，故唯一延拓是 $S_r$ 上的零映射。
+这说明精确的符号条件必须忽略对角部分。
+此例按有限支撑定义交换子，不主张两个含无界乘子的项
+分别对每个 $A\in S_r$ 都有定义。
+\end{example}
+
+\appendix
+\section{三角截断在 \texorpdfstring{$S_r$}{Sr} 上有界的证明}
+
+这里给出 \eqref{eq:tp} 的证明，所用基础工具只有 Schatten H\"older
+不等式、对偶性和复插值。先在任意有限个有限维块上工作，
+所有估计均与块的数目及维数无关。
+设
+\[
+ (\TriH A)_{ij}=\operatorname{sgn}(j-i)A_{ij},\qquad
+ \operatorname{sgn}(0)=0.
+\]
+块对角映射 $\DD$ 在每个 $S_r$（$1\leq r\leq\infty$）上均为压缩映射：
+它是块对角标量酉算子的共轭作用的平均。
+此外，$\norm{\TriH}_{S_2\to S_2}\leq1$。
+
+\medskip
+对任意块矩阵 $A,B$，逐项核对符号可得 Cotlar 型恒等式
+\begin{equation}\label{eq:cotlar}
+ (\TriH A)(\TriH B)
+ =\TriH\bigl((\TriH A)B+A(\TriH B)\bigr)-AB+(\DD A)(\DD B).
+\end{equation}
+其依据是对任意 $i,k,j$ 有
+\begin{align*}
+ &\operatorname{sgn}(k-i)\operatorname{sgn}(j-k)\\
+ &\quad=\operatorname{sgn}(j-i)
+   \bigl(\operatorname{sgn}(k-i)+\operatorname{sgn}(j-k)\bigr)
+    -1+\mathbf1_{\{i=k=j\}}.
+\end{align*}
+由于 $\TriH(A^*)=-(\TriH A)^*$，在 \eqref{eq:cotlar} 中以 $A^*,A$
+替代 $A,B$ 得到
+\begin{equation}\label{eq:square}
+ (\TriH A)^*(\TriH A)
+ =A^*A-(\DD A)^*(\DD A)
+   +\TriH\bigl((\TriH A)^*A-A^*\TriH A\bigr).
+\end{equation}
+设已经知道 $\norm{\TriH Z}_r\leq h_r\norm Z_r$，其中 $h_r$ 与维数无关。
+对 \eqref{eq:square} 使用 $S_r$ 范数及 H\"older 不等式，可得
+\begin{align*}
+ \norm{\TriH A}_{2r}^{2}
+ &\leq 2\norm A_{2r}^{2}
+       +2h_r\norm{\TriH A}_{2r}\norm A_{2r}.
+\end{align*}
+解这一关于 $\norm{\TriH A}_{2r}/\norm A_{2r}$ 的二次不等式，得到
+\[
+ \norm{\TriH A}_{2r}\leq
+ \bigl(h_r+\sqrt{h_r^2+2}\bigr)\norm A_{2r}.
+\]
+从 $h_2\leq1$ 出发归纳，便得到 $r=2,4,8,\ldots$ 时的统一有界性。
+Schatten 类的复插值给出所有 $2\leq r<\infty$ 的有界性。
+在 Hilbert--Schmidt 对偶配对下，$\TriH$ 的伴随仍为 $\TriH$，
+因此对偶性又给出所有 $1<r<2$ 的有界性。
+
+最后，
+\[
+ \PP=\tfrac12(I+\DD+\TriH),\qquad
+ \QQ=\tfrac12(I-\DD-\TriH),
+\]
+故 $\PP,\QQ$ 在每个 $1<r<\infty$ 的 $S_r$ 上均一致有界。
+利用有限支撑矩阵的稠密性即可延拓到整个 $S_r(H)$。
+这就证明了 \eqref{eq:tp}，并完成定理 \ref{thm:bounded} 和
+\ref{thm:sharp} 中所用的三角截断有界性论证。
+
+\begin{thebibliography}{9}
+\bibitem{Power}
+S. Power,
+\emph{Commutators with the triangular projection and Hankel forms on nest algebras},
+J. London Math. Soc. (2) \textbf{32} (1985), 272--282.
+\href{https://doi.org/10.1112/jlms/s2-32.2.272}{doi:10.1112/jlms/s2-32.2.272}.
+本文使用其第 277 页的距离公式，并与定理 2.1、2.3
+以及第 279 页的 Hankel 分量分解比较。
+
+\bibitem{PSZ}
+D. Potapov, F. Sukochev, and D. Zhou,
+\emph{Noncommutative Nest Hardy Spaces and Martingales},
+International Mathematics Research Notices \textbf{2024}, no.~21 (2024), 13724--13757.
+\href{https://doi.org/10.1093/imrn/rnae218}{doi:10.1093/imrn/rnae218}.
+本文采用其 Section 2.3、Example 2.6、Proposition 3.4
+和 Theorem 3.16 的壳过滤、鞅变换及行列 BMO 框架。
+
+\end{thebibliography}
+
+\end{document}

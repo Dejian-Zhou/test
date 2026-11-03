@@ -1,0 +1,1164 @@
+% !TeX program = xelatex
+% Compile twice with XeLaTeX.
+\documentclass[UTF8,11pt,a4paper,fontset=fandol]{ctexart}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{xcolor,enumitem,needspace}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\setlength{\emergencystretch}{2em}
+\setlist[enumerate]{itemsep=4pt,topsep=4pt}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{proposition}[theorem]{命题}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{说明}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{证明}
+\numberwithin{equation}{section}
+\newcommand{\M}{\mathcal M}
+\newcommand{\N}{\mathcal N}
+\newcommand{\Alg}{\operatorname{Alg}_{\M}\N}
+\newcommand{\T}{\mathcal T}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\D}{\mathcal D}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\E}{\mathbb E}
+\newcommand{\HH}{\mathfrak H}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\esssup}{ess\,sup}
+\DeclareMathOperator{\dist}{dist}
+\title{一般巢与半有限迹下的三角交换子\\
+\large 壳鞅 BMO 推广、普通 Schatten 类与相对 $L_p$ 类}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+\noindent\textbf{推广的范围。}
+本文允许任意正规忠实半有限迹 $\tau$，不假设 $\tau(1)=1$ 或 $\tau(1)<\infty$，
+也不假设巢投影或巢原子的迹有限。
+巢不必为有限秩递增序列，可以包含无限维原子和连续部分。
+为使用通常的直接积分分解，假定 $\M$ 有可分预对偶；这与迹的归一化或有限性无关。
+文中的 $L_r(\M,\tau)$ 使用通常的半有限非交换 $L_r$ 构造。
+
+主要结论如下：原定理 2.1 的 BMO 与交换子范数比较可以在这个框架下推广；
+原定理 3.1 则必须区分普通 Hilbert 空间 Schatten 类和相对非交换 $L_p$ 类。
+其旧权重 $\dim(E_nH)$ 是表示的重数，不能直接换成 $\tau(E_n)$。
+下文分别给出一般巢的普通 Schatten 充要条件，以及在纯原子巢下非平凡的相对 $L_p$ 版本。
+第 \ref{sec:unitary-transform} 节还构造一个能刻画 BMO 的可预测酉鞅变换，
+给出其交换子的 Schatten 充要条件与精确范数公式，
+并给出普通交替符号变换不满足 BMO 充分性的反例。
+
+\section{设置、有限分割与迹的尺度}
+
+设 $\N\subset\M$ 是包含 $0,1$ 的强算子闭投影链，
+\[
+ \Alg=\{a\in\M:(1-e)ae=0\text{ 对每个 }e\in\N\}.
+\]
+给定有限分割
+\[
+ \pi=\{0=e_0<e_1<\cdots<e_m=1\}\subset\N,
+ \qquad q_j=e_j-e_{j-1},
+\]
+定义
+\begin{align}
+ \T_\pi(a)&=\sum_{i\leq j}q_i a q_j,
+ &\D_\pi(a)&=\sum_jq_j a q_j,\label{eq:finite-triangle}\\
+ \E_{\pi,k}(a)&=e_k a e_k+\sum_{j>k}q_j a q_j,
+ &&1\leq k\leq m.\label{eq:shell}
+\end{align}
+每个 $\E_{\pi,k}$ 都是正规、保 $\tau$ 的条件期望。
+这里角代数 $q_j\M q_j$ 可以是无限维的，其单位 $q_j$ 也可以有无限迹。
+取 $\E_{\pi,0}=0$ 为记号约定，则
+\begin{equation}\label{eq:transform}
+ \T_\pi(a)=\E_{\pi,1}(a)+
+   \sum_{k=2}^m e_{k-1}(\E_{\pi,k}-\E_{\pi,k-1})(a).
+\end{equation}
+这就是 PSZ \cite[Example 2.6, Proposition 3.4]{PSZ} 的壳鞅变换公式；
+公式及保迹性本身均不需要有限迹假设。
+
+\begin{proposition}[归一化不影响本文的性质]\label{prop:scale}
+若 $\tau'=c\tau$，$c>0$，则
+\[
+ \norm a_{L_r(\tau')}=c^{1/r}\norm a_{L_r(\tau)}.
+\]
+因此同一交换子在 $L_r$ 上的算子范数不变。
+映射 $a\mapsto c^{-1/2}a$ 是 $L_2(\M,\tau)$ 到 $L_2(\M,\tau')$ 的酉算子，
+并交织左乘、右乘和三角投影；故交换子的普通 Schatten 范数也不变。
+本文的 BMO 量使用算子范数和明确的壳条件期望，亦不受这种尺度改变影响。
+\end{proposition}
+
+\begin{lemma}[一般巢的三角投影]\label{lem:triangle}
+有限分割按加细排序。对每个 $1<r<\infty$，有
+\[
+ \T_\pi a\longrightarrow\T_\N a\quad\text{于 }L_r(\M,\tau),
+ \qquad
+ \norm{\T_\N}_{L_r\to L_r},\norm{1-\T_\N}_{L_r\to L_r}\leq c_r,
+\]
+其中 $c_r$ 只依赖 $r$。
+在 $L_2$ 上，$\T_\N$ 是到闭子空间
+\[
+ H_2(\N)=\{a\in L_2(\M,\tau):(1-e)ae=0\ (e\in\N)\}
+\]
+的正交投影。
+\end{lemma}
+
+\begin{proof}
+在 $L_2$ 上，$\T_\pi$ 是正交投影，加细分割时其像空间递减，
+故强收敛到这些像空间的交，即 $H_2(\N)$。
+附录证明有限分割三角截断在每个 $L_r$ 上有统一界，且证明只用半有限迹的
+H\"older 不等式、对偶性和插值。
+先取同时属于所有有限指数 $L_s$ 的有界有限迹支撑元素。
+将 $L_2$ 收敛与另一个指数的统一界插值，得到 $L_r$ 收敛；
+再用稠密性得到一般情形。
+\end{proof}
+
+以下写 $\T=\T_\N$、$\Q=1-\T$，并定义
+\[
+ \CC_x=[L_x,\T],\qquad \CC_x(a)=x\T(a)-\T(xa),\qquad x\in\M.
+\]
+
+\section{一般巢的壳鞅 BMO 与交换子有界性}
+
+对有限分割 $\pi$，按 PSZ 的惯例定义
+\begin{align*}
+ \norm y_{\mathrm{BMO}^c(\mathcal F_\pi)}
+ &=\max_k\norm{\E_{\pi,k}(|y-\E_{\pi,k-1}y|^2)}_\infty^{1/2},\\
+ \norm y_{\mathrm{BMO}^r(\mathcal F_\pi)}
+ &=\norm{y^*}_{\mathrm{BMO}^c(\mathcal F_\pi)},
+ \qquad
+ \norm y_{\mathrm{BMO}(\mathcal F_\pi)}
+ =\max\{\norm y_{\mathrm{BMO}^c},\norm y_{\mathrm{BMO}^r}\}.
+\end{align*}
+定义模去各分割对角部分的量
+\begin{align}
+ b_\N(x)&=\sup_{\pi\subset\N}
+       \norm{x-\D_\pi x}_{\mathrm{BMO}(\mathcal F_\pi)},\label{eq:bmo}\\
+ \beta_-(x)&=\sup_{e\in\N}\norm{(1-e)xe},\qquad
+ \beta_+(x)=\sup_{e\in\N}\norm{ex(1-e)},\label{eq:beta}\\
+ \beta_\N(x)&=\max\{\beta_-(x),\beta_+(x)\}.
+\end{align}
+这里使用所有有限分割，因而不要求一般巢存在一个保迹的全局对角条件期望。
+
+\Needspace{12\baselineskip}
+\begin{theorem}[原定理 2.1 的半有限迹、一般巢版本]\label{thm:bounded}
+在上述设置下，对 $x\in\M$，有
+\begin{equation}\label{eq:bmo-beta}
+ \boxed{\quad \beta_\N(x)\leq b_\N(x)\leq\sqrt2\,\beta_\N(x).\quad}
+\end{equation}
+对每个 $1<r<\infty$，
+\begin{equation}\label{eq:bound}
+ \boxed{\quad
+ \beta_\N(x)\leq\norm{\CC_x}_{L_r\to L_r}
+ \leq c_r^2\bigl(\beta_-(x)+\beta_+(x)\bigr)
+ \leq2c_r^2 b_\N(x).
+ \quad}
+\end{equation}
+特别地，
+\begin{equation}\label{eq:exact2}
+ \norm{\CC_x}_{L_2\to L_2}=\beta_\N(x).
+\end{equation}
+常数与 $\tau(1)$、$\tau(e)$、投影的 Hilbert 空间秩和分割数目均无关。
+\end{theorem}
+
+\begin{lemma}[有限分割的 BMO 比较]\label{lem:bmo}
+若 $y-\D_\pi y=y$，则
+\[
+ \gamma_\pi(y)\leq\norm y_{\mathrm{BMO}(\mathcal F_\pi)}
+ \leq\sqrt2\,\gamma_\pi(y),
+ \qquad
+ \gamma_\pi(y)=\max_k\norm{[y,e_k]}.
+\]
+\end{lemma}
+
+\begin{proof}
+令 $R_k=y-\E_{\pi,k-1}y$，$f_k=1-e_k$。
+有 $f_kR_ke_k=f_kye_k$，且
+\[
+ e_k\E_{\pi,k}(R_k^*R_k)e_k=(R_ke_k)^*(R_ke_k).
+\]
+这给出下角块的 BMO 控制，对 $y^*$ 使用同一论证控制上角块。
+另一方面，
+\[
+ R_ke_k=f_kye_k+(e_{k-1}yq_k+q_kye_{k-1}).
+\]
+右侧两项的值域正交，括号内算子的范数也不超过 $\gamma_\pi(y)$，
+故 $\norm{R_ke_k}^2\leq2\gamma_\pi(y)^2$。
+当 $j>k$ 时，$R_kq_j=yq_j$，而
+$yq_j=e_{j-1}yq_j+(1-e_j)yq_j$，仍有平方范数不超过 $2\gamma_\pi(y)^2$。
+由条件期望的块形式得列 BMO 上界，行型对 $y^*$ 同理。
+这整个论证是投影与算子范数的计算，没有使用迹的有限性。
+\end{proof}
+
+\begin{lemma}[von Neumann 代数内部的巢完成]\label{lem:completion}
+设 $x\in\M$。存在 $B,C\in\M$ 满足
+\[
+ (1-e)Be=(1-e)xe,\qquad eC(1-e)=ex(1-e)\quad(e\in\N),
+\]
+且 $\norm B\leq\beta_-(x)$、$\norm C\leq\beta_+(x)$。
+\end{lemma}
+
+\begin{proof}
+使用有限三角收缩完成引理：给定有限正交分块的严格下三角部分，
+它可补成范数不超过 $b$ 的完整算子，当且仅当每个下左矩形角块的范数不超过 $b$。
+这是 Parrott 一步收缩完成定理的有限迭代形式 \cite{Parrott}。
+迭代中每步使用二乘二算子块的行、列收缩条件完成缺块；
+Parrott 的完成公式由已知块、伴随、缺陷算子平方根及强极限构成，
+所以当数据属于 $\M$ 时，完成亦属于 $\M$。
+这一步不要求 $\M$ 注入，也不使用迹。
+
+具体的有限迭代可按列进行：先令第一块行及最后一块列为零，
+在块行 $2,\ldots,m$ 上从第一块列开始。
+加入第 $j$ 块列时，将块行分成 $2,\ldots,j$ 与 $j+1,\ldots,m$。
+旧列组成一个收缩；下方块行与新列组成的矩形正是第 $j$ 个给定截断角块，
+因而也是收缩。Parrott 定理填入上方的新列缺块后，整个已填矩形仍是收缩。
+归纳到 $j=m-1$，补上已置零的首行和末列，即得到所需完成。
+
+对 $\N$ 的每个有限分割应用该引理，得到满足有限多个角块约束的
+$\M$ 内范数不超过 $\beta_-(x)$ 的完成。
+这些约束是弱星闭的，并满足有限交性质。
+在 $\M$ 的弱星紧闭球中取交，即得 $B$。
+对 $x^*$ 作同样处理再取伴随即得 $C$。
+这里仅使用相对完成（数据及完成都在 $\M$ 内）；
+并未断言 $B(K)$ 中任意算子到 $\M\cap\operatorname{Alg}\N$ 的距离公式。
+\end{proof}
+
+\begin{lemma}[右理想上的左乘范数]\label{lem:ideal}
+令 $q\in\M$ 为非零投影，$z(q)$ 为其中心支撑。
+左乘表示在 $L_r(\M,\tau)q$ 上满足
+\[
+ \norm{L_b|_{L_r(\M)q}}=\norm{bz(q)},\qquad b\in\M,\quad1\leq r<\infty.
+\]
+当 $\M$ 为因子时，对任意投影 $f$，从 $fL_r(\M)q$ 出发的左乘 $b$ 的范数为
+$\norm{bf}$。
+\end{lemma}
+
+\begin{proof}
+上界为理想不等式。
+取 $|bz(q)|$ 的接近其范数的非零谱投影 $s$。
+由中心支撑定义，$s\M q\ne0$。
+半有限性允许在此取得非零有限迹子投影，极分解给出部分等距算子
+$v$，满足 $v^*v\leq q$、$vv^*\leq s$、$0<\tau(v^*v)<\infty$。
+于是 $v\in L_r(\M)q$，且
+$\norm{bv}_r/\norm v_r$ 任意接近 $\norm{bz(q)}$。
+因子情形 $z(q)=1$，将谱投影取在 $f$ 中即得最后的断言。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:bounded} 的证明]
+\textbf{BMO 量。}
+对每个 $\pi$ 取 $y=x-\D_\pi x$，应用引理 \ref{lem:bmo}。
+去掉分割对角不改变在该分割截断处的角块。
+再对所有有限分割取上确界，得到 \eqref{eq:bmo-beta}。
+
+\medskip
+\textbf{$L_r$ 上界。}
+取引理 \ref{lem:completion} 的 $B,C$。
+$x-B\in\Alg$，故其左乘保持三角 $L_r$ 子空间；
+而 $x-C\in(\Alg)^*$，其左乘保持补三角子空间。
+后一断言可在 $L_2$ 中由正交性验证，在一般 $L_r$ 中由迹对偶验证。
+因此
+\begin{equation}\label{eq:factorization}
+ \CC_x=\Q L_B\T-\T L_C\Q,
+\end{equation}
+从而得到 \eqref{eq:bound} 的上界。
+
+\medskip
+\textbf{$L_r$ 下界：先设 $\M$ 为因子。}
+固定 $0<e<1$，记 $e_- =\sup\{f\in\N:f<e\}$。
+若 $q=e-e_-\ne0$，则 $q$ 为巢原子。
+对 $a\in eL_r(\M)q$，有 $\T(a)=a$，且
+\[
+ (1-e)\CC_x(a)=(1-e)xea.
+\]
+由引理 \ref{lem:ideal}，得到
+$\norm{\CC_x}\geq\norm{(1-e)xe}$。
+对 $a\in(1-e)L_r(\M)q$，有 $\T(a)=0$，并且
+$e\CC_x(a)=-ex(1-e)a$，得到另一个方向的角块下界。
+
+若 $e=e_-$，取 $f<e$，令 $q=e-f\ne0$。
+对 $a\in fL_r(\M)q$，有 $\T(a)=a$，
+而 $(1-e)\CC_x(a)=(1-e)xfa$。
+对 $a\in(1-e)L_r(\M)q$，有 $\T(a)=0$，而
+$f\CC_x(a)=-fx(1-e)a$。
+因此 $\norm{\CC_x}$ 同时不小于
+$\norm{(1-e)xf}$ 和 $\norm{fx(1-e)}$。
+令 $f\uparrow e$，利用强收敛即得所需下界。
+
+\medskip
+\textbf{一般中心。}
+对有可分预对偶的 $\M$ 作标准中心直接积分分解
+$\M=\int^\oplus\M_\omega\,d\mu(\omega)$，并将半有限迹分解为纤维迹。
+取 $\N$ 中一个可数强稠密子链（含原子端点），其纤维强闭包给出纤维巢。
+三角投影和交换子均逐纤维作用，且
+\[
+ \norm{\CC_x}_{L_r\to L_r}
+ =\esssup_\omega\norm{\CC_{x(\omega)}}_{L_r\to L_r},\qquad
+ \beta_\N(x)=\esssup_\omega\beta_{\N_\omega}(x(\omega)).
+\]
+第二个等式中的上确界可限制到该可数子链，故与本质上确界可交换。
+应用因子情形即得一般下界。
+
+\medskip
+\textbf{$L_2$ 的精确常数。}
+对有限分割，有正交列分解 $L_2(\M)=\bigoplus_jL_2(\M)q_j$，且
+\[
+ \CC_{x,\pi}(a)q_j=[x,e_j]a q_j.
+\]
+由引理 \ref{lem:ideal}，其范数为
+$\max_j\norm{[x,e_j]z(q_j)}$，并且该值等于 $\max_j\norm{[x,e_j]}$。
+为验证最后一点，对固定 $j$ 将中心按最后一个非零的 $q_i$ 分解：
+在中心投影
+$z(q_i)\prod_{i<k\leq j}(1-z(q_k))$ 上，$e_j=e_i$；
+在所有 $q_1,\ldots,q_j$ 都为零的中心部分，$e_j=0$。
+故上述两个最大值相等。
+令分割加细，由 $\CC_{x,\pi}\to\CC_x$ 在 $L_2$ 上强收敛，得到
+$\norm{\CC_x}_{L_2\to L_2}\leq\beta_\N(x)$。
+结合已证下界，即得 \eqref{eq:exact2}。
+\end{proof}
+
+\begin{corollary}[离散巢的形式符号版本]\label{cor:formal}
+设 $0=e_0<e_1<\cdots\uparrow1$，$q_n=e_n-e_{n-1}$，不要求任何
+$e_n,q_n$ 有限秩或有限迹。
+允许形式矩阵 $X=(x_{ij})$，$x_{ij}\in q_i\M q_j$。
+以有限左上角截断定义 $\beta_\N(X)$，并以同一有限块壳过滤定义 $b_\N(X)$。
+则下列条件等价：
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item 形式交换子在某个 $L_r(\M,\tau)$ 上有界，$1<r<\infty$；
+ \item $\beta_\N(X)<\infty$；
+ \item $b_\N(X)<\infty$；
+ \item 形式交换子在所有 $1<r<\infty$ 的 $L_r(\M,\tau)$ 上有界。
+\end{enumerate}
+并有定理 \ref{thm:bounded} 中的同一组范数比较。
+\end{corollary}
+
+\begin{proof}
+充分性使用有限块完成与 $\M$ 闭球的弱星紧性，得到全局有界完成 $B,C$，
+再使用 \eqref{eq:factorization}。
+必要性在 $e_N\M e_N$ 中进行：把交换子压缩到有限多个块，
+在各个右理想上应用引理 \ref{lem:ideal}，再使用上面证明中的中心分解，
+得到每个截断角块范数均不超过交换子的 $L_r$ 算子范数。
+取 $N$ 的上确界即得 $\beta_\N(X)<\infty$。
+这里的 $e_N\M e_N$ 不必为有限迹代数；半有限性已足以保证所需 $L_r$ 测试元素存在。
+\end{proof}
+
+\begin{remark}[一般巢的非对角符号数据]
+在非离散巢中，可以用相容角块族代替形式矩阵：给定
+$b_e\in(1-e)\M e$、$a_e\in e\M(1-e)$，要求对 $e\leq f$
+\[
+ (1-f)b_e=b_f e,\qquad a_e(1-f)=e a_f.
+\]
+若两族范数一致有界，引理 \ref{lem:completion} 的有限交论证仍给出
+有界完成 $B,C$，从而 \eqref{eq:factorization} 定义一个有界交换子。
+它与完成的选择无关：两种下角完成之差属于 $\Alg$，两种上角完成之差属于
+$(\Alg)^*$，在 \eqref{eq:factorization} 中均被消去。
+因此一般巢下可以直接使用非对角数据，无须人为指定一个全局对角期望或无界乘子的定义域。
+\end{remark}
+
+\section{一般巢下普通 Schatten 类的正确充要条件}
+
+令 $\HH=L_2(\M,\tau)$，$\mathcal A=W^*(\N)\subset\M$。
+它是交换 von Neumann 代数。
+令 $\mathscr A$ 为 $\mathcal A$ 的原子集合；这些正是巢的非零不可再分区间。
+对 $q\in\mathscr A$，记其右端点为 $e(q)\in\N$，即
+$q=e(q)-e(q)_-$，并记
+\[
+ q_c=1-\sum_{q\in\mathscr A}q,\qquad
+ \HH_q=L_2(\M,\tau)q,\qquad \HH_c=L_2(\M,\tau)q_c.
+\]
+这些是右乘投影给出的正交 Hilbert 子空间。
+在 $\HH_q$ 上定义左乘表示
+\[
+ \rho_q(a)=L_a|_{\HH_q},\qquad
+ \nu_q(a)=\Tr_{\HH_q}(\rho_q(a)),\quad a\in\M_+.
+\]
+这里 $\Tr_{\HH_q}$ 是普通 Hilbert 空间算子迹。
+$\nu_q$ 是允许取无穷的正规迹权重，\emph{未必半有限}，也一般不等于 $\tau(q)\tau$。
+
+对任意巢截断 $e$，采用二块条件期望
+\[
+ \E_e^{(2)}(a)=eae+(1-e)a(1-e),
+\]
+定义条件尾平方函数
+\begin{align}
+ s_c(e;x)^2
+ &=e\E_e^{(2)}\bigl(|x-\E_e^{(2)}x|^2\bigr)e
+   =ex^*(1-e)xe,\label{eq:tail-c}\\
+ s_r(e;x)^2
+ &=e\E_e^{(2)}\bigl(|x^*-\E_e^{(2)}x^*|^2\bigr)e
+   =ex(1-e)x^*e.\label{eq:tail-r}
+\end{align}
+这不需要为整个连续巢设置一个壳序列。
+在离散巢中，它与原稿的壳鞅压缩尾平方函数相同。
+
+\Needspace{14\baselineskip}
+\begin{theorem}[原定理 3.1 的一般巢版本]\label{thm:schatten}
+设 $x\in\M$、$0<p<\infty$。
+则 $\CC_x\in S_p(\HH)$ 当且仅当以下两个条件同时成立：
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item 在连续列部分上，$\CC_x|_{\HH_c}=0$；
+ \item 原子部分满足
+ \begin{equation}\label{eq:schatten-condition}
+ \sum_{q\in\mathscr A}\left[
+   \nu_q\bigl(s_c(e(q);x)^p\bigr)
+  +\nu_q\bigl(s_r(e(q);x)^p\bigr)\right]<\infty.
+ \end{equation}
+\end{enumerate}
+此时有精确等式
+\begin{equation}\label{eq:schatten-norm}
+ \boxed{\quad
+ \norm{\CC_x}_{S_p(\HH)}^p
+ =\sum_{q\in\mathscr A}\left[
+   \nu_q\bigl(s_c(e(q);x)^p\bigr)
+  +\nu_q\bigl(s_r(e(q);x)^p\bigr)\right].
+ \quad}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\textbf{原子列分解。}
+$\T$ 及 $\CC_x$ 均与 $\mathcal A$ 的右乘表示交换。
+若 $q$ 是巢原子，任何充分加细且包含其端点的分割都不再切开 $q$，因此
+\[
+ \T(a)q=e(q)aq,\qquad
+ \CC_x(a)q=[x,e(q)]aq.
+\]
+于是
+\begin{equation}\label{eq:atomic-direct-sum}
+ \CC_x\simeq
+ \CC_x|_{\HH_c}\ \oplus\
+ \bigoplus_{q\in\mathscr A}\rho_q([x,e(q)]).
+\end{equation}
+
+\medskip
+\textbf{连续部分。}
+若一个紧算子与一个正规表示的弥散交换代数交换，则它为零。
+事实上，其绝对值的非零有限秩谱投影给出该弥散代数的非零有限维正规表示，
+而这样的表示不存在。
+将这一事实应用于右乘 $\mathcal A q_c$，得到
+$\CC_x\in S_p(\HH)\Rightarrow\CC_x|_{\HH_c}=0$。
+
+\medskip
+\textbf{每个原子的奇异值。}
+固定 $q$，令 $e=e(q)$、$B=(1-e)xe$、$A=ex(1-e)$。
+在左乘 $e$ 给出的分解下，
+\[
+ [x,e]=\begin{pmatrix}0&-A\\B&0\end{pmatrix},\qquad
+ |[x,e]|^2=\begin{pmatrix}B^*B&0\\0&A^*A\end{pmatrix}.
+\]
+在 $\HH_q$ 的表示中也有同一分块。
+普通 Hilbert 空间迹以及极分解给出
+\begin{align*}
+ \norm{\rho_q([x,e])}_{S_p(\HH_q)}^p
+ &=\Tr_{\HH_q}\bigl(\rho_q((B^*B)^{p/2})\bigr)
+   +\Tr_{\HH_q}\bigl(\rho_q((AA^*)^{p/2})\bigr)\\
+ &=\nu_q(s_c(e;x)^p)+\nu_q(s_r(e;x)^p).
+\end{align*}
+这里使用 $\rho_q(A)$ 与其伴随的非零奇异值相同；
+等式允许两侧取无穷。
+最后在 \eqref{eq:atomic-direct-sum} 中汇集奇异值，即得全部结论。
+\end{proof}
+
+\begin{remark}[连续条件的纤维表述]
+把右乘交换代数 $\mathcal A$ 谱分解为直接积分，则 $\T$ 和 $L_x$ 均逐纤维作用，
+分别记为 $T(t)$ 和 $L_x(t)$。
+定理中的连续条件等价于
+$[L_x(t),T(t)]=0$ 在非原子谱部分几乎处处成立。
+所以该条件是连续纤维上的交换条件；单靠一个 $\tau$ 可积条件不能替代它。
+\end{remark}
+
+\begin{corollary}[$B(H)$ 中任意维数原子的情形]\label{cor:typeI}
+若 $\M=B(H)$，则任意正规忠实半有限迹为 $c\Tr_H$，$c>0$。
+对 $q\in\mathscr A$，
+\[
+ \HH_q\simeq H\otimes\overline{qH},\qquad
+ \nu_q(a)=\dim(qH)\,\Tr_H(a),\quad a\geq0.
+\]
+因此普通 Schatten 条件等价于：连续列部分交换子为零；
+对所有无限维原子，$[x,e(q)]=0$；并且
+\[
+ \sum_{\substack{q\in\mathscr A\\\dim(qH)<\infty}}
+   \dim(qH)\norm{[x,e(q)]}_{S_p(H)}^p<\infty.
+\]
+若该级数有限，它精确等于交换子的 $S_p(\HH)$ 范数的 $p$ 次幂。
+此公式与比例常数 $c$ 无关。
+\end{corollary}
+
+\begin{corollary}[弥散代数中普通 Schatten 条件的退化]\label{cor:diffuse}
+若 $\M$ 没有非零最小投影，则对任意一般巢和任意 $p>0$，
+\[
+ \CC_x\in S_p(L_2(\M,\tau))
+ \iff\CC_x=0
+ \iff x\in\N'\cap\M.
+\]
+\end{corollary}
+
+\begin{proof}
+连续列部分由定理 \ref{thm:schatten} 必须为零。
+在每个原子列上，$\rho_q$ 是 $\M z(q)$ 的忠实正规表示。
+弥散 von Neumann 代数的这种表示不包含非零紧算子：
+若包含，紧算子绝对值的非零有限秩谱投影会给出代数的非零有限维角，
+进而产生最小投影，矛盾。
+因此每个 $\rho_q([x,e(q)])$ 都必须为零，由 \eqref{eq:atomic-direct-sum} 得 $\CC_x=0$。
+最后一个等价由 \eqref{eq:exact2} 得到。
+\end{proof}
+
+\section{纯原子巢上的相对非交换 \texorpdfstring{$L_p$}{Lp} 版本}
+
+若希望在 II 型代数中保留非平凡的可积性理论，可以明确改用相对算子代数的迹，
+而非 $B(L_2(\M,\tau))$ 的普通 Hilbert 空间迹。
+本节的定义说明这种推广所需的额外数据，避免把两种迹混同。
+
+假设巢为纯原子巢，即 $\sum_{q\in\mathscr A}q=1$，不要求原子按 $\mathbb N$ 排列。
+令 $z_q=z(q)$，并定义在 $\HH=\bigoplus_q\HH_q$ 上的 von Neumann 代数
+\[
+ \mathfrak R=\prod_{q\in\mathscr A}\rho_q(\M z_q).
+\]
+对任意指定的权重 $0<w_q<\infty$，定义正规忠实半有限迹
+\begin{equation}\label{eq:relative-trace}
+ \widehat\tau_w\bigl((\rho_q(a_q))_q\bigr)
+ =\sum_qw_q\tau(a_q),\qquad a_q\in(\M z_q)_+.
+\end{equation}
+由于 $\rho_q$ 在 $\M z_q$ 上忠实正规，这个定义没有代表元歧义。
+有限多个坐标中的有限迹子投影给出其半有限性。
+
+\begin{theorem}[相对尾平方函数可和性]\label{thm:relative}
+在纯原子巢下，$\CC_x\in\mathfrak R$，并且对任意 $p>0$，
+\begin{align}
+ &\CC_x\in L_p(\mathfrak R,\widehat\tau_w)\notag\\
+ &\quad\iff
+ \sum_qw_q\tau\left(z_q\left[
+ s_c(e(q);x)^p+s_r(e(q);x)^p\right]\right)<\infty.\label{eq:relative-condition}
+\end{align}
+右侧级数精确等于 $\norm{\CC_x}_{L_p(\mathfrak R,\widehat\tau_w)}^p$。
+若 $\M$ 为因子，则 $z_q=1$，于是右侧简化为
+\[
+ \sum_qw_q\left(
+  \norm{s_c(e(q);x)}_{L_p(\M,\tau)}^p+
+  \norm{s_r(e(q);x)}_{L_p(\M,\tau)}^p\right).
+\]
+\end{theorem}
+
+\begin{proof}
+由 \eqref{eq:atomic-direct-sum}，$\CC_x$ 的坐标为
+$\rho_q([x,e(q)]z_q)$。
+在直积代数中逐坐标作功能演算，再使用 \eqref{eq:relative-trace}，得到
+\[
+ \norm{\CC_x}_{L_p(\mathfrak R,\widehat\tau_w)}^p
+ =\sum_qw_q\tau\bigl(z_q|[x,e(q)]|^p\bigr).
+\]
+对角块矩阵的计算以及 $\tau$ 对极分解的迹不变性，将其改写为
+\eqref{eq:relative-condition} 即可。
+\end{proof}
+
+\begin{remark}[相对迹与普通 Schatten 迹何时一致]
+在 $\M=B(H)$、$\tau=c\Tr_H$ 且每个巢原子有限维的情形，
+取 $w_q=\dim(qH)/c$，则 $\widehat\tau_w$ 恰好是普通 Hilbert 空间迹在
+$\mathfrak R$ 上的限制，恢复旧稿的定理 3.1。
+在 II 型因子中，$\widehat\tau_w$ 与普通 Hilbert 空间迹不同，
+于是相对 $L_p$ 条件可以非平凡，而普通 Schatten 条件按推论 \ref{cor:diffuse} 退化。
+选择权重是新理论的一项明确数据，不由 ``去掉正规化'' 自动决定。
+\end{remark}
+
+\section{另一类能刻画 BMO 的可预测鞅变换}\label{sec:unitary-transform}
+
+本节给出一个在 $L_2$ 上为酉算子的例子，并说明普通标量符号变换不能自动替代它。
+以下交换子仍以 $L_X$ 为左乘，BMO 条件仍模去初始对角代数。
+
+\subsection{三角 Hilbert 变换与酉鞅变换}
+
+先考虑离散巢 $0=e_0<e_1<\cdots\uparrow1$，$q_n=e_n-e_{n-1}$，
+使用 PSZ 壳过滤，令 $\Delta_n=\E_n-\E_{n-1}$、$\E_0=0$，并记
+$\D=\E_1$。定义
+\begin{align}
+ \mathcal H(a)
+ &=\sum_{n\geq2}(2e_{n-1}-1)\Delta_n(a),\label{eq:hilbert-transform}\\
+ \mathcal U(a)
+ &=\D(a)+i\sum_{n\geq2}(2e_{n-1}-1)\Delta_n(a).
+       \label{eq:unitary-transform}
+\end{align}
+系数 $i(2e_{n-1}-1)$ 是 $\M_{n-1}$ 中的酉算子，故 $\mathcal U$ 是具有
+可预测酉系数的鞅变换，而非三角投影。
+在块矩阵上，它分别给严格上三角、块对角、严格下三角乘以 $i,1,-i$。
+由于这些块在 $L_2$ 中正交，$\mathcal U$ 是 $L_2(\M,\tau)$ 上的酉算子。
+同时
+\[
+ \mathcal H=2\T-I-\D,\qquad \mathcal U=\D+i\mathcal H.
+\]
+
+这个构造也适用于一般巢。对有限分割 $\pi$，令
+$\mathcal H_\pi=2\T_\pi-I-\D_\pi$，
+$\mathcal U_\pi=\D_\pi+i\mathcal H_\pi$。
+在 $L_2$ 上取强极限
+\[
+ D_2=\operatorname*{s-lim}_\pi\D_\pi,\qquad
+ \mathcal H_\N=2\T_\N-I-D_2,\qquad
+ \mathcal U_\N=D_2+i\mathcal H_\N.
+\]
+这里 $D_2$ 是一个 $L_2$ 正交投影，不要求它来自 $\M$ 上的保单位对角条件期望。
+由有限分割的恒等式取强极限，有
+\[
+ \mathcal H_\N^*=\mathcal H_\N,\quad
+ \mathcal H_\N^2=I-D_2,\quad
+ \mathcal H_\N D_2=D_2\mathcal H_\N=0.
+\]
+所以 $\mathcal U_\N^*\mathcal U_\N=\mathcal U_\N\mathcal U_\N^*=I$。
+在一般巢下它是有限壳鞅变换的极限；在离散巢下就是 \eqref{eq:unitary-transform}。
+
+\Needspace{12\baselineskip}
+\begin{theorem}[酉壳变换的 BMO 刻画]\label{thm:unitary-bmo}
+对任意正规忠实半有限迹和上述一般巢，若 $x\in\M$，则
+\begin{equation}\label{eq:unitary-beta}
+ \boxed{\quad
+ \sqrt2\,\beta_\N(x)
+ \leq\norm{[L_x,\mathcal U_\N]}_{L_2\to L_2}
+ \leq2\sqrt2\,\beta_\N(x).
+ \quad}
+\end{equation}
+因而
+\begin{equation}\label{eq:unitary-bmo}
+ b_\N(x)\leq\norm{[L_x,\mathcal U_\N]}_{L_2\to L_2}
+       \leq2\sqrt2\,b_\N(x).
+\end{equation}
+三角 Hilbert 变换也满足
+\[
+ \beta_\N(x)\leq\norm{[L_x,\mathcal H_\N]}_{L_2\to L_2}
+       \leq2\beta_\N(x).
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{按列计算与上界。}
+在有限分割或离散巢的第 $n$ 个块列上，
+\begin{align*}
+ \mathcal U(a)q_n&=F_na q_n,\\
+ F_n&=i e_{n-1}+q_n-i(1-e_n)
+       =(1+i)e_n+(i-1)e_{n-1}-i1.
+\end{align*}
+故记 $K_n=[x,e_n]$ 时，
+\begin{equation}\label{eq:unitary-column}
+ [L_x,\mathcal U](a)q_n
+ =G_na q_n,\qquad G_n=(1+i)K_n+(i-1)K_{n-1}.
+\end{equation}
+从列正交性及引理 \ref{lem:ideal}，得到
+$\norm{[L_x,\mathcal U]}\leq2\sqrt2\,\beta_\N(x)$。
+一般巢的上界由有限分割的强极限得到。
+对 $\mathcal H$，同样的列系数为 $K_n+K_{n-1}$，故上界为 $2\beta_\N(x)$。
+
+\medskip
+\textbf{下界。}
+先设 $\M$ 为因子。若 $q=e-e_-$ 是巢原子，则在列 $L_2(\M)q$ 上的系数为
+$[x,F]$，其中 $F=i e_-+q-i(1-e)$。
+设 $B=(1-e)xe$、$A=ex(1-e)$，则
+\[
+ (1-e)[x,F]e=BR,\qquad e[x,F](1-e)=-RA,
+ \qquad R=2i e_-+(1+i)q.
+\]
+在 $e\M e$ 中，$R$ 可逆，且 $\norm{R^{-1}}\leq1/\sqrt2$。
+所以 $\norm{[x,F]}\geq\sqrt2\max\{\norm B,\norm A\}$。
+引理 \ref{lem:ideal} 将这个范数转为该列上的左乘范数。
+
+若 $e=e_-$，取 $f<e$、$q=e-f$。
+在严格上三角矩形 $fL_2(\M)q$ 上，$\mathcal U=iI$，
+而在严格下三角矩形 $(1-e)L_2(\M)q$ 上，$\mathcal U=-iI$。
+与定理 \ref{thm:bounded} 的下界测试相同，得到
+\[
+ \norm{[L_x,\mathcal U_\N]}
+ \geq2\max\{\norm{(1-e)xf},\norm{fx(1-e)}\}.
+\]
+令 $f\uparrow e$，得到该截断处的下界。
+一般中心按定理 \ref{thm:bounded} 的直接积分步骤处理。
+对于 $\mathcal H$，原子处的 $R$ 改为 $2e_-+q$，其逆范数不超过 $1$；
+连续截断处的系数仍为 $2$，故有陈述中的下界。
+最后结合 \eqref{eq:bmo-beta} 即得 \eqref{eq:unitary-bmo}。
+\end{proof}
+
+\begin{corollary}[允许 BMO 形式符号时的真正充要条件]\label{cor:unitary-formal}
+在离散巢中，允许推论 \ref{cor:formal} 的形式符号 $X$。
+则
+\[
+ \boxed{\quad
+ [L_X,\mathcal U]\in B(L_2(\M,\tau))
+ \iff X-\D X\in\mathrm{BMO}_{\rm sh}^c\cap\mathrm{BMO}_{\rm sh}^r.
+ \quad}
+\]
+这里右侧用零块对角有限截断的壳 BMO 范数一致有界来定义。
+对 $\mathcal H$ 也有同一充要条件，且上述范数比较仍成立。
+特别地，若符号具有 $L_2$ 终值且 $\E_1X=0$，右侧就是 PSZ 的通常行、列鞅
+BMO 交空间条件，而不只是形式矩阵的记号。
+\end{corollary}
+
+\begin{proof}
+由 \eqref{eq:unitary-column}，当角块量有限时，每个 $G_n$ 有界且一致有界，
+故按列正交直和定义了所需的有界延拓。
+反过来，把一个有界延拓压缩到 $e_NL_2(\M)e_N$，
+使用有限分割的列公式与前述谱间隙下界。
+在非因子情形，按定理 \ref{thm:bounded} 证明中最后一个非零列的中心支撑分解，
+得到截断角块的统一界。
+最后取 $N$ 的上确界并应用 BMO 比较即得结论。
+\end{proof}
+
+\begin{remark}[不能遗漏初值]
+上面的 BMO 条件是模去 $\M_1=\D(\M)$ 的条件。
+若要求 PSZ 包含首项的非齐次 BMO，则还应加入 $\D X\in\M$；
+交换子本身不控制这一项。
+例如形式符号 $X=\sum_n n q_n$ 与 $\mathcal U,\mathcal H$ 均交换，
+但其完整非齐次 BMO 范数无界。
+在有界符号类 $X\in\M$ 内，BMO 条件与交换子有界性都自动成立；
+充要条件的非平凡含义在于允许不属于 $\M$ 的 BMO 符号。
+\end{remark}
+
+\subsection{酉变换交换子的 Schatten 类刻画}
+
+记 $\mathcal K_x=[L_x,\mathcal U_\N]$、
+$\mathcal J_x=[L_x,D_2]$，并保持 $\CC_x=[L_x,\T_\N]$ 的记号。
+以下 $S_p$ 均指作用在 $\HH=L_2(\M,\tau)$ 上的普通 Schatten 类；
+$0<p<1$ 时使用其通常的拟范数。
+符号 $A\asymp_p B$ 表示两边以只依赖 $p$ 的正常数互相控制。
+
+\begin{theorem}[一般巢上的算子理想判别]\label{thm:unitary-ideal}
+对任意一般巢、$x\in\M$ 和 $0<p<\infty$，有
+\begin{equation}\label{eq:unitary-ideal-iff}
+ \boxed{\quad
+ \mathcal K_x\in S_p(\HH)
+ \iff \CC_x\in S_p(\HH)\ \text{且}\ \mathcal J_x\in S_p(\HH).
+ \quad}
+\end{equation}
+而且
+\begin{equation}\label{eq:unitary-ideal-norm}
+ \norm{\mathcal K_x}_{S_p}^p
+ \asymp_p \norm{\CC_x}_{S_p}^p+\norm{\mathcal J_x}_{S_p}^p.
+\end{equation}
+当 $p\geq1$ 时，可具体取以下估计：
+\begin{align}
+ \norm{\mathcal J_x}_{S_p}&\leq\norm{\mathcal K_x}_{S_p},\notag\\
+ \norm{\CC_x}_{S_p}&\leq\frac{1+\sqrt2}{2}\norm{\mathcal K_x}_{S_p},\notag\\
+ \norm{\mathcal K_x}_{S_p}
+ &\leq2\norm{\CC_x}_{S_p}+\sqrt2\norm{\mathcal J_x}_{S_p}.
+ \label{eq:unitary-ideal-bounds}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+简记 $U=\mathcal U_\N$。$U$ 在严格上三角、对角、严格下三角子空间上的
+特征值依次为 $i,1,-i$，故有算子恒等式
+\begin{equation}\label{eq:unitary-polynomials}
+ D_2=\frac{I+U^2}{2},\qquad
+ \T_\N=\frac{3+i}{4}I-\frac i2U+\frac{1+i}{4}U^2.
+\end{equation}
+利用 $[L_x,U^2]=\mathcal K_xU+U\mathcal K_x$，得到
+\begin{align}
+ \mathcal J_x&=\tfrac12(\mathcal K_xU+U\mathcal K_x),\notag\\
+ \CC_x&=-\tfrac i2\mathcal K_x
+       +\tfrac{1+i}{4}(\mathcal K_xU+U\mathcal K_x),\notag\\
+ \mathcal K_x&=2i\CC_x+(1-i)\mathcal J_x.
+ \label{eq:unitary-comm-identities}
+\end{align}
+由于 $U$ 酉，Schatten 理想性质和三角不等式给出
+\eqref{eq:unitary-ideal-bounds}。当 $p<1$ 时，使用有限和的 Schatten
+拟三角不等式，同样得到 \eqref{eq:unitary-ideal-iff}--\eqref{eq:unitary-ideal-norm}。
+\end{proof}
+
+上述判别表明，$L_2$ 算子范数均刻画 BMO，并不意味着 Schatten 可积性也相同。
+下面给出全部原子与连续部分的具体条件。
+
+\begin{theorem}[一般巢的精确列公式与条件尾刻画]\label{thm:unitary-schatten}
+沿用第 3 节的 $\mathscr A,\HH_q,\HH_c,\rho_q,\nu_q$。
+对每个原子 $q$ 记 $e=e(q)$、$f=e(q)_-$，并令
+\begin{align}
+ F_q&=if+q-i(1-e),\notag\\
+ G_q&=[x,F_q]=(1+i)[x,e]+(i-1)[x,f].
+ \label{eq:unitary-local-G}
+\end{align}
+则 $\mathcal K_x\in S_p(\HH)$ 当且仅当
+\begin{equation}\label{eq:unitary-general-condition}
+ \mathcal K_x|_{\HH_c}=0,\qquad
+ \sum_{q\in\mathscr A}\nu_q(|G_q|^p)<\infty.
+\end{equation}
+此时有精确等式
+\begin{equation}\label{eq:unitary-general-exact}
+ \boxed{\quad
+ \norm{\mathcal K_x}_{S_p(\HH)}^p
+ =\sum_{q\in\mathscr A}\nu_q(|G_q|^p).
+ \quad}
+\end{equation}
+第二个条件还等价于两端点的条件尾可和性：
+\begin{equation}\label{eq:unitary-four-tails}
+ \sum_{q\in\mathscr A}\nu_q\!\left(
+ s_c(e(q);x)^p+s_r(e(q);x)^p
+ +s_c(e(q)_-;x)^p+s_r(e(q)_-;x)^p\right)<\infty.
+\end{equation}
+\eqref{eq:unitary-general-exact} 与 \eqref{eq:unitary-four-tails} 的级数以
+只依赖 $p$ 的常数互相控制。
+连续部分条件等价于 $\CC_x|_{\HH_c}=\mathcal J_x|_{\HH_c}=0$。
+\end{theorem}
+
+\begin{proof}
+$\mathcal U_\N$ 与右乘 $\mathcal A=W^*(\N)$ 交换，且在原子列上
+$\mathcal U_\N(a)q=F_qaq$。因此
+\[
+ \mathcal K_x\simeq\mathcal K_x|_{\HH_c}
+   \ \oplus\ \bigoplus_{q\in\mathscr A}\rho_q(G_q).
+\]
+应用定理 \ref{thm:schatten} 证明中弥散右模上的紧算子必为零的论证，
+再逐列汇集奇异值，得到 \eqref{eq:unitary-general-condition}
+和 \eqref{eq:unitary-general-exact}。
+
+为证明尾条件，注意 $F_q$ 酉，且它的谱投影满足
+\[
+ e=\frac{3+i}{4}1-\frac i2F_q+\frac{1+i}{4}F_q^2,\qquad
+ f=\frac{1+i}{4}1-\frac i2F_q+\frac{i-1}{4}F_q^2.
+\]
+所以 $[x,e]$、$[x,f]$ 均为 $G_q$、$G_qF_q$、$F_qG_q$ 的固定线性组合；
+反过来 $G_q$ 由 \eqref{eq:unitary-local-G} 给出。
+在 $\rho_q$ 表示中使用理想性质及拟三角不等式，得到
+\[
+ \nu_q(|G_q|^p)\asymp_p
+ \nu_q(|[x,e]|^p)+\nu_q(|[x,f]|^p).
+\]
+每个截断 $h$ 的两块计算给出
+$\nu_q(|[x,h]|^p)=\nu_q(s_c(h;x)^p+s_r(h;x)^p)$，
+正如定理 \ref{thm:schatten} 的证明。
+求和即得 \eqref{eq:unitary-four-tails}。
+最后，将 \eqref{eq:unitary-comm-identities} 限制到不变子空间 $\HH_c$，
+即得连续部分的等价表述。
+\end{proof}
+
+\begin{corollary}[有限维原子的离散巢：相邻重数权重]\label{cor:unitary-discrete}
+设 $\M=B(H)$、$\tau=c\Tr_H$，
+$0=P_0<P_1<\cdots\uparrow I$，
+$q_n=P_n-P_{n-1}$，$1\leq d_n=\dim(q_nH)<\infty$。
+对 $X\in B(H)$，记
+\[
+ K_n=[X,P_n],\quad K_0=0,\qquad
+ G_n=(1+i)K_n+(i-1)K_{n-1}.
+\]
+对每个 $0<p<\infty$，以下条件等价：
+\begin{align}
+ &[L_X,\mathcal U]\in S_p(S_2(H));\notag\\
+ &\sum_{n\geq1}d_n\norm{G_n}_{S_p(H)}^p<\infty;
+       \label{eq:unitary-discrete-exact-condition}\\
+ &\sum_{n\geq1}(d_n+d_{n+1})\norm{K_n}_{S_p(H)}^p<\infty.
+       \label{eq:unitary-discrete-balanced}
+\end{align}
+而且
+\begin{equation}\label{eq:unitary-discrete-norm}
+ \boxed{\quad
+ \norm{[L_X,\mathcal U]}_{S_p(S_2(H))}^p
+ =\sum_{n\geq1}d_n\norm{G_n}_{S_p(H)}^p
+ \asymp_p\sum_{n\geq1}(d_n+d_{n+1})\norm{K_n}_{S_p(H)}^p.
+ \quad}
+\end{equation}
+以鞅语言，最后一个级数也就是
+\[
+ \sum_{n\geq1}(d_n+d_{n+1})\Tr_H\!\left(
+ s_c(P_n;X)^p+s_r(P_n;X)^p\right).
+\]
+特别地，当 $d_n=1$ 时，酉变换交换子与三角投影交换子的 $S_p$ 条件等价。
+更一般地，若 $\sup_n d_{n+1}/d_n<\infty$，也有该等价性，
+其比较常数还依赖于这个上界。
+\end{corollary}
+
+\begin{proof}
+由 $\nu_{q_n}=d_n\Tr_H$ 和定理 \ref{thm:unitary-schatten}，
+得到精确列公式，以及
+\[
+ \sum_nd_n\norm{G_n}_{S_p}^p
+ \asymp_p\sum_nd_n\left(\norm{K_n}_{S_p}^p+\norm{K_{n-1}}_{S_p}^p\right)
+ =\sum_n(d_n+d_{n+1})\norm{K_n}_{S_p}^p.
+\]
+原三角投影交换子的精确公式是 $\sum_nd_n\norm{K_n}_{S_p}^p$，
+因此最后两项陈述随即成立。
+对形式符号 $X$，若 \eqref{eq:unitary-discrete-balanced} 有限，则
+$d_n\geq1$ 保证 $\sup_n\norm{K_n}<\infty$。
+由推论 \ref{cor:unitary-formal} 可定义有界交换子；逐列计算仍给出相同结论。
+\end{proof}
+
+\begin{proposition}[$p=2$ 的精确加权等式]\label{prop:unitary-hs}
+在推论 \ref{cor:unitary-discrete} 的设置下，允许两边为无穷，有
+\begin{align}
+ \norm{[L_X,\mathcal U]}_{S_2(S_2(H))}^2
+ &=2\sum_{n\geq1}(d_n+d_{n+1})\norm{[X,P_n]}_{S_2(H)}^2
+       \label{eq:unitary-hs-exact}\\
+ &=\sum_{i\ne j}\left(2(d_i+d_j)
+       +4\sum_{\min(i,j)<n<\max(i,j)}d_n\right)
+       \norm{q_iXq_j}_{S_2(H)}^2.\notag
+\end{align}
+当 $d_n=1$ 时，这进一步化为
+\[
+ \norm{[L_X,\mathcal U]}_{S_2(S_2(H))}^2
+ =4\sum_{i\ne j}|i-j|\norm{q_iXq_j}_{S_2(H)}^2
+ =4\norm{\CC_X}_{S_2(S_2(H))}^2.
+\]
+\end{proposition}
+
+\begin{proof}
+$K_n$ 与 $K_{n-1}$ 的公共矩阵块具有相同的符号，
+故它们的 Hilbert--Schmidt 内积为实数。
+另一方面 $(1+i)\overline{(i-1)}=-2i$，所以展开 $G_n$ 的平方范数时交叉项为零：
+\[
+ \norm{G_n}_{S_2}^2=2\norm{K_n}_{S_2}^2+2\norm{K_{n-1}}_{S_2}^2.
+\]
+先在有限块截断上应用此式，再利用非负级数的单调极限，即得第一式。
+块 $q_iXq_j$ 恰好在 $\min(i,j)\leq n<\max(i,j)$ 的截断中出现。
+把 $2(d_n+d_{n+1})$ 在这段区间上求和，得到第二式及重数一时的公式。
+\end{proof}
+
+\begin{example}[任意重数下，三角交换子的条件不能直接照搬]\label{ex:unitary-multiplicity}
+固定 $p>0$，取 $d_1=1$、$d_{2k}=1$、
+$d_{2k+1}=\lceil2^{kp}\rceil$，$k\geq1$。
+选择单位向量 $v_k\in q_{2k}H$、$w_k\in q_{2k+1}H$，令
+\[
+ X=\sum_{k\geq1}2^{-k}w_k\otimes v_k^*.
+\]
+该算子有界且紧，实际上属于 $H$ 上的每个 Schatten 类。
+其唯一非零截断交换子为
+$K_{2k}=2^{-k}w_k\otimes v_k^*$。因此
+\[
+ \norm{\CC_X}_{S_p(S_2(H))}^p=\sum_{k\geq1}2^{-kp}<\infty,
+\]
+但
+\[
+ \norm{[L_X,\mathcal U]}_{S_p(S_2(H))}^p
+ =2^{p/2}\sum_{k\geq1}(1+\lceil2^{kp}\rceil)2^{-kp}=\infty.
+\]
+这说明相邻原子重数 $d_{n+1}$ 确实不可忽略，
+即使每个 $P_n$ 都是有限秩投影也如此。
+\end{example}
+
+\begin{corollary}[无迹归一化限制的相对 $L_p$ 版本]\label{cor:unitary-relative}
+若巢为纯原子巢，使用第 4 节的 $\mathfrak R$ 和任意给定的权重迹
+$\widehat\tau_w$，则 $\mathcal K_x\in\mathfrak R$，且
+\begin{equation}\label{eq:unitary-relative-exact}
+ \norm{\mathcal K_x}_{L_p(\mathfrak R,\widehat\tau_w)}^p
+ =\sum_qw_q\tau(z_q|G_q|^p).
+\end{equation}
+因此 $\mathcal K_x\in L_p(\mathfrak R,\widehat\tau_w)$ 当且仅当此级数有限。
+它还等价于把 \eqref{eq:unitary-four-tails} 中的 $\nu_q(\cdot)$
+逐项换成 $w_q\tau(z_q\,\cdot)$ 后所得级数有限。
+若 $\M$ 为因子且巢离散，则进一步等价于
+\begin{equation}\label{eq:unitary-relative-balanced}
+ \sum_{n\geq1}(w_n+w_{n+1})
+       \norm{[x,P_n]}_{L_p(\M,\tau)}^p<\infty,
+\end{equation}
+并有相应的 $p$ 次范数比较，常数只依赖于 $p$。
+\end{corollary}
+
+\begin{proof}
+在直积代数中 $\mathcal K_x$ 的第 $q$ 个坐标是 $\rho_q(z_qG_q)$，
+故 \eqref{eq:unitary-relative-exact} 直接来自迹的定义。
+对 $F_q$ 的多项式恒等式使用非交换 $L_p$ 理想性质及拟三角不等式，
+得到两端点的尾函数条件。
+在因子情形 $z_q=1$，离散序列中的两项权重经重排合并为
+$w_n+w_{n+1}$，即得 \eqref{eq:unitary-relative-balanced}。
+这些论证不要求 $\tau(1)$、$\tau(q_n)$ 有限，也不要求 $\tau(1)=1$。
+\end{proof}
+
+\begin{remark}[普通 Schatten 类与相对类仍须区分]
+若 $\M$ 没有非零最小投影，则
+$\mathcal K_x\in S_p(\HH)\iff\mathcal K_x=0\iff x\in\N'\cap\M$。
+这可由定理 \ref{thm:unitary-ideal} 及推论 \ref{cor:diffuse} 得到，
+反向则用有限分割可见 $L_x$ 与 $\mathcal U_\N$ 交换。
+相对 $L_p$ 类不受此退化限制。
+在 $B(H)$ 中，普通 Schatten 类采用的是表示重数 $d_n$；
+在一般半有限代数中，不能把它未经说明地替换为 $\tau(q_n)$。
+\end{remark}
+
+\subsection{普通交替符号变换的反例}
+
+\begin{example}[酉性及标量符号交替仍不足以保证 BMO 充分性]\label{ex:scalar-signs}
+在 $B(\ell_2(\mathbb N))$ 的标准巢中取
+\[
+ \varepsilon_n=(-1)^{n-1},\qquad
+ S_\varepsilon=\sum_{n\geq1}\varepsilon_n\Delta_n.
+\]
+它也是 $S_2$ 上的酉鞅变换，但下面的零对角符号
+\[
+ X_{ij}=\begin{cases}(j-i)^{-1},&i<j,\\0,&i\geq j\end{cases}
+\]
+属于壳 BMO，而 $[L_X,S_\varepsilon]$ 在 $S_2$ 上无界。
+\end{example}
+
+\begin{proof}
+下角块为零。每个上角块反向排列其行后，是 Hilbert 矩阵
+$((r+k-1)^{-1})_{r,k\geq1}$ 的一个截断。
+它们的范数一致有界：取 Schur 权重 $w_k=k^{-1/2}$，由
+\[
+ \sum_{k\geq1}\frac{1}{(r+k-1)\sqrt k}
+ \leq2\int_0^\infty\frac{dt}{(r+t)\sqrt t}
+ =\frac{2\pi}{\sqrt r},
+\]
+及对称的列估计，得 $\beta_\N(X)\leq2\pi$。
+故 $X$ 的零对角壳 BMO 范数有限。
+
+但在第一列上，$S_\varepsilon$ 是左乘对角算子
+$D_\varepsilon=\operatorname{diag}(1,-1,1,-1,\ldots)$。
+因此对有限支撑向量 $v$，
+\[
+ [L_X,S_\varepsilon](v\otimes e_1^*)
+ =[X,D_\varepsilon]v\otimes e_1^*.
+\]
+取 $v_N=N^{-1/2}\sum_{k=1}^N e_{2k}$，其范数为 $1$。
+对 $1\leq j\leq N/2$，交换子输出的第 $2j-1$ 个坐标的绝对值为
+\[
+ \frac{2}{\sqrt N}\sum_{k=j}^N\frac{1}{2k-2j+1}
+ \geq\frac{c\log N}{\sqrt N}.
+\]
+故 $\norm{[X,D_\varepsilon]v_N}\geq c'\log N\to\infty$。
+这个计算完全在有限支撑输入上进行，没有无界乘积的定义域歧义。
+\end{proof}
+
+该反例还可放到真正的有限迹概率模型中。
+令 $m_j=2^{j+1}$，
+\[
+ \M=\prod_{j\geq1}M_{m_j},\qquad
+ \tau((a_j)_j)=\sum_{j\geq1}2^{-j}\operatorname{tr}_{m_j}(a_j),\qquad
+ e_n=(P_{\min(n,m_j)}^{(m_j)})_j,
+\]
+其中 $\operatorname{tr}_{m_j}$ 为正规化矩阵迹，故 $\tau(1)=1$。
+取 $X$ 的第 $j$ 个坐标为上述严格上三角矩阵的 $m_j$ 阶截断，则
+\[
+ \tau(|X|^2)
+ =\sum_{j\geq1}\frac{2^{-j}}{m_j}
+    \sum_{d=1}^{m_j-1}\frac{m_j-d}{d^2}
+ \leq\sum_{d\geq1}\frac1{d^2}<\infty.
+\]
+因而 $X\in L_2(\M,\tau)$，$\E_1X=0$，且各坐标的角块一致有界，
+所以 $X$ 属于 PSZ 的行、列鞅 BMO 交空间。
+但交换子在第 $j$ 个中心坐标上的范数至少为 $c\log m_j$，仍在全局 $L_2$ 上无界。
+因此这个障碍并不由使用形式符号或无限迹造成。
+
+经典交换鞅的 BMO 交换子刻画可见 Janson \cite{Janson}。
+其局部差分混合的非退化条件与这里 ``标量系数交替'' 并非同一条件；
+不能把经典结论未经核对直接搬到这个非交换壳过滤。
+
+\section{两个必须区分的障碍}
+
+\begin{example}[有限正规化迹也不能修复旧 Schatten 公式]\label{ex:II}
+令 $\mathcal R$ 为弥散有限因子，$\tau_{\mathcal R}(1)=1$，取
+\[
+ \M=M_2\overline\otimes\mathcal R,\qquad
+ \tau=\tfrac12\Tr_2\otimes\tau_{\mathcal R},\qquad
+ \N=\{0,e,1\},\quad e=e_{11}\otimes1,\quad x=e_{21}\otimes1.
+\]
+此时 $\tau(1)=1$，$\tau(e)=1/2$，且对所有 $p>0$，
+\[
+ \tau(e)\norm{[x,e]}_{L_p(\M,\tau)}^p=\frac14<\infty.
+\]
+但在 Hilbert 空间分解
+$L_2(\M)\simeq S_2(\mathbb C^2)\otimes L_2(\mathcal R)$ 下，
+\[
+ \CC_x=\CC_{e_{21}}\otimes I_{L_2(\mathcal R)}.
+\]
+第一因子为非零秩一算子，第二因子是无限维恒等算子，故交换子不紧，
+不属于任何普通 $S_p(L_2(\M))$。
+这直接否定将旧公式中的 $\dim(qH)$ 改成 $\tau(q)$ 的做法。
+相反，定理 \ref{thm:relative} 的相对 $L_p$ 条件在此例中对有限正权重成立。
+\end{example}
+
+\begin{example}[连续巢与全局保迹对角期望]
+在 $H=L_2(0,1)$ 上取 Volterra 巢
+$e_t=\chi_{(0,t)}$，$0\leq t\leq1$，$\M=B(H)$、$\tau=\Tr_H$。
+其对角为弥散乘法代数 $L_\infty(0,1)$，其中每个非零正算子的普通迹均为无穷。
+因此不存在从 $B(H)$ 到此对角的保 $\Tr_H$ 条件期望：
+若存在，将其作用在迹为 $1$ 的秩一正投影上，会产生迹既应为 $1$、
+又只能为 $0$ 或无穷的对角正算子，矛盾。
+
+但每个有限分割的 \eqref{eq:shell} 都存在并保迹，
+所以定理 \ref{thm:bounded} 的分割 BMO 与三角交换子仍然适用。
+由于这个巢没有原子，定理 \ref{thm:schatten} 还给出
+\[
+ \CC_x\in S_p(S_2(H))
+ \iff\CC_x=0
+ \iff x\in\N'\cap B(H).
+\]
+这说明连续巢带来的问题是对角及表示结构的问题，而不是迹的正规化问题。
+\end{example}
+
+\section{与旧稿的对应}
+
+旧稿的有限秩递增巢是本文纯原子巢的一种特殊情形。
+其定理 2.1 可用定理 \ref{thm:bounded}、推论 \ref{cor:formal} 及
+\eqref{eq:bmo-beta} 替代；证明中不再使用 $\Tr/\rank(e_N)$。
+旧稿定理 3.1 的普通 Schatten 解释由定理 \ref{thm:schatten} 统一，
+旧因子 $d_n$ 则由 $\nu_q$ 在 $B(H)$ 情形的重数计算恢复。
+若研究 II 型代数中的非平凡可积性，应采用定理 \ref{thm:relative}，
+并在定理陈述中明确写出 $\mathfrak R$ 和 $\widehat\tau_w$。
+
+这些结果没有把 PSZ 全文的所有对偶、插值和大偏差结论一并宣布为半有限版本。
+本文证明的推广是壳变换、BMO 角块刻画以及这里的两条交换子定理；
+涉及其他 Hardy 空间结论时，仍应逐项核对相关假设。
+
+\appendix
+\section{不使用有限迹的三角截断有界性}
+
+对有限分割定义
+$\mathcal H_\pi(a)=\sum_{i,j}\operatorname{sgn}(j-i)q_i a q_j$。
+$\D_\pi$ 是块标量酉共轭的平均，故在每个 $L_r$ 上压缩；
+$\norm{\mathcal H_\pi}_{L_2\to L_2}\leq1$。
+逐块符号计算得到
+\[
+ (\mathcal H_\pi a)(\mathcal H_\pi b)
+ =\mathcal H_\pi((\mathcal H_\pi a)b+a(\mathcal H_\pi b))
+  -ab+(\D_\pi a)(\D_\pi b).
+\]
+将 $a^*,a$ 代入，使用 $\mathcal H_\pi(a^*)=-(\mathcal H_\pi a)^*$，得到
+\begin{align*}
+ (\mathcal H_\pi a)^*(\mathcal H_\pi a)
+ &=a^*a-(\D_\pi a)^*(\D_\pi a)\\
+ &\quad+\mathcal H_\pi((\mathcal H_\pi a)^*a-a^*\mathcal H_\pi a).
+\end{align*}
+若在 $L_r$ 上有统一界 $h_r$，则半有限 H\"older 不等式给出
+\[
+ \norm{\mathcal H_\pi a}_{2r}^2
+ \leq2\norm a_{2r}^2+2h_r\norm{\mathcal H_\pi a}_{2r}\norm a_{2r}.
+\]
+故 $h_{2r}\leq h_r+\sqrt{h_r^2+2}$。
+由 $r=2$ 出发、再插值及对偶，得到所有 $1<r<\infty$ 的统一界。
+最后使用
+\[
+ \T_\pi=\tfrac12(I+\D_\pi+\mathcal H_\pi),\qquad
+ I-\T_\pi=\tfrac12(I-\D_\pi-\mathcal H_\pi)
+\]
+即得引理 \ref{lem:triangle} 所用的估计。
+全部计算先在有界且属于相关 $L_r$ 的稠密子空间上进行，再连续延拓。
+没有一步要求 $\tau(1)$ 有限。
+
+\begin{thebibliography}{9}
+\bibitem{PSZ}
+D. Potapov, F. Sukochev, and D. Zhou,
+\emph{Noncommutative Nest Hardy Spaces and Martingales},
+International Mathematics Research Notices \textbf{2024}, no.~21 (2024), 13724--13757.
+\href{https://doi.org/10.1093/imrn/rnae218}{doi:10.1093/imrn/rnae218}.
+
+\bibitem{Power}
+S. Power,
+\emph{Commutators with the triangular projection and Hankel forms on nest algebras},
+J. London Math. Soc. (2) \textbf{32} (1985), 272--282.
+\href{https://doi.org/10.1112/jlms/s2-32.2.272}{doi:10.1112/jlms/s2-32.2.272}.
+
+\bibitem{Parrott}
+S. Parrott,
+\emph{On a quotient norm and the Sz.-Nagy--Foia\c{s} lifting theorem},
+J. Functional Analysis \textbf{30} (1978), 311--328.
+\href{https://doi.org/10.1016/0022-1236(78)90060-5}{doi:10.1016/0022-1236(78)90060-5}.
+
+\bibitem{Arveson}
+W. Arveson,
+\emph{Interpolation problems in nest algebras},
+J. Functional Analysis \textbf{20} (1975), 208--233.
+\href{https://doi.org/10.1016/0022-1236(75)90041-5}{doi:10.1016/0022-1236(75)90041-5}.
+
+\bibitem{Janson}
+S. Janson,
+\emph{BMO and commutators of martingale transforms},
+Annales de l'Institut Fourier \textbf{31}, no.~1 (1981), 265--270.
+\href{https://doi.org/10.5802/aif.827}{doi:10.5802/aif.827}.
+
+\end{thebibliography}
+
+\end{document}
