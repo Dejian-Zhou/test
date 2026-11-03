@@ -61,14 +61,17 @@ Here, $|A|$ denotes the volume of $A$.  Pisier's remarkable result states that t
 
 In this paper, the authors established corresponding holomorphic extension theorem for quantum Ornstein-Uhlenbeck semigroups, see Theorem 3.1 in Chapter 3. It is of considerable interest to establish a noncommutative analogue. This point is further illustrated in Chapters 4 and 5 of the present paper. More precisely, this result is used to study the heat smoothing estimates and  Bernstein-Markov type inequalities on the quantum boolean cube $\mathbb{M}_{2^n}$. Although the proof of Theorem 3.1 in Chapter 3 is  inspired by Pisier's result, it incorporates several novel ideas, including an equivalent representation of the semigroup. Moreover, to the best of my knowledge, relatively few works have addressed the holomorphicity of noncommutative semigroups. It is also worthwhile to investigate the holomorphicity of this specific noncommutative semigroup.  
 
-We next turn to a brief discussion of Chapters 4 and 5. As mentioned above, these two chapters mainly concern the heat smoothing estimates and  Bernstein-Markov type inequalities on the quantum boolean cube $\mathbb{M}_{2^n}$. These two chapters are motivated by [3, 4]. To overcome the difficulties arising from noncommutativity, however, the authors employed on recent developments in noncommutative analysis, including representation theory for noncommutative semigroups and Cowling’s theorem, see Proposition 4.5 (in Chapter 4) and Theorem 5.8 (in Chapter 5). 
+ As mentioned above, Chapters 4 and 5 mainly concern the heat smoothing estimates and  Bernstein-Markov type inequalities on the quantum boolean cube $\mathbb{M}_{2^n}$. These two chapters are motivated by [MN14, HMO17, EI20]. To overcome the difficulties arising from noncommutativity, however, the authors employed on recent developments in noncommutative analysis, including representation theory for noncommutative semigroups and Cowling’s theorem, see Proposition 4.5 (in Chapter 4) and Theorem 5.8 (in Chapter 5). 
  
   \medskip
  
  (2) Several correlation inequalities are proved in the quantum Boolean cube setting. The authors first introduce the notion of monotonically increasing element in the Boolean cube $\mathbb{M}_{2^n}$ via the quantum Walsh-Fourier system, and then establish the quantum analogues correlation inequalities of  Harris–Kleitman,Talagrand [Tal96], and Keller–Mossel–Sen [KMS14]. One of the most interesting feature of these inequalities is that the quantum Talagrand inequality correlation differs substantially from its classical counterpart. Recall that Talagrand [Tal96] proved that for monotone increasing functions 
  $f,g: \{-1,1\}^n\to \{-1,1\}$, there exists an absolute constant $C>0$ such that 
  \begin{equation}\label{Ta 96}
- 	\mathrm{Cov}(f,g):=\mathbb{E}(fg)-\mathbb{E}(f)\mathbb{E}(g)\geq C \Psi\Big(\sum_{j\in [n]} \|D_j(f)\|_{L_1}\|D_j(g)\|_{L_1}\Big),
+ 	\begin{split}
+	\mathrm{Cov}(f,g):=\mathbb{E}(fg)-\mathbb{E}(f)\mathbb{E}(g)&\geq C \Psi\Big(M(f,g)\Big),\\
+	& M(f,g)=\sum_{j\in [n]} \|D_j(f)\|_{L_1}\|D_j(g)\|_{L_1},
+ 	\end{split}
  \end{equation}
  where $\Psi(t)=t/\log(\frac{e}{t})$. 
  However, as the authors demonstrate in Example 7.6 (in Chapter 7), a straightforward generalization of this result to the quantum setting is not possible.
@@ -81,7 +84,7 @@ We next turn to a brief discussion of Chapters 4 and 5. As mentioned above, thes
  \medskip
  
  {\bf Conclusion}：
- This work is closely related to Banach space-valued Boolean analysis, which has developed rapidly in recent years (see e.g. [IvHV20], [CEE23], [CEE24]), as well as to certain lines of research in quantum Boolean analysis (see e.g. [VZ24, RWZ24,BGX25]).  The present paper was evidently inspired by these related works.  However, it is also clear that the paper contains interesting new results and novel proofs. Some of the methods employed draw on recent advances in noncommutative analysis. In my view, this paper makes a worthwhile contribution and deserves a detailed referee report.
+ This work is closely related to Banach space-valued  analysis, which has developed rapidly in recent years (see e.g. [IvHV20], [CEE23], [CEE24]), as well as to certain lines of research in quantum Boolean analysis (see e.g. [VZ24, RWZ24,BGX25]).  The present paper was evidently inspired by these related works.  However, it is also clear that the paper contains interesting new results and novel proofs. Some of the methods employed draw on recent advances in noncommutative analysis. In my view, this paper makes a worthwhile contribution and deserves a detailed referee report.
  
  
  \newpage
