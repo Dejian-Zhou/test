@@ -1,0 +1,1464 @@
+%\documentclass{amsart}
+\documentclass[leqno]{amsart}
+\usepackage{amssymb}
+\usepackage{amsmath,amsfonts, enumerate}
+\usepackage{color}
+\usepackage{amsthm}
+\usepackage[backref]{hyperref}%hyperref生成超链接,backref可看文献引用多少次
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{cleveref}%(引用自动生成定理,引理字样的宏包)
+
+
+ \usepackage{appendix}
+\usepackage{showkeys}
+
+\begin{document}
+
+\newtheorem{theorem}{Theorem}    %[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{sublemma}[theorem]{Sublemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{questions}[theorem]{Questions}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\numberwithin{theorem}{section}
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\ri}{{\rm{i}}}
+\newcommand{\inner}[1]{ \langle  #1 \rangle}
+\newcommand{\Norm}[1]{ \left\|  #1 \right\| }
+\newcommand{\set}[1]{ \left\{ #1 \right\} }
+\newcommand{\modulo}[2]{[#1]_{#2}}
+\newcommand{\bra}[1]{\Bigg(  #1 \Bigg)}
+\newcommand{\cir}[1]{\left(  #1 \right)}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\cl}[1]{{\rm  #1 }}
+\newcommand{\lp}[1]{L^{#1}(\RR^{n})}
+\newcommand{\np}[1]{L_{#1}(\mathcal{M})}
+\newcommand{\nlp}[1]{L_{#1}(\RR^{d};\A_{\theta}^{d})}
+
+
+\def\one{\mathbf 1}
+\def\sn{{{S}^{n-1}}}
+\def\qd{\,{\mathchar'26\mkern-12mu d}}
+\def\p{\partial}
+\def\rp{ ^{-1} }
+\def\supp{{\rm supp}}
+\def\ted{\mathbb{T}_{\theta}^{d}}
+\def\td{\mathbb{T}^{d}}
+\def\zd{\mathbb{Z}^{d}}
+\def\rd{\mathbb{R}^{d}}
+\def\cci{C_{c}^{\infty}(\rd)}
+\def\e{\mathbf e}
+\def\BMO{{\rm BMO}}
+\def\bmo{{\rm bmo}}
+\def\Tr{{\rm Tr}}
+
+
+\def\MM{\mathbb{M}}
+\def\DD{\mathbb{D}}
+\def\NN{\mathbb{N}}
+\def\QQ{{\mathbb{Q}}}
+\def\SS{\mathbb{S}}
+\def\RR{{\mathbb R}}
+\def\TT{{\mathbb T}}
+\def\HH{{\mathbb H}}
+\def\ZZ{{\mathbb Z}}
+\def\CC{{\mathbb C}}
+\def\EE{\mathbb E}
+\def\GG{\mathbb G}
+
+\def\htv{\mathbf V}
+\def\htd{\mathbf D}
+\def\htb{\mathbf B}
+
+
+\def\H{{\mathcal H}}
+\def\L{\mathcal{L}}
+\def\S{\mathcal{S}}
+\def\F{{\mathcal F}}
+\def\G{{\mathcal G}}
+\def\M{{\mathcal M}}
+\def\B{{\mathcal B}}
+\def\C{{\mathcal C}}
+\def\T{{\mathcal T}}
+\def\I{{\mathcal I}}
+\def\E{{\mathcal E}}
+\def\V{{\mathcal V}}
+\def\W{{\mathcal W}}
+\def\U{{\mathcal U}}
+\def\A{{\mathcal A}}
+\def\R{{\mathcal R}}
+\def\O{{\mathcal O}}
+\def\D{{\mathcal D}}
+\def\N{{\mathcal N}}
+\def\P{{\mathcal P}}
+\def\K{{\mathcal K}}
+
+
+\title[$L\log L$-estimate of Commutator]{P\'{e}rez's $L\log L$-estimate of commutator beyond doubling measure}
+
+\thanks{{\it 2000 Mathematics Subject Classification:} Primary:  Secondary: }
+
+\thanks{{\it Key words:} Non-doubling measure, dyadic Hilbert transform, commutator, singular integral operator}
+
+
+\author{Fedor Sukochev}
+\address{School of Mathematics and Statistics, UNSW, Kensington, NSW 2052, Australia}
+\email{f.sukochev@unsw.edu.au}
+
+
+
+\author{Fulin Yang}
+\address{School of Mathematics, Harbin Institute of Technology, Harbin 150001, China}
+\email{fulinyoung@hit.edu.cn}
+
+
+\author{Dmitriy Zanin}
+\address{School of Mathematics and Statistics, UNSW, Kensington, NSW 2052, Australia}
+\email{d.zanin@unsw.edu.au}
+
+
+\author{Dejian Zhou}
+\address{}
+\email{}
+
+%\markboth{F. A. Sukochev, F. L. Yang and D. Zanin}
+%{Gagliardo-Nirenberg inequality}
+
+
+
+
+
+\date{}
+
+
+\begin{abstract}
+	In this paper, we investigate  P\'{e}rez's $L\log L$-estimate in the setting of non-doubling measure. Let $\mu$ be a $m$-increasing positive Borel measure on $\RR$ and let $H_{\D}$ be the associated dyadic Hilbert transform from dyadic cubes system $\D$ on $\RR$. For each $\lambda>0$, we show that the following $L\log L$-estimate holds:
+	\begin{align*}
+		\mu(\set{|[M_{\varphi},H_{\D}]f|>\lambda})\leq C
+		\int_{\RR}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y)
+	\end{align*}
+	As a byproduct, we also show the $L_p$-boundedness of $[M_{\varphi},H_{\D}]$ for $1<p\leq2$; however, unlike the classical case, this commutator is not bounded on $L_p(\mu)$ whenever $2<p<\infty$, $\mu$ is non-doubling.
+\end{abstract}
+
+\maketitle
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+On Euclidean space, singular integral and its commutator play an important role in modern harmonic analysis, functional analysis and PDEs et. The Calder\'{o}n--Zygmund singular integral operator is defined by setting
+$$Tf(x)={\rm p.v.} \int_{\RR^{d}}K(x-y)f(y)dy,\quad x\in \mathbb{R}^d, f\in\S(\RR^{d}),$$
+where the kernel function $K:\RR^{d}\setminus\{0\}\rightarrow\CC$ is measurable and satisfies the assumptions
+\begin{enumerate}[\rm(1)]
+\item $|K(x)|\leq C\frac{1}{|x|^{d}}$ for $x\neq0$ and some $C>0$; 
+\item\label{kernel smoothness} $\left|K(x-y)-K(x)\right|\leq C\frac{|y|}{|x|^{d+1}}$ for $|x|\geq2|y|>0$ and some constant $C>0$.
+\end{enumerate}
+It is well-known that $T$ is of strong type $(p,p)$, $1<p<\infty$, and  of weak type $(1,1)$ under the assumption that $T$ is bounded on $L_{2}(\RR^{d})$ (see \cite{Gr-book1}).
+For a locally integrable function $\varphi$ on $\RR^{d}$, the commutator $[M_{\varphi},T]$ is given by $$[M_{\varphi},T]=M_{\varphi}T-TM_{\varphi}$$
+where $M_{\varphi}$ is the multiplication operator on $L_{2}(\RR^{d})$. In the remarkable paper \cite{CRW1976}, Coifman-Rochberg-Weiss proved that the operator $[M_{\varphi},T]$ is bounded on $L_{p}(\RR^{d})$, $1<p<\infty$, if and only if $\varphi$ is a $\BMO(\RR^{d})$ function. However, unlike the singular integral operator, the commutator $[M_{\varphi},T]$ fails to be of weak $(1,1)$ provided $\varphi\in\BMO(\RR^{d})$. This is interesting and unexpected. One can find an example in P\'{e}rez's paper \cite[Section 5]{Pe1995}. Moreover, in the same paper, P\'{e}rez established the $L\log^{+}L$ estimate of $[M_{\varphi},T]$ but it should be in the following form. 
+
+\begin{theorem}[{\cite[Theorem 1.1]{Pe1995} }]\label{Perez thm}
+	Let $T$ be a Calder\'{o}n--Zygmund singular integral operator and let $\varphi\in\BMO(\RR^{d})$. Then, for all $\lambda>0$, there exists a positive constant $C$, independent of $\lambda$, $\varphi$ and $f$, such that
+	\begin{align}\label{LlogL correct form}
+		\left|\set{y\in\RR^{d}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right|\leq C\int_{\RR^{d}}\frac{\Norm{\varphi}_{\BMO}|f(y)|}{\lambda}\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO}|f(y)|}{\lambda})\right)dy.
+	\end{align}
+\end{theorem}
+
+ We definitely convince that the following fact is known to experts; see e.g.\cite{CF2003,CF2007, PP2001}. We still include it for reader's convenience.
+% We hope it to be clear to everyone so that we write down our comment here.
+%The following comment maybe known to experts, we still include it for reader's convenience.
+\begin{remark}
+Recall that, in the initial version of Theorem \ref{Perez thm} in \cite{Pe1995}, \eqref{LlogL correct form} was written as
+	\begin{align}\label{false result}
+		\left|\set{y\in\RR^{d}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right|\leq C\Norm{\varphi}_{\BMO}\int_{\RR^{d}}\frac{|f(y)|}{\lambda}\left(1+\log^{+}(\frac{|f(y)|}{\lambda})\right)dy.
+	\end{align}
+However, this assertion is incorrect. Indeed, let us substitute $\varphi$ and $\lambda$ as $t\varphi$ and $t\lambda$ on both sides of \eqref{false result} for $t>0$. Note that, for $t>0$,
+\begin{align*}
+	\left|\set{y\in\RR^{d}:\left|[M_{t\varphi},T]f(y)\right|>t\lambda}\right|
+	=\left|\set{y\in\RR^{d}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right|.
+\end{align*}
+It follows that
+\begin{align*}
+	\left|\set{y\in\RR^{d}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right|\leq C\Norm{t\varphi}_{\BMO}\int_{\RR^{d}}\frac{|f(y)|}{t\lambda}\left(1+\log^{+}(\frac{|f(y)|}{t\lambda})\right)dy\\
+	=C\Norm{\varphi}_{\BMO}\int_{\RR^{d}}\frac{|f(y)|}{\lambda}\left(1+\log^{+}(\frac{|f(y)|}{t\lambda})\right)dy.
+\end{align*}
+Since the factor on the left hand side is independent of $t$, letting $t\to+\infty$ on the right hand side, it follows that
+\begin{align*}
+	\left|\set{y\in\RR^{d}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right|\leq C\Norm{\varphi}_{\BMO}\frac{\Norm{f}_{L_{1}(\RR^{d})}}{\lambda}.
+\end{align*}
+This implies that $[M_{\varphi},T]$ is of weak type $(1,1)$ and it contradicts to the known fact given in \cite[Section 5]{Pe1995}. 
+\end{remark}
+
+In the last three decades, there are lots of literature concern related topic, here we only mention some recent advance of them: \cite{FSZ2024,HLW2017,Hy2021,LXY2024,Wi2020}. In the present paper, we mainly concern the $L\log L$-estimate of the commutator of the dyadic Hilbert transform on $\RR$, however, with respect to some non-doubling measure $\mu$.
+
+
+
+Let $\D$ be the standard dyadic interval system on $\RR$, and let $\mu$ be a Borel measure on $\RR$ with $0<\mu(Q)<\infty$ as $Q\in\D$. For our purpose, we always assume that $\mu$ is a complete $\sigma$-additive measure with $\mu(\RR)=\infty$ in the sequel. The (weak) Lebesgue spaces with respect to the measure $\mu$ are denoted by $L_p(\mu)$, $L_{p,\infty}(\mu)$, $0<p<\infty$. Given $Q\in\D$, write $Q_{-}$ and $Q_{+}$ as the (left and right) dyadic children of $Q$, and denote $\wh{Q}$ the dyadic parent of $Q$.  
+Set
+\begin{align*}
+h_{Q}=m(Q)^{\frac{1}{2}}\left(\frac{\chi_{Q_{-}}}{\mu(Q_{-})}-\frac{\chi_{Q_{+}}}{\mu(Q_{+})}\right)
+\quad{\rm with}\quad m(Q):=\frac{\mu(Q_{-})\mu(Q_{+})}{\mu(Q)}.
+\end{align*}
+The system $\{h_{Q}\}_{Q\in\D}$ is an orthonormal basis in $L_{2}(\mu)$. 
+In addition, for each $Q\in\D$, we have 
+\begin{align}\label{hQ norm}
+\Norm{h_{Q}}_{L_{1}(\mu)}=2m(Q)^{\frac{1}{2}},\quad\Norm{h_{Q}}_{L_{\infty}(\mu)}\simeq m(Q)^{-\frac{1}{2}}.
+\end{align}
+Following \cite[page 50]{LMP2014}, we define the dyadic Hilbert transform as below
+\begin{align*}
+H_{\D}f(x)=\sum_{Q\in\D}\inner{f,h_{Q}}(h_{Q_{-}}(x)-h_{Q_{+}}(x))
+=\sum_{Q\in\D}\sigma(Q)\inner{f,h_{\wh{Q}}}h_{Q}(x),
+\end{align*}
+where $f\in L_{2}(\mu)$ and $\sigma(Q)=1$ if $Q=\wh{Q}_{-}$ and $\sigma(Q)=1$ if $Q=\wh{Q}_{+}$. 
+This dyadic Hilbert transform is a generalization of the classical Haar shift operator on $\RR$ with respect to Lebesgue measure which is bounded on $L_{p}(\RR)$ $(1<p<\infty)$ and bounded from $L_{1}(\RR)$ to $L_{1,\infty}(\RR)$ (see \cite{CMP2012}).
+The $L_{2}(\mu)$-adjoint operator of $H_{\D}$ can be written as $$H_{\D}^{*}=\sum_{Q\in\D}\sigma(Q)\inner{f,h_{Q}}h_{\wh{Q}}(x).$$
+
+The following definition was firstly introduced in \cite[page 50]{LMP2014} (in what follows, unexplained terminology is referred to Section \ref{sec-pre}). 
+
+\begin{definition}
+We say that $\mu$ is $m$-increasing if there exists constant $0<C<\infty$ such that
+$$m(Q)\leq Cm(\wh{Q}),\quad \forall  Q\in\D.$$
+We say that $\mu$ is $m$-decreasing if there exists constant $0<C<\infty$ such that
+$$m(\wh{Q})\leq C m(Q),\quad \forall Q\in\D.$$
+\end{definition}
+In fact, these two definitions characterize the equivalent condition for the boundedness of $H_{\D}$ and $H_{\D}^{*}$ (see \cite[Theorem 2.5]{LMP2014}).
+More precisely, they proved the following equivalence:
+\begin{enumerate}[{\rm (i)}]
+	\item The Borel measure $\mu$ is $m$-increasing;
+	\item $H_{\D}$ is bounded from $L_{1}(\mu)$ to $L_{1,\infty}(\mu)$;
+	\item $H_{\D}$ is bounded on $L_{p}(\mu)$ for $1<p<2$;
+	\item  $H_{\D}^{*}$ is bounded on $L_{q}(\mu)$ for $2<q<\infty$.
+\end{enumerate}
+Noting that $H_{\D}$ and $H_{\D}^{*}$ are bounded on $L_{2}(\mu)$. The $L_{2}(\mu)$-boundedness is independent of the property $m$-increasing or $m$-decreasing. With $L_{p}(\mu)$-boundedness of $H_{\D}$ in hand, it is natural to investigate the boundedness of the commutator of $H_{\D}$.
+Recently, Bonami et al. \cite{BJXYZ2023} studied $H_1-L_1$ estimate of the commutator $[M_{\varphi}, H_{\mathcal{D}}]$ via bilinear decomposition of martingale Hardy and BMO spaces; Borges et al. \cite{BCPW2024} investigated the $L_p$-estimate with $1<p<\infty$ of such commutator of another type dyadic Hilbert transform in the setting of "sibling balanced" measure. Hence, it is natural to continue to consider the $L\log L$-estimate. 
+
+
+
+\begin{theorem}\label{endpoint estimate}
+Let $\mu$ be a $m$-increasing Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for each $Q\in\D$.  For all $\lambda>0$, if $\varphi\in\BMO_{\mu,2}$ and $f\in L\log^{+}L(\mu)$, then there exists a positive constant $C$, independent of $\lambda$, $\varphi$ and $f$, such that
+\begin{align*}
+\mu(\set{|[M_{\varphi},H_{\D}]f|>\lambda})\leq C
+\int_{\RR}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y).
+\end{align*}
+\end{theorem}
+The main difficulty to prove this theorem is how to treat the non-doubling condition of $\mu$. For a cube $Q\in\D$, comparing $\mu(\wh{Q})$ with $\mu(Q)$ should be deal carefully. In order to avoid comparing them, we use the new Calder\'{o}n-Zygmund decomposition (established in \cite{LMP2014}) with respect to the non-doubling measure instead of the classical one. 
+%The classical Calder\'{o}n-Zygmund decomposition decompose the desired function to good and bad functions but 
+This new decomposition decompose the desired function to three parts involving the parents of the selected cubes so that comparing $\mu(\wh{Q})$ with $\mu(Q)$ transfers to comparing $m(\wh{Q})$ with $\mu(Q)$. When $\mu$ is a $m$-increasing Borel measure, we know $m(\wh{Q})\leq\mu(Q)$ and it works. 
+
+ 
+
+It is noteworthy that the martingale $\BMO_{\mu,2}$ space is different with the classical one, saying $\bmo_{\mu,2}$ (see Section 2.2), in Euclidean space with respect to general $\mu$. The $\BMO_{\mu,2}$ is defined by the oscillation with $f_{\widehat{Q}}$ instead of $f_{Q}$. When $\mu$ is doubling, $\BMO_{\mu,2}$ and $\bmo_{\mu,2}$ are isomorphic with equivalent norm.  For $d=1$ and Lebesgue measure $\mu$ on the line, \eqref{LlogL correct form} holds for $\varphi$ belonging to $\bmo_{\mu,2}$ and some $\BMO$ space by translation of $\bmo_{\mu,2}$ (see \cite{Me2003}).
+In the setting of non-doubling $\mu$, $\BMO_{\mu,2}$ is a subspace of $\bmo_{\mu,2}$ and the commutator $[M_{\varphi},H_{\D}]$ cannot be controlled only by $\Norm{\varphi}_{\bmo_{\mu,2}}$. This requires us treat $\BMO_{\mu,2}$ and $\bmo_{\mu,2}$ delicately. In addition, another key point to use $\BMO_{\mu,2}$ instead of $\bmo_{\mu,2}$ is the John-Nirenberg inequality valid in $\BMO_{\mu,2}$ (see Subsection 2.2).
+
+Our second result is the $L_{p}$-boundedness of $[M_{\varphi},H_{\D}]$ with respect to a $m$-increasing Borel measure on $\RR$. It is proved with the help of Theorem \ref{endpoint estimate}.
+
+\begin{theorem}\label{Lp estimate}
+Let $\mu$ be a $m$-increasing Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for each $Q\in\D$. If $\varphi\in\BMO_{\mu,2}$, then $[M_{\varphi},H_{\D}]$ is bounded on $L_{p}(\mu)$  for  $1<p\leq2$ and $[M_{\varphi},H_{\D}^{*}]$ is bounded on $L_{q}(\mu)$  for  $2\leq q<\infty$. 
+%\begin{enumerate}[\rm(a)]
+%\item $[M_{\varphi},H_{\D}]$ is bounded on $L_{p}(\mu)$  for  $1<p\leq2$;
+%\item $[M_{\varphi},H_{\D}^{*}]$ is bounded on $L_{q}(\mu)$  for  $2\leq q<\infty$. 
+%\end{enumerate}
+More precisely,
+\begin{align*}
+\Norm{[M_{\varphi},H_{\D}]}_{L_{p}(\mu)\rightarrow L_{p}(\mu)}
+\leq C\Norm{\varphi}_{\BMO_{\mu,2}}\;\mbox{and}\;
+\Norm{[M_{\varphi},H_{\D}^{*}]}_{L_{q}(\mu)\rightarrow L_{q}(\mu)}
+\leq C\Norm{\varphi}_{\BMO_{\mu,2}},
+\end{align*}
+for some positive constant $C$ independent of $\varphi$.
+\end{theorem}
+
+In the setting of non-doubling measure, we only have the $L_{p}$-boundedness of $[M_{\varphi},H_{\D}]$ for $1<p\leq2$ instead of $1<p<\infty$. When $q>2$, $[M_{\varphi},H_{\D}]$ may be unbounded since there are some non-doubling measures such that $H_{\D}$ is unbounded on $L_{q}(\mu)$ (see \cite[Section 4.1]{LMP2014}). In fact, in the proof of this theorem, we need to deal with the paraproduct and its adjoint. The paraproduct is bounded on $L_{p}(\mu)$ with $1<p\leq2$ for a general positive Borel measure (see \Cref{remark on paraproduct}) and therefore its adjoint is bounded on $L_{q}(\mu)$ for $2\leq q<\infty$. Maybe this is the key point to limit the $L_{p}$-boundedness of $[M_{\varphi},H_{\D}]$ to $1<p\leq2$.
+Besides, if one further assume that the measure $\mu$ is ``sibling balanced", then the $L_{p}$-boundedness of $[M_{\varphi},H_{\D}]$ holds for all $1<p<\infty$; see \cite{BCPW2024} for more details. In the same paper \cite[Theorem A]{BCPW2024}, the authors also showed that the following estimate generally fails
+$$\|\varphi\|_{\BMO_{\mu,2}}\lesssim \|[M_{\varphi},\mathcal{H}_{\mathcal{D}}]\|_{L_2(\mu)\to L_2(\mu)}.$$
+Thus, we do not consider the converse direction of \Cref{endpoint estimate} and \Cref{Lp estimate}.
+
+As the argument in previous, when $\mu$ is the Lebesgue measure on $\RR$, $\BMO_{\mu,2}$ and $\bmo_{\mu,2}$ are isomorphic with equivalent norm. In this case, \Cref{endpoint estimate} and \Cref{Lp estimate} give the following corollary.
+
+\begin{corollary}
+When $\mu$ is the Lebesgue measure, $H_{\D}$ is the classical dyadic Hilbert transform on $\RR$. 
+Denote $\bmo_{2}(\RR)$ the $\bmo_{\mu,2}$ with $\mu$ as the Lebesgue measure on $\RR$. 
+In this case, for $\varphi\in\bmo_{2}(\RR)$, $[M_{\varphi},H_{\D}]$ is bounded on $L_{p}(\RR)$  for  $1<p<\infty$ and $[M_{\varphi},H_{\D}]$ admits the $L\log^{+}L(\RR)$ estimate as in \Cref{endpoint estimate}.
+\end{corollary}
+%\begin{center}
+%$\mu$ is $m$-decreasing 
+%$\Longleftrightarrow$ $H_{\D}^{*}$ is bounded from $L_{1}(\mu)$ to $L_{1,\infty}(\mu)$ 
+%$\Longleftrightarrow$ $H_{\D}^{*}$ is bounded on $L_{p}(\mu)$ for $1<p<2$ 
+%$\Longleftrightarrow$ $H_{\D}$ is bounded on $L_{q}(\mu)$ for $2<q<\infty$.
+%\end{center}
+
+
+This paper is organized as follows. In Section \ref{sec-pre}, we introduce a  Calder\'{o}n-Zygmund decomposition associated to non-doubling measure, the definitions of martingale $\BMO$ spaces and several properties of some symmetric function spaces. In Section \ref{sec-Lpe}, we provide the proof of \Cref{Lp estimate}. Note that we actually prove \Cref{Lp estimate} via Theorem \ref{endpoint estimate}. Finally, in Section \ref{sec-end}, we show \Cref{endpoint estimate}. 
+
+Throughout the paper, we use $A\lesssim B$ to denote the statement that $A\leq CB$ for some constant $C>0$ independent of $A,B$.
+
+
+%Let $L\log^{+}L(\mu)$ be the $L\log^{+}L$ function space on $\RR$ with respect to measure $\mu$ and denote $\BMO_{\mu,2}$ the function space on $\RR$ with respect to measure $\mu$ involving the locally integrable functions such as
+%\begin{align*}
+%	\Norm{f}_{\BMO_{\mu,2}}:=
+%	\sup_{n}\sup_{Q\in\D_{n}}\left(\frac{1}{\mu(Q)}\int_{Q}|f-f_{\widehat{Q}}|^{2}d\mu\right)^{\frac{1}{2}}
+%	<\infty
+%\end{align*}
+%where $\wh{Q}$ is the father of $Q\in\D$ and $f_{Q}$ denotes the $\mu$-average of $f$ over cube $Q\in\D$.
+%Our first result is the following $L\log L$ estimate of $[M_{\varphi},H_{\D}]$ with respect to a $m$-increasing Borel measure on $\RR$.
+%
+%where $L_{2}(\mu)$ is the square integrable function space on $\RR$ with respect to measure $\mu$ (Also, in what follows, denote $L_{1,\infty}(\mu)$ and $L_{p}(\mu)$, $0<p\leq\infty$, the weak $(1,1)$ and the $L_{p}$ function space on $\RR$ with respect to measure $\mu$). 
+
+\section{Preliminaries}\label{sec-pre}
+Basic material used in the paper is collected in this section.
+
+\subsection{Calder\'{o}n-Zygmund decomposition}
+Throughout the paper, let $\mathcal{D}$ be the standard dyadic interval system on $\RR$. For each $n\in\mathbb{Z}$, write
+$$\mathcal{D}_n=\{Q\in \mathcal{D}: \ell(Q)=2^{-n}\},\quad \mathcal{F}_n=\sigma(\mathcal{D}_n),$$
+where $\ell(Q)$ denotes the length of $Q$. Then $(\mathcal{F}_n)_{n\in\mathbb{Z}}$ is an increasing filtration. 
+Let $\mu$ be a Borel measure on $\RR$ such that $\mu(Q)<\infty$ for $Q\in\D$.
+For each $n$, the conditional expectation with respect to $\mathcal{F}_n$ is given by (see e.g. \cite[p.\,2]{Lo1993})
+\begin{align}\label{expectation definition}
+	\EE_{n}(f)=\sum_{Q\in\D_{n}}\frac{1}{\mu(Q)}\int_{Q}f(y)d\mu(y)\chi_{Q}.
+\end{align}
+Given $f\in L_1(\mu)$, $(\EE_n(f))_{n\in\mathbb{Z}}$ forms a martingale.  For $f\in L_{1}(\mu)$, we set $f_{Q}=0$ if $\mu(Q)=0$ and define the dyadic maximal function associated to $\mu$ by
+$$M_{\D}f(x)=\sup_{\substack{Q\in\D\\Q\ni x}}\frac{1}{\mu(Q)}\int_{Q}|f(x)|d\mu(x).$$
+This is actually the well-known Doob maximal function $\sup_n|\EE_n(f)|$; see \cite{Pi2016} or \cite[p.\,33]{Lo1993}. It is of weak type $(1,1)$ and strong type $(p,p)$ with $1\leq p\leq \infty$. We refer the reader to \cite{Ga1973,HNVW2016,Lo1993,Pi2016,We1994} for more background about martingale theory.
+
+When $\mu$ is a non-doubling measure, the classical Calder\'{o}n-Zygmund decomposition is of no use.
+This requires us to use the following Calder\'{o}n-Zygmund decomposition in the setting of non-doubling measure.
+
+\begin{lemma}[{\cite[Theorem 2.1]{LMP2014}}]\label{CZ decomposition}
+Let $\mu$ be a Borel measure on $\RR$ such that $\mu(Q)<\infty$ for each $Q\in\D$ and $\mu(\RR)=\infty$.
+Given $f\in L^{1}(\mu)$ and $\alpha>0$, let $\Omega_{\alpha}=\set{M_{\D}f>\alpha}$. There exists a collection of disjoint maximal dyadic cubes $\{Q_{j}\}_{j}$ covering $\Omega_{\alpha}$ and there is a related decomposition $f=g+b+\beta$ with 
+\begin{align*}
+&g(x)=f(x)\chi_{\RR^{d}\setminus\Omega_{\alpha}}(x)+\sum_{j}f_{\wh{Q}_{j}}\chi_{Q_{j}}(x)
++\sum_{j}(f_{Q_{j}}-f_{\wh{Q}_{j}})\frac{\mu(Q_{j})}{\mu(\wh{Q}_{j})}\chi_{\wh{Q}_{j}}(x),\\
+&b(x)=\sum_{j}b_{j}(x)=(f(x)-f_{Q_{j}})\chi_{Q_{j}}(x),\\
+&\beta(x)=\sum_{j}\beta_{j}(x)=\sum_{j}(f_{Q_{j}}-f_{\wh{Q}_{j}})
+\left(\chi_{Q_{j}}(x)-\frac{\mu(Q_{j})}{\mu(\wh{Q}_{j})}\chi_{\wh{Q}_{j}}(x)\right),
+\end{align*}
+where the maximality of $\{Q_{j}\}_{j}$ is understood in the sense that, for all dyadic intervals $Q\varsupsetneq Q_{j}$, we have $|f|_{Q}\leq\alpha\leq|f|_{Q_{j}}$. 
+Additionally, they satisfy the following properties:
+\begin{enumerate}[\rm(i)]
+\item\label{Omega upper bd} $\mu(\Omega_{\alpha})\lesssim\frac{\Norm{f}_{L_{1}(\mu)}}{\alpha}$;
+%\item\label{f out Omega bd} $|f(x)|\leq\alpha$, a.e. $x\in\RR^{n}\setminus\Omega_{\alpha}$;
+\item\label{g upper bd} $\Norm{g}_{L_{p}(\mu)}\leq C_{p}\alpha^{p-1}\Norm{f}_{L_{1}(\mu)}$ for all $1\leq p<\infty$;
+\item\label{b cancellation} $\supp(b_{j})\subset Q_{j}$, $\displaystyle\int_{\RR^d}b_{j}(x)d\mu(x)=0$ and $\displaystyle\sum_{j}\Norm{b_{j}}_{L_{1}(\mu)}\leq2\Norm{f}_{L_{1}(\mu)}$;
+\item\label{beta cancellation} $\supp(\beta_{j})\subset \wh{Q}_{j}$, $\displaystyle\int_{\RR^d}\beta_{j}(x)d\mu(x)=0$ and $\displaystyle\sum_{j}\Norm{\beta_{j}}_{L_{1}(\mu)}\leq4\Norm{f}_{L_{1}(\mu)}$.
+\end{enumerate}
+\end{lemma}
+
+This lemma is closely related to Gundy's martingale decomposition \cite{Gu1968} and also can be discerned in \cite{CMP-book}. The feature of the maximal cubes in the lemma  plays an important role in characterizing the weak $(1,1)$ of $H_{\D}$ and the $L\log L$ estimate of the commutator $[M_{\varphi},H_{\D}]$ in the setting of non-doubling Borel measure.
+
+
+
+
+
+\subsection{$\BMO$ space}
+For our purpose, let us introduce the definitions and some properties of different martingale $\BMO$ spaces.
+
+\begin{definition}
+Let $p\in[1,\infty)$. The  $\BMO_{\mu,p}$ space associated to $\D$ is defined to be the set of all locally integrable functions $f$ defined on $\RR$ with respect to $\mu$ satisfying
+\begin{align*}
+\Norm{f}_{\BMO_{\mu,p}}:=
+\sup_{n}\sup_{Q\in\D_{n}}\left(\frac{1}{\mu(Q)}\int_{Q}|f-f_{\widehat{Q}}|^{p}d\mu\right)^{\frac{1}{p}}
+<\infty,
+\end{align*}
+where $\wh{Q}$ is the father of $Q\in\D$.
+
+The $\bmo_{\mu,p}$ space associated to $\D$ is defined to be the set of all locally integrable functions $f$ defined on $\RR$ with respect to $\mu$ satisfying
+\begin{align*}
+\Norm{f}_{\bmo_{\mu,p}}:=
+\sup_{n}\sup_{Q\in\D_{n}}\left(\frac{1}{\mu(Q)}\int_{Q}|f-f_{Q}|^{p}d\mu\right)^{\frac{1}{p}}<\infty.
+\end{align*}
+
+The $\bmo_{\mu,\mathsf{d}}$ space associated to $\D$ is defined to be the set of all locally integrable functions $f$ defined on $\RR$ with respect to $\mu$ satisfying
+\begin{align*}
+\Norm{f}_{\bmo_{\mu,\mathsf{d}}}:=\sup_{n}\Norm{\EE_{n}f-\EE_{n-1}f}_{L_{\infty}(\mu)}<\infty.
+\end{align*}
+\end{definition}
+It is obvious $$\Norm{f}_{\bmo_{\mu,p}}\leq\Norm{f}_{\BMO_{\mu,p}}\quad\mbox{for}\quad p\in[1,\infty).$$
+In the case $p=2$, it is clear that 
+\begin{align}\label{BMO intersection space}
+\BMO_{\mu,2}=\bmo_{\mu,2}\bigcap\bmo_{\mu,\mathsf{d}},
+\end{align}
+with norm $$\Norm{f}_{\BMO_{\mu,2}}=\max\set{\Norm{f}_{\bmo_{\mu,2}},\Norm{f}_{\bmo_{\mu,\mathsf{d}}}}.$$
+In addition, the John-Nirenberg inequality holds in $\BMO_{\mu,p}$ so that $\BMO_{\mu,p}=\BMO_{\mu,1}$ for $p\in[1,\infty)$ with equivalent norm; see e.g. \cite[Chapter 4]{Lo1993}. 
+Moreover,  for all $f\in\BMO_{\mu,2}$ with norm 1, there exist positive constants $C,\delta_{0}$ such that and for each $Q\in\D$,
+\begin{align}\label{John-Nirenberg inequality}
+\mu\left(\set{x\in Q:|f(x)-f_{\wh{Q}}|>\alpha}\right)\leq Ce^{-\delta_{0}\alpha}\mu(Q),
+\end{align}
+and also
+\begin{align*}
+\mu\left(\set{x\in Q:|f(x)-f_{Q}|>\alpha}\right)\leq Ce^{-\delta_{0}\alpha}\mu(Q).
+\end{align*}
+
+Recall that the John–Nirenberg inequality is not valid in general for $\bmo_{\mu,p}$ in place
+of $\BMO_{\mu,p}$. A counter-example is given in \cite[Example 2.17]{We1994}. This is why we could not replace in general the space $\BMO_{\mu,2}$ by $\bmo_{\mu,2}$.
+
+
+
+
+\subsection{Symmetric function space}
+It is well-known that a Orlicz function space is related to a Young function.
+A function  $\Psi:[0,\infty)\to[0,\infty)$ is said to be a Young function if there exists a function $\phi:[0,\infty)\to[0,\infty)$ such that $$\Psi(t):=\int_{0}^{t}\phi(s)ds,\quad t\geq0,$$
+where $\phi$ is right-continuous and non-decreasing satisfying $\phi(0)=0$, $\displaystyle\lim_{s\to\infty}\phi(s)=\infty$ and $\phi(s)>0$ when $s>0$. Also say that $\Psi$ is a Young function generated by $\phi$. Moreover, we set $\displaystyle\psi(t)=\sup_{\phi(s)\leq t}s$ and denote $$\widetilde{\Psi}=\int_{0}^{t}\psi(s)ds,\quad t\geq0.$$
+The function $\widetilde{\Psi}$ is called the complementary Young function of $\Psi$.
+Given a pair  $(\Psi,\widetilde{\Psi})$ of Young function and its complementary, it has below property, for all $t>0$,
+\begin{align*}
+t\leq\Psi(t)\rp\widetilde{\Psi}(t)\rp\leq 2t.
+\end{align*}  
+ 
+Letting $\Psi:[0,\infty)\to[0,\infty)$ be a Young function, the $\Psi$-average of function $f$ over a cube $Q$ is defined by Luxemburg norm $$\Norm{f}_{L^{\Psi}(Q,d\mu)}=\inf\set{t>0:\frac{1}{\mu(Q)}\int_{Q}\Psi(\frac{|f(y)|}{t})d\mu(y)\leq1}.$$
+Indeed, this is a local form of the Luxemburg norm. Recalling the equivalence for the Luxemburg norm (see \cite[Remarks 4.8.9]{PKJF-book}), one has a useful equivalent norm in calculations, i.e. there is a positive constant $C$ such that
+\begin{align}\label{equivalent norm}
+\Norm{f}_{L^{\Psi}(Q,d\mu)}
+\leq\inf_{t>0}\set{t+\frac{t}{\mu(Q)}\int_{Q}\Psi(\frac{|f(y)|}{t})d\mu(y)}
+\leq C\Norm{f}_{L^{\Psi}(Q,d\mu)}.
+\end{align} 
+In addition, we have a generalized H\"{o}lder's inequality.
+\begin{lemma}\label{Holder inequality}
+Let $\mu$ be a complete $\sigma$-finite measure and let $\widetilde{\Psi}$ be the complementary Young function of $\Psi$. For $Q\subset\RR$, if $f\in L^{\Psi}(Q,d\mu)$ and $g\in L^{\widetilde{\Psi}}(Q,d\mu)$, we have
+\begin{align*}
+\frac{1}{\mu(Q)}\int_{Q}|f(y)g(y)|d\mu(y)
+\leq\Norm{f}_{L^{\Psi}(Q,d\mu)}\Norm{g}_{L^{\widetilde{\Psi}}(Q,d\mu)}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+This is a direct result in combination of \cite[Theorem 4.7.5]{PKJF-book} and  \cite[Theorem 4.8.5]{PKJF-book}.
+\end{proof}
+In the proof of $L\log L$ estimate of the commutator, we pay our attention to the Young function $\Phi(t)=t(1+\log^{+}t)$, $t>0$. Its complementary Young function is given by $\widetilde{\Phi}(t)\simeq e^{t}$; see e.g.  \cite[Section 4.3]{PKJF-book}.
+
+
+
+\section{$L_{p}$ estimate}\label{sec-Lpe}
+In this section, we firstly prove \Cref{Lp estimate} with $p=2$ which will help us to show \Cref{endpoint estimate}. Assuming \Cref{endpoint estimate}, we then deduce \Cref{Lp estimate} for any $1<p<2$.
+
+
+\subsection{Proof of $L_{2}$-boundedness}
+Let us firstly prove the most important case the $L_{2}$ boundedness of $[M_{\varphi},H_{\D}]$ of \Cref{Lp estimate}.
+
+
+\begin{lemma}\label{L2 estimate paraproduct}
+Let $\mu$ be a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for $Q\in\D$ and $\varphi\in\bmo_{\mu,2}$. Define
+\begin{align*}
+\pi_{\varphi}f(x)
+=\sum_{Q\in\D}f_{Q}\inner{\varphi,h_{Q}}h_{Q}(x),\quad f\in L_{2}(\mu).
+\end{align*}
+The operator $\pi_{\varphi}$ is bounded on $L_{2}(\mu)$ with upper bound $2\Norm{\varphi}_{\bmo_{\mu,2}}$.
+\end{lemma}
+\begin{proof}
+By \cite[Lemma 5.10]{LMP2014}, we have
+\begin{align*}
+\Norm{\pi_{\varphi}f}_{L_{2}(\mu)}
+\leq2\Norm{\set{\inner{\varphi,h_{Q}}}_{Q\in\D}}_{Carl(\mu)}\Norm{f}_{L_{2}(\mu)},
+\end{align*}
+where 
+\begin{align*}
+\Norm{\set{\inner{\varphi,h_{Q}}}_{Q\in\D}}_{Carl(\mu)}:=
+\sup_{Q\in\D,\mu(Q)>0}\left(\frac{\sum_{Q'\in\D(Q)}|\inner{\varphi,h_{Q'}}|^{2}}{\mu(Q)}\right)^{\frac{1}{2}}.
+\end{align*}
+Since $\set{h_{Q}}_{Q\in\D}$ is an orthonormal bases and each $h_{Q}$ is cancelled over $Q$, it follows that
+\begin{align*}
+\sum_{Q'\in\D(Q)}|\inner{\varphi,h_{Q'}}|^{2}
+&=\sum_{Q'\in\D(Q)}|\inner{(\varphi-\varphi_{Q})\chi_{Q},h_{Q'}}|^{2}\\
+&\leq\Norm{(\varphi-\varphi_{Q})\chi_{Q}}_{L_{2}(\mu)}^{2}\leq\Norm{\varphi}_{\bmo_{\mu,2}}^{2}\mu(Q).
+\end{align*}
+Therefore, $$\Norm{\pi_{\varphi}f}_{L_{2}(\mu)}
+\leq2\Norm{\varphi}_{\bmo_{\mu,2}}\Norm{f}_{L_{2}(\mu)}.$$
+This is the desired assertion.
+
+\end{proof}
+
+
+\begin{remark}\label{remark on paraproduct}
+\begin{enumerate}[\rm(1)]
+\item Note that the operator $\pi_{\varphi}$ is bounded from $L_{1}(\mu)$ to $L_{1,\infty}(\mu)$ controlled by $\Norm{\set{\inner{\varphi,h_{Q}}}_{Q\in\D}}_{Carl(\mu)}$ (see \cite[Theorem 5.8 (i)]{LMP2014}).
+Standard interpolation and duality argument gives us that  $\pi_{\varphi}$ is bounded on $L_{p}(\mu)$, $1<p\leq2$; $\pi_{\varphi}^{*}$ is bounded on $L_{q}(\mu)$, $2\leq q<\infty$. 
+
+\item However, $\pi_{\varphi}$ is not bounded on $L_{q}(\mu)$ for $2< q<\infty$ and $\pi_{\varphi}^{*}$ is not bounded on $L_{p}(\mu)$ for $1<p<2$ except a very good measure $\mu$, e.g. dyadically doubling measure; see \cite[Theorem 5.8 (iii)]{LMP2014}.
+\end{enumerate}
+\end{remark}
+
+
+For later convenience, we denote $\DD_{Q}f=\inner{f,h_{Q}}h_{Q}$ for $Q\in\D$ and $f\in L_{2}(\mu)$. Such an operator $\DD_{Q}$ is a projection on $L_{2}(\mu)$ and it admits the decomposition
+\begin{align*}
+\DD_{Q}f=\EE_{k}f\cdot\chi_{Q}-\EE_{k-1}f\cdot\chi_{Q}
+=\EE_{Q}f-\sum_{Q'\in\D_{1}(Q)}\EE_{Q'}f
+,\quad\mbox{if}\quad Q\in\D_{k},
+\end{align*}
+where $\EE_{Q}f:=\EE_{k}f\cdot\chi_{Q}$ if $Q\in\D_{k}$ and $\EE_{k}$ is given as in \eqref{expectation definition}. This in fact is the martingale difference defined on $Q$; for more details, we refer to \cite[Section 5.3]{LMP2014}.
+
+
+\begin{lemma}\label{L2 estimate ad-paraproduct}
+Let $\mu$ is a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for $Q\in\D$ and $\varphi\in\bmo_{\mu,\mathsf{d}}$. Define
+\begin{align*}
+\Lambda^{0}_{\varphi}f=\sum_{Q\in\D}\DD_{Q}\left(\DD_{Q}\varphi\cdot\DD_{Q}f\right),
+\quad f\in L_{2}(\mu).
+\end{align*}
+The operator $\Lambda^{0}_{\varphi}$ is bounded on $L_{2}(\mu)$ with upper bound $\Norm{\varphi}_{\bmo_{\mu,\mathsf{d}}}$.
+\end{lemma}
+\begin{proof}
+For each $Q\in\D$ and $f,g\in L_{2}(\mu)$, obviously $\inner{\DD_{Q}f,g}=\inner{f,\DD_{Q}g}$ since $\inner{\EE_{Q}f,g}=\inner{f,\EE_{Q}g}$. Therefore, 
+\begin{align*}
+\inner{\Lambda^{0}_{\varphi}f,g}
+=\sum_{Q\in\D}\inner{\DD_{Q}\left(\DD_{Q}\varphi\cdot\DD_{Q}f\right),g}
+&=\sum_{Q\in\D}\inner{\DD_{Q}\varphi\cdot\DD_{Q}f,\DD_{Q}g}\\
+&\leq\left(\sum_{Q\in\D}\Norm{\DD_{Q}\varphi}_{L_{\infty}(\mu)}^{2}\Norm{\DD_{Q}f}_{L_{2}(\mu)}^{2}\right)^{\frac{1}{2}}
+\left(\sum_{Q\in\D}\Norm{\DD_{Q}g}_{L_{2}(\mu)}^{2}\right)^{\frac{1}{2}}.
+\end{align*}
+Observing that
+\begin{align*}
+\Norm{\DD_{Q}\varphi}_{L_{\infty}(\mu)}
+\leq\sup_{k\in\ZZ}\Norm{\EE_{k}\varphi-\EE_{k-1}\varphi}_{L_{\infty}(\mu)}
+=\Norm{\varphi}_{\bmo_{\mu,\infty}}
+\end{align*}
+and (this is due to the orthogonality of martingale differences)
+\begin{align*}
+\left(\sum_{Q\in\D}\Norm{\DD_{Q}g}_{L_{2}(\mu)}^{2}\right)^{\frac{1}{2}}=\Norm{g}_{L_{2}(\mu)},\quad
+\left(\sum_{Q\in\D}\Norm{\DD_{Q}f}_{L_{2}(\mu)}^{2}\right)^{\frac{1}{2}}=\Norm{f}_{L_{2}(\mu)},
+\end{align*}
+we arrive at
+\begin{align*}
+|\inner{\Lambda^{0}_{\varphi}f,g}|
+\leq\Norm{\varphi}_{\bmo_{\mu,\mathsf{d}}}\Norm{f}_{L_{2}(\mu)}\Norm{g}_{L_{2}(\mu)}.
+\end{align*}
+Since $0<\mu(Q)<\infty$ for $Q\in\D$, this implies that $\mu$ is a $\sigma$-finite measure and therefore the dual representation holds for $L_{p}(\mu)$ with $1\leq p<\infty$.
+Finally, the desired assertion follows from the dual representation of $L_{2}(\mu)$.
+\end{proof}
+
+
+
+
+
+%This proof is similar to \cite[Theorem A]{BAPW2024} but our Hilbert transform and measure condition are different. So it is valuable to write it down here for the completeness.
+
+\begin{proposition}\label{L2 estimate}
+Let $\mu$ be a $m$-increasing Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for each $Q\in\D$.  If $\varphi\in\BMO_{\mu,2}$, then 
+\begin{align*}
+\Norm{[M_{\varphi},H_{\D}]}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\leq C\Norm{\varphi}_{\BMO_{\mu,2}},
+\end{align*}
+for some positive constant $C$ independent of $\varphi$.
+\end{proposition}
+\begin{proof}
+Take $f\in L_2(\mu)$. We write $f$ as the sum of martingale differences:
+$$f=\sum_{k\in\mathbb{Z}}\mathbb{E}_k(f)-\mathbb{E}_{k-1}(f)=\sum_{Q\in\D}\DD_{Q}f.$$
+Similarly, write
+ $$\displaystyle\varphi=\sum_{Q\in\D}\DD_{Q}\varphi.$$
+Both convergence can be understood in the sense of $L_{2}(\mu)$-norm.
+Therefore, we apply \cite[Proposition 1.5]{Tr2013} to get
+\begin{align*}
+M_{\varphi}f=\pi_{\varphi}f+\Lambda^{0}_{\varphi}f+\Lambda^{1}_{\varphi}f+\pi_{\varphi}^{*}f,
+\end{align*}
+where
+%\begin{align*}
+%\pi_{\varphi}^{(*)}f(x)=\sum_{Q\in\D}\inner{\varphi,h_{Q}}\inner{f,h_{Q}}h_{Q}(x)^{2},
+%\end{align*}
+\begin{align*}
+\pi_{\varphi}f
+=\sum_{Q\in\D}\DD_{Q}\varphi\cdot \EE_{Q}f,
+%=\sum_{Q\in\D}\inner{\varphi,h_{Q}}h_{Q}(x)\left(\sum_{J\in\D:J\supsetneq Q}\inner{f,h_{J}}h_{J}(x)\right)
+%=\sum_{Q\in\D}f_{Q}\inner{\varphi,h_{Q}}h_{Q}(x)
+\end{align*}
+and $\pi_{\varphi}^{*}$ is the $L_{2}(\mu)$-adjoint of $\pi_{\varphi}$, and
+\begin{align*}
+\Lambda^{0}_{\varphi}f
+=\sum_{Q\in\D}\DD_{Q}\left(\DD_{Q}\varphi\cdot\DD_{Q}f\right),\quad
+\Lambda^{1}_{\varphi}f
+=\sum_{Q\in\D}\EE_{Q}\varphi\cdot\DD_{Q}f.
+%=\sum_{Q\in\D}\inner{f,h_{Q}}h_{Q}(x)\left(\sum_{J\in\D:J\supsetneq Q}\inner{\varphi,h_{J}}h_{J}(x)\right)
+%=\sum_{Q\in\D}\varphi_{Q}\inner{f,h_{Q}}h_{Q}(x).
+\end{align*}
+The operators $\pi_{\varphi}$ is called paraproduct in \cite{Tr2013}. 
+Since $\pi_{\varphi}^{*}$ is the $L_{2}(\mu)$-adjoint of $\pi_{\varphi}$, by \Cref{L2 estimate paraproduct}, $\pi_{\varphi}$ and $\pi_{\varphi}^{*}$ are bounded on $L_{2}(\mu)$ with
+\begin{align*}
+\Norm{\pi_{\varphi}}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\lesssim\Norm{\varphi}_{\bmo_{\mu,2}}
+\leq\Norm{\varphi}_{\BMO_{\mu}}
+\quad\mbox{and}\quad
+\Norm{\pi_{\varphi}^{*}}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\lesssim\Norm{\varphi}_{\bmo_{\mu,2}}
+\leq\Norm{\varphi}_{\BMO_{\mu}}.
+\end{align*}
+By \Cref{L2 estimate ad-paraproduct}, $\Lambda^{0}_{\varphi}$ is also bounded on $L_{2}(\mu)$ with
+\begin{align*}
+\Norm{\Lambda^{0}_{\varphi}}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\leq\Norm{\varphi}_{\bmo_{\mu,\mathsf{d}}}
+\leq \Norm{\varphi}_{\BMO_{\mu}}.
+\end{align*}
+Note that, in \cite[Theorem 2.5]{LMP2014}, the operator $H_{\D}$ is bounded on $L_{p}(\mu)$ for $1<p\leq2$. Therefore,
+\begin{align*}
+\Norm{[\pi_{\varphi},H_{\D}]}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\lesssim \Norm{\varphi}_{\BMO_{\mu,2}},\quad
+\Norm{[\pi_{\varphi}^{*},H_{\D}]}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\lesssim \Norm{\varphi}_{\BMO_{\mu,2}}
+\end{align*} 
+and
+\begin{align*}
+\Norm{[\Lambda^{0}_{\varphi},H_{\D}]}_{L_{2}(\mu)\rightarrow L_{2}(\mu)}
+\lesssim \Norm{\varphi}_{\BMO_{\mu,2}}.
+\end{align*} 
+So it is left to investigate the commutator $[\Lambda^{1}_{\varphi},H_{\D}]$.
+
+
+By definition of $H_{\D}$, one has
+\begin{align*}
+H_{\D}(\Lambda^{1}_{\varphi}f)(x)=\sum_{Q\in\D}\sigma_{Q}\varphi_{\wh{Q}}\inner{f,h_{\wh{Q}}}h_{Q}(x)
+\end{align*}
+and
+\begin{align*}
+\Lambda^{1}_{\varphi}(H_{\D}f)(x)=\sum_{Q\in\D}\sigma_{Q}\varphi_{Q}\inner{f,h_{\wh{Q}}}h_{Q}(x).
+\end{align*}
+It gives that $$[\Lambda^{1}_{\varphi},H_{\D}]f(x)=
+\sum_{Q\in\D}\sigma_{Q}\left(\varphi_{Q}-\varphi_{\wh{Q}}\right)\inner{f,h_{\wh{Q}}}h_{Q}(x).$$
+Observing that $$\sup_{Q\in\D}|\sigma_{Q}\left(\varphi_{Q}-\varphi_{\wh{Q}}\right)|=\sup_k\sup_{Q\in \mathcal{D}_k}|\mathbb{E}_k(\varphi)\chi_Q-\mathbb{E}_{k-1}(\varphi)\chi_{Q}|=\|\varphi\|_{\bmo_{\mu,\mathsf{d}}}\leq\Norm{\varphi}_{\BMO_{\mu,2}},$$
+we have
+\begin{align*}
+\Norm{[\Lambda^{1}_{\varphi},H_{\D}]f}_{L_{2}(\mu)}^{2}
+&=\sum_{Q\in\D}|\sigma_{Q}\left(\varphi_{Q}-\varphi_{\wh{Q}}\right)|^{2}|\inner{f,h_{\wh{Q}}}|^{2}\\
+&\leq\Norm{\varphi}_{\BMO_{\mu,2}}^{2}\sum_{Q\in\D}|\inner{f,h_{\wh{Q}}}|^{2}\\
+&\leq2\Norm{\varphi}_{\BMO_{\mu,2}}^{2}\Norm{f}_{L_{2}(\mu)}^{2}.
+\end{align*}
+Therefore, the operator $[\Lambda^{1}_{\varphi},H_{\D}]$ is bounded on $L_{2}(\mu)$ with upper bound $\sqrt{2}\Norm{\varphi}_{\BMO_{\mu,2}}$. Finally, write the commutator $$[M_{\varphi},H_{\D}]=[\pi_{\varphi},H_{\D}]+[\Lambda^{0}_{\varphi},H_{\D}]
++[\Lambda^{1}_{\varphi},H_{\D}]+[\pi_{\varphi}^{*},H_{\D}].$$ The estimates on $L_{2}(\mu)$ of $[\pi_{\varphi},H_{\D}]$, $[\pi_{\varphi}^{*},H_{\D}]$, $[\Lambda^{0}_{\varphi},H_{\D}]$ and $[\Lambda^{1}_{\varphi},H_{\D}]$ announce that $[M_{\varphi},H_{\D}]$ is bounded on $L_{2}(\mu)$ with upper bound $\Norm{\varphi}_{\BMO_{\mu,2}}$ multiplying some universal constant.
+
+\end{proof}
+
+\begin{remark}
+In viewing the proof of \Cref{L2 estimate}, the $L_{p}(\mu)$-boundedness $(1<p<2)$ of $[M_{\varphi},H_{\D}]$ is more difficult since $\pi_{\varphi}^{*}$ is not bounded on $L_{p}(\mu)$ with $1<p<2$ when $\mu$ is a non-doubling measure.
+\end{remark}
+
+\subsection{Proof of $L_{p}$-boundedness}
+In this subsection, we prove \Cref{Lp estimate} under the assumption that we already have \Cref{endpoint estimate}. To prove $L_{p}$-boundedness $(1<p<2)$, we need a delicate estimate in calculus.
+
+\begin{lemma}\label{integral estimate lemma}
+Let $A>0$ and let $p>1$. There is a constant $C_{p}>0$ only depending on $p$ satisfying that
+\begin{align*}
+\int_{0}^{A}\log(1+\frac{A}{\lambda})\lambda^{p-2}d\lambda\leq C_{p}A^{p-1}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Letting $\lambda=\frac{A}{t}$ and integrating by parts, we have
+\begin{align}\label{integral estimate}
+\nonumber\int_{0}^{A}\log(1+\frac{A}{\lambda})\lambda^{p-2}d\lambda
+&=A^{p-1}\int_{1}^{\infty}t^{-p}\log(1+t)dt\\
+&=\frac{\log(2)}{p-1}A^{p-1}+
+\frac{A^{p-1}}{p-1}\int_{1}^{\infty}t^{-p+1}\frac{1}{1+t}dt.
+\end{align}
+For the second factor in the last line on the right hand side, let us decompose the interval $(1,\infty)$ into pieces as follows
+\begin{align*}
+\int_{1}^{\infty}t^{-p+1}\frac{1}{1+t}dt
+&=\sum_{k=0}^{\infty}\int_{2^k}^{2^{k+1}}t^{-p+1}\frac{1}{1+t}dt\\
+&\leq \sum_{k=0}^{\infty}\int_{2^{k}}^{2^{k+1}}(2^{k})^{-p+1}\frac{1}{1+2^{k}}dt\leq\sum_{k=0}^{\infty}2^{k(1-p)}=:c_{p},
+\end{align*}
+where the series is convergent since $p>1$. Together this estimate with \eqref{integral estimate}, we obtain the desired assertion.
+
+\end{proof}
+
+
+To prove \Cref{Lp estimate} for $1<p<2$, let us firstly admit \Cref{endpoint estimate} whose proof will be provided in \Cref{sec-end}. 
+
+\begin{proof}[Proof of \Cref{Lp estimate}]
+ It suffices to consider the cases for $1<p<2$ since the case $p=2$ is included in \Cref{L2 estimate}. Without loss of generality, assume $\Norm{\varphi}_{\BMO_{\mu,2}}=1$ firstly. For $f\in L_{p}(\mu)$ and any $\lambda>0$, decompose $f=f_{\lambda}+f^{\lambda}$, where
+\begin{equation*}
+f_{\lambda}(x)=\left\{
+\begin{aligned}
+f(x),\quad&|f(x)|>\lambda\\
+0,\quad&|f(x)|\leq\lambda;
+\end{aligned}
+\right.
+\quad\mbox{and}\quad
+f^{\lambda}(x)=\left\{
+\begin{aligned}
+0,\quad&|f(x)|>\lambda\\
+f(x),\quad&|f(x)|\leq\lambda.
+\end{aligned}
+\right.
+\end{equation*}
+By distribution formula \cite[Proposition 1.1.4]{Gr-book1}, one has
+\begin{align*}
+\Norm{[M_{\varphi},H_{\D}]f}_{L_{p}(\mu)}^{p}
+&=p2^{p-1}\int_{0}^{\infty}\mu\left(\set{x\in\RR:|[M_{\varphi},H_{\D}]f(x)|>2\lambda}\right)
+\lambda^{p-1}d\lambda\\
+&\lesssim\int_{0}^{\infty}\mu\left(\set{x\in\RR:|[M_{\varphi},H_{\D}]f^{\lambda}(x)|>\lambda}\right)
+\lambda^{p-1}d\lambda\\
+&\quad+\int_{0}^{\infty}\mu\left(\set{x\in\RR:|[M_{\varphi},H_{\D}]f_{\lambda}(x)|>\lambda}\right)
+\lambda^{p-1}d\lambda\\
+&\lesssim\int_{0}^{\infty}\Norm{f^{\lambda}}_{L_{2}(\mu)}^{2}\lambda^{p-3}d\lambda
++\int_{0}^{\infty}\int_{\RR}\frac{|f_{\lambda}(x)|}{\lambda}\left(1+\log^{+}(\frac{|f_{\lambda}(x)|}{\lambda})\right)
+d\mu(x)\lambda^{p-1}d\lambda,
+\\&=\int_{0}^{\infty}\Norm{f^{\lambda}}_{L_{2}(\mu)}^{2}\lambda^{p-3}d\lambda+\mathrm{II}
+\end{align*}
+where we used \Cref{L2 estimate} and \Cref{endpoint estimate} in the last inequality.
+Note that, for $1<p<2$,
+\begin{align*}
+\int_{0}^{\infty}\Norm{f^{\lambda}}_{L_{2}(\mu)}^{2}\lambda^{p-3}d\lambda
+=\int_{\RR}\int_{|f(x)|}^{\infty}\lambda^{p-3}d\lambda\cdot|f(x)|^{2}d\mu(x)
+=\frac{1}{2-p}\Norm{f}_{L_{p}(\mu)}^{p}.
+\end{align*}
+On the other hand side, applying \Cref{integral estimate lemma} to $A=f(x)$ with $f(x)\neq0$, it follows that
+\begin{align*}
+\mathrm{II}&= \int_{\RR}\int_{0}^{|f(x)|}
+\lambda^{p-2}d\lambda \cdot |f(x)|d \mu(x)+ \int_{\RR}\int_{0}^{|f(x)|}\left(1+\log^{+}(\frac{|f_{\lambda}(x)|}{\lambda})\right)
+\lambda^{p-2}d\lambda d \cdot |f_{\lambda}(x)|\mu(x)\\
+&\leq\frac{1}{p-1}\Norm{f}_{L_{p}(\mu)}^{p}
++\int_{\RR}\int_{0}^{|f(x)|}\lambda^{p-2}\log\left(1+\frac{|f(x)|}{\lambda}\right)d\lambda\cdot|f(x)|d\mu(x)\\
+&\lesssim\Norm{f}_{L_{p}(\mu)}^{p}.
+\end{align*}
+Therefore, for $1<p<2$ and $\Norm{\varphi}_{\BMO_{\mu,2}}=1$, we have
+\begin{align*}
+\Norm{[M_{\varphi},H_{\D}]f}_{L_{p}(\mu)}\lesssim\Norm{f}_{L_{p}(\mu)},
+\end{align*}
+where the constant only depends  on $p$. Now, when $\Norm{\varphi}_{\BMO_{\mu,2}}\neq1$, let us write $$[M_{\varphi},H_{\D}]f=[M_{\frac{\varphi}{\Norm{\varphi}_{\BMO_{\mu,2}}}},H_{\D}](\Norm{\varphi}_{\BMO_{\mu,2}}f),$$
+which gives the assertion of $[M_{\varphi},H_{\D}]$ for $1<p<2$ from the previous argument. The assertion of $[M_{\varphi},H_{\D}^{*}]$ immediately follows from standard  duality argument. The proof is complete.
+\end{proof}
+
+
+\section{Endpoint estimate}\label{sec-end}
+In this section, we show \Cref{endpoint estimate} by using the Calder\'{o}n-Zygmund decomposition and  \Cref{L2 estimate}. In \Cref{sec-nece lemmas}, we present useful lemmas, and the detailed proof of \Cref{endpoint estimate} is given in \Cref{sec-detailed proof}.
+
+\subsection{Necessary lemmas}\label{sec-nece lemmas}
+The following two   lemmas will be used later.
+
+
+\begin{lemma}\label{estimate to T32}
+Let $\varphi$ and $f$ be as in \Cref{endpoint estimate}, and let $\Omega_{\alpha}=\cup_jQ_j$ be as in \Cref{CZ decomposition} at level $\alpha=\frac{\lambda}{\Norm{\varphi}_{\BMO_{\mu,2}}}$, $\lambda>0$. Denote $\mathcal{Q}=\{Q_j\}_j$. For each $Q\in \mathcal{Q}$, we have
+\begin{align*}
+\frac{1}{\lambda}\int_{Q}\left|(\varphi(y)-\varphi_{Q})f(y)\right|d\mu(y)
+\leq2\int_{Q}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}
+\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y).
+\end{align*}
+\end{lemma}
+\begin{proof}
+Recall that the complementary Young function of $\Phi(t)=t(1+\log^{+}t)$ is given by $\widetilde{\Phi}(t)\simeq e^{t}$ (see \cite[Section 4.3]{PKJF-book}). By generalized H\"{o}lder's inequality in \Cref{Holder inequality}, we have
+\begin{align*}
+\int_{Q}\left|(\varphi(y)-\varphi_{Q})f(y)\right|d\mu(y)
+&=\frac{1}{\Norm{\varphi}_{\BMO_{\mu,2}}}
+\int_{Q}|\varphi(y)-\varphi_{Q}|\cdot\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|d\mu(y)\\
+&\leq\frac{1}{\Norm{\varphi}_{\BMO_{\mu,2}}}
+\Norm{\varphi-\varphi_{Q}}_{L^{\exp}(Q,\mu)}
+\Norm{\Norm{\varphi}_{\BMO_{\mu,2}}f}_{L^{\Phi}(Q,\mu)}\mu(Q).
+\end{align*}
+By the John-Nirenberg inequality \eqref{John-Nirenberg inequality}, one has
+\begin{align}\label{exp J-N inequality}
+\Norm{\varphi-\varphi_{Q}}_{L^{\exp}(Q,\mu)}\leq C\Norm{\varphi}_{\BMO_{\mu,2}}.
+\end{align}
+Indeed, for an undetermined positive constant $C$, by John-Nirenberg inequality,
+\begin{align*}
+\frac{1}{\mu(Q)}\int_{Q}e^{\frac{|\varphi(y)-\varphi_{Q}|}{C\Norm{\varphi}_{\BMO_{\mu,2}}}}d\mu(y)
+&=\frac{1}{\mu(Q)}\int_{0}^{\infty}e^{t}
+\mu\left(\{y\in Q:|\varphi(y)-\varphi_{Q}|\geq C\Norm{\varphi}_{\BMO_{\mu,2}}t\}\right)dt\\
+&\leq\int_{0}^{\infty}e^{(1-\delta C)t}dt.
+\end{align*}
+Now, we can pick a large positive constant $C$ such that $\delta C>1$ and the last integral is less that 1.  This implies \eqref{exp J-N inequality} holds.
+For $\Phi(t)=t(1+\log^{+}t)$, recalling \eqref{equivalent norm}, we have
+\begin{align*}
+\frac{1}{\lambda}\Norm{\Norm{\varphi}_{\BMO_{\mu,2}}f}_{L^{t(1+\log^{+} t)}(Q,\mu)}\mu(Q)
+&\leq\frac{1}{\lambda}\mu(Q)\inf_{t>0}
+\set{t+\frac{t}{\mu(Q)}\int_{Q}\Phi(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{t})d\mu(y)}\\
+&\leq \mu(Q)+\int_{Q}\Phi(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})d\mu(y)\\
+&\leq \frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\int_{Q}|f(y)|d\mu(y)
++\int_{Q}\Phi(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})d\mu(y)\\
+&\leq2\int_{Q}\Phi(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})d\mu(y),
+\end{align*}
+where in the last second inequality we use the fact from Calder\'{o}n-Zygmund decomposition in \Cref{CZ decomposition} that $$\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\mu(Q)}\int_{Q}|f(y)|d\mu(y)>\lambda.$$
+It gives that
+\begin{align*}
+\frac{1}{\lambda}\Norm{\Norm{\varphi}_{\BMO_{\mu,2}}f}_{L\log L(\mu),Q}|Q|
+\leq2\int_{Q}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}\left(1+\log^{+}
+(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y).
+\end{align*}
+This inequality and estimate \eqref{exp J-N inequality} imply the assertion.
+
+\end{proof}
+
+
+
+\begin{lemma}\label{estimate to T41}
+Let $\varphi$ and $f$ be as in \Cref{endpoint estimate}. Let $\set{\beta_{j}}_{j}$ and $\set{Q_{j}}_{j}\subset\D$ be as  in \Cref{CZ decomposition} at level $\alpha=\frac{\lambda}{\Norm{\varphi}_{\BMO_{\mu,2}}}$,  $0<\lambda<\infty$. We have
+\begin{align*}
+\mathsf{B}_{\lambda}:=\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:
+\left|\sum_{j}(\varphi(y)-\varphi_{\wh{Q}_{j}})H_{\D}\beta_{j}(y)\right|>\frac{\lambda}{6}}\right)
+\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+For each $j$, $\beta_{j}$ has vanishing integrals with support $\wh{Q}_{j}$, is a constant on each dyadic children of $\wh{Q}_{j}$, Then, we have
+$$\inner{\beta_{j},h_{Q}}=
+\sigma(Q_{j})(f_{Q_{j}}-f_{\wh{Q}_{j}})m(\wh{Q}_{j})^{\frac{1}{2}}\delta_{\wh{Q}_{j},Q},$$
+which further implies
+$$H_{\D}\beta_{j}(y)=\sum_{Q\in\D}\sigma(Q)\inner{\beta_{j},h_{\wh{Q}}}h_{Q}(y)
+=(f_{Q_{j}}-f_{\wh{Q}_{j}})m(\wh{Q}_{j})^{\frac{1}{2}}(h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)),$$
+where $Q_{j}^{b}=\wh{Q}_{j}\setminus Q_{j}\in\D$ is the dyadic brother of $Q\in\D$. 
+It follows that each $H_{\D}\beta_{j}$ is supported in $\wh{Q}_{j}$, and then
+\begin{equation}\label{estimate T41}
+\begin{split}
+\mathsf{B}_{\lambda}
+&\lesssim\frac{1}{\lambda}
+\sum_{j}\int_{\wh{Q}_{j}}|(\varphi(y)-\varphi_{\wh{Q}_{j}})H_{\D}\beta_{j}(y)|d\mu(y)\\
+&\lesssim
+\frac{1}{\lambda}\sum_{j}|f_{Q_{j}}-f_{\wh{Q}_{j}}|m(\wh{Q}_{j})^{\frac{1}{2}}\cdot
+\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|\cdot|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y).
+\end{split}
+\end{equation}
+Next, let us investigate the integrand on the last line. For $Q_{j}\in\D_{j}$, we know its father $\wh{Q}_{j}\in\D_{j-1}$ and  $h_{Q_{j}},h_{Q_{j}^{b}}\in\F_{j+1}$ . Thus,
+\begin{align*}
+\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|\cdot|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)
+&=\int_{\wh{Q}_{j}}|\varphi(y)-\EE_{j-1}(\varphi)(y)|\cdot|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&\leq\int_{\wh{Q}_{j}}|\varphi(y)-\EE_{j+1}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&\quad+\int_{\wh{Q}_{j}}|\EE_{j+1}(\varphi)(y)-\EE_{j}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&\quad+\int_{\wh{Q}_{j}}|\EE_{j}(\varphi)(y)-\EE_{j-1}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&=\mathrm{I}_1+\mathrm{II}_2+\mathrm{III}_3.
+\end{align*}
+{\color{red}I stop here.}
+We next estimate the three terms on the right hand side separately.
+Observing that $Q_{j},Q_{j}^{b}\subset \wh{Q}_{j}$ and measure $\mu$ is $m$-increasing, it follows from \eqref{hQ norm} that 
+\begin{align}\label{hQ-hQ integral}
+\int_{\wh{Q}_{j}}|h_{Q_{j}}-h_{Q_{j}^{b}}|d\mu(y)
+\leq2m(Q_{j})^{\frac{1}{2}}+2m(Q_{j}^{b})^{\frac{1}{2}}
+\lesssim m(\wh{Q}_{j})^{\frac{1}{2}}.
+\end{align}
+We have
+\begin{align*}
+\int_{\wh{Q}_{j}}|\EE_{j+1}(\varphi)(y)-\EE_{j}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)
+&\leq\Norm{\varphi}_{\bmo_{\mu,\infty}}\int_{\wh{Q}_{j}}|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&\lesssim\Norm{\varphi}_{\bmo_{\mu,\infty}}m(\wh{Q}_{j})^{\frac{1}{2}}.
+\end{align*}
+Similarly,
+\begin{align*}
+\int_{\wh{Q}_{j}}|\EE_{j}(\varphi)(y)-\EE_{j-1}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)
+\lesssim\Norm{\varphi}_{\bmo_{\mu,\infty}}m(\wh{Q}_{j})^{\frac{1}{2}}.
+\end{align*}
+Since $h_{Q_{j}},h_{Q_{j}^{b}}\in\F_{j+1}$ and $\chi_{\wh{Q}_{j}}\in\F_{j-1}\subset\F_{j+1}$, it gives from \eqref{hQ-hQ integral} that
+\begin{align*}
+&\int_{\RR}|\varphi(y)-\EE_{j+1}(\varphi)(y)||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|\chi_{\wh{Q}_{j}}(y)d\mu(y)\\
+&=\int_{\RR}\EE_{j+1}\left(|\varphi-\EE_{j+1}(\varphi)||h_{Q_{j}}-h_{Q_{j}^{b}}|\chi_{\wh{Q}_{j}}\right)(y)d\mu(y)\\
+&=\int_{\RR}|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|\chi_{\wh{Q}_{j}}(y)\EE_{j+1}\left(|\varphi-\EE_{j+1}(\varphi)|\right)(y)d\mu(y)\\
+&\leq\sup_{j}\Norm{\EE_{j+1}\left(|\varphi-\EE_{j+1}(\varphi)|\right)}_{\infty}\int_{\wh{Q}_{j}}|h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)\\
+&\lesssim\Norm{\varphi}_{\BMO_{\mu,2}}m(\wh{Q}_{j})^{\frac{1}{2}}.
+\end{align*}
+In a sum, by \eqref{BMO intersection space},
+\begin{align*}%\label{p-pQ hQ-hQ estimate}
+\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}||h_{Q_{j}}(y)-h_{Q_{j}^{b}}(y)|d\mu(y)
+\lesssim\Norm{\varphi}_{\BMO_{\mu,2}}m(\wh{Q}_{j})^{\frac{1}{2}}.
+\end{align*}
+Therefore, combining \eqref{estimate T41} with this estimate,
+\begin{align*}
+\mathsf{B}_{\lambda}
+&\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\sum_{j}|f_{Q_{j}}-f_{\wh{Q}_{j}}|m(\wh{Q}_{j})\\
+&\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\sum_{j}|f|_{Q_{j}}m(\wh{Q}_{j})\\
+&\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\sum_{j}\int_{Q_{j}}|f(y)|d\mu(y)\\
+&\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*}
+where we use $|f|_{\wh{Q}_{j}}\leq\alpha<|f|_{Q_{j}}$ in the second line which can be discerned in \cite[(3.2) in page 57]{LMP2014} and we use $m(\wh{Q}_{j})\leq\mu(Q_{j})$ in the third line which can be found in \cite[page 51]{LMP2014}. 
+
+
+\end{proof}
+
+
+
+
+\subsection{Proof of \Cref{endpoint estimate}}\label{sec-detailed proof}
+
+We are now ready to prove \Cref{endpoint estimate}.
+
+\begin{proof}[Proof of \Cref{endpoint estimate}]
+Fix $\lambda>0$. Decompose $\RR=\Omega_{\alpha}\bigcup(\RR\setminus\Omega_{\alpha})$ where $\displaystyle\Omega_{\alpha}=\bigcup_{j}Q_{j}$ is the set arising from the Calder\'{o}n-Zygmund decomposition for $f$ in \Cref{CZ decomposition} at level $\alpha=\frac{\lambda}{\Norm{\varphi}_{\BMO_{\mu,2}}}$.
+Therefore, $f=g+b+\beta$ and
+\begin{align*}
+\mu\left(\set{y\in\RR:\left|[M_{\varphi},H_{\D}]f(y)\right|>\lambda}\right)
+&\leq\mu\left(\set{y\in\Omega_{\alpha}:\left|[M_{\varphi},T]f(y)\right|>\lambda}\right)\\
+&\quad+\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|[M_{\varphi},H_{\D}]g(y)\right|>\frac{\lambda}{3}}\right)\\
+&\quad+\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|[M_{\varphi},H_{\D}]b(y)\right|>\frac{\lambda}{3}}\right)\\
+&\quad+\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|[M_{\varphi},H_{\D}]\beta(y)\right|>\frac{\lambda}{3}}\right)\\
+&=:{\rm T}_{1}+{\rm T}_{2}+{\rm T}_{3}+{\rm T}_{4}.
+\end{align*}
+
+
+By \Cref{CZ decomposition} \eqref{Omega upper bd} and $\alpha=\frac{\lambda}{\Norm{\varphi}_{\BMO_{\mu,2}}}$, we have
+\begin{align*}
+{\rm T}_{1}\leq\mu(\Omega_{\alpha})
+\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}\Norm{f}_{L_{1}(\mu)}}{\lambda}.
+\end{align*}
+
+
+
+It follows from \Cref{L2 estimate} that $[M_{\varphi},H_{\D}]$ is bounded on $L_{2}(\mu)$ provided $\varphi\in\BMO_{\mu,2}$. Therefore, combining \Cref{CZ decomposition} \eqref{g upper bd},
+\begin{align*}
+{\rm T}_{2}
+&\leq\frac{4}{\lambda^{2}}\int_{\RR\setminus\Omega_{\alpha}}|[M_{\varphi},H_{\D}]g(y)|^{2}d\mu(y)\\
+&\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}^{2}}{\lambda^{2}}\int_{\RR}|g(y)|^{2}d\mu(y)\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*}
+
+
+Now, let us estimate ${\rm T}_{3}$. Write 
+$$b=\sum_{j}b_{j}=(f-f_{Q_{j}})\chi_{Q_{j}}.$$
+Observing that each $b_{j}$ has vanishing integral and that $h_{Q}$ is constant on each $Q_{\pm}$, it is easy to see that $H_{\D}b_{j}(x)=0$ whenever $x\in \RR\setminus Q_{j}$. We have
+\begin{align*}
+[M_{\varphi},H_{\D}]b(y)&=\sum_{j}[M_{\varphi-\varphi_{Q_{j}}},H_{\D}]b_{j}(y)\\
+&=\sum_{j}(\varphi(y)-\varphi_{Q_{j}})H_{\D}b_{j}(y)-\sum_{j}H_{\D}((\varphi-\varphi_{Q_{j}})b_{j})(y)\\
+&=-\sum_{j}H_{\D}((\varphi-\varphi_{Q_{j}})b_{j})(y).
+\end{align*}
+Thus,
+\begin{align*}
+{\rm T}_{3}=
+\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|\sum_{j}H_{\D}((\varphi-\varphi_{Q_{j}})b_{j})(y)\right|>\frac{\lambda}{3}}\right).
+\end{align*}
+Since $H_{\D}$ is of type weak $(1,1)$ when $\mu$ is $m$-increasing (see \cite[Theorem 2.5]{LMP2014}), it follows that
+\begin{align*}
+{\rm T}_{3}
+&\lesssim\frac{1}{\lambda}\int_{\RR}\left|\sum_{j}(\varphi(y)-\varphi_{Q_{j}})b_{j}(y)\right|d\mu(y)\\
+&\lesssim\frac{1}{\lambda}\sum_{j}\int_{Q_{j}}\left|(\varphi(y)-\varphi_{Q_{j}})f_{Q_{j}}\right|d\mu(y)
++\frac{1}{\lambda}\sum_{j}\int_{Q_{j}}\left|(\varphi(y)-\varphi_{Q_{j}})f(y)\right|d\mu(y)\\
+&=:{\rm T}_{31}+{\rm T}_{32}.
+\end{align*}
+By the non-overlapping property of $\{Q_{j}\}$, we have
+\begin{align*}%\label{estimate iii21}
+{\rm T}_{31}
+&\leq\frac{1}{\lambda}\sum_{j}\frac{1}{\mu(Q_{j})}\int_{Q_{j}}|\varphi(y)-\varphi_{Q_{j}}|d\mu(y)
+\int_{Q_{j}}|f(x)|d\mu(x)\\
+&\leq\frac{\Norm{\varphi}_{\bmo_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}\leq \frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*}
+As for ${\rm T}_{32}$, applying \Cref{estimate to T32} and using the fact that $\set{Q_{j}}_{j}$ are disjoint, one obtains
+\begin{align*}%\label{estimate iii22}
+{\rm T}_{32}&\leq2
+\sum_{j}\int_{Q_{j}}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}
+\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y)\\
+&\leq2\int_{\RR}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}
+\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y).
+\end{align*}
+Thus, 
+\begin{align*}
+{\rm T}_{3}\leq {\rm T}_{31}+{\rm T}_{32}\lesssim
+\int_{\RR}\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda}\left(1+\log^{+}(\frac{\Norm{\varphi}_{\BMO_{\mu,2}}|f(y)|}{\lambda})\right)d\mu(y).
+\end{align*}
+
+
+Next, let us investigate ${\rm T}_{4}$. Recalling that $\displaystyle \beta=\sum_{j}\beta_{j}$, we write
+$$[M_{\varphi},H_{\D}]\beta(y)=\sum_{j}[M_{\varphi-\varphi_{Q_{j}}},H_{\D}]\beta_{j}(y)
+=\sum_{j}(\varphi(y)-\varphi_{\wh{Q}_{j}})H_{\D}\beta_{j}(y)-\sum_{j}H_{\D}((\varphi-\varphi_{\wh{Q}_{j}})\beta_{j})(y).$$
+Thus,
+\begin{align*}
+{\rm T}_{4}
+&\leq\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|\sum_{j}(\varphi(y)-\varphi_{\wh{Q}_{j}})H_{\D}\beta_{j}(y)\right|>\frac{\lambda}{6}}\right)\\
+&\quad+\mu\left(\set{y\in\RR\setminus\Omega_{\alpha}:\left|\sum_{j}H_{\D}((\varphi-\varphi_{\wh{Q}_{j}})\beta_{j})(y)\right|>\frac{\lambda}{6}}\right)\\
+&=:{\rm T}_{41}+{\rm T}_{42}.
+\end{align*}
+By \Cref{estimate to T41}, we have
+\begin{align*}
+{\rm T}_{41}\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*}
+For ${\rm T}_{42}$, noting that $H_{\D}$ is of type weak $(1,1)$ when $\mu$ is $m$-increasing (see \cite[Theorem 2.5]{LMP2014}) and $\beta_{j}=(f_{Q_{j}}-f_{\wh{Q}_{j}})
+\left(\chi_{Q_{j}}(x)-\frac{\mu(Q_{j})}{\mu(\wh{Q}_{j})}\chi_{\wh{Q}_{j}}(x)\right)$, it gives that
+\begin{align*}
+{\rm T}_{42}
+&\lesssim\frac{1}{\lambda}\sum_{j}\int_{Q_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|\cdot
+|f_{Q_{j}}-f_{\wh{Q}_{j}}|d\mu(y)\\
+&\quad+\frac{1}{\lambda}\sum_{j}\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|\cdot
+|f_{Q_{j}}-f_{\wh{Q}_{j}}|\frac{\mu(Q_{j})}{\mu(\wh{Q}_{j})}d\mu(y).
+\end{align*}
+Recall that for each $j$, $|f|_{\wh{Q}_{j}}\leq\alpha<|f|_{Q_{j}}$; see \Cref{CZ decomposition}. Hence,
+\begin{align*}
+{\rm T}_{42}
+&\lesssim\frac{2}{\lambda}\sum_{j}\int_{Q_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|\cdot
+|f|_{Q_{j}}d\mu(y)
++\frac{2}{\lambda}\sum_{j}\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|
+\cdot|f|_{Q_{j}}\frac{\mu(Q_{j})}{\mu(\wh{Q}_{j})}d\mu(y)\\
+&\lesssim\frac{1}{\lambda}\sum_{j}\frac{1}{\mu(Q_{j})}\int_{Q_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|
+d\mu(y)\int_{Q_{j}}|f(x)|d\mu(x)\\
+&\quad+\frac{1}{\lambda}\sum_{j}\frac{1}{\mu(\wh{Q}_{j})}\int_{\wh{Q}_{j}}|\varphi(y)-\varphi_{\wh{Q}_{j}}|d\mu(y)
+\int_{Q_{j}}|f(x)|d\mu(x)\\
+&\leq\frac{1}{\lambda}(\Norm{\varphi}_{\BMO_{\mu,2}}+\Norm{\varphi}_{\bmo_{\mu,2}})\Norm{f}_{L_{1}(\mu)}\leq \frac{2\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda} \Norm{f}_{L_{1}(\mu)},
+\end{align*}
+where the inequality is due to \eqref{BMO intersection space}. Combing the estimates on ${\rm T}_{41}$ and $\mathrm{T}_{42}$, we arrive at
+\begin{align*}
+{\rm T}_{4}\lesssim\frac{\Norm{\varphi}_{\BMO_{\mu,2}}}{\lambda}\Norm{f}_{L_{1}(\mu)}.
+\end{align*} 
+
+
+
+Finally, the desired assertion follows from the combination of estimates for ${\rm T}_{1}$, ${\rm T}_{2}$, ${\rm T}_{3}$ and ${\rm T}_{4}$.  
+\end{proof}
+
+
+
+
+\section{Compactness}
+%\subsection{Definition }
+%martingale version in dyadic filtration with Lebesgue measure: 
+%$$\|f\|_{B_p}=\Big(\sum_{k\geq1}\sum_{I\in D_k} \Big[|I|^{-1}\|d_kf\|_p^p\Big] \Big)^{1/p}$$
+%
+%$d_nb= \sum_{I\in D_{n-1}} <b,h_I> h_I$
+
+\subsection{Besov space}
+For $0<p<\infty$, define the martingale Besov space by
+\begin{align*}
+\Norm{f}_{\dot{\htb}_{p}(\mu)}=
+\left(\sum_{k\in\ZZ}\Norm{\beta_{k}^{\frac{1}{p}}\DD_{k}f}_{L_{p}(\mu)}^{p}\right)^{\frac{1}{p}},
+\end{align*}
+where $\displaystyle\beta_{k}=\sum_{Q\in\D_{k}}\mu(Q)\rp\chi_{Q}$. 
+{\color{red}Prove such definition does not rely on choice of basis ?}
+
+
+\begin{lemma}\label{besov equi-version}
+For $0<p<\infty$,, we have
+\begin{align*}
+\Norm{f}_{\dot{\htb}_{p}(\mu)}=
+\left(\sum_{Q\in\D}|\inner{f,h_{Q}}|^{p}m(Q)^{\frac{p}{2}}
+\left(\frac{1}{\mu(Q_{-})^{p}}+\frac{1}{\mu(Q_{+})^{p}}\right)\right)^{\frac{1}{p}}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Recall that $\displaystyle\DD_{k}f=\sum_{Q\in\D_{k-1}}\inner{f,h_{Q}}h_{Q}$. By $h_{Q}=m(Q)^{\frac{1}{2}}\left(\frac{\chi_{Q_{-}}}{\mu(Q_{-})}-\frac{\chi_{Q_{+}}}{\mu(Q_{+})}\right)$ and definition of $\beta_{k}$, it implies that
+\begin{align*}
+\beta_{k}^{\frac{1}{p}}\DD_{k}f
+&=\sum_{Q\in\D_{k-1}}\inner{f,h_{Q}}m(Q)^{\frac{1}{2}}\frac{\beta_{k}^{\frac{1}{p}}\chi_{Q_{-}}}{\mu(Q_{-})}-
+\sum_{Q\in\D_{k-1}}\inner{f,h_{Q}}m(Q)^{\frac{1}{2}}\frac{\beta_{k}^{\frac{1}{p}}\chi_{Q_{+}}}{\mu(Q_{+})}\\
+&=\sum_{Q\in\D_{k-1}}\mu(Q_{-})^{-\frac{1}{p}-1}\inner{f,h_{Q}}m(Q)^{\frac{1}{2}}\chi_{Q_{-}}-
+\sum_{Q\in\D_{k-1}}\mu(Q_{+})^{-\frac{1}{p}-1}\inner{f,h_{Q}}m(Q)^{\frac{1}{2}}\chi_{Q_{+}}.
+\end{align*}
+For sub-cube $Q_{-},Q_{+}$ of $Q$, $Q_{-}$ and $Q_{+}$ are  disjoint.  When $p$ is a positive integer, combining the disjointness of cubes in $\D_{k-1}$, we have
+\begin{align*}
+|\beta_{k}^{\frac{1}{p}}\DD_{k}f|^{p}
+&=\sum_{Q\in\D_{k-1}}\mu(Q_{-})^{-1-p}|\inner{f,h_{Q}}|^{p}m(Q)^{\frac{p}{2}}\chi_{Q_{-}}+
+\sum_{Q\in\D_{k-1}}\mu(Q_{+})^{-1-p}|\inner{f,h_{Q}}|^{p}m(Q)^{\frac{p}{2}}\chi_{Q_{+}}.
+\end{align*}
+Therefore,
+\begin{align*}
+\Norm{\beta_{k}^{\frac{1}{p}}\DD_{k}f}_{L_{p}(\mu)}^{p}
+=\sum_{Q\in\D_{k-1}}|\inner{f,h_{Q}}|^{p}m(Q)^{\frac{p}{2}}
+\left(\frac{1}{\mu(Q_{-})^{p}}+\frac{1}{\mu(Q_{+})^{p}}\right).
+\end{align*}
+This gives the desired assertion.
+
+\end{proof}
+
+
+
+\begin{proposition}\label{equivalent besov}
+For $0<p<\infty$,, we have
+\begin{align*}
+\Norm{f}_{\dot{\htb}_{p}(\mu)}\simeq
+\left(\sum_{Q\in\D}|m(Q)^{-\frac{1}{2}}\inner{f,h_{Q}}|^{p}\right)^{-\frac{1}{p}},
+\end{align*}
+where the constants only depend on $p$.
+\end{proposition}
+\begin{proof}
+Noting that $m(Q)=\frac{\mu(Q_{-})\mu(Q_{+})}{\mu(Q)}
+\simeq\left(\frac{1}{\mu(Q_{-})},\frac{1}{\mu(Q_{+})}\right)=\min(\mu(Q_{+}),\mu(Q_{-}))$, it gives us that $$\frac{1}{\mu(Q_{-})^{p}}+\frac{1}{\mu(Q_{+})^{p}}\leq\frac{2}{m(Q)^{p}}.$$
+Therefore, by \Cref{besov equi-version},
+\begin{align*}
+\Norm{f}_{\dot{\htb}_{p}(\mu)}\leq
+2^{\frac{1}{p}}\left(\sum_{Q\in\D}|m(Q)^{-\frac{1}{2}}\inner{f,h_{Q}}|^{p}\right)^{-\frac{1}{p}}.
+\end{align*}
+
+Since $\frac{1}{m(Q)}=\frac{1}{\mu(Q_{-})}+\frac{1}{\mu(Q_{+})}$ and $(a+b)^{p}\leq\max(2^{p-1},1)(a^{p}+b^{p})$ for positive numbers $a,b$, it follows that
+\begin{align*}
+\frac{1}{\mu(Q_{-})^{p}}+\frac{1}{\mu(Q_{+})^{p}}
+\geq\min(2^{1-p},1)(\frac{1}{\mu(Q_{-})}+\frac{1}{\mu(Q_{+})})^{p}
+=\min(2^{1-p},1)\frac{1}{m(Q)^{p}}.
+\end{align*}
+By \Cref{besov equi-version}, we have
+\begin{align*}
+\Norm{f}_{\dot{\htb}_{p}(\mu)}\geq
+\min(2^{\frac{1}{p}-1},1)\left(\sum_{Q\in\D}|m(Q)^{-\frac{1}{2}}\inner{f,h_{Q}}|^{p}\right)^{-\frac{1}{p}}.
+\end{align*}
+These imply the assertion.
+
+\end{proof}
+
+
+
+\begin{lemma}\label{oscillation besov}
+For $0<p<\infty$, we have
+\begin{align*}
+\Norm{\set{f_{Q}-f_{\wh{Q}}}_{Q\in\D}}_{\ell_{p}}=\Norm{f}_{\dot{\htb}_{p}(\mu)}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+For all $k\in\ZZ$,
+\begin{align*}
+\beta_{k}^{\frac{1}{p}}\DD_{k}f
+=\sum_{Q\in\D_{k}}\beta_{k}^{\frac{1}{p}}\DD_{k}f\cdot\chi_{Q}
+=\sum_{Q\in\D_{k}}\beta_{k}^{\frac{1}{p}}\left(\EE_{k}f-\EE_{k-1}f\right)\chi_{Q}
+=\sum_{Q\in\D_{k}}\mu(Q)^{-\frac{1}{p}}(f_{Q}-f_{\wh{Q}})\chi_{Q},
+\end{align*}
+where in the last equality we use the definitions of $\beta_{k}$ and conditional expectation in \eqref{expectation definition}. 
+%\begin{align*}
+%\EE_{n}(f)=\sum_{Q\in\D_{n}}\frac{1}{\mu(Q)}\int_{Q}f(y)d\mu(y)\chi_{Q},\quad n\in\ZZ.
+%\end{align*}
+By disjointness of cubes in $\D_{k}$, we have
+\begin{align*}
+|\beta_{k}^{\frac{1}{p}}\DD_{k}f|^{p}
+=\sum_{Q\in\D_{k}}\mu(Q)^{-1}|f_{Q}-f_{\wh{Q}}|^{p}\chi_{Q}.
+\end{align*}
+Moreover,
+\begin{align*}
+\Norm{\beta_{k}^{\frac{1}{p}}\DD_{k}f}_{L_{p}(\mu)}^{p}
+=\int_{\RR}\sum_{Q\in\D_{k}}\mu(Q)^{-1}|f_{Q}-f_{\wh{Q}}|^{p}\chi_{Q}d\mu
+=\sum_{Q\in\D_{k}}|f_{Q}-f_{\wh{Q}}|^{p}.
+\end{align*}
+Therefore,
+\begin{align*}
+\Norm{\set{f_{Q}-f_{\wh{Q}}}_{Q\in\D}}_{\ell_{p}}^{p}
+=\sum_{Q\in\ZZ}\sum_{Q\in\D_{k}}|f_{Q}-f_{\wh{Q}}|^{p}
+=\sum_{Q\in\ZZ}\Norm{\beta_{k}^{\frac{1}{p}}\DD_{k}f}_{L_{p}(\mu)}^{p}
+=\Norm{f}_{\dot{\htb}_{p}(\mu)}^{p}.
+\end{align*}
+This is the assertion.
+
+\end{proof}
+
+
+
+
+\subsection{Schatten estimate}
+For $e,h\in L_{2}(\mu)$, denote $$(e\otimes h)(f)=\inner{f,e}h,\quad f\in L_{2}(\mu).$$
+Note that $(e_{1}\otimes h_{1})(e_{2}\otimes h_{2})\neq e_{1}e_{2}\otimes h_{1}h_{2}$ and $(e\otimes h)^{*}= h^{*}\otimes e^{*}$. Meanwhile, we have
+\begin{align*}
+{\color{red}\Norm{e\otimes h}_{S_{p}(L_{2}(\mu))}\leq\Norm{e}_{L_{2}(\mu)}\Norm{h}_{L_{2}(\mu)},
+\quad 0<p<\infty.??????}
+\end{align*}
+Moreover, we have the following fact.
+\begin{lemma}\label{tensor Sp}
+Let $e_{1},e_{2},h_{1},h_{2}\in L_{2}(\mu)$ be real functions. We have
+$$\Tr\left((e_{1}\otimes h_{1})^{*}(e_{2}\otimes h_{2})\right)=\inner{e_{1},e_{2}}\inner{h_{1},h_{2}}.$$
+\end{lemma} 
+\begin{proof}
+Indeed, for $f\in L_{2}(\mu)$,
+\begin{align*}
+(e_{1}\otimes h_{1})^{*}(e_{2}\otimes h_{2})f
+=\inner{f,e_{2}}\cdot(h_{1}\otimes e_{1}) h_{2}
+=\inner{h_{2},h_{1}}\inner{f,e_{2}}e_{1}
+=\inner{h_{2},h_{1}}(e_{2}\otimes e_{1})f.
+\end{align*}
+Since $e_{1},e_{2}\in L_{2}(\mu)$, it follows that $e_{2}\otimes e_{1}\in S_{1}(L_{2}(\mu))$. Moreover, observing that the integral kernel of $e_{2}\otimes e_{1}$ is $e_{2}(y)e_{1}(x)$, we have
+\begin{align*}
+\Tr(e_{2}\otimes e_{1})=\int_{\RR}e_{2}(x)e_{1}(x)d\mu(x)=\inner{e_{1},e_{2}}.
+\end{align*}
+Therefore,
+\begin{align*}
+\Tr\left((e_{1}\otimes h_{1})^{*}(e_{2}\otimes h_{2})\right)
+=\inner{h_{2},h_{1}}\Tr(e_{2}\otimes e_{1})
+=\inner{h_{1},h_{2}}\inner{e_{1},e_{2}}.
+\end{align*}
+This is the assertion.
+\end{proof}
+
+
+\begin{lemma}\label{paraproduct Sp}
+Let $\mu$ be a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for $Q\in\D$. If $0<p<\infty$ and $\set{\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}\in\ell_{p}$, then
+$$\Norm{\pi_{\varphi}}_{S_{p}(L_{2}(\mu))}
+\leq\Norm{\set{\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}}_{\ell_{p}},$$
+where $\pi_{\varphi}$ is given as in \Cref{L2 estimate paraproduct}.
+\end{lemma}
+\begin{proof}
+Write
+$\displaystyle\pi_{\varphi}
+=\sum_{Q\in\D}\inner{\varphi,h_{Q}}\frac{\chi_{Q}}{\mu(Q)}\otimes h_{Q}.$ 
+When $0<p\leq1$, it follows from triangle inequality in $\Norm{\cdot}_{S_{p}(L_{2}(\mu))}^{p}$ and orthonormality of system $\set{h_{Q}}_{Q\in\D}$ that
+\begin{align*}
+\Norm{\pi_{\varphi}}_{S_{p}(L_{2}(\mu))}^{p}
+\leq\sum_{Q\in\D}|\inner{\varphi,h_{Q}}|^{p}
+\Norm{\frac{\chi_{Q}}{\mu(Q)}\otimes h_{Q}}_{S_{p}(L_{2}(\mu))}^{p}
+&\leq\sum_{Q\in\D}|\inner{\varphi,h_{Q}}|^{p}
+\Norm{\frac{\chi_{Q}}{\mu(Q)}}_{L_{2}(\mu)}^{p}\Norm{h_{Q}}_{L_{2}(\mu)}^{p}\\
+&=\sum_{Q\in\D}\left|\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}\right|^{p}.
+\end{align*}
+This gives the assertion for $0<p\leq1$.
+
+For $1\leq p<\infty$, let us firstly focus on $p=2k$ with $k\in\NN$. In such a case, by \Cref{tensor Sp} and using orthonormality of system $\set{h_{Q}}_{Q\in\D}$, we have
+\begin{align*}
+\Norm{\pi_{\varphi}}_{S_{2k}(L_{2}(\mu))}^{2k}
+&=\Tr\left(\left|\sum_{Q\in\D}\inner{\varphi,h_{Q}}\frac{\chi_{Q}}{\mu(Q)}\otimes h_{Q}\right|^{2k}\right)\\
+&=\Tr\left(\left(\sum_{J,Q\in\D}\inner{\varphi,h_{J}}^{*}\inner{\varphi,h_{Q}}
+(\frac{\chi_{J}}{\mu(J)}\otimes h_{J})^{*}
+(\frac{\chi_{Q}}{\mu(Q)}\otimes h_{Q})\right)^{k}\right)\\
+&=\sum_{Q_{1},J_{1},\cdots,Q_{k},J_{k}\in\D}\inner{\varphi,h_{Q_{1}}}\inner{\varphi,h_{J_{1}}}^{*}
+\cdots\inner{\varphi,h_{Q_{k}}}\inner{\varphi,h_{J_{k}}}^{*}\\
+&\cdot\prod_{i=1}^{k}\inner{\frac{\chi_{Q_{i}}}{\mu(Q_{i})},\frac{\chi_{J_{i}}}{\mu(J_{i})}}
+\inner{h_{J_{i}}, h_{Q_{i+1}}}\\
+&=\sum_{Q_{1},\cdots,Q_{k}\in\D}\prod_{i=1}^{k}\left|\inner{\varphi,h_{Q_{i}}}\right|^{2}
+\inner{\frac{\chi_{Q_{i}}}{\mu(Q_{i})},\frac{\chi_{Q_{i+1}}}{\mu(Q_{i+1})}},
+\end{align*}
+where we denote $Q_{k+1}=Q_{1}$. Note that $Q_{i}\subsetneq Q_{i+1}$ $(1\leq i\leq k-1)$ is impossible because the length of $Q_{i+1}$ is smaller than the length of $Q_{i}$. Therefore, due to disjointness of cubes, we can divide the index in the sum on the last line into two cases: $Q_{i}=Q_{i+1}$ and $Q_{i+1}\subsetneq Q_{i}$ $(1\leq i\leq k-1)$. When $Q_{i}=Q_{i+1}$, one has
+$$\inner{\frac{\chi_{Q_{i}}}{\mu(Q_{i})},\frac{\chi_{Q_{i+1}}}{\mu(Q_{i+1})}}
+=\frac{1}{\mu(Q_{i})}.$$
+When $Q_{i+1}\subsetneq Q_{i}$ $(1\leq i\leq k-1)$, one has
+$$\inner{\frac{\chi_{Q_{i}}}{\mu(Q_{i})},\frac{\chi_{Q_{i+1}}}{\mu(Q_{i+1})}}
+=\frac{\mu(Q_{i+1})}{\mu(Q_{i})\mu(Q_{i+1})}
+=\frac{1}{\mu(Q_{i})}.$$
+This means that we have the same result whenever in the above which cases. Thus, by property of combinatorics, we arrive at
+\begin{align*}
+\Norm{\pi_{\varphi}}_{S_{2k}(L_{2}(\mu))}^{2k}
+=\sum_{Q_{1},\cdots,Q_{k}\in\D}\prod_{i=1}^{k}\left|\inner{\varphi,h_{Q_{i}}}\right|^{2}
+\inner{\frac{\chi_{Q_{i}}}{\mu(Q_{i})},\frac{\chi_{Q_{i+1}}}{\mu(Q_{i+1})}}
+=k2^{k-1}\sum_{Q\in\D}\left|\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}\right|^{2k}.
+\end{align*}
+Moreover, by interpolation ???,
+
+
+...............................
+\end{proof}
+
+
+
+
+\begin{lemma}\label{ONB Sp}
+Let $\mu$ is a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for $Q\in\D$. For orthonormal functions $\set{e_{Q}}_{Q\in\D}$  and scalar sequence $\set{\lambda_{Q}}_{Q\in\D}$, define $$\C_{\lambda}=\sum_{Q\in\D}\lambda_{Q}e_{Q}\otimes h_{Q}.$$
+If $0<p<\infty$ and $\set{\lambda_{Q}}_{Q\in\D}\in\ell_{p}$, then 
+$$\Norm{\C_{\lambda}}_{S_{p}(L_{2}(\mu))}\lesssim\Norm{\set{\lambda_{Q}}_{Q\in\D}}_{\ell_{p}}.$$
+\end{lemma}
+\begin{proof}
+This proof is similar to \Cref{paraproduct Sp} but more easy.
+When $0<p\leq1$, it follows from triangle inequality in $\Norm{\cdot}_{S_{p}(L_{2}(\mu))}^{p}$, and orthonormality of system $\set{e_{Q}}_{Q\in\D}$ and $\set{h_{Q}}_{Q\in\D}$ that
+\begin{align*}
+\Norm{\C_{\lambda}}_{S_{p}(L_{2}(\mu))}^{p}
+\leq\sum_{Q\in\D}|\lambda_{Q}|^{p}
+\Norm{e_{Q}\otimes h_{Q}}_{S_{p}(L_{2}(\mu))}^{p}
+\leq\sum_{Q\in\D}|\lambda_{Q}|^{p}
+\Norm{e_{Q}}_{L_{2}(\mu)}^{p}\Norm{h_{Q}}_{L_{2}(\mu)}^{p}
+=\sum_{Q\in\D}\left|\lambda_{Q}\right|^{p}.
+\end{align*}
+This yields the assertion of $0<p\leq1$.
+For $1\leq p<\infty$, let us firstly focus on $p=2k$ with $k\in\NN$. In such a case, by \Cref{tensor Sp} and using orthonormality of system $\set{e_{Q}}_{Q\in\D}$ and $\set{h_{Q}}_{Q\in\D}$, we have
+\begin{align*}
+\Norm{\C_{\lambda}}_{S_{2k}(L_{2}(\mu))}^{2k}
+&=\Tr\left(\left|\sum_{Q\in\D}\lambda_{Q}e_{Q}\otimes h_{Q}\right|^{2k}\right)
+=\Tr\left(\left(\sum_{J,Q\in\D}\lambda_{J}^{*}\lambda_{Q}
+(e_{J}\otimes h_{J})^{*}(e_{Q}\otimes h_{Q})\right)^{k}\right)\\
+&=\sum_{Q_{1},J_{1},\cdots,Q_{k},J_{k}\in\D}\lambda_{Q_{1}}\lambda_{J_{1}}^{*}
+\cdots\lambda_{Q_{k}}\lambda_{J_{k}}^{*}\cdot\prod_{i=1}^{k}\inner{e_{Q_{i}},e_{J_{i}}}
+\inner{h_{J_{i}}, h_{Q_{i+1}}}\\
+&=\sum_{Q_{1},J_{1},\cdots,Q_{k},J_{k}\in\D}\lambda_{Q_{1}}\lambda_{J_{1}}^{*}
+\cdots\lambda_{Q_{k}}\lambda_{J_{k}}^{*}\cdot\prod_{i=1}^{k}\delta_{Q_{i},J_{i}}\delta_{J_{i},Q_{i+1}}\\
+&=\sum_{Q\in\D}\left|\lambda_{Q}\right|^{2k},
+\end{align*}
+where we denote $Q_{k+1}=Q_{1}$ and $\delta_{Q,J}$ is the $\delta$-function. Therefore, by interpolation ???,
+
+
+
+
+
+...............................
+\end{proof}
+
+
+
+\begin{corollary}\label{L0 Sp}
+Let $\mu$ is a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for $Q\in\D$. If $0<p<\infty$ and $\varphi\in\dot{\htb}_{p}(\mu)$, then 
+$$\Norm{\Lambda^{0}_{\varphi}}_{S_{p}(L_{2}(\mu))}
+\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.$$
+where $\Lambda^{0}_{\varphi}$ is given as in \Cref{L2 estimate ad-paraproduct}.
+\end{corollary}
+\begin{proof}
+Since $\DD_{Q}$ here is a self-adjoint operator, it yields that
+$\displaystyle\Lambda^{0}_{\varphi}=\sum_{Q\in\D}\DD_{Q}\left(h_{Q}\cdot\DD_{Q}\varphi\right)\otimes h_{Q}$.
+Combining definition of $\DD_{Q}$, we have
+$$\DD_{Q}\left(h_{Q}\cdot\DD_{Q}\varphi\right)=\inner{\varphi,h_{Q}}\inner{h_{Q}^{3},1}h_{Q}.$$
+Therefore,
+\begin{align*}
+\Lambda^{0}_{\varphi}=
+\sum_{Q\in\D}\inner{\varphi,h_{Q}}\inner{h_{Q}^{3},1}h_{Q}\otimes h_{Q}.
+\end{align*}
+By \Cref{ONB Sp}, $\Norm{h_{Q}}_{L_{3}(\mu)}\simeq m(Q)^{-\frac{1}{6}}$ and \Cref{equivalent besov}, we conclude that
+\begin{align*}
+\Norm{\Lambda^{0}_{\varphi}}_{S_{p}(L_{2}(\mu))}
+\lesssim\left(\sum_{Q\in\D}|\inner{\varphi,h_{Q}}\inner{h_{Q}^{3},1}|^{p}\right)^{\frac{1}{p}}
+\lesssim\left(\sum_{Q\in\D}|m(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}|^{p}\right)^{\frac{1}{p}}
+\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.
+%&\lesssim\left(\sum_{Q\in\D,\mu(Q_{+})\leq\mu(Q_{-})}|m(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}|^{p}\right)^{\frac{1}{p}}
+%+\left(\sum_{Q\in\D,\mu(Q_{-})\leq\mu(Q_{+})}|m(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}|^{p}\right)^{\frac{1}{p}}\\
+%&\lesssim\Norm{\set{\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{\wh{Q}}}}_{Q\in\D}}_{\ell_{p}}.
+\end{align*}
+This is the assertion.
+
+
+\end{proof}
+
+
+
+
+
+\begin{proposition}\label{commutator Sp estimate}
+Let $\mu$ be a positive Borel measure on $\RR$ with $0<\mu(Q)<\infty$ for each $Q\in\D$.  If $\varphi\in\dot{\htb}_{p}(\mu)$, then 
+\begin{align*}
+\Norm{[M_{\varphi},H_{\D}]}_{S_{p}(L_{2}(\mu))}
+\leq C\Norm{\varphi}_{\dot{\htb}_{p}(\mu)},
+\end{align*}
+for some positive constant $C$ depending only on $p$.
+\end{proposition}
+\begin{proof}
+As in the proof of \Cref{L2 estimate}, take the following decomposition into a consideration
+\begin{align*}
+M_{\varphi}=\pi_{\varphi}+\Lambda^{0}_{\varphi}+\Lambda^{1}_{\varphi}+\pi_{\varphi}^{*},
+\end{align*}
+where
+\begin{align*}
+\pi_{\varphi}f
+=\sum_{Q\in\D}\DD_{Q}\varphi\cdot \EE_{Q}f,\quad
+\pi_{\varphi}^{*}\; \mbox{is\; the}\; L_{2}(\mu)\mbox{-adjoint\; of}\; \pi_{\varphi},
+\end{align*}
+and
+\begin{align*}
+\Lambda^{0}_{\varphi}f
+=\sum_{Q\in\D}\DD_{Q}\left(\DD_{Q}\varphi\cdot\DD_{Q}f\right),\quad
+\Lambda^{1}_{\varphi}f
+=\sum_{Q\in\D}\EE_{Q}\varphi\cdot\DD_{Q}f.
+\end{align*}
+Therefore,
+$$[M_{\varphi},H_{\D}]=[\pi_{\varphi},H_{\D}]+[\Lambda^{0}_{\varphi},H_{\D}]
++[\Lambda^{1}_{\varphi},H_{\D}]+[\pi_{\varphi}^{*},H_{\D}].$$ 
+It suffices to investigate the Schatten estimates of $[\pi_{\varphi},H_{\D}]$, $[\pi_{\varphi}^{*},H_{\D}]$, $[\Lambda^{0}_{\varphi},H_{\D}]$ and $[\Lambda^{1}_{\varphi},H_{\D}]$.
+
+Note that the operator $H_{\D}$ is bounded on $L_{2}(\mu)$ with upper bound $\sqrt{2}$ when $\mu$ is a positive Borel measure. Since, for $Q\in\D$,
+\begin{align*}
+\frac{1}{\mu(Q)}\leq\min(\frac{1}{\mu(Q_{+})},\frac{1}{\mu(Q_{-})})
+\leq\frac{1}{\min(\mu(Q_{+}),\mu(Q_{+}))}=\frac{1}{m(Q)},
+\end{align*}
+it follows from \Cref{paraproduct Sp} and \Cref{equivalent besov} that
+\begin{align*}
+\Norm{[\pi_{\varphi},H_{\D}]}_{S_{p}(L_{2}(\mu))}
+%\leq\Norm{\pi_{\varphi}H_{\D}}_{S_{p}(L_{2}(\mu))}+\Norm{H_{\D}\pi_{\varphi}}_{S_{p}(L_{2}(\mu))}
+\leq2\Norm{\pi_{\varphi}}_{S_{p}(L_{2}(\mu))}\Norm{H_{\D}}_{\B(L_{2}(\mu))}
+&\leq2\sqrt{2}\Norm{\set{\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}}_{\ell_{p}}\\
+&\lesssim\Norm{\set{m(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}}_{\ell_{p}}\\
+&\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.
+\end{align*} 
+At the same time, since $H_{\D}^{*}$ is bounded on $L_{2}(\mu)$ with upper bound $\sqrt{2}$ and $\Norm{\cdot}_{S_{p}(L_{2}(\mu))}$ is unitarily invariant,  it follows from \Cref{paraproduct Sp} and \Cref{equivalent besov} that
+\begin{align*}
+\Norm{[\pi_{\varphi}^{*},H_{\D}]}_{S_{p}(L_{2}(\mu))}
+=\Norm{[H_{\D}^{*},\pi_{\varphi}]^{*}}_{S_{p}(L_{2}(\mu))}
+&=\Norm{[H_{\D}^{*},\pi_{\varphi}]}_{S_{p}(L_{2}(\mu))}\\
+&\leq2\Norm{\pi_{\varphi}}_{S_{p}(L_{2}(\mu))}\Norm{H_{\D}^{*}}_{\B(L_{2}(\mu))}\\
+&\leq2\sqrt{2}\Norm{\set{\mu(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}}_{\ell_{p}}\\
+&\lesssim\Norm{\set{m(Q)^{-\frac{1}{2}}\inner{\varphi,h_{Q}}}_{Q\in\D}}_{\ell_{p}}\\
+&\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.
+\end{align*} 
+For $[\Lambda^{0}_{\varphi},H_{\D}]$, by \Cref{L0 Sp},
+\begin{align*}
+\Norm{[\Lambda^{0}_{\varphi},H_{\D}]}_{S_{p}(L_{2}(\mu))}
+\leq2\Norm{\Lambda^{0}_{\varphi}}_{S_{p}(L_{2}(\mu))}\Norm{H_{\D}}_{\B(L_{2}(\mu))}
+\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.
+\end{align*} 
+To investigate the Schatten estimate of $[\Lambda^{1}_{\varphi},H_{\D}]$, let us revisit the proof of \Cref{L2 estimate}. It gives that 
+\begin{align*}
+[\Lambda^{1}_{\varphi},H_{\D}]=
+\sum_{Q\in\D}\sigma_{Q}\left(\varphi_{Q}-\varphi_{\wh{Q}}\right)h_{\wh{Q}}\otimes h_{Q}.
+\end{align*}
+Since $\set{h_{\wh{Q}}}$ are orthonormal functions, by \Cref{ONB Sp} and \Cref{oscillation besov}, one has
+\begin{align*}
+\Norm{[\Lambda^{1}_{\varphi},H_{\D}]}_{S_{p}(L_{2}(\mu))}
+\lesssim\Norm{\set{\varphi_{Q}-\varphi_{\wh{Q}}}_{Q\in\D}}_{\ell_{p}}
+\lesssim\Norm{\varphi}_{\dot{\htb}_{p}(\mu)}.
+\end{align*}
+Taking the estimates on $[\pi_{\varphi},H_{\D}]$, $[\pi_{\varphi}^{*},H_{\D}]$, $[\Lambda^{0}_{\varphi},H_{\D}]$ and $[\Lambda^{1}_{\varphi},H_{\D}]$ in a combination, we claim the assertion.
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+{\bf Acknowledgments:} F. Sukochev and D. Zanin are supported by ARC DP230100434. 
+F. L. Yang is supported by National Natural Science Foundation of China No. 12371138 and he is grateful for the support of his supervisor professor Xiao Xiong.
+
+
+
+
+\bibliographystyle{amsplain}
+\bibliography{NCZhou}
+
+
+
+
+%\begin{thebibliography}{99}
+
+%\bibitem{CRW1976}R.R. Coifman, R. Rochberg, G. Weiss. 
+%{\it Factorization theorems for Hardy spaces in several variables.} 
+%Ann. of Math. 103 (1976) 611--635.
+
+%\bibitem{Pe1995}C. P\'{e}rez. 
+%{\it Endpoint estimates for commutators of singular integral operators.} 
+%J. Funct. Anal., 128 (1995), 163--185.
+
+
+
+%\bibitem{LMP2014}López-Sánchez, Luis Daniel; Martell, José María; Parcet, Javier. 
+%{\it Dyadic harmonic analysis beyond doubling measures.} 
+%Adv. Math. 267 (2014), 44--93.
+%
+%\bibitem{PKJF-book}L. Pick, A. Kufner, O. John and S. Fu\v{c}ík. 
+%{\it Function spaces, 1.} 
+%Walter de Gruyter, 2012.
+
+
+
+%\bibitem{Treil2013}Treil, Sergei. 
+%{\it Commutators, paraproducts and BMO in non-homogeneous martingale settings.}
+%Rev. Mat. Iberoam. 29 (2013), no. 4, 132--1372.
+
+%\bibitem{Gr-book1}L. Grafakos. 
+%{\it Classical Fourier analysis.} 
+%Third edition. Graduate Texts in Mathematics, 249. Springer, New York, 2014. xviii+638 pp.
+
+%\bibitem{G2014m}Grafakos, Loukas. 
+%{\it Modern Fourier analysis.} 
+%Third edition. Graduate Texts in Mathematics, 250. Springer, New York, 2014. xvi+624 pp.
+
+%\bibitem{P2000}S. Petermichl. 
+%{\it Dyadic shifts and a logarithmic estimate for Hankel operators with matrix symbol.}
+%C. R. Acad. Sci. Paris Sér. I Math. 330 (6) (2000) 455--460.
+
+%\bibitem{CMP2012}D. V. Cruz-Uribe, J. M. Martell, C. Pérez. 
+%{\it Sharp weighted estimates for classical operators.} 
+%Adv. Math. 229 (1) (2012) 408--441.
+
+%\bibitem{Weisz-book1994}F. Weisz. 
+%{\it Martingale Hardy Spaces and Their Applications in Fourier Analysis.} 
+%Lecture Notes in Mathematics, vol. 1568, Springer-Verlag, Berlin, 1994.
+
+%\bibitem{G1968}R.F. Gundy. 
+%{\it A decomposition for L1-bounded martingales.} 
+%Ann. Math. Statist. 39 (1968) 134--138.
+
+%\bibitem{CMP-book2011}D.V. Cruz-Uribe, J.M. Martell, C. Pérez. 
+%{\it Weights, Extrapolation and the Theory of Rubio de Francia.} 
+%Oper. Theory Adv. Appl., vol. 215, Birkhäuser/Springer Basel AG, Basel, 2011.
+
+%\bibitem{M2003}Mei, Tao. 
+%{\it BMO is the intersection of two translates of dyadic BMO.} 
+%C. R. Math. Acad. Sci. Paris 336 (2003), no. 12, 1003--1006
+
+
+%\end{thebibliography}
+
+
+
+
+\end{document}

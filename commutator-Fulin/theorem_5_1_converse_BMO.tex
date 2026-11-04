@@ -1,0 +1,290 @@
+% !TeX program = xelatex
+\documentclass[UTF8,fontset=fandol,a4paper,11pt]{ctexart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=26mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\allowdisplaybreaks[2]
+\newtheorem{theorem}{定理}
+\newtheorem{remark}[theorem]{注}
+\renewcommand{\proofname}{证明}
+\newcommand{\R}{\mathbb R}
+\newcommand{\BMO}{\mathrm{BMO}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\C}{\mathcal C}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Theorem 5.1 的逆命题与 BMO 刻画}
+\author{}
+\date{2026 年 11 月 4 日}
+
+\begin{document}
+\maketitle
+
+\section{问题与假设}
+
+本文讨论 Sukochev--Yang--Zanin--Zhou \cite{SYZZ} 第 3537 页
+Theorem 5.1 的逆命题。其结论是交换子满足一个弱 Ces\`aro
+性质 $\mathrm{WCP}(2)$。对 Hilbert 变换或任意一个 Riesz 变换，
+该估计能够反过来推出符号属于 $\BMO$；但对仅满足该文
+Assumption 1.1 的一般 Calder\'on--Zygmund 算子，逆命题不成立。
+
+记 $|E|$ 为 Lebesgue 测度，$\mu(f)$ 为 $|f|$ 的递减重排，并令
+\[
+ \C g(t)=\frac1t\int_0^t g(s)\,ds,\qquad t>0.
+\]
+对局部可积函数 $b$，交换子的符号约定与 \cite{SYZZ} 相同：
+\[
+ [M_b,T]=M_bT-TM_b.
+\]
+若测试函数 $f$ 有紧支集，则在其支集之外使用积分表达式
+\begin{equation}\label{eq:commutator}
+ [M_b,T]f(x)
+ =\int_{\R^d}(b(x)-b(y))K(x,y)f(y)\,dy.
+\end{equation}
+以下证明只在相互分离的立方体上使用这个表达式，
+不需要预先假设交换子在 $L^2$ 上有界。
+
+我们将 Theorem 5.1 的结论作为假设：存在统一常数 $A<\infty$，
+使得对每个具有有限测度支集的
+$0\le f\in L^1(\R^d)\cap L^\infty(\R^d)$，均有
+\begin{equation}\label{eq:wcp}
+ \lambda\bigl|\{x\in\R^d:|[M_b,T]f(x)|>3\lambda\}\bigr|
+ \le A\int_0^{s_f}\C\mu(f)(s)\,ds,
+ \qquad \lambda\ge\C\mu(f)(s_f),
+\end{equation}
+其中 $s_f=|\supp f|$；零函数的情形按平凡情形处理。
+这里 $A$ 与 $f$、$\lambda$ 无关。
+
+\section{一般 Calder\'on--Zygmund 算子的障碍}
+
+\cite{SYZZ} 的 Assumption 1.1 只要求核的大小及光滑性上界，
+没有要求核非退化。因此它允许 $T=0$。此时对任意
+$b\in L^1_{\mathrm{loc}}(\R^d)$，都有 $[M_b,T]=0$，
+从而 \eqref{eq:wcp} 自动成立。
+
+但是，取 $b(x)=x_1$，对 $Q_L=[-L,L]^d$ 有 $b_{Q_L}=0$ 以及
+\[
+ \frac1{|Q_L|}\int_{Q_L}|b(x)-b_{Q_L}|\,dx=\frac L2
+ \longrightarrow\infty.
+\]
+所以 $b\notin\BMO(\R^d)$。这说明一般情形下必须对 $T$
+补充适当的非退化条件。
+
+\section{Riesz 变换的逆命题}
+
+固定 $j\in\{1,\ldots,d\}$，设 $R_j$ 是 Riesz 变换，其核为
+\[
+ K_j(x,y)=\gamma_d\frac{x_j-y_j}{|x-y|^{d+1}},
+ \qquad \gamma_d>0.
+\]
+当 $d=1$ 时，它就是通常归一化的 Hilbert 变换。
+
+\begin{theorem}\label{thm:converse}
+设 $b\in L^1_{\mathrm{loc}}(\R^d;\mathbb C)$。
+如果 \eqref{eq:wcp} 对 $T=R_j$ 成立，则
+$b\in\BMO(\R^d)$，并且
+\begin{equation}\label{eq:bmo-bound}
+ \norm{b}_{\BMO}
+ :=\sup_Q\frac1{|Q|}\int_Q|b(x)-b_Q|\,dx
+ \le C_d(1+A),
+ \qquad b_Q=\frac1{|Q|}\int_Q b(x)\,dx.
+\end{equation}
+其中上确界取遍所有边平行于坐标轴的立方体，
+$C_d$ 只依赖于维数及 Riesz 变换的固定归一化。
+事实上，证明只需要 \eqref{eq:wcp} 对有界可测集的特征函数成立。
+\end{theorem}
+
+\begin{proof}
+先设 $b$ 为实值函数。
+
+\medskip
+\noindent\textbf{第一步：提取特征函数测试估计。}
+任取立方体 $Q$ 和可测集 $E\subseteq Q$，令 $f=\one_E$。
+因为 $0\le\mu(f)\le1$ 且 $s_f\le|Q|$，所以
+\[
+ \C\mu(f)(s_f)\le1,
+ \qquad
+ \int_0^{s_f}\C\mu(f)(s)\,ds\le|Q|.
+\]
+因此，只要 $\lambda\ge1$，就可以使用 \eqref{eq:wcp}，得到
+\begin{equation}\label{eq:indicator}
+ \lambda\bigl|\{x\in\R^d:
+       |[M_b,R_j]\one_E(x)|>3\lambda\}\bigr|
+ \le A|Q|.
+\end{equation}
+这里特意使用右侧较弱的 $A|Q|$，这样无论将支集理解为
+非零集还是闭的本质支集，都可以直接使用该估计。
+若 $|E|=0$，相应测试函数为零，无须使用支集参数。
+
+\medskip
+\noindent\textbf{第二步：构造核具有固定符号的立方体对。}
+任取边长为 $\ell$ 的立方体 $Q$，令
+\[
+ Q'=Q+3\ell e_j,
+\]
+其中 $e_j$ 为第 $j$ 个坐标单位向量。显然 $|Q'|=|Q|$。
+对 $x\in Q'$、$y\in Q$，有
+\[
+ x_j-y_j\ge2\ell,
+ \qquad |x-y|\le\sqrt{d+15}\,\ell.
+\]
+于是
+\begin{equation}\label{eq:kernel-lower}
+ K_j(x,y)\ge\frac{\kappa_d}{|Q|}>0,
+ \qquad
+ \kappa_d:=\frac{2\gamma_d}{(d+15)^{(d+1)/2}}.
+\end{equation}
+
+\medskip
+\noindent\textbf{第三步：用中位数控制正部。}
+取 $b$ 在 $Q'$ 上的一个中位数 $m$，即
+\[
+ |\{x\in Q':b(x)>m\}|\le\frac{|Q|}{2},
+ \qquad
+ |\{x\in Q':b(x)<m\}|\le\frac{|Q|}{2}.
+\]
+定义
+\[
+ E_+=\{y\in Q:b(y)\ge m\},
+ \qquad F_-=\{x\in Q':b(x)\le m\},
+ \qquad
+ a_+=\frac1{|Q|}\int_{E_+}(b(y)-m)\,dy.
+\]
+其中 $a_+<\infty$，且 $|F_-|\ge|Q|/2$。
+对几乎处处的 $x\in F_-$，积分中的差值具有相同符号，
+由 \eqref{eq:commutator} 和 \eqref{eq:kernel-lower} 得
+\begin{align}
+ |[M_b,R_j]\one_{E_+}(x)|
+ &=\int_{E_+}(b(y)-b(x))K_j(x,y)\,dy \notag\\
+ &\ge\frac{\kappa_d}{|Q|}
+       \int_{E_+}(b(y)-m)\,dy
+ =\kappa_d a_+.
+ \label{eq:positive-lower}
+\end{align}
+如果 $a_+>6/\kappa_d$，取
+\[
+ \lambda=\frac{\kappa_da_+}{6}>1.
+\]
+由 \eqref{eq:positive-lower} 可知，几乎处处有
+$F_-\subseteq\{|[M_b,R_j]\one_{E_+}|>3\lambda\}$。
+应用 \eqref{eq:indicator}，得到
+\[
+ \frac{\kappa_da_+}{6}\,\frac{|Q|}{2}
+ \le\lambda|F_-|\le A|Q|,
+\]
+从而 $a_+\le12A/\kappa_d$。结合 $a_+\le6/\kappa_d$
+的另一种情形，总有
+\begin{equation}\label{eq:positive-bound}
+ a_+\le\frac{\max\{6,12A\}}{\kappa_d}.
+\end{equation}
+
+\medskip
+\noindent\textbf{第四步：控制负部并得到平均振荡估计。}
+令
+\[
+ E_-=\{y\in Q:b(y)<m\},
+ \qquad F_+=\{x\in Q':b(x)\ge m\},
+ \qquad
+ a_-=\frac1{|Q|}\int_{E_-}(m-b(y))\,dy.
+\]
+此时 $|F_+|\ge|Q|/2$，并且对几乎处处的 $x\in F_+$，
+\[
+ |[M_b,R_j]\one_{E_-}(x)|
+ =\int_{E_-}(b(x)-b(y))K_j(x,y)\,dy
+ \ge\kappa_da_-.
+\]
+重复上一步的论证可得
+\[
+ a_-\le\frac{\max\{6,12A\}}{\kappa_d}.
+\]
+因此
+\[
+ \frac1{|Q|}\int_Q|b(y)-m|\,dy
+ =a_++a_-
+ \le\frac{2\max\{6,12A\}}{\kappa_d}.
+\]
+虽然 $m$ 是在 $Q'$ 上选择的中位数，但它仍可作为 $Q$ 上
+平均振荡的比较常数。由
+\[
+ |b_Q-m|\le\frac1{|Q|}\int_Q|b(y)-m|\,dy
+\]
+可得
+\[
+ \frac1{|Q|}\int_Q|b(y)-b_Q|\,dy
+ \le\frac2{|Q|}\int_Q|b(y)-m|\,dy
+ \le\frac{4\max\{6,12A\}}{\kappa_d}
+ \le\frac{48}{\kappa_d}(1+A).
+\]
+对所有 $Q$ 取上确界，即得到实值符号的结论。
+
+\medskip
+\noindent\textbf{第五步：复值符号。}
+设 $b=u+iv$，其中 $u,v$ 为实值函数。因为 Riesz 核为实值，
+对实值测试函数 $f$，有
+\[
+ [M_u,R_j]f=\operatorname{Re}([M_b,R_j]f),
+ \qquad
+ [M_v,R_j]f=\operatorname{Im}([M_b,R_j]f).
+\]
+所以 $u$、$v$ 都满足具有同一常数 $A$ 的测试估计。
+分别应用实值情形，并利用
+\[
+ \norm{b}_{\BMO}
+ \le\norm{u}_{\BMO}+\norm{v}_{\BMO},
+\]
+即可得到 \eqref{eq:bmo-bound}。
+\end{proof}
+
+\section{适用范围与说明}
+
+\begin{remark}[所需的核条件]
+对于实值符号，上述证明实际只使用如下条件：对每个立方体 $Q$，
+存在一个与它分离、大小相同的立方体 $Q'$，使得 $K$
+在 $Q'\times Q$ 上具有固定实符号，且
+\[
+ |K(x,y)|\ge\frac{\kappa}{|Q|},\qquad x\in Q',\ y\in Q,
+\]
+其中 $\kappa>0$ 与 $Q$ 无关。
+在这一条件下，同样得到 $\norm{b}_{\BMO}\lesssim\kappa^{-1}(1+A)$。
+对于实核，复值符号仍可分别处理实部与虚部。
+\end{remark}
+
+\begin{remark}[量词与归一化]
+如果假设 \eqref{eq:wcp} 对所有满足 \cite{SYZZ} 中
+Assumption 1.1 的算子 $T$ 都成立，那么任选一个 $R_j$
+就能推出 $b\in\BMO$。
+如果只对某个固定的一般 $T$ 假设该估计，则需要额外的核条件。
+此外，Theorem 5.1 中 $\norm{b}_{\BMO}=1$ 是正向定理的归一化；
+上述逆命题给出的是 BMO 范数的定量上界，
+并不意味着可以反推出其范数恰好等于 $1$。
+\end{remark}
+
+\begin{remark}[与端点逆刻画的关系]
+Accomazzo \cite{Accomazzo} 研究了交换子的端点 $L\log L$
+估计对 BMO 的逆刻画。
+本文的证明直接使用 \cite{SYZZ} 的 Theorem 5.1 所给出的条件，
+且只需特征函数在 $\lambda\ge1$ 时的水平集估计。
+整个论证不通过交换子的 $L^2$ 有界性，因此没有预先使用
+待证的 BMO 性质。
+\end{remark}
+
+\begin{thebibliography}{9}
+
+\bibitem{SYZZ}
+F. Sukochev, F. Yang, D. Zanin, and D. Zhou,
+\emph{Optimal distribution estimates for commutators and
+Marcinkiewicz multipliers},
+Mathematische Annalen \textbf{393} (2025), 3513--3560.
+\href{https://doi.org/10.1007/s00208-025-03306-3}
+{doi:10.1007/s00208-025-03306-3}.
+
+\bibitem{Accomazzo}
+N. Accomazzo,
+\emph{A characterization of BMO in terms of endpoint bounds for
+commutators of singular integrals},
+arXiv:1802.05516 (2018).
+\url{https://arxiv.org/abs/1802.05516}.
+
+\end{thebibliography}
+\end{document}

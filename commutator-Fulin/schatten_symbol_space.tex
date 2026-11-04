@@ -1,0 +1,966 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage{array,booktabs,tabularx}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\allowdisplaybreaks[2]
+\raggedbottom
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\D}{\mathcal D}
+\newcommand{\X}{\mathcal X}
+\newcommand{\Y}{\mathcal Y}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\fin}{\Subset}
+\title{Symbol spaces for bounded and Schatten commutators\\of the downward Haar shift}
+\date{2026-11-04}
+\begin{document}
+\maketitle
+
+\section{Notation and symbol spaces}
+We work on $L^2(\mu)$ with the standard dyadic grid $\D$ on
+$\mathbb R$. For $I\in\D$, $I_-$ and $I_+$ denote its left and right
+children, $\widehat I$ its parent, and $\ell(I)$ its length. We write
+$\mathbf1_A$ for the indicator of $A$ and $\#F$ for the cardinality of
+a finite set $F$. The notation $\operatorname{Meas}_+(\mathbb R)$ means
+the positive Borel measures on $\mathbb R$.
+\begin{gather*}
+ \D_k=\{[j2^{-k},(j+1)2^{-k}):j\in\mathbb Z\},\qquad
+ \D=\bigcup_{k\in\mathbb Z}\D_k,\qquad
+ \ch(I)=\{I_-,I_+\},\\
+ \mathfrak M=\{\mu\in\operatorname{Meas}_+(\mathbb R):
+                   0<\mu(I)<\infty\ (I\in\D)\},\\
+ \mathfrak M_\infty=\{\mu\in\mathfrak M:\mu(\mathbb R)=\infty\}
+                  \subset\mathfrak M,\qquad \mu\in\mathfrak M.
+\end{gather*}
+All results below hold for $\mu\in\mathfrak M$ and hence also with
+the additional standing assumption $\mu(\mathbb R)=\infty$.
+The measure-adapted Haar functions and the downward Haar shift
+$H=H_{\D}$ are given by
+\begin{gather*}
+ m(I)=\frac{\mu(I_-)\mu(I_+)}{\mu(I)},\qquad
+ h_I=\sqrt{m(I)}\left(\frac{\mathbf1_{I_-}}{\mu(I_-)}
+                     -\frac{\mathbf1_{I_+}}{\mu(I_+)}\right),\\
+ \ip{h_I}{h_J}=\delta_{I,J},\qquad
+ \sigma_{I_-}=1,\quad\sigma_{I_+}=-1,\qquad
+ Hh_I=h_{I_-}-h_{I_+},\quad H^*h_I=\sigma_Ih_{\widehat I}.
+\end{gather*}
+The inner product is linear in the first variable. The notation
+$T^*$ denotes the Hilbert-space adjoint and $T^{\mathsf t}$ the
+matrix transpose in the specified orthonormal basis; $\rank T$ is
+the dimension of its range. In particular,
+\[
+ \ip{f}{g}=\int f\overline g\,d\mu,\qquad
+ Hf=\sum_{I\in\D}\ip{f}{h_I}(h_{I_-}-h_{I_+}),\qquad f\in L^2(\mu).
+\]
+The Haar family is completed by constants on dyadic components of
+finite measure. We use the following notation for the resulting
+orthogonal decomposition and complete basis:
+\begin{gather*}
+ E_- =(-\infty,0),\qquad E_+=[0,\infty),\qquad
+ \mathscr E=\{E\in\{E_-,E_+\}:\mu(E)<\infty\},\\
+ \mathcal H_h=\overline{\operatorname{span}}\{h_I:I\in\D\},\qquad
+ e_E=\frac{\mathbf1_E}{\sqrt{\mu(E)}}\quad(E\in\mathscr E),\\
+ \mathcal H_0=\operatorname{span}\{e_E:E\in\mathscr E\}
+             =\mathcal H_h^\perp,\qquad
+ L^2(\mu)=\mathcal H_h\oplus\mathcal H_0,\\
+ H|_{\mathcal H_0}=H^*|_{\mathcal H_0}=0,\qquad
+ H^*H=2P_h,\qquad \norm H=\sqrt2,\qquad P_0=1-P_h,\\
+ \mathcal I=\D\sqcup\mathscr E,\qquad
+ e_I=h_I\ (I\in\D),\qquad
+ \mathscr F=\operatorname{span}\{e_u:u\in\mathcal I\},\\
+ F\fin A\ \Longleftrightarrow\ F\subset A,\ \#F<\infty,\qquad
+ P_Af=\sum_{u\in A}\ip{f}{e_u}e_u\quad(A\subseteq\mathcal I),\qquad
+ \overline{\mathscr F}=L^2(\mu).
+\end{gather*}
+Here $P_h$ and $P_0$ are the orthogonal projections onto $\mathcal H_h$
+and $\mathcal H_0$, respectively. For any set of basis indices $A$,
+$P_A$ is the corresponding orthogonal projection. The notation
+$F\fin A$ means that $F$ is a finite subset of $A$; $\mathscr F$ is
+the space of finite linear combinations of basis vectors. Matrices
+act on $\mathscr F$ by the finite sesquilinear pairing
+\[
+ T=[t_{u,v}]\in\mathbb C^{\mathcal I\times\mathcal I},\quad f,g\in\mathscr F:
+ \qquad
+ \ip{Tf}{g}:=\sum_{u,v\in\mathcal I}
+       t_{u,v}\ip{f}{e_v}\overline{\ip{g}{e_u}}.
+\]
+Thus $t_{u,v}=\ip{Te_v}{e_u}$ whenever $T$ represents an operator.
+We write $\mathcal B(\mathcal H)$ and $\mathcal K(\mathcal H)$ for
+the bounded and compact operators on $\mathcal H=L^2(\mu)$.
+For $T\in\mathcal K(\mathcal H)$, $s_n(T)$ are the eigenvalues of
+$|T|$, listed in nonincreasing order with multiplicity. These are
+the singular values of $T$. For $0<p<\infty$,
+\[
+ |T|=(T^*T)^{1/2},\qquad
+ S_p(\mathcal H)=\left\{T\in\mathcal K(\mathcal H):
+                      \sum_{n\ge1}s_n(T)^p<\infty\right\},\qquad
+ \norm{T}_{S_p}=\left(\sum_{n\ge1}s_n(T)^p\right)^{1/p}.
+\]
+For $0<p<1$ the expression $\norm{\cdot}_{S_p}$ is a quasi-norm;
+for $p\ge1$ it is a norm. The same notation is used for finite matrices.
+An unsubscripted operator norm means
+$\norm{\cdot}_{L^2(\mu)\to L^2(\mu)}$.
+We use $A\lesssim_p B$ and $A\asymp_p B$ for comparison constants
+depending only on $p$; without a subscript the constants are absolute.
+
+For a locally integrable complex symbol $\varphi$, $f_I$ denotes a
+local average and $\mathbb E_k$ the dyadic conditional expectation.
+The coefficients $b_I$ and $d_I$ are, respectively, its Haar
+coefficients and the diagonal entries of its multiplication matrix:
+\begin{equation}\label{data}
+ \begin{gathered}
+ \varphi\in L^1_{\mathrm{loc}}(\mu;\mathbb C),\qquad
+ f_I=\frac1{\mu(I)}\int_If\,d\mu,\qquad
+ \mathbb E_kf=\sum_{I\in\D_k}f_I\mathbf1_I,\\
+ b_I=\int\varphi h_I\,d\mu,\\
+ d_I=\int\varphi h_I^2\,d\mu
+     =\frac{\mu(I_+)\varphi_{I_-}+\mu(I_-)\varphi_{I_+}}{\mu(I)},\\
+ d_I-\varphi_I
+   =\frac{\mu(I_+)-\mu(I_-)}{\mu(I)}
+                     (\varphi_{I_-}-\varphi_{I_+}).
+ \end{gathered}
+\end{equation}
+In particular, $d_I$ is a reverse-weighted average of the two child
+means. We write $M_\varphi f=\varphi f$ on its natural domain
+$\{f\in L^2(\mu):\varphi f\in L^2(\mu)\}$. For a general locally
+integrable symbol the commutator is initially defined by its form on
+$\mathscr F$. Membership in an operator class means that this form
+has an extension in that class:
+\begin{equation}\label{form}
+ \begin{gathered}
+ c_\varphi(f,g)=\int\varphi\big((Hf)\overline g
+                          -f\,\overline{H^*g}\big)\,d\mu,
+                          \qquad f,g\in\mathscr F,\\
+ C_\varphi\in\mathcal B(L^2(\mu))
+ \ \Longleftrightarrow\
+ \exists C\in\mathcal B(L^2(\mu))\ 
+ \forall f,g\in\mathscr F:\ \ip{Cf}{g}=c_\varphi(f,g),\\
+ C_\varphi\in S_p
+ \ \Longleftrightarrow\
+ \exists C\in S_p\ 
+ \forall f,g\in\mathscr F:\ \ip{Cf}{g}=c_\varphi(f,g),\\
+ \varphi\in L^\infty(\mu)
+ \ \Longrightarrow\
+ C_\varphi=[M_\varphi,H]=M_\varphi H-HM_\varphi.
+ \end{gathered}
+\end{equation}
+For each finite $F\subset\D$, $G_F(\varphi)$ records the correlations
+of the averaging vectors $u_I$. The trace is unnormalized, and powers
+of a positive matrix are defined by spectral calculus.
+\begin{equation}\label{gram}
+ \begin{gathered}
+ u_I=\frac{\mathbf1_I}{\mu(I)},\qquad
+ G_F(\varphi)=\left[b_I\overline{b_J}
+              \frac{\mu(I\cap J)}{\mu(I)\mu(J)}\right]_{I,J\in F},
+              \quad F\fin\D,\\
+ z^*G_F(\varphi)z
+ =\int\left|\sum_{I\in F}\overline{b_I}z_Iu_I\right|^2d\mu\ge0,\qquad
+ \tr A=\sum_{I\in F}A_{I,I}.
+ \end{gathered}
+\end{equation}
+We define the two symbol quantities and their associated homogeneous
+space by
+\begin{align}
+ \mathfrak C_p(\varphi)
+   &=\sup_{F\fin\D}\left[\tr\big(G_F(\varphi)^{p/2}\big)\right]^{1/p},
+                         \quad 0<p<\infty,\label{carleson}\tag{C}\\
+ \mathfrak D_p(\varphi)
+   &=\left[\sum_{I\in\D}
+       \big(|d_{I_-}-d_I|^2+|d_{I_+}-d_I|^2\big)^{p/2}\right]^{1/p}.
+                         \label{gradient}\tag{D}
+\end{align}
+\begin{gather*}
+ \X_p(\mu)=\{\varphi\in L^1_{\mathrm{loc}}(\mu):
+       \mathfrak C_p(\varphi)+\mathfrak D_p(\varphi)<\infty\},\qquad
+ \norm{\varphi}_{\X_p}=\mathfrak C_p(\varphi)+\mathfrak D_p(\varphi),\\
+ \norm{\varphi+c_-\mathbf1_{E_-}+c_+\mathbf1_{E_+}}_{\X_p}
+       =\norm{\varphi}_{\X_p},\qquad c_-,c_+\in\mathbb C.
+\end{gather*}
+
+The last identity expresses invariance under addition of a constant
+on either dyadic component. The quantity $\norm{\cdot}_{\X_p}$ is a
+seminorm for $p\ge1$ and a quasi-seminorm for $0<p<1$.
+
+\section{Schatten characterization for \texorpdfstring{$1<p<\infty$}{1 < p < infinity}}
+\begin{theorem}\label{main}
+Let $\mu\in\mathfrak M$, $1<p<\infty$, and
+$\varphi\in L^1_{\mathrm{loc}}(\mu)$. Then
+\begin{gather*}
+ C_\varphi\in S_p(L^2(\mu))
+       \ \Longleftrightarrow\ \varphi\in\X_p(\mu),\\
+ c_p\big(\mathfrak C_p(\varphi)+\mathfrak D_p(\varphi)\big)
+ \le\norm{C_\varphi}_{S_p}
+ \le4\sqrt2\,\mathfrak C_p(\varphi)+\mathfrak D_p(\varphi),\qquad
+ c_p>0.
+\end{gather*}
+Here $c_p$ depends only on $p$.
+\end{theorem}
+\begin{proof}
+Define the finite-row paraproducts $\pi_{\varphi,F}$ and the
+paraproduct matrix $\pi_\varphi$ by
+\begin{gather*}
+ \pi_{\varphi,F}f=\sum_{I\in F}b_I\ip{f}{u_I}h_I,\qquad
+ [\pi_{\varphi,F}\pi_{\varphi,F}^*]_{F\times F}=G_F(\varphi),\\
+ \norm{\pi_{\varphi,F}}_{S_p}^p
+        =\tr\big(G_F(\varphi)^{p/2}\big),\qquad
+ (\pi_\varphi f)_I=b_I\ip{f}{u_I}.
+\end{gather*}
+\begin{equation}\label{pi-norm}
+ \sup_{F\fin\D}\norm{\pi_{\varphi,F}}_{S_p}<\infty
+ \ \Longleftrightarrow\ \pi_\varphi\in S_p,\qquad
+ \norm{\pi_\varphi}_{S_p}=\mathfrak C_p(\varphi).
+\end{equation}
+Let $D_\varphi$ be the diagonal part and $\rho_I$ its edge difference:
+\begin{gather*}
+ D_\varphi h_I=d_Ih_I,\qquad D_\varphi|_{\mathcal H_0}=0,\qquad
+ \rho_I=\big(|d_{I_-}-d_I|^2+|d_{I_+}-d_I|^2\big)^{1/2},\\
+ [D_\varphi,H]h_I
+       =(d_{I_-}-d_I)h_{I_-}-(d_{I_+}-d_I)h_{I_+},\\
+ \ip{[D_\varphi,H]h_I}{[D_\varphi,H]h_J}
+                  =\delta_{I,J}\rho_I^2.
+\end{gather*}
+\begin{equation}\label{D-norm}
+ \norm{[D_\varphi,H]}_{S_p}^p=\sum_I\rho_I^p
+                         =\mathfrak D_p(\varphi)^p.
+\end{equation}
+For $I\subsetneq J$, $h_J(I)$ denotes the constant value of $h_J$ on
+$I$. The multiplication matrix and the resulting form decomposition
+are
+\begin{equation}\label{multiplication-matrix}
+ \begin{gathered}
+ I\subsetneq J\ \Longrightarrow\ h_J|_I\equiv h_J(I),\\
+ a_{I,J}:=\int\varphi h_Ih_J\,d\mu=
+ \begin{cases}
+ d_I,&I=J,\\
+ b_I h_J(I),&I\subsetneq J,\\
+ b_J h_I(J),&J\subsetneq I,\\
+ 0,&I\cap J=\varnothing.
+ \end{cases}
+ \end{gathered}
+\end{equation}
+All matrix identities here are understood on $\mathscr F$ before the
+corresponding operator extensions are established.
+\begin{equation}\label{decompose}
+ \begin{gathered}
+ c_\varphi(f,g)
+  =\ip{[\pi_\varphi,H]f}{g}
+    +\ip{[(\pi_{\overline\varphi})^*,H]f}{g}
+    +\ip{[D_\varphi,H]f}{g},\quad f,g\in\mathscr F,\\
+ \pi_\varphi\in S_p,\ [D_\varphi,H]\in S_p
+ \ \Longrightarrow\
+ C_\varphi=[\pi_\varphi,H]+[(\pi_{\overline\varphi})^*,H]
+                                    +[D_\varphi,H]\in S_p.
+ \end{gathered}
+\end{equation}
+\emph{Sufficiency.}
+\begin{align*}
+ \varphi\in\X_p
+ &\Longrightarrow
+ \norm{\pi_{\overline\varphi}}_{S_p}
+        =\norm{\pi_\varphi}_{S_p}=\mathfrak C_p(\varphi),\\
+ \norm{C_\varphi}_{S_p}
+ &\le2\norm H\big(\norm{\pi_\varphi}_{S_p}
+                      +\norm{\pi_{\overline\varphi}}_{S_p}\big)
+                       +\norm{[D_\varphi,H]}_{S_p}\\
+ &=4\sqrt2\,\mathfrak C_p(\varphi)+\mathfrak D_p(\varphi).
+\end{align*}
+\emph{Necessity.} Denote by $C_{hh}$ the Haar compression of $C$,
+and by $\mathscr R$ the Schur multiplier retaining disjoint intervals.
+The triangular-projection bound gives
+\begin{gather*}
+ C=C_\varphi\in S_p,\qquad C_{hh}=P_hC|_{\mathcal H_h},\qquad
+ (\mathscr RT)_{I,J}=\mathbf1_{\{I\cap J=\varnothing\}}T_{I,J},\\
+ I=[\ell_I,r_I),\quad J=[\ell_J,r_J)
+ \ \Longrightarrow\
+ \mathbf1_{\{I\cap J=\varnothing\}}
+   =\mathbf1_{\{r_I\le\ell_J\}}
+      +\mathbf1_{\{r_J\le\ell_I\}},\\
+ 1<p<\infty
+ \ \overset{\text{\cite[\S 2.4]{PST}}}{\Longrightarrow}\
+ \norm{\mathscr RT}_{S_p}\le\kappa_p\norm T_{S_p},\qquad
+ 0<\kappa_p<\infty.
+\end{gather*}
+Let $U$ be the strict ancestor part of the multiplication matrix.
+\begin{gather*}
+ U_{I,J}=\mathbf1_{\{J\subsetneq I\}}b_Jh_I(J),\qquad
+ C_{K,J}=a_{K,J_-}-a_{K,J_+}-\sigma_K a_{\widehat K,J},\\
+ K\cap J=\varnothing
+ \ \Longrightarrow\ C_{K,J}=-\sigma_Ka_{\widehat K,J},\\
+ J\subsetneq I
+ \ \Longrightarrow\
+ \#\{K\in\ch(I):K\cap J=\varnothing\}=1,\\
+ \sum_{K\in\ch(I)}\sigma_K
+       \mathbf1_{\{K\cap J=\varnothing\}}C_{K,J}
+      =-\mathbf1_{\{J\subsetneq I\}}b_Jh_I(J).
+\end{gather*}
+\begin{equation}\label{recovery}
+ U=-H^*\mathscr R(C_{hh}),\qquad
+ P_h\pi_\varphi|_{\mathcal H_h}=U^{\mathsf t}.
+\end{equation}
+The remaining paraproduct columns are indexed by $\mathcal H_0$:
+\begin{gather*}
+ \norm{U^{\mathsf t}}_{S_p}=\norm U_{S_p}
+       \le\sqrt2\kappa_p\norm C_{S_p},\\
+ B=\pi_\varphi P_0,\qquad
+ P_hCP_0=-HB,\qquad B=-\tfrac12H^*P_hCP_0,\\
+ \norm B_{S_p}\le2^{-1/2}\norm C_{S_p},\qquad
+ \mathfrak C_p(\varphi)=\norm{\pi_\varphi}_{S_p}
+       \le(\sqrt2\kappa_p+2^{-1/2})\norm C_{S_p}.
+\end{gather*}
+Finally, $P_k$ projects onto the Haar functions at level $k$, and
+$\mathscr E_1$ extracts one-generation matrix entries:
+\begin{gather*}
+ P_kf=\sum_{I\in\D_k}\ip{f}{h_I}h_I,\qquad
+ V_th_I=e^{ikt}h_I\quad(I\in\D_k),\\
+ \mathscr E_1(T)=\sum_kP_{k+1}TP_k
+   =\frac1{2\pi}\int_0^{2\pi}e^{-it}V_tTV_t^*\,dt,\\
+ \norm{\mathscr E_1(T)}_{S_p}
+ \le\frac1{2\pi}\int_0^{2\pi}\norm{V_tTV_t^*}_{S_p}\,dt
+ =\norm T_{S_p},\\
+ C_{I_-,I}=d_{I_-}-d_I,\qquad
+ C_{I_+,I}=-(d_{I_+}-d_I),\qquad
+ \mathscr E_1(C_{hh})=[D_\varphi,H],\\
+ \mathfrak D_p(\varphi)\le\norm C_{S_p},\qquad
+ \norm{\varphi}_{\X_p}
+ \le(\sqrt2\kappa_p+2^{-1/2}+1)\norm C_{S_p}.
+\end{gather*}
+\end{proof}
+
+\begin{proposition}[$p=2$]\label{p2}
+Under the standing measure assumptions,
+\[
+ \norm{C_\varphi}_{S_2}^2\asymp
+ \sum_{I\in\D}\frac{|b_I|^2}{\mu(I)}
+ +\sum_{I\in\D}\big(|d_{I_-}-d_I|^2+|d_{I_+}-d_I|^2\big).
+\]
+\end{proposition}
+\begin{proof}
+\begin{gather*}
+ \tr G_F=\sum_{I\in F}\frac{|b_I|^2}{\mu(I)}
+ \ \Longrightarrow\
+ \mathfrak C_2(\varphi)^2
+       =\sum_{I\in\D}\frac{|b_I|^2}{\mu(I)},\\
+ \eqref{D-norm},\quad(\ref{main})
+ \ \Longrightarrow\
+ \norm{C_\varphi}_{S_2}^2
+       \asymp\mathfrak C_2(\varphi)^2+\mathfrak D_2(\varphi)^2.
+\end{gather*}
+\end{proof}
+
+\section{Finite-matrix characterization for \texorpdfstring{$0<p<\infty$}{0 < p < infinity}}
+Let $\gamma_{u,v}$ denote the entries of the commutator form in the
+complete basis $\{e_u\}_{u\in\mathcal I}$. They are given by
+\begin{equation}\label{gamma}
+ \gamma_{I,J}=a_{I,J_-}-a_{I,J_+}-\sigma_Ia_{\widehat I,J},
+                      \qquad I,J\in\D.
+\end{equation}
+\begin{gather*}
+ E,E'\in\mathscr E,\quad I,J\in\D
+ \ \Longrightarrow\\
+ \gamma_{I,E}=-\frac{\sigma_Ib_{\widehat I}}{\sqrt{\mu(E)}}
+                       \mathbf1_{\{I\subset E\}},\qquad
+ \gamma_{E,J}=\frac{b_{J_-}-b_{J_+}}{\sqrt{\mu(E)}}
+                       \mathbf1_{\{J\subset E\}},\qquad
+ \gamma_{E,E'}=0,\\
+ \gamma_{u,v}=c_\varphi(e_v,e_u),\qquad
+ \Gamma_F=[\gamma_{u,v}]_{u,v\in F},\qquad F\fin\mathcal I.
+\end{gather*}
+Define the homogeneous space $\Y_p(\mu)$ from these finite sections:
+\begin{equation}\label{Y-norm}
+ \begin{gathered}
+ \norm{\varphi}_{\Y_p}
+  =\sup_{F\fin\mathcal I}
+       \left[\tr\big((\Gamma_F^*\Gamma_F)^{p/2}\big)\right]^{1/p},\\
+ \Y_p(\mu)=\{\varphi\in L^1_{\mathrm{loc}}(\mu):
+                                      \norm{\varphi}_{\Y_p}<\infty\}.
+ \end{gathered}
+\end{equation}
+This construction retains the full commutator matrix. For
+$1<p<\infty$, Theorem~\ref{main} separates its condition into
+$\mathfrak C_p$ and $\mathfrak D_p$.
+\begin{theorem}\label{all-p}
+For $\mu\in\mathfrak M$ and $\varphi\in L^1_{\mathrm{loc}}(\mu)$,
+\begin{gather*}
+ 0<p<\infty:\qquad
+ C_\varphi\in S_p(L^2(\mu))\ \Longleftrightarrow\ \varphi\in\Y_p(\mu),
+ \qquad\norm{C_\varphi}_{S_p}=\norm{\varphi}_{\Y_p},\\
+ 1<p<\infty:\qquad
+ \Y_p(\mu)=\X_p(\mu),\qquad
+ \norm{\varphi}_{\Y_p}\asymp_p\norm{\varphi}_{\X_p}.
+\end{gather*}
+\end{theorem}
+\begin{proof}
+The finite-section bound first determines a bounded extension;
+the Schatten Fatou property then gives its class membership:
+\begin{gather*}
+ M:=\sup_{F\fin\mathcal I}\norm{\Gamma_F}_{S_p}<\infty,\qquad
+ \norm{\Gamma_F}_{\ell^2(F)\to\ell^2(F)}\le\norm{\Gamma_F}_{S_p},\\
+ f,g\in\mathscr F,\quad f=P_Ff,\quad g=P_Fg
+ \ \Longrightarrow\
+ |c_\varphi(f,g)|\le M\norm f_2\norm g_2,\\
+ \overline{\mathscr F}=L^2(\mu)
+ \ \Longrightarrow\
+ \exists!\, C\in\mathcal B(L^2(\mu)):\
+ \ip{Cf}{g}=c_\varphi(f,g),\quad \norm C\le M,\\
+ P_FCP_F=\Gamma_F,\qquad
+ \sup_{F\fin\mathcal I}\norm{P_FCP_F}_{S_p}=M
+ \ \overset{\mathrm{Fatou}}{\Longrightarrow}\
+ C\in S_p,\quad\norm C_{S_p}\le M.
+\end{gather*}
+\begin{gather*}
+ C=C_\varphi\in S_p,\quad F_n\fin\mathcal I,\quad F_n\uparrow\mathcal I
+ \ \Longrightarrow\
+ \norm{P_{F_n}CP_{F_n}-C}_{S_p}\longrightarrow0,\\
+ \norm C_{S_p}
+  =\lim_n\norm{\Gamma_{F_n}}_{S_p}
+  \le\sup_{F\fin\mathcal I}\norm{\Gamma_F}_{S_p}
+  \le\norm C_{S_p},\\
+ 1<p<\infty,\quad(\ref{main})
+ \ \Longrightarrow\
+ \Y_p=\X_p,\quad\norm{\varphi}_{\Y_p}\asymp_p\norm{\varphi}_{\X_p}.
+\end{gather*}
+\end{proof}
+
+\section{An endpoint counterexample for \texorpdfstring{$0<p\le1$}{0 < p <= 1}}\label{sec-endpoint-example}
+The following measure and rank-one multiplier yield a symbol in
+$\Y_p(\mu)\setminus\X_p(\mu)$ for every $0<p\le1$. Here $dx$ is
+Lebesgue measure, $\delta_0$ is the unit point mass at $0$, and $|J|$
+denotes the Lebesgue length of $J$.
+\begin{gather*}
+ I_n=[0,2^{-n}),\quad J_n=I_n\setminus I_{n+1},\quad n\in\mathbb N_0,\\
+ N_k=2^k,\qquad n_0=0,\quad n_k=\sum_{r=1}^k2^r=2^{k+1}-2,\qquad
+ B_k=\{n_{k-1},\ldots,n_k-1\},\\
+ \mathbb N_0=\bigsqcup_{k\ge1}B_k,\quad\#B_k=N_k,\quad
+ w_k=\frac3{\pi^2k^2},\quad
+ a_n=\frac{w_k}{N_k}\quad(n\in B_k),\\
+ s_0=\tfrac12,\qquad s_{n+1}=s_n+a_n,\qquad
+ \sum_na_n=\sum_kw_k=\tfrac12,\qquad s_n\uparrow1,\\
+ d\mu=\delta_0+\mathbf1_{\mathbb R\setminus I_0}\,dx
+       +\sum_{n\ge0}\frac{s_n^{-1}-s_{n+1}^{-1}}{|J_n|}
+                                      \mathbf1_{J_n}\,dx,\\
+ \mu\in\mathfrak M_\infty,\qquad
+ \mu(\{0\})=1,\quad\mu(I_n)=s_n^{-1},\qquad
+ \varphi=\mathbf1_{\{0\}},\\
+ M_\varphi f=f(0)\mathbf1_{\{0\}},\qquad
+ \rank M_\varphi=1
+ \ \Longrightarrow\
+ \rank C_\varphi\le2
+ \ \Longrightarrow\
+ \varphi\in\bigcap_{p>0}\Y_p(\mu).
+\end{gather*}
+The symbol $Q_k$ below denotes the orthogonal projection onto the
+Haar indices in the block $B_k$; $L_N$ is a strict lower-triangular
+matrix.
+\begin{gather*}
+ b_{I_n}=h_{I_n}(0)
+ =\sqrt{\mu(I_{n+1})^{-1}-\mu(I_n)^{-1}}=\sqrt{a_n},\\
+ \ip{\pi_\varphi h_{I_j}}{h_{I_i}}
+   =\begin{cases}\sqrt{a_ia_j},&i>j,\\0,&i\le j,\end{cases}\qquad
+ Q_kf=\sum_{n\in B_k}\ip{f}{h_{I_n}}h_{I_n},\\
+ Q_k\pi_\varphi Q_k=\frac{w_k}{N_k}L_{N_k},\qquad
+ (L_N)_{i,j}=\mathbf1_{\{i>j\}},\\
+ s_j(L_N)=\left[2\sin\left(\frac{(2j-1)\pi}{4N-2}\right)\right]^{-1},
+                         \quad1\le j\le N-1,\\
+ \norm{L_N}_{S_1}
+  \ge\frac{2N-1}{\pi}\sum_{j=1}^{N-1}\frac1{2j-1}
+  \gtrsim N\log N.
+\end{gather*}
+Block pinching in trace norm gives
+\begin{align*}
+ \pi_\varphi\in S_1
+ &\Longrightarrow
+ \norm{\pi_\varphi}_{S_1}
+   \ge\sum_{k=1}^m\norm{Q_k\pi_\varphi Q_k}_{S_1}\\
+ &\gtrsim\sum_{k=1}^m w_k\log N_k
+   \asymp\sum_{k=1}^m\frac1k\xrightarrow[m\to\infty]{}\infty
+ \ \Longrightarrow\ \bot.
+\end{align*}
+\begin{gather*}
+ \pi_\varphi\notin S_1,\qquad
+ 0<p\le1\ \Longrightarrow\ S_p\subset S_1
+ \ \Longrightarrow\
+ \mathfrak C_p(\varphi)=\infty,\\
+ \varphi\in\bigcap_{0<p\le1}\big(\Y_p(\mu)\setminus\X_p(\mu)\big).
+\end{gather*}
+
+\section{Boundedness on \texorpdfstring{$L^2(\mu)$}{L2(mu)}}
+The operator-norm endpoint is denoted by $p=\infty$. Define
+$\mathfrak A(\varphi)$ as the local $L^2$ mean-oscillation seminorm
+and $\mathfrak D_\infty(\varphi)$ as the uniform edge seminorm of the
+diagonal coefficients $d_I$:
+\begin{align}
+ \mathfrak A(\varphi)
+  &=\sup_{Q\in\D}\left(\frac1{\mu(Q)}
+                \int_Q|\varphi-\varphi_Q|^2\,d\mu\right)^{1/2}
+    =\norm{\varphi}_{\mathrm{bmo}_{\mu,2}},\label{local-bmo}\\
+ \mathfrak D_\infty(\varphi)
+  &=\sup_{I\in\D}
+       \big(|d_{I_-}-d_I|^2+|d_{I_+}-d_I|^2\big)^{1/2}.
+       \label{edge-infty}
+\end{align}
+\begin{gather*}
+ \X_\infty(\mu)=\{\varphi\in L^1_{\mathrm{loc}}(\mu):
+       \mathfrak A(\varphi)+\mathfrak D_\infty(\varphi)<\infty\},\\
+ \norm{\varphi}_{\X_\infty}
+          =\mathfrak A(\varphi)+\mathfrak D_\infty(\varphi).
+\end{gather*}
+\begin{theorem}\label{boundedness}
+Let $\mu\in\mathfrak M$ and $\varphi\in L^1_{\mathrm{loc}}(\mu)$. Then
+\begin{gather*}
+ C_\varphi\in\mathcal B(L^2(\mu))
+       \ \Longleftrightarrow\ \varphi\in\X_\infty(\mu).
+\end{gather*}
+Whenever these conditions hold, write $C=C_\varphi$. One has
+\begin{align}
+ \mathfrak A(\varphi)&\le\sqrt{3/2}\,\norm C,
+                                          \label{A-lower}\\
+ \mathfrak D_\infty(\varphi)&\le\norm C,
+                                          \label{D-lower}\\
+ \norm C&\le8\sqrt2\,\mathfrak A(\varphi)+\mathfrak D_\infty(\varphi).
+                                          \label{bounded-upper}
+\end{align}
+\begin{gather*}
+ \mathscr E=\varnothing\ \Longrightarrow\ \mathfrak A(\varphi)\le\norm C,\\
+ \norm C\asymp\norm{\varphi}_{\mathrm{bmo}_{\mu,2}}
+                      +\sup_{I\in\D}|d_I-d_{\widehat I}|.
+\end{gather*}
+\end{theorem}
+\begin{proof}
+First, local martingale approximation gives the coefficient identity.
+For $Q\in\D$, $k_Q$ is determined by $Q\in\D_{k_Q}$.
+\begin{gather*}
+ Q\in\D_{k_Q},\qquad
+ S_{Q,n}=\sum_{\substack{J\subseteq Q\\
+             0\le\log_2(\ell(Q)/\ell(J))<n}}b_Jh_J
+       =(\mathbb E_{k_Q+n}\varphi-\varphi_Q)\mathbf1_Q,\\
+ S_{Q,n}\xrightarrow[n\to\infty]{L^1(Q,\mu)}
+                       (\varphi-\varphi_Q)\mathbf1_Q,\qquad
+ \norm{S_{Q,n}}_2^2
+       =\sum_{\substack{J\subseteq Q\\
+             0\le\log_2(\ell(Q)/\ell(J))<n}}|b_J|^2,\\
+ \sum_{J\subseteq Q}|b_J|^2<\infty
+ \ \Longleftrightarrow\
+ (\varphi-\varphi_Q)\mathbf1_Q\in L^2(\mu),\\
+ \int_Q|\varphi-\varphi_Q|^2d\mu
+                   =\sum_{J\subseteq Q}|b_J|^2\in[0,\infty].
+\end{gather*}
+\begin{equation}\label{carleson-local}
+ \mathfrak A(\varphi)^2
+   =\sup_{Q\in\D}\frac1{\mu(Q)}\sum_{J\subseteq Q}|b_J|^2.
+\end{equation}
+\emph{Necessity.} Assume $C$ is bounded. Its child entries control
+the diagonal edge seminorm:
+\begin{gather*}
+ C=C_\varphi\in\mathcal B(L^2(\mu)),\qquad N=\norm C,\\
+ C_{I_-,I}=d_{I_-}-d_I,\qquad
+ C_{I_+,I}=-(d_{I_+}-d_I),\\
+ \rho_I^2=|C_{I_-,I}|^2+|C_{I_+,I}|^2
+       \le\norm{Ch_I}_2^2\le N^2
+ \ \Longrightarrow\ \mathfrak D_\infty(\varphi)\le N.
+\end{gather*}
+Fix a dyadic interval $Q$ in the component $E$. For each strict
+ancestor $A$ of $Q$, let $A_Q$ be the child containing $Q$ and $K_A$
+the other child.
+\begin{gather*}
+ Q\subset E\in\{E_-,E_+\},\qquad A\in\D,\quad A\supsetneq Q,\\
+ A_Q\in\ch(A),\quad Q\subseteq A_Q,\qquad
+ K_A\in\ch(A)\setminus\{A_Q\},\qquad K_A\cap Q=\varnothing,\\
+ J\subseteq Q\ \Longrightarrow\
+ \supp Hh_J\subseteq J,\quad
+ \ip{\varphi Hh_J}{h_{K_A}}=0,\quad
+ \int\varphi h_JH^*h_{K_A}\,d\mu
+                  =\sigma_{K_A}h_A(Q)b_J.
+\end{gather*}
+\begin{equation}\label{outside-entry}
+ C_{K_A,J}=-\sigma_{K_A}h_A(Q)b_J,
+                 \qquad A\supsetneq Q,\quad J\subseteq Q.
+\end{equation}
+\begin{gather*}
+ |h_A(Q)|^2=\frac1{\mu(A_Q)}-\frac1{\mu(A)},\qquad
+ A\ne B\ \Longrightarrow\ K_A\cap K_B=\varnothing,\\
+ Q^{(0)}=Q,\qquad Q^{(n+1)}=\widehat{Q^{(n)}},\qquad
+ Q^{(n)}\uparrow E,\qquad \mu(Q^{(n)})\uparrow\mu(E).
+\end{gather*}
+\begin{equation}\label{telescoping-exterior}
+ \sum_{A\supsetneq Q}|h_A(Q)|^2
+  =\lim_{n\to\infty}\sum_{j=1}^n
+       \left(\frac1{\mu(Q^{(j-1)})}-\frac1{\mu(Q^{(j)})}\right)
+  =\frac1{\mu(Q)}-\frac1{\mu(E)},\qquad \frac1\infty=0.
+\end{equation}
+Write $\D(Q)$ for the descendants of $Q$, including $Q$, and
+$\D^{\mathrm{out}}(Q)$ for the dyadic intervals disjoint from $Q$.
+The exterior compression has the following rank-one form:
+\begin{gather*}
+ \D(Q)=\{J\in\D:J\subseteq Q\},\qquad
+ \D^{\mathrm{out}}(Q)=\{K\in\D:K\cap Q=\varnothing\},\\
+ v_Q=\sum_{A\supsetneq Q}\sigma_{K_A}h_A(Q)h_{K_A},\qquad
+ F\fin\D(Q),\\
+ P_{\D^{\mathrm{out}}(Q)}CP_Ff
+          =-\left(\sum_{J\in F}b_J\ip{f}{h_J}\right)v_Q,\\
+ \norm{P_{\D^{\mathrm{out}}(Q)}CP_F}^{2}
+   =\norm{v_Q}_2^2\sum_{J\in F}|b_J|^2
+   =\left(\frac1{\mu(Q)}-\frac1{\mu(E)}\right)
+                          \sum_{J\in F}|b_J|^2\le N^2.
+\end{gather*}
+\begin{equation}\label{exterior-carleson}
+ F\uparrow\D(Q)\ \Longrightarrow\
+ \left(\frac1{\mu(Q)}-\frac1{\mu(E)}\right)
+                   \sum_{J\subseteq Q}|b_J|^2\le N^2.
+\end{equation}
+\begin{gather*}
+ \mu(E)=\infty\ \Longrightarrow\
+ \frac1{\mu(Q)}\sum_{J\subseteq Q}|b_J|^2\le N^2,\\
+ E\in\mathscr E\ \Longrightarrow\
+ \ip{Ce_E}{h_I}
+    =-\frac{\sigma_I b_{\widehat I}}{\sqrt{\mu(E)}}
+                                    \mathbf1_{\{I\subset E\}},\quad
+ P_0Ce_E=0.
+\end{gather*}
+For a component of finite measure, its constant basis vector supplies
+the remaining Carleson contribution:
+\begin{equation}\label{finite-component-column}
+ E\in\mathscr E\ \Longrightarrow\
+ \norm{Ce_E}_2^2
+  =\frac1{\mu(E)}\sum_{I\subset E}|b_{\widehat I}|^2
+  =\frac2{\mu(E)}\sum_{J\subset E}|b_J|^2\le N^2.
+\end{equation}
+\begin{gather*}
+ E\in\mathscr E,\quad Q\subset E
+ \ \Longrightarrow\\
+ \frac1{\mu(Q)}\sum_{J\subseteq Q}|b_J|^2
+  \le N^2+\frac1{\mu(E)}\sum_{J\subset E}|b_J|^2
+  \le\frac32N^2,\\
+ \eqref{carleson-local}
+ \ \Longrightarrow\
+ \mathfrak A(\varphi)\le\sqrt{3/2}\,N,\qquad
+ \mathscr E=\varnothing\ \Longrightarrow\ \mathfrak A(\varphi)\le N.
+\end{gather*}
+\emph{Sufficiency.} Let $M_{\D}$ be the dyadic maximal operator.
+For finite $F$ and $t>0$, $\mathcal M_t(F)$ consists of the
+inclusion-maximal intervals in $\{I\in F:|f_I|>t\}$. Doob's $L^2$
+inequality and maximal selection give
+\begin{gather*}
+ \varphi\in\X_\infty,\quad f\in L^2(\mu),\quad
+ M_{\D}f(x)=\sup_{I\ni x}\frac1{\mu(I)}\int_I|f|\,d\mu,\qquad
+ \norm{M_{\D}f}_2\le2\norm f_2,\\
+ F\fin\D,\quad t>0,\qquad
+ \mathcal M_t(F)=\max_{\subseteq}\{I\in F:|f_I|>t\},\\
+ Q,R\in\mathcal M_t(F),\quad Q\ne R
+ \ \Longrightarrow\ Q\cap R=\varnothing,\qquad
+ \bigcup_{Q\in\mathcal M_t(F)}Q\subseteq\{M_{\D}f>t\},\\
+ \sum_{\substack{I\in F\\|f_I|>t}}|b_I|^2
+  \le\sum_{Q\in\mathcal M_t(F)}\sum_{I\subseteq Q}|b_I|^2
+  \le\mathfrak A(\varphi)^2\sum_{Q\in\mathcal M_t(F)}\mu(Q)
+  \le\mathfrak A(\varphi)^2\mu\{M_{\D}f>t\}.
+\end{gather*}
+\begin{align*}
+ \norm{\pi_{\varphi,F}f}_2^2
+  &=\sum_{I\in F}|b_I|^2|f_I|^2
+   =\int_0^\infty2t\sum_{\substack{I\in F\\|f_I|>t}}|b_I|^2\,dt\\
+  &\le\mathfrak A(\varphi)^2
+           \int_0^\infty2t\,\mu\{M_{\D}f>t\}\,dt\\
+  &=\mathfrak A(\varphi)^2\norm{M_{\D}f}_2^2
+   \le4\mathfrak A(\varphi)^2\norm f_2^2.
+\end{align*}
+\begin{equation}\label{pi-bounded}
+ \sup_{F\fin\D}\norm{\pi_{\varphi,F}}\le2\mathfrak A(\varphi)
+ \ \Longrightarrow\
+ \norm{\pi_\varphi}=\norm{\pi_{\overline\varphi}}
+                         \le2\mathfrak A(\varphi).
+\end{equation}
+The diagonal commutator and the form decomposition now give
+\begin{gather*}
+ \norm{[D_\varphi,H]f}_2^2
+       =\sum_{I\in\D}\rho_I^2|\ip{f}{h_I}|^2
+ \ \Longrightarrow\
+ \norm{[D_\varphi,H]}=\sup_I\rho_I=\mathfrak D_\infty(\varphi),\\
+ \eqref{decompose},\quad\eqref{pi-bounded}
+ \ \Longrightarrow\
+ \norm{C_\varphi}
+  \le2\norm H\big(\norm{\pi_\varphi}+\norm{\pi_{\overline\varphi}}\big)
+                       +\mathfrak D_\infty(\varphi)
+  \le8\sqrt2\,\mathfrak A(\varphi)+\mathfrak D_\infty(\varphi),\\
+ \sup_I|d_I-d_{\widehat I}|\le\mathfrak D_\infty(\varphi)
+                    \le\sqrt2\sup_I|d_I-d_{\widehat I}|.
+\end{gather*}
+\end{proof}
+
+\begin{remark}[Paraproduct norm]
+Testing on normalized interval indicators gives
+\begin{gather*}
+ g_Q=\frac{\mathbf1_Q}{\sqrt{\mu(Q)}},\qquad\norm{g_Q}_2=1,\\
+ \norm{\pi_\varphi g_Q}_2^2
+       \ge\frac1{\mu(Q)}\sum_{J\subseteq Q}|b_J|^2,\\
+ \mathfrak A(\varphi)\le\norm{\pi_\varphi}
+                         \le2\mathfrak A(\varphi)
+ \ \Longrightarrow\\
+ \norm{C_\varphi}\asymp\norm{\pi_\varphi}
+                            +\mathfrak D_\infty(\varphi).
+\end{gather*}
+\end{remark}
+
+\begin{remark}[Lebesgue measure]
+For Lebesgue measure, the diagonal edge condition is controlled by
+the dyadic mean-oscillation seminorm:
+\begin{gather*}
+ d\mu=dx\ \Longrightarrow\
+ d_I=\varphi_I,\qquad
+ d_{I_-}-d_I=\frac{b_I}{\sqrt{\mu(I)}},\quad
+ d_{I_+}-d_I=-\frac{b_I}{\sqrt{\mu(I)}},\\
+ \mathfrak D_\infty(\varphi)
+     =\sqrt2\sup_I\frac{|b_I|}{\sqrt{\mu(I)}}
+     \le\sqrt2\mathfrak A(\varphi),\\
+ \norm{C_\varphi}\asymp\mathfrak A(\varphi)
+                  =\norm{\varphi}_{\mathrm{BMO}_2^{\D}}.
+\end{gather*}
+\end{remark}
+
+\begin{remark}[The additional diagonal condition]
+The following atomless example has finite local mean oscillation
+and an unbounded diagonal edge seminorm. Each unit interval has
+measure one, while its two halves may have very different masses.
+\begin{gather*}
+ Q_n=[n,n+1),\quad\varepsilon_n=2^{-2n},\quad n\ge1,\\
+ d\mu=\mathbf1_{\mathbb R\setminus[1,\infty)}\,dx
+      +\sum_{n\ge1}\big(2\varepsilon_n\mathbf1_{(Q_n)_-}
+              +2(1-\varepsilon_n)\mathbf1_{(Q_n)_+}\big)\,dx,\\
+ \mu\in\mathfrak M_\infty,\qquad\mu(\{x\})=0\quad(x\in\mathbb R),
+ \qquad \mu([j,j+1))=1\quad(j\in\mathbb Z),\\
+ \varphi=\sum_{n\ge1}\varepsilon_n^{-1/2}\mathbf1_{(Q_n)_-}.
+\end{gather*}
+\begin{gather*}
+ I\in\D,\quad\ell(I)<1
+ \ \Longrightarrow\
+ \varphi|_I\equiv\varphi_I
+ \ \Longrightarrow\ \int_I|\varphi-\varphi_I|^2d\mu=0,\\
+ I\in\D,\quad\ell(I)\ge1
+ \ \Longrightarrow\\
+ \frac1{\mu(I)}\int_I|\varphi-\varphi_I|^2d\mu
+ \le\frac1{\mu(I)}\int_I|\varphi|^2d\mu
+ =\frac{\#\{n\ge1:Q_n\subseteq I\}}{\mu(I)}\le1,\\
+ \mathfrak A(\varphi)\le1,\qquad
+ d_{Q_n}=(1-\varepsilon_n)\varepsilon_n^{-1/2},\qquad
+ d_{(Q_n)_+}=0,\\
+ \mathfrak D_\infty(\varphi)
+ \ge\sup_n|d_{(Q_n)_+}-d_{Q_n}|
+ =\sup_n(1-\varepsilon_n)2^n=\infty,\\
+ \varphi\in\mathrm{bmo}_{\mu,2}\setminus\X_\infty(\mu),\qquad
+ C_\varphi\notin\mathcal B(L^2(\mu)).
+\end{gather*}
+\end{remark}
+
+\section{Comparison with established results}\label{sec-comparison}
+We compare the operator, measure assumptions, and symbol condition
+separately. The results attributed to the references below are
+distinguished from consequences of Theorems~\ref{main}
+and~\ref{boundedness} proved in this note.
+
+\paragraph{The same downward shift and its paraproducts.}
+L\'opez-S\'anchez, Martell and Parcet~\cite[Theorem 2.5]{LMP2014}
+study the same operator $Hh_I=h_{I_-}-h_{I_+}$. With $q$ denoting an
+$L^q$ exponent, their theorem gives
+\[
+ \begin{aligned}
+ 1<q<2:\qquad
+ H\in\mathcal B(L^q(\mu))
+  &\Longleftrightarrow
+       \sup_{I\in\D}\frac{m(I)}{m(\widehat I)}<\infty,\\
+ H^*\in\mathcal B(L^q(\mu))
+  &\Longleftrightarrow
+       \sup_{I\in\D}\frac{m(\widehat I)}{m(I)}<\infty.
+ \end{aligned}
+\]
+The $L^2$ boundedness of $H$ is automatic. Their
+Lemma~5.10 gives the Carleson embedding bound used here; testing
+on $\mathbf1_Q/\sqrt{\mu(Q)}$ supplies its converse:
+\[
+ \mathfrak A(\varphi)^2
+    =\sup_Q\frac1{\mu(Q)}\sum_{I\subseteq Q}|b_I|^2,\qquad
+ \mathfrak A(\varphi)\le\norm{\pi_\varphi}
+                         \le2\mathfrak A(\varphi).
+\]
+Thus the paraproduct boundedness ingredient is an established result.
+Theorem~\ref{boundedness} concerns the additional symbol information
+needed for the commutator on $L^2(\mu)$:
+\[
+ \norm{C_\varphi}\asymp
+          \mathfrak A(\varphi)+\mathfrak D_\infty(\varphi).
+\]
+
+\paragraph{Martingale BMO and the diagonal condition.}
+Treil~\cite[Proposition 5.1 and Theorem 5.3]{Treil2013} proves BMO
+sufficiency for commutators with bounded martingale transforms and
+a converse under mixing hypotheses, with the stated corrections
+for finite-measure tail atoms. Such transforms preserve martingale
+difference blocks. Here $H$ changes the dyadic level, so that theorem
+does not directly identify its commutator symbols.
+
+To compare the sufficient BMO condition with our exact condition, set
+\[
+ \begin{aligned}
+ J(\varphi)&=\sup_{I\in\D}|\varphi_I-\varphi_{\widehat I}|,\\
+ \mathfrak B(\varphi)&=
+ \sup_{I\in\D}\left(\frac1{\mu(I)}
+               \int_I|\varphi-\varphi_{\widehat I}|^2d\mu\right)^{1/2}.
+ \end{aligned}
+\]
+The space $\{\mathfrak B<\infty\}$ is martingale
+$\mathrm{BMO}_{\mu,2}$, whereas $\{\mathfrak A<\infty\}$ is
+$\mathrm{bmo}_{\mu,2}$. Directly,
+\begin{gather*}
+ \frac1{\mu(I)}\int_I|\varphi-\varphi_{\widehat I}|^2d\mu
+ =\frac1{\mu(I)}\int_I|\varphi-\varphi_I|^2d\mu
+                     +|\varphi_I-\varphi_{\widehat I}|^2,\\
+ \max\{\mathfrak A,J\}\le\mathfrak B
+                   \le(\mathfrak A^2+J^2)^{1/2},\\
+ |d_I-\varphi_I|
+  \le\max\{|\varphi_{I_-}-\varphi_I|,
+                   |\varphi_{I_+}-\varphi_I|\}\le J,\\
+ |d_I-d_{\widehat I}|\le3J,\qquad
+ \mathfrak D_\infty\le3\sqrt2J,\\
+ \norm{\varphi}_{\X_\infty}
+  \le\mathfrak A+3\sqrt2J\le(1+3\sqrt2)\mathfrak B,\\
+ \mathrm{BMO}_{\mu,2}\subseteq\X_\infty(\mu)
+                         \subseteq\mathrm{bmo}_{\mu,2}.
+\end{gather*}
+These inclusions are asserted without a strictness claim for the
+first inclusion. The last example of the preceding section shows
+that $\mathfrak A<\infty$ alone need not imply boundedness.
+
+\paragraph{The sibling shift and the closest symbol characterization.}
+Let $I^s$ denote the sibling of $I$ and define $\mathcal S$ by
+\[
+ \mathcal S h_{I_-}=-h_{I_+},\qquad
+ \mathcal S h_{I_+}=h_{I_-},\qquad
+ \mathcal S|_{\mathcal H_0}=0.
+\]
+Borges, Conde-Alonso, Pipher and Wagner~\cite[Theorem A]{BCAPW2025}
+prove BMO upper bounds for this sibling shift and show that a
+commutator lower bound for the full BMO norm fails in general.
+D'Emilio, Lin, Wagner and Wick~\cite[Theorem D; Theorem 4.7]{DELWW2025}
+give its exact symbol characterization. In the atomless,
+sibling-balanced setting, with infinite measure on both dyadic
+components, the $L^2$ specialization is
+\begin{gather*}
+ [\mu]_{\mathrm{sib}}
+    :=\sup_{I\in\D}\frac{m(I)}{m(I^s)}<\infty,\qquad
+ \beta_I=d_I-d_{I^s},\\
+ [M_\varphi,\mathcal S]\in\mathcal B(L^2(\mu))
+ \ \Longleftrightarrow\
+ \mathfrak A(\varphi)<\infty,\quad\beta\in\ell^\infty.
+\end{gather*}
+Thus the use of $d_I=\langle\varphi,h_I^2\rangle$ already occurs
+in that work. The respective differences follow the respective
+shift actions:
+\[
+ \begin{aligned}
+ \norm{[D_\varphi,H]}
+    &=\sup_I\big(|d_{I_-}-d_I|^2+|d_{I_+}-d_I|^2\big)^{1/2},\\
+ \norm{[D_\varphi,\mathcal S]}
+    &=\sup_I|d_I-d_{I^s}|.
+ \end{aligned}
+\]
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.24\linewidth}c
+ >{\raggedright\arraybackslash}p{0.18\linewidth}
+ >{\raggedright\arraybackslash}X@{}}
+\toprule
+Reference & Shift & Measure assumptions & Boundedness result on $L^2$\\
+\midrule
+Borges et al.\ \cite{BCAPW2025}
+ & $\mathcal S$ & Sibling balanced
+ & $\norm{[M_\varphi,\mathcal S]}\lesssim_{\mathrm{sib}}\mathfrak B(\varphi)$;
+   full BMO lower bound fails.\\
+D'Emilio et al.\ \cite{DELWW2025}
+ & $\mathcal S$ & Atomless, sibling balanced
+ & $\mathfrak A(\varphi)<\infty$ and
+   $\sup_I|d_I-d_{I^s}|<\infty$.\\
+Theorem~\ref{boundedness}
+ & $H$ & $\mu\in\mathfrak M$
+ & $\mathfrak A(\varphi)+\mathfrak D_\infty(\varphi)<\infty$.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+The sibling-shift rows are read with $\mu(E_-)=\mu(E_+)=\infty$.
+The subscript $\mathrm{sib}$ allows dependence on $[\mu]_{\mathrm{sib}}$.
+The table compares distinct shifts. It does not identify the two
+commutator symbol spaces for a fixed measure.
+
+\paragraph{Schatten--Besov results and the scope of our criterion.}
+For regular dyadic martingales with Lebesgue measure, the classical
+Chao--Peng paraproduct theorem~\cite{CP1996}, recalled in
+\cite[Theorem 1.1]{WZ2024}, gives a Besov characterization for every
+$0<p<\infty$. The norm equivalence also follows from the scalar,
+$d=2$ case of \cite[Theorem 1.2]{WZ2024}:
+\begin{gather*}
+ \norm{\varphi}_{B_p^{\D}}
+    :=\left(\sum_{I\in\D}|I|^{-p/2}|b_I|^p\right)^{1/p},\\
+ d\mu=dx,\quad0<p<\infty:
+ \qquad \norm{\pi_\varphi}_{S_p}
+    =\mathfrak C_p(\varphi)\asymp_p\norm{\varphi}_{B_p^{\D}}.
+\end{gather*}
+Wei and Zhang's theorem also treats operator-valued symbols on
+regular $d$-adic filtrations. Our symbols are scalar, while the
+measure is arbitrary. For the common scalar Lebesgue case,
+\begin{gather*}
+ \mathfrak D_p(\varphi)=\sqrt2\norm{\varphi}_{B_p^{\D}},\\
+ 1<p<\infty:\qquad
+ \norm{C_\varphi}_{S_p}\asymp_p\norm{\varphi}_{B_p^{\D}}
+ \qquad\text{by Theorem~\ref{main}}.
+\end{gather*}
+For arbitrary $\mu$, $\mathfrak C_p$ retains the interval correlations
+through $G_F$, and Theorem~\ref{main} has the range $1<p<\infty$.
+The atomic example in Section~\ref{sec-endpoint-example} prevents extending this separated
+criterion to $p\le1$ for all measures; it does not conflict with the
+regular-filtration paraproduct theorem. Theorem~\ref{all-p}, valid
+for all $p>0$, is a finite-matrix reformulation and supplies no
+coefficient-only Besov characterization in that endpoint range.
+
+\begin{thebibliography}{9}
+\bibitem{PST}
+J. Parcet, M. de la Salle and E. Tablate,
+\emph{The local geometry of idempotent Schur multipliers},
+Forum Math. Pi \textbf{13} (2025), e14,
+\href{https://doi.org/10.1017/fmp.2025.6}{doi:10.1017/fmp.2025.6},
+\S 2.4.
+\bibitem{LMP2014}
+L. D. L\'opez-S\'anchez, J. M. Martell and J. Parcet,
+\emph{Dyadic harmonic analysis beyond doubling measures},
+Adv. Math. \textbf{267} (2014), 44--93,
+\href{https://doi.org/10.1016/j.aim.2014.08.001}{doi:10.1016/j.aim.2014.08.001}.
+\bibitem{Treil2013}
+S. Treil,
+\emph{Commutators, paraproducts and BMO in non-homogeneous martingale settings},
+Rev. Mat. Iberoam. \textbf{29} (2013), no. 4, 1325--1372,
+\href{https://doi.org/10.4171/RMI/759}{doi:10.4171/RMI/759}.
+\bibitem{BCAPW2025}
+T. Borges, J. M. Conde-Alonso, J. Pipher and N. A. Wagner,
+\emph{Commutator estimates for Haar shifts with general measures},
+J. Funct. Anal. \textbf{289} (2025), no. 5, Article 110945,
+\href{https://doi.org/10.1016/j.jfa.2025.110945}{doi:10.1016/j.jfa.2025.110945}.
+\bibitem{DELWW2025}
+F. D'Emilio, Y. Lin, N. A. Wagner and B. D. Wick,
+\emph{Optimal sparse bounds and commutator characterizations without doubling},
+preprint (2025),
+\href{https://arxiv.org/abs/2510.26505v1}{arXiv:2510.26505v1}.
+\bibitem{CP1996}
+J.-A. Chao and L. Peng,
+\emph{Schatten classes and commutators on simple martingales},
+Colloq. Math. \textbf{71} (1996), no. 1,
+\href{https://doi.org/10.4064/cm-71-1-7-11}{doi:10.4064/cm-71-1-7-11}.
+\bibitem{WZ2024}
+Z. Wei and H. Zhang,
+\emph{On the boundedness and Schatten class property of noncommutative
+martingale paraproducts and operator-valued commutators},
+preprint (2024),
+\href{https://arxiv.org/abs/2407.14988v3}{arXiv:2407.14988v3}.
+\end{thebibliography}
+\end{document}
